@@ -1,12 +1,279 @@
+/* 
+Note: Make sure that you choose the imports 
+correctly so the output file will contain the 
+imported file and data, and not the "import" command. 
+https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
+*/
 /*  Basics */
-@import "basics/base.css";
-@import "basics/helpers.css";
-@import "basics/animations.css";
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: OpenSans, sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background-color: inherit;
+}
+button * {
+  pointer-events: none;
+}
+
+input {
+  font-family: inherit;
+  text-align: inherit;
+}
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+a.active {
+  font-weight: 600;
+}
+
+svg {
+  fill: white;
+  box-sizing: content-box;
+  height: 24px;
+  width: 24px;
+}
+
+/* 
+one-element-page-parent
+one-element-page-child
+scrollable-thin
+scrollable-square-black
+scrollable-square-white
+*/
+.one-element-page {
+  /* one-element-page-parent */
+  /* one-element-page-child */
+}
+.one-element-page-parent {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: rgb(71, 71, 71);
+  color: rgb(162, 167, 172);
+}
+.one-element-page-child {
+  background-color: rgb(46, 46, 46);
+  border-radius: 20px;
+  border-color: rgb(82, 82, 82);
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.2), inset -1px 0 0 rgba(255, 255, 255, 0.2), 0 0 4px 0 rgba(95, 99, 104, 0.6), 0 0 6px 2px rgba(95, 99, 104, 0.6);
+  width: max(400px, 50vw);
+  height: max(400px, 50vh);
+}
+.one-element-page-child h1 {
+  font-size: 40px;
+  margin: 30px 10px 10px 10px;
+}
+.one-element-page-child nav * {
+  margin: 12px;
+  font-size: 22px;
+}
+.one-element-page-child nav *.active {
+  color: rgb(206, 212, 218);
+}
+
+/* scrollable-thin */
+.scrollable-thin {
+  overflow-y: scroll;
+}
+
+.scrollable-thin::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-thin::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.scrollable-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(112, 112, 112);
+}
+
+.scrollable-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(232, 232, 232);
+}
+
+/* scrollable-square-black */
+.scrollable-square-black {
+  overflow-y: scroll;
+}
+
+.scrollable-square-black::-webkit-scrollbar {
+  width: 11px;
+}
+
+.scrollable-square-black::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2) inset;
+}
+
+.scrollable-square-black::-webkit-scrollbar-track:hover {
+  background: rgb(66, 66, 66);
+  box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.18) inset;
+}
+
+.scrollable-square-black::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.scrollable-square-black::-webkit-scrollbar-thumb:active {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.scrollable-square-black::-webkit-scrollbar-track:active {
+  box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* scrollable-square-white */
+.scrollable-square-white {
+  overflow-y: scroll;
+}
+
+.scrollable-square-white::-webkit-scrollbar {
+  width: 9px;
+}
+
+.scrollable-square-white::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1) inset, 0px -1px 0px rgba(0, 0, 0, 0.07) inset;
+}
+
+.scrollable-square-white::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(148, 148, 148);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25) inset;
+}
+
+.scrollable-square-white::-webkit-scrollbar-track:hover {
+  background: rgb(246, 246, 246);
+  box-shadow: 1px 0px 0px rgb(211, 211, 211) inset;
+}
+
+.scrollable-square-white::-webkit-scrollbar-thumb:active {
+  background-color: rgb(121, 121, 121);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35) inset;
+}
+
+.scrollable-square-white::-webkit-scrollbar-track:active {
+  background-color: rgb(242, 242, 242);
+  box-shadow: 1px 1px 0px rgb(208, 208, 208) inset;
+}
+
+@keyframes slide-in-out {
+  0% {
+    transform: translateY(150%);
+  }
+  12% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes scalein {
+  from {
+    transform: scale(0.6);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes scaleout {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.6);
+  }
+}
+@keyframes scaleinsoft {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 /* Pages */
-@import "./pages/home.css";
-@import "./pages/about.css";
-@import "./pages/MAIN.css";
-/* Email-Index Components */
-/* bla */
+/* Components */
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,15 +1,24 @@
+/* 
+Note: Make sure that you choose the imports 
+correctly so the output file will contain the 
+imported file and data, and not the "import" command. 
+https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
+*/
+
+
 /*  Basics */
-@import "basics/base.css";
-@import "basics/helpers.css";
-@import "basics/animations.css";
+@import "basics/base";
+@import "basics/helpers";
+@import "basics/animations";
 
 /* Pages */
-@import "./pages/home.css";
-@import "./pages/about.css";
-@import "./pages/MAIN.css";
+@import "./pages/home";
+@import "./pages/about";
+@import "./pages/MAIN";
 
-/* Email-Index Components */
-/* bla */
+/* Components */
+
+
 
 
 

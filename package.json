@@ -11,7 +11,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "sass --watch src/assets/scss/styles.scss:src/assets/css/styles.css"
+    "start": "sass src/assets/scss/styles.scss:src/assets/css/styles.css",
+    "watch": "sass --watch src/assets/scss/styles.scss:src/assets/css/styles.css"
   },
   "dependencies": {
     "react": "^18.2.0",
