@@ -9,3 +9,15 @@ npm run dev                 - Run in dev environment (to open with a browser). <
 <br />
 npm start                   - Running the script to compile the SCSS to CSS. <br />
 npm run watch               - Running the script to compile the SCSS to CSS & Watch changes <br />
+<br />
+<br />
+<br />
+git branch                  - Shows current branch.<br />
+git status                  - Show branch, status, commited changes, files to be commited etc.<br />
+git log                     - Show last commits for all branches (main & origin/main).<br />
+<br />
+git add .                   - Add changed files for the next commit (or stashed).<br />
+git commit -m "msg"         - Commit changes to local branch.<br />
+git push                    - Push local commits to remote branch.<br />
+<br />
+git pull                    - Pull updated remote branch to local.<br />
