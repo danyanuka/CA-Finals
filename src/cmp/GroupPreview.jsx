@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom"
 
 
-export function Workspace() {
+export function Board() {
 
     return (
-        <div className="workspace">
+        <div className="board">
             
         </div>
     )
