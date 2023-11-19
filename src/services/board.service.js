@@ -191,7 +191,7 @@ const user = {
     "username": "abi@ababmi.com",
     "password": "aBambi123",
     "imgUrl": "http://some-img.jpg",
-    "mentions": [{ //optional
+    "mentions": [{ //optional - Watching tasks (for each user)
         "id": "m101",
         "boardId": "m101",
         "taskId": "t101"

@@ -15,8 +15,13 @@ export function App() {
             <main className='main-app'>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/main" element={<MainPage />} />
+                    <Route path="/board" element={<BoardIndex />} />
+                    <Route path="/board/:boardId" element={<BoardDetails />}>
+                        {/* <Route path="/board/:boardId/:taskId" element={<TaskDetails />} /> */}
+                    </ Route>
+                    <Route path="/board/:boardId/:taskId" element={<TaskDetails />} />
                 </Routes>
             </main>
 

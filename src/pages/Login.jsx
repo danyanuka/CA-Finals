@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 
-export function Home() {
+export function Login() {
 
     return (
         <div className="one-element-page-parent">

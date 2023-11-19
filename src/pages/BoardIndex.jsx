@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 
-export function MainPage() {
+export function BoardIndex() {
 
     return (
         <div className="one-element-page-parent">

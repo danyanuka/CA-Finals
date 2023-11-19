@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom"
 
 
-export function Board() {
+export function Group() {
 
     return (
-        <div className="board">
+        <div className="group">
             
         </div>
     )
