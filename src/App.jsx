@@ -4,7 +4,10 @@ import { Outlet, useNavigate, createSearchParams, useParams, useSearchParams } f
 
 import { Home } from './pages/Home'
 import { About } from './pages/About'
-import { MainPage } from './pages/MAIN'
+import { Login } from './pages/Login'
+import { BoardIndex } from './pages/BoardIndex'
+import { BoardDetails } from './pages/BoardDetails'
+import { TaskDetails } from './pages/TaskDetails'
 
 
 export function App() {

@@ -5,6 +5,9 @@ imported file and data, and not the "import" command.
 https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 */
 /*  Basics */
+/* Label Colors */
+/* danger colors */
+/* text */
 * {
   box-sizing: border-box;
 }
@@ -19,7 +22,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto", "Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -214,6 +217,24 @@ scrollable-square-white
 .scrollable-square-white::-webkit-scrollbar-track:active {
   background-color: rgb(242, 242, 242);
   box-shadow: 1px 1px 0px rgb(208, 208, 208) inset;
+}
+
+.btn {
+  margin: 0;
+  border: 0;
+  border-radius: 3px;
+  background-color: rgb(223, 225, 230);
+}
+.btn :hover {
+  background-color: white;
+}
+
+.transparent-btn {
+  border-radius: 3px;
+  background-color: none;
+}
+.transparent-btn :hover {
+  background-color: rgba(166, 197, 226, 0.1607843137);
 }
 
 @keyframes slide-in-out {

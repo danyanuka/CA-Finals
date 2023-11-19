@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
 
 
-export function MainPage() {
+export function TaskDetails() {
 
     return (
         <div className="one-element-page-parent">
             <section className="home one-element-page-child">
-                <p>Main page</p>
+                <p>TaskDetails page</p>
                 <nav>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
