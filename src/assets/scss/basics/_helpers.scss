@@ -136,3 +136,24 @@ scrollable-square-white
     background-color: rgb(242,242,242);
     box-shadow: 1px 1px 0px rgb(208,208,208) inset;
 }
+
+
+
+
+.btn {
+    margin: 0;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(223, 225, 230);
+    & :hover {
+      background-color: white;
+    }
+  }
+  
+  .transparent-btn {
+    border-radius: 3px;
+    background-color: none;
+    & :hover {
+      background-color: #a6c5e229;
+    }
+  }

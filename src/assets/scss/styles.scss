@@ -7,6 +7,8 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 
 
 /*  Basics */
+@import "basics/variables";
+@import "basics/mixin";
 @import "basics/base";
 @import "basics/helpers";
 @import "basics/animations";
