@@ -15,7 +15,8 @@ scrollable-square-white
         display: grid;
         align-items: center;
         justify-items: center;
-        background-color: rgba(0, 0, 0, 0.64);
+        background-color: rgb(71, 71, 71);
+        color: rgb(162, 167, 172);
     }
 
     /* one-element-page-child */
@@ -140,19 +141,19 @@ scrollable-square-white
 
 
 .btn {
-    margin: 0;
-    border: 0;
-    border-radius: 3px;
-    background-color: rgb(223, 225, 230);
-    & :hover {
-      background-color: white;
-    }
+  margin: 0;
+  border: 0;
+  border-radius: 3px;
+  background-color: rgb(223, 225, 230);
+  & :hover {
+    background-color: white;
   }
-  
-  .transparent-btn {
-    border-radius: 3px;
-    background-color: none;
-    & :hover {
-      background-color: #a6c5e229;
-    }
+}
+
+.transparent-btn {
+  border-radius: 3px;
+  background-color: none;
+  & :hover {
+    background-color: #a6c5e229;
   }
+}
