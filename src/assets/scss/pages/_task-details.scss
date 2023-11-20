@@ -1,18 +1,36 @@
 
 .task-details-wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    background-color: rgba(0, 0, 0, 0.64);
+
 }
 
 .task-details {
+    &-wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        background-color: rgba(0, 0, 0, 0.64);
+    }
+
     margin: 48px 0px 0px 80px;
     z-index: 25;
     width: 768px;
     border-radius: 12px;
+    background-color: $clr-bg-default;
+    display: grid;
+
+    &-cover {
+
+    }
+
+    &-header {
+
+    }
+
+    &-main {
+        
+    }
 
 }
 

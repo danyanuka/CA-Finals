@@ -5,3 +5,7 @@
 .icon-drag {
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
+
+.icon-close:before {
+    content: "\e91c";
+}
