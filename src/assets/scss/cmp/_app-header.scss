@@ -1,0 +1,62 @@
+.app-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $clr-bg-pink-bold;
+    color: white;
+    padding: 20px;
+
+    .nav-link {
+        margin: 8px;
+        text-decoration: none;
+        padding: 8px;
+    }
+
+    .icon-logo {
+        height: 32;
+        width: 91;
+    }
+
+    .icon-show-more {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+
+        .search-section {
+            display: flex;
+            border: 0.5px white solid;
+            border-radius: 10px;
+            padding: 7px;
+
+            .icon-search {
+                width: 20px;
+                height: 20px;
+                margin: 0 5px;
+            }
+
+            .search-input {
+                background-color: $clr-bg-pink-bold;
+                border: none;
+            }
+
+        }
+
+        .icon-notifications,
+        .icon-information,
+        .icon-account {
+            margin: 0 6px;
+        }
+
+        .icon-account {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+
+}
