@@ -1,19 +1,17 @@
 
-
 .icon-drag {
-  @include iconBackground("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
+  content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
 .icon-close {
-  @include iconBackground("/public/icons/close.svg");
-  background-color: #42526E;
+  @include iconCustomColor(#172B4D, "/public/icons/close.svg");
 }
 
 .icon-task-details-cover {
-  @include iconBackground("/public/icons/task-cover.png");
+  content: url("/public/icons/task-cover.png");
 }
 
 .icon-task-details-header {
-  @include iconBackground("/public/icons/task-details-header.png");
+  content: url("/public/icons/task-details-header.png");
 }
 
