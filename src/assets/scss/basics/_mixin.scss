@@ -1,5 +1,18 @@
-
-@mixin fontSizeWeight($fontSize, $lineHeight) {
+@mixin fontProps($fontSize, $fontWeight, $lineHeight: null) {
   font-size: $fontSize;
-  font-weight: $lineHeight;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+
+@mixin transitionAction(
+  $property,
+  $hoverValue,
+  $transitionTime,
+  $action: hover
+) {
+  transition: $property $transitionTime ease-out 0s;
+
+  &:#{$action} {
+    #{$property}: $hoverValue;
+  }
 }

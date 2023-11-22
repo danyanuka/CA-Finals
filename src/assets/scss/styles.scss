@@ -5,13 +5,13 @@ imported file and data, and not the "import" command.
 https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 */
 
-
 /*  Basics */
 @import "basics/variables";
 @import "basics/mixin";
 @import "basics/base";
 @import "basics/helpers";
 @import "basics/animations";
+@import "basics/typography";
 
 /* Pages */
 @import "./pages/home";
@@ -21,12 +21,4 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 @import "./pages/board-details";
 @import "./pages/task-details";
 
-
 /* Components */
-
-
-
-
-
-
-
