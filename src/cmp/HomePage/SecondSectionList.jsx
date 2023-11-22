@@ -22,17 +22,28 @@ export function SecondSectionList() {
         "Cards represent tasks and ideas and hold all the information to get the job done. As you make progress, move cards across lists to show their status.”",
     },
   ];
+
+  function onSelectCard(id) {
+    console.log(id);
+    setSelectedItem(id);
+  }
+
   return (
     <div className="second-section-list-container">
-      <ul className="">
+      <ul>
         {listItems.map((item) => (
-          <li key={item.id}>
+          <li
+            key={item.id}
+            className={selectedItem === item.id ? "selected-card" : ""}
+            onClick={() => onSelectCard(item.id)}
+          >
             <h3>{item.type}</h3>
             <p>{item.overview}</p>
           </li>
         ))}
       </ul>
       <img src="/carousel-boards.png"></img>
+      <img src="/carousel-lists.png"></img>
     </div>
   );
 }
