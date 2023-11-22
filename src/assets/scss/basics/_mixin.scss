@@ -16,3 +16,11 @@
     #{$property}: $hoverValue;
   }
 }
+
+@mixin iconBackground($urlPath, $color: black) {
+  -webkit-mask:  url($urlPath);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+  // -webkit-mask:  url($urlPath) no-repeat 50% 50%;
+  // mask: url($urlPath) no-repeat 50% 50%;
+}

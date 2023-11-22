@@ -138,8 +138,6 @@ scrollable-square-white
 }
 
 
-
-
 .btn {
   margin: 0;
   border: 0;
@@ -150,10 +148,15 @@ scrollable-square-white
   }
 }
 
+
 .transparent-btn {
   border-radius: 3px;
-  background-color: none;
-  & :hover {
-    background-color: #a6c5e229;
+  border-width: 0px;
+  background-color: transparent;
+  &:hover {
+    background-color: $clr-dynamic-button-hovered;
+  }
+  &:active {
+    background-color: $clr-dynamic-button-pressed;
   }
 }
