@@ -1,18 +1,12 @@
-import { NavLink } from "react-router-dom"
+
+import { AppHeader } from "../cmp/AppHeader"
 
 
 export function BoardDetails() {
 
     return (
-        <div className="one-element-page-parent">
-            <section className="home one-element-page-child">
-                <p>BoardDetails page</p>
-                <nav>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/main">MainPage</NavLink>
-                </nav>
-            </section>
+        <div className="home">
+            <AppHeader />
         </div>
     )
 }

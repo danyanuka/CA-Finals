@@ -1,6 +1,6 @@
-import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
-import { Outlet, useNavigate, createSearchParams, useParams, useSearchParams } from "react-router-dom"
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+// import { useState, useEffect, useRef } from 'react'
+// import { Outlet, useNavigate, createSearchParams, useParams, useSearchParams } from "react-router-dom"
 
 import { Home } from './pages/Home'
 import { About } from './pages/About'

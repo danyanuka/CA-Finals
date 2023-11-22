@@ -1,6 +1,7 @@
-
 /* Label Colors */
-
+$clr-bg-default:                   rgb(241,242,244);
+$clr-bg-default-hovered:           rgb(227,230,234);
+$clr-bg-default-pressed:           rgb(208,212,220);
 $clr-bg-lime-subtle:               #D3F1A7;
 $clr-bg-lime-subtle-hovered:       #B3DF72;
 $clr-bg-lime:                      #94C748;
@@ -64,9 +65,9 @@ $clr-bg-black-bold-hovered:        #44546F;
 $clr-bg-black-bold-pressed:        #2C3E5D;
 
 /* danger colors */
-$clr-bg-danger-bold:               #C9372C;
+$clr-bg-danger-bold: #C9372C;
 
 /* text */
-$clr-font-groups:               rgb(182, 194, 207);
-$clr-font-gray:                 rgb(159, 173, 188);
+$clr-text-black:                   rgb(23, 43, 77);
+$clr-text-black-subtle:            rgb(68, 84, 111);
 
