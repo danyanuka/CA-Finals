@@ -39,7 +39,17 @@
 
 
     &-cover {
+        position: relative;
         height: 116px;
+
+        &-button {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            padding: 6px 12px 6px 6px;
+            border-radius: 3px;
+            border-width: 0px;
+        }
     }
 
     &-header {

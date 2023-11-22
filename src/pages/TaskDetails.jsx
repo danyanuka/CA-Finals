@@ -13,8 +13,7 @@ export function TaskDetails() {
             <div className="task-details">
                 <i className="icon-close"></i>
                 <div className="task-details-cover">
-                    botton
-                    cover color
+                    <button className="task-details-cover-button">Cover</button>
                 </div>
                 <header className="task-details-header">
                     <i className="icon-task-header"></i>
