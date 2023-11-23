@@ -4,12 +4,21 @@
     align-items: center;
     background-color: $clr-bg-pink-bold;
     color: white;
-    padding: 20px;
+    padding: 10px;
 
     .nav-link {
         margin: 8px;
         text-decoration: none;
         padding: 8px;
+    }
+
+    .nav-link:hover,
+    .create {
+        background-color: $clr-bg-pink-bold-hovered;
+        border-radius: 5px;
+        text-decoration: none;
+        padding: 8px;
+        text-align: center;
     }
 
     .icon-logo {
@@ -42,20 +51,40 @@
             .search-input {
                 background-color: $clr-bg-pink-bold;
                 border: none;
+
             }
 
         }
 
-        .icon-notifications,
-        .icon-information,
-        .icon-account {
-            margin: 0 6px;
+        input::placeholder {
+            color: white !important
         }
 
-        .icon-account {
-            width: 25px;
-            height: 25px;
+        .search-section:hover .search-input {
+            background-color: $clr-bg-pink-bold-hovered;
         }
+
+        .search-section:hover {
+            background-color: $clr-bg-pink-bold-hovered;
+        }
+
+
+        .notifications-btn,
+        .info-btn,
+        .account-btn {
+            margin: 0 4px;
+            padding: 4px;
+
+        }
+
+        .notifications-btn:hover,
+        .info-btn:hover,
+        .account-btn:hover {
+            background-color: $clr-bg-pink-bold-hovered;
+            border-radius: 50%;
+            padding: 4px;
+        }
+
     }
 
 
