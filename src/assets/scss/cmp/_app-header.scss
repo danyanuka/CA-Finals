@@ -7,9 +7,11 @@
     padding: 10px;
 
     .nav-link {
+        display: inline;
         margin: 8px;
         text-decoration: none;
         padding: 8px;
+        position: relative;
     }
 
     .nav-link:hover,
@@ -51,13 +53,11 @@
             .search-input {
                 background-color: $clr-bg-pink-bold;
                 border: none;
-
             }
-
         }
 
         input::placeholder {
-            color: white !important
+            color: white
         }
 
         .search-section:hover .search-input {
@@ -67,7 +67,6 @@
         .search-section:hover {
             background-color: $clr-bg-pink-bold-hovered;
         }
-
 
         .notifications-btn,
         .info-btn,
@@ -84,8 +83,16 @@
             border-radius: 50%;
             padding: 4px;
         }
-
     }
+}
 
-
+.dropdown {
+    border: 2px solid $clr-bg-pink-bold-hovered;
+    border-radius: 10px;
+    height: 100px;
+    width: 200px;
+    margin: 10px;
+    position: absolute;
+    top: 40px;
+    left: 1px;
 }
