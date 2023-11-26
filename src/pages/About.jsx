@@ -9,7 +9,7 @@ export function About() {
                 <nav>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
-                    <NavLink to="/main">Main</NavLink>
+                    <NavLink to="/board">Board</NavLink>
                 </nav>
             </section>
         </div>

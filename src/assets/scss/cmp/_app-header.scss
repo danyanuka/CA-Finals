@@ -5,6 +5,7 @@
     background-color: $clr-bg-pink-bold;
     color: white;
     padding: 10px;
+    border-bottom: 0.1px solid white;
 
     .nav-link {
         display: inline;
@@ -12,6 +13,7 @@
         text-decoration: none;
         padding: 8px;
         position: relative;
+        cursor: pointer;
     }
 
     .nav-link:hover,
@@ -37,6 +39,7 @@
     .nav-buttons {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
         .search-section {
             display: flex;
