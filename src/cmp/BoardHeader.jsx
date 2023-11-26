@@ -6,7 +6,7 @@ export function BoardHeader() {
 
 
             <div className="board-header-section">
-                <div className="board-header-btn board-name" >
+                <div className="board-name" >
                     Testing Trello
                 </div>
 
@@ -51,7 +51,7 @@ export function BoardHeader() {
                     <i className="icon icon-member"></i>
                 </div>
 
-                <div className="board-header-btn" title="Share board" >
+                <div className="board-header-btn share-btn" title="Share board" >
                     <i className="icon icon-account"></i>
                     Share
                 </div>
