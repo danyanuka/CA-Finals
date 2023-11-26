@@ -17,12 +17,17 @@
     }
 
     .nav-link:hover,
-    .create {
-        background-color: $clr-bg-pink-bold-hovered;
+    .create,
+    .search-section {
+        background-color: $clr-dynamic-button-white-hovered;
         border-radius: 5px;
         text-decoration: none;
         padding: 8px;
         text-align: center;
+    }
+
+    .create:hover {
+        background-color: rgba(255, 255, 255, 0.3);
     }
 
     .icon-logo {
@@ -54,7 +59,7 @@
             }
 
             .search-input {
-                background-color: $clr-bg-pink-bold;
+                background-color: $clr-dynamic-button-white-hovered;
                 border: none;
             }
         }
@@ -64,11 +69,11 @@
         }
 
         .search-section:hover .search-input {
-            background-color: $clr-bg-pink-bold-hovered;
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .search-section:hover {
-            background-color: $clr-bg-pink-bold-hovered;
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .notifications-btn,
@@ -82,7 +87,7 @@
         .notifications-btn:hover,
         .info-btn:hover,
         .account-btn:hover {
-            background-color: $clr-bg-pink-bold-hovered;
+            background-color: $clr-dynamic-button-white-hovered;
             border-radius: 50%;
             padding: 4px;
         }
