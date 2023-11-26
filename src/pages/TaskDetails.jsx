@@ -11,11 +11,11 @@ export function TaskDetails() {
     return (
         <div className="task-details-wrapper">
             <div className="task-details">
-                <button className="transparent-btn task-details-icon-close">
+                <button className="transparent-btn-black task-details-icon-close">
                     <i className="icon-close"></i>
                 </button>
                 <div className="task-details-cover">
-                    <button className="transparent-btn task-details-cover-button">
+                    <button className="transparent-btn-black task-details-cover-button">
                         <i className="icon-task-details-cover"></i>
                         &nbsp;Cover
                     </button>

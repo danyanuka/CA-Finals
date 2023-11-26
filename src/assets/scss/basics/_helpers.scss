@@ -153,10 +153,20 @@ scrollable-square-white
   border-radius: 3px;
   border-width: 0px;
   background-color: transparent;
-  &:hover {
-    background-color: $clr-dynamic-button-hovered;
+  &-black {
+      &:hover {
+        background-color: $clr-dynamic-button-black-hovered;
+      }
+      &:active {
+        background-color: $clr-dynamic-button-black-pressed;
+      }
   }
-  &:active {
-    background-color: $clr-dynamic-button-pressed;
+  &-white {
+      &:hover {
+        background-color: $clr-dynamic-button-white-hovered;
+      }
+      &:active {
+        background-color: $clr-dynamic-button-white-pressed;
+      }
   }
 }
