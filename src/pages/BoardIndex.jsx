@@ -10,7 +10,7 @@ export function BoardIndex() {
                 <nav>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
-                    <NavLink to="/main">MainPage</NavLink>
+                    <NavLink to="/board">Board</NavLink>
                 </nav>
             </section>
         </div>

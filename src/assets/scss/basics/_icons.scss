@@ -1,15 +1,75 @@
-
-/* <i className="icon-gmail-sign"></i> */
-
-
 .icon-drag {
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
 .icon-close {
-  content: url("/public/svgs/close.svg");
+  @include iconCustomColor(#172B4D, "/public/icons/close.svg");
 }
 
-.icon-task-header {
-  content: url("/public/svgs/help.svg");
+.icon-task-details-cover {
+  content: url("/public/icons/task-cover.png");
+}
+
+.icon-task-details-header {
+  content: url("/public/icons/task-details-header.png");
+}
+
+
+//AppHeder Icons
+.icon-show-more {
+  content: url("/public/icons/show-more.svg");
+}
+
+.icon-add {
+  content: url("/public/icons/add.svg");
+}
+
+.icon-search {
+  content: url("/public/icons/search.svg");
+}
+
+.icon-notifications {
+  content: url("/public/icons/notifications.svg");
+}
+
+.icon-info {
+  content: url("/public/icons/information.svg");
+}
+
+.icon-account {
+  content: url("/public/icons/member-add.svg");
+}
+
+//BoardHeader icons
+
+.icon-star {
+  content: url("/public/icons/star.svg");
+}
+
+.icon-members {
+  content: url("/public/icons/members.svg");
+}
+
+.icon-board {
+  content: url("/public/icons/board.svg");
+}
+
+.icon-power {
+  content: url("/public/icons/power.svg");
+}
+
+.icon-automation {
+  content: url("/public/icons/automation.svg");
+}
+
+.icon-filter {
+  content: url("/public/icons/filter.svg");
+}
+
+.icon-member {
+  content: url("/public/icons/member.svg");
+}
+
+.icon-said-bar {
+  content: url("/public/icons/said-bar.svg");
 }

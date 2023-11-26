@@ -11,12 +11,17 @@ export function TaskDetails() {
     return (
         <div className="task-details-wrapper">
             <div className="task-details">
-                <i className="icon-close"></i>
+                <button className="transparent-btn task-details-icon-close">
+                    <i className="icon-close"></i>
+                </button>
                 <div className="task-details-cover">
-                    <button className="task-details-cover-button">Cover</button>
+                    <button className="transparent-btn task-details-cover-button">
+                        <i className="icon-task-details-cover"></i>
+                        &nbsp;Cover
+                    </button>
                 </div>
                 <header className="task-details-header">
-                    <i className="icon-task-header"></i>
+                    <i className="icon-task-details-header"></i>
                     <h1>Create backend services</h1>
                     <h2>in list Backlog-Server</h2>
                 </header>

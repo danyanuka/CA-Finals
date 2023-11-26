@@ -1,0 +1,46 @@
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $clr-bg-pink-bold-hovered;
+    color: white;
+    padding: 10px;
+
+    .board-header-section {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 8px;
+        cursor: pointer;
+
+        .board-header-btn {
+            display: flex;
+            align-items: center;
+            margin: auto 10px;
+
+            .icon {
+                margin: auto 7px;
+            }
+
+        }
+
+        .board-name {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .board-btn {
+            color: black;
+            font-weight: 500;
+            background-color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            text-align: center;
+
+
+            .icon-board {
+                margin: auto 5px;
+            }
+        }
+    }
+}
