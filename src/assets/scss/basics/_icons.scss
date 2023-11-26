@@ -3,7 +3,7 @@
 }
 
 .icon-close {
-  @include iconCustomColor(#172B4D, "/public/icons/close.svg");
+  @include iconCustomColor(#172b4d, "/public/icons/close.svg");
 }
 
 .icon-task-details-cover {
@@ -13,7 +13,6 @@
 .icon-task-details-header {
   content: url("/public/icons/task-details-header.png");
 }
-
 
 //AppHeder Icons
 .icon-show-more {
@@ -72,4 +71,20 @@
 
 .icon-said-bar {
   content: url("/public/icons/said-bar.svg");
+}
+
+// Homepage
+.icon-play {
+  // content: url("/public/icons/play-icon.svg");
+  @include iconCustomColor(#ffffff, "/public/icons/play-icon.svg");
+  width: 25px;
+  height: 24px;
+}
+
+.icon-carousel-right {
+  content: url("/public/icons/carousel-arrow-right.svg");
+}
+
+.icon-carousel-left {
+  content: url("/public/icons/carousel-arrow-left.svg");
 }

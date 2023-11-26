@@ -126,14 +126,13 @@
           @include transitionAction(color, white, 250ms);
 
           &:hover {
-            svg {
-              margin-left: 13px;
+            i {
+              margin-left: 15px;
             }
           }
 
-          svg {
+          i {
             margin-left: 8px;
-            background-color: transparent;
             transition: margin-left 0.3s ease;
           }
         }
@@ -250,6 +249,35 @@
         Img {
           padding-top: 16px;
           width: 97%;
+        }
+      }
+    }
+  }
+
+  // -------------------------------------ThirdSection--------------ThirdSection-----------------------ThirdSection
+  .section3-container {
+    grid-template-columns: 1fr 1140px 1fr;
+    display: grid;
+    > * {
+      grid-column: 2;
+      height: 200px;
+    }
+
+    .third-section {
+      color: rgb(9, 30, 66);
+      margin-top: 48px;
+      .section-header {
+        padding: 16px;
+        p {
+          font-family: "Charlie-Text", sans-serif;
+          letter-spacing: 0.5px;
+          @include fontProps(16px, 500, 20px);
+          margin-bottom: 10px;
+        }
+        h1 {
+          font-family: "Charlie-Display", sans-serif;
+          @include fontProps(36px, 500, 48px);
+          padding-bottom: 16px;
         }
       }
     }
