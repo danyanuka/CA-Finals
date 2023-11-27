@@ -7,7 +7,7 @@ scrollable-square-white
 */
 
 .one-element-page {
-    
+
     /* one-element-page-parent */
     &-parent {
         width: 100vw;
@@ -80,26 +80,26 @@ scrollable-square-white
 }
 
 .scrollable-square-black::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,.4);
-    box-shadow: 1px 1px 0px rgba(255,255,255,.20) inset;
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 1px 1px 0px rgba(255, 255, 255, .20) inset;
 }
 
 .scrollable-square-black::-webkit-scrollbar-track:hover {
-    background: rgb(66,66,66);
-    box-shadow: 1px 0px 0px rgba(255,255,255,.18) inset;
+    background: rgb(66, 66, 66);
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, .18) inset;
 }
 
 .scrollable-square-black::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255,255,255,.8);
-    box-shadow: 1px 1px 1px rgba(255,255,255,.50) inset;
+    background-color: rgba(255, 255, 255, .8);
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, .50) inset;
 }
 
 .scrollable-square-black::-webkit-scrollbar-thumb:active {
-    background-color: rgba(255,255,255,.9);
+    background-color: rgba(255, 255, 255, .9);
 }
 
 .scrollable-square-black::-webkit-scrollbar-track:active {
-    box-shadow: 1px 1px 0px rgba(255,255,255,.20) inset;
+    box-shadow: 1px 1px 0px rgba(255, 255, 255, .20) inset;
 }
 
 
@@ -113,50 +113,69 @@ scrollable-square-white
 }
 
 .scrollable-square-white::-webkit-scrollbar-thumb {
-    background-color: rgb(204,204,204);
-    box-shadow: 1px 1px 0px rgba(0,0,0,.10) inset, 0px -1px 0px rgba(0,0,0,.07) inset;
+    background-color: rgb(204, 204, 204);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, .10) inset, 0px -1px 0px rgba(0, 0, 0, .07) inset;
 }
 
 .scrollable-square-white::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(148,148,148);
-    box-shadow: 1px 1px 1px rgba(0,0,0,.25) inset;
+    background-color: rgb(148, 148, 148);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .25) inset;
 }
 
 .scrollable-square-white::-webkit-scrollbar-track:hover {
-    background: rgb(246,246,246);
-    box-shadow: 1px 0px 0px rgb(211,211,211) inset;
+    background: rgb(246, 246, 246);
+    box-shadow: 1px 0px 0px rgb(211, 211, 211) inset;
 }
 
 .scrollable-square-white::-webkit-scrollbar-thumb:active {
-    background-color: rgb(121,121,121);
-    box-shadow: 1px 1px 3px rgba(0,0,0,.35) inset;
+    background-color: rgb(121, 121, 121);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .35) inset;
 }
 
 .scrollable-square-white::-webkit-scrollbar-track:active {
-    background-color: rgb(242,242,242);
-    box-shadow: 1px 1px 0px rgb(208,208,208) inset;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 1px 1px 0px rgb(208, 208, 208) inset;
 }
 
 
 .btn {
-  margin: 0;
-  border: 0;
-  border-radius: 3px;
-  background-color: rgb(223, 225, 230);
-  & :hover {
-    background-color: white;
-  }
+    margin: 0;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(223, 225, 230);
+
+    & :hover {
+        background-color: white;
+    }
 }
 
 
 .transparent-btn {
-  border-radius: 3px;
-  border-width: 0px;
-  background-color: transparent;
-  &:hover {
-    background-color: $clr-dynamic-button-hovered;
-  }
-  &:active {
-    background-color: $clr-dynamic-button-pressed;
-  }
+    &-black {
+        border-radius: 3px;
+        border-width: 0px;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $clr-dynamic-button-black-hovered;
+        }
+
+        &:active {
+            background-color: $clr-dynamic-button-black-pressed;
+        }
+    }
+
+    &-white {
+        border-radius: 3px;
+        border-width: 0px;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $clr-dynamic-button-white-hovered;
+        }
+
+        &:active {
+            background-color: $clr-dynamic-button-white-pressed;
+        }
+    }
 }

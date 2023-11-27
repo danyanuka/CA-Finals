@@ -74,9 +74,12 @@ $clr-bg-neutral-hovered:            #091E4224;
 $clr-bg-neutral-pressed:            #091E424F;
 
 /* For transparent buttons with dynamic colors */
-$clr-dynamic-button:                transparent;
-$clr-dynamic-button-hovered:        #091E4224;
-$clr-dynamic-button-pressed:        #091E424F;
+$clr-dynamic-button-black:                transparent;
+$clr-dynamic-button-black-hovered:        #091E4224;
+$clr-dynamic-button-black-pressed:        #091E424F;
+$clr-dynamic-button-white:                transparent;
+$clr-dynamic-button-white-hovered:        #A6C5E229;
+$clr-dynamic-button-white-pressed:        #BFDBF847;
 
 /* text */
 $clr-text-black:                    rgb(23, 43, 77);

@@ -16,15 +16,15 @@
         .board-header-btn {
             display: flex;
             align-items: center;
-            margin: auto 10px;
+            margin: auto 6px;
 
             .icon {
                 margin: auto 7px;
             }
-
         }
 
         .board-name {
+            margin: auto 10px;
             font-weight: 700;
             font-size: 20px;
         }
@@ -32,7 +32,7 @@
         .board-btn {
             color: black;
             font-weight: 500;
-            background-color: white;
+            background-color: #DFE1E6;
             padding: 6px 10px;
             border-radius: 5px;
             text-align: center;
@@ -42,5 +42,28 @@
                 margin: auto 5px;
             }
         }
+
+        .share-btn {
+            color: black;
+            font-weight: 500;
+            background-color: #DFE1E6;
+            padding: 6px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .board-header-btn:hover {
+            background-color: $clr-dynamic-button-white-hovered;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .board-btn:hover,
+        .share-btn:hover {
+            background-color: white
+        }
     }
+
+
 }

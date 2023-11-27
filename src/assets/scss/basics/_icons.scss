@@ -2,8 +2,12 @@
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
-.icon-close {
-  @include iconCustomColor(#172b4d, "/public/icons/close.svg");
+.icon-close-grayblue {
+  @include iconCustomColor(#42526e, "/public/icons/close.svg");
+}
+
+.icon-close-white {
+  @include iconCustomColor(#ffffff, "/public/icons/close.svg");
 }
 
 .icon-task-details-cover {
@@ -12,6 +16,10 @@
 
 .icon-task-details-header {
   content: url("/public/icons/task-details-header.png");
+}
+
+.icon-watch-task {
+  content: url("/public/icons/watch-task.svg");
 }
 
 //AppHeder Icons
@@ -40,7 +48,6 @@
 }
 
 //BoardHeader icons
-
 .icon-star {
   content: url("/public/icons/star.svg");
 }
