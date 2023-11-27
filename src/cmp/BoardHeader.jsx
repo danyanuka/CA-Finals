@@ -49,6 +49,7 @@ export function BoardHeader() {
 
                 <div className="board-header-btn board-members" title="User-Name" >
                     <i className="icon icon-member"></i>
+
                 </div>
 
                 <div className="board-header-btn share-btn" title="Share board" >
