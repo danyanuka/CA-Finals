@@ -3,11 +3,11 @@
 }
 
 .icon-close-grayblue {
-  @include iconCustomColor(#42526E, "/public/icons/close.svg");
+  @include iconCustomColor(#42526e, "/public/icons/close.svg");
 }
 
 .icon-close-white {
-  @include iconCustomColor(#FFFFFF, "/public/icons/close.svg");
+  @include iconCustomColor(#ffffff, "/public/icons/close.svg");
 }
 
 .icon-task-details-cover {
@@ -21,7 +21,6 @@
 .icon-watch-task {
   content: url("/public/icons/watch-task.svg");
 }
-
 
 //AppHeder Icons
 .icon-show-more {
@@ -79,4 +78,20 @@
 
 .icon-said-bar {
   content: url("/public/icons/said-bar.svg");
+}
+
+// Homepage
+.icon-play {
+  // content: url("/public/icons/play-icon.svg");
+  @include iconCustomColor(#ffffff, "/public/icons/play-icon.svg");
+  width: 25px;
+  height: 24px;
+}
+
+.icon-carousel-right {
+  content: url("/public/icons/carousel-arrow-right.svg");
+}
+
+.icon-carousel-left {
+  content: url("/public/icons/carousel-arrow-left.svg");
 }
