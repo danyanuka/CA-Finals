@@ -60,6 +60,15 @@
             text-align: center;
         }
 
+        .board-members:hover {
+            background-color: $clr-bg-pink-bold-hovered;
+        }
+
+        .icon-member:hover {
+            background-color: $clr-dynamic-button-white-hovered;
+            border-radius: 50%;
+        }
+
         .board-btn:hover,
         .share-btn:hover {
             background-color: white
