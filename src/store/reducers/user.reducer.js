@@ -4,6 +4,6 @@ const initialState = {
   filterBy: null,
 };
 
-export function appReducer(state = initialState, action = {}) {
+export function userReducer(state = initialState, action = {}) {
   return state;
 }
