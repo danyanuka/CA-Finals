@@ -18,7 +18,7 @@ export function FirstSection() {
         </div>
         <img
           className="right-side"
-          src="/first-section-image.png"
+          src="home-page/first-section-image.png"
           alt="image"
         ></img>
       </section>

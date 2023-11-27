@@ -7,22 +7,22 @@ export function SecondSectionList() {
       id: 1,
       type: "Boards",
       overview:
-        "Trello boards keep tasks organized and work moving forward. In a glance, see everything from “things to do” to “aww yeah, we did it!”",
-      image: "/carousel-boards.png",
+        "Trello boards keep tasks organized and work moving forward. In a glance, see everything from “things to do” to “aww yeah, we did it!“",
+      image: "home-page/carousel-boards.png",
     },
     {
       id: 2,
       type: "Lists",
       overview:
-        "The different stages of a task. Start as simple as To Do, Doing or Done—or build a workflow custom fit to your team’s needs. There’s no wrong way to Trello.”",
-      image: "/carousel-lists.png",
+        "The different stages of a task. Start as simple as To Do, Doing or Done—or build a workflow custom fit to your team’s needs. There’s no wrong way to Trello.",
+      image: "home-page/carousel-lists.png",
     },
     {
       id: 3,
       type: "Cards",
       overview:
-        "Cards represent tasks and ideas and hold all the information to get the job done. As you make progress, move cards across lists to show their status.”",
-      image: "/carousel-cards.png",
+        "Cards represent tasks and ideas and hold all the information to get the job done. As you make progress, move cards across lists to show their status.",
+      image: "home-page/carousel-cards.png",
     },
   ];
   const [selectedItem, setSelectedItem] = useState(listItems[0]);

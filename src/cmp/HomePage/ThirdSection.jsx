@@ -1,3 +1,5 @@
+import { ThirdSectionCarousel } from "./ThirdSectionCarousel";
+
 export function ThirdSection() {
   return (
     <div className="section3-container ">
@@ -6,14 +8,15 @@ export function ThirdSection() {
           <p>TRELLO IN ACTION</p>
           <h1>Workflows for any project, big or small</h1>
         </div>
-        <div>
-          <button>
-            <i className="icon-carousel-right"></i>
-          </button>
-          <button>
+        <div className="arrow-btns">
+          <button className="arrow-left">
             <i className="icon-carousel-left"></i>
           </button>
+          <button className="arrow-right">
+            <i className="icon-carousel-right"></i>
+          </button>
         </div>
+        <ThirdSectionCarousel />
       </section>
     </div>
   );
