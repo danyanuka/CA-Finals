@@ -44,10 +44,10 @@ export function BoardHeader() {
 
                 <div className="board-header-btn" title="Filter cards" >
                     <i className="icon icon-filter"></i>
-                    Filter
+                    Filters
                 </div>
 
-                <div className="board-header-btn" title="User-Name" >
+                <div className="board-header-btn board-members" title="User-Name" >
                     <i className="icon icon-member"></i>
                 </div>
 

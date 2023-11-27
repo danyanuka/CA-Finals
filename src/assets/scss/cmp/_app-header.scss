@@ -27,7 +27,7 @@
     }
 
     .create:hover {
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: $clr-dynamic-button-white-pressed;
     }
 
     .icon-logo {
@@ -59,21 +59,20 @@
             }
 
             .search-input {
-                background-color: $clr-dynamic-button-white-hovered;
+
+                background-color: rgb(172 92 148);
                 border: none;
             }
         }
 
         input::placeholder {
-            color: white
+            color: white;
+            float: left;
         }
 
-        .search-section:hover .search-input {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
+        .search-section:hover .search-input,
         .search-section:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgb(179 112 166);
         }
 
         .notifications-btn,
