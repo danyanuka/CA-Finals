@@ -17,6 +17,7 @@
             display: flex;
             align-items: center;
             margin: auto 6px;
+            padding: 7px;
 
             .icon {
                 margin: auto 7px;
@@ -57,6 +58,15 @@
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
+        }
+
+        .board-members:hover {
+            background-color: $clr-bg-pink-bold-hovered;
+        }
+
+        .icon-member:hover {
+            background-color: $clr-dynamic-button-white-hovered;
+            border-radius: 50%;
         }
 
         .board-btn:hover,

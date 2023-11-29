@@ -84,10 +84,12 @@
             color: $clr-text-black-subtle;
             @include fontProps(14px, 400, 20px);
             margin: 4px 8px 12px 2px;
+            display: inline-flex;
         }
 
         & .icon-watch-task {
-
+            width: 16px;
+            margin: 0px 8px 0px 2px;
         }
     }
 

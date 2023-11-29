@@ -8,6 +8,9 @@ export function TaskDetails() {
         console.log("dummy: ", ev)
     }
 
+    console.log("might: ", window.gStore);
+    
+
     return (
         <div className="task-details-wrapper">
             <div className="task-details">
