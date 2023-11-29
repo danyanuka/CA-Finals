@@ -49,17 +49,15 @@ const carouselItems = [
   },
 ];
 
-export function ThirdSectionCarousel() {
+export function ThirdSectionCarousel({ containerRef }) {
   return (
-    <ul className="carousel">
+    <ul ref={containerRef} className="carousel">
       {carouselItems.map((item) => (
-        <div className="card-container">
-          <li
-            className={`carousel-card carousel-card-${item.id}`}
-            key={item.id}
-          >
+        <div key={item.id} className="card-container">
+          <li className={`carousel-card carousel-card-${item.id}`}>
             <div className="card-color"></div>
             <div className="card-content">
+              <div className="card-icon"></div>
               <h3>{item.title}</h3>
               <p>{item.overview}</p>
             </div>
