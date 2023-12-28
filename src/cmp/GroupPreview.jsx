@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom"
+import { TaskList } from "./TaskList"
 
-
-export function Group() {
+export function GroupPreview({ group }) {
 
     return (
-        <div className="group">
-            
+        <div className="group-preview">
+            <TaskList group={group} />
+
         </div>
     )
 }

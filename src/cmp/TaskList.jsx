@@ -1,11 +1,17 @@
-import { NavLink } from "react-router-dom"
+import { TaskPreview } from "./TaskPreview"
 
 
-export function Task() {
+export function TaskList({ group }) {
+    const tasks = group?.tasks
 
     return (
-        <div className="task">
-            
-        </div>
+        <ul className="task-list">
+            {
+                tasks?.map(task => <li key={task.id}>
+                    <TaskPreview task={task} />
+
+                </li>)
+            }
+        </ul>
     )
 }

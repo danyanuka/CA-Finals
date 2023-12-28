@@ -1,11 +1,17 @@
-import { NavLink } from "react-router-dom"
+import { GroupPreview } from './GroupPreview'
 
-
-export function Group() {
-
+export function GroupList({ board }) {
+    const groups = board?.groups
     return (
-        <div className="group">
-            
-        </div>
+
+        <ul className="group-list">
+            {
+                groups?.map(group => <li key={group.id}>
+                    <GroupPreview group={group} />
+                </li>)
+            }
+        </ul>
+
+
     )
 }
