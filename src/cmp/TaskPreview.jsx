@@ -1,11 +1,8 @@
-import { NavLink } from "react-router-dom"
 
-
-export function TaskPreview() {
-
+export function TaskPreview({ task }) {
     return (
-        <div className="task">
-            
+        <div className="task-preview">
+            <h4>{task.title}</h4>
         </div>
     )
 }
