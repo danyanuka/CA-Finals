@@ -6,7 +6,7 @@ export function GroupList({ board }) {
 
         <ul className="group-list">
             {
-                groups?.map(group => <li key={group.id}>
+                groups?.map(group => <li className='group-item' key={group.id}>
                     <GroupPreview group={group} />
                 </li>)
             }

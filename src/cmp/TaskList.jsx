@@ -6,8 +6,9 @@ export function TaskList({ group }) {
 
     return (
         <ul className="task-list">
+            <h4>{group.title}</h4>
             {
-                tasks?.map(task => <li key={task.id}>
+                tasks?.map(task => <li className="task-item" key={task.id}>
                     <TaskPreview task={task} />
 
                 </li>)
