@@ -8,7 +8,7 @@ export const SET_BOARD_FILTER_BY = "SET_BOARD_FILTER_BY";
 const initialState = {
   boards: null,
   filterBy: null,
-  lastBoards: []
+  lastBoards: [],
 };
 
 // action = {type, board}
@@ -26,11 +26,11 @@ export function boardReducer(state = initialState, action = {}) {
         boards: [...state.boards, action.board],
       };
     case REMOVE_BOARD:
-      const lastBoards = [...state.boards]
+      const lastBoards = [...state.boards];
       return {
         ...state,
         boards: state.boards.filter((board) => board.id !== action.boardId),
-        lastBoards
+        lastBoards,
       };
     case UPDATE_BOARD:
       return {
@@ -42,12 +42,12 @@ export function boardReducer(state = initialState, action = {}) {
     case SET_BOARD_FILTER_BY:
       return {
         ...state,
-        filterBy: { ...action.filterBy }
-      }
+        filterBy: { ...action.filterBy },
+      };
     case UNDO_CHANGES_BOARD:
       return {
         ...state,
-        boards: [...state.lastBoards]
+        boards: [...state.lastBoards],
       };
     default:
       return state;
