@@ -1,0 +1,18 @@
+.task-preview {
+    min-height: 24px;
+    width: 250px;
+
+    .task-header {
+        height: 30px;
+        background-color: lightgray;
+        margin-bottom: 7px;
+
+        .edit-task-header {
+            display: none;
+        }
+    }
+
+    .task-body {
+        margin: 12px;
+    }
+}
