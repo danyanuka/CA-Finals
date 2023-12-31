@@ -45,8 +45,9 @@
   }
   // -------------------------------------FirstSection--------------FirstSection-----------------------FirstSection
   .section1-container {
-    grid-template-columns: 1fr 1140px 1fr;
     display: grid;
+    grid-template-columns: 1fr 1140px 1fr;
+
     background: url("/icons/white-wave-bg.svg") center bottom -0.5px / 100% 14% no-repeat
         scroll padding-box border-box,
       linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto

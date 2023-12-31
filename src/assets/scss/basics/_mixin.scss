@@ -18,7 +18,7 @@
 }
 
 @mixin iconCustomColor($color, $urlPath) {
-  -webkit-mask:  url($urlPath);
+  -webkit-mask: url($urlPath);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: $color;

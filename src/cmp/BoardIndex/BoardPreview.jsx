@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
-
-export function Board() {
-
-    return (
-        <div className="board">
-            
-        </div>
-    )
+export function BoardPreview({ board }) {
+  return (
+    <a>
+      <div className="board-preview">
+        <h3>{board.title}</h3>
+      </div>
+    </a>
+  );
 }

@@ -1,2 +1,29 @@
+.board-index-container {
+  display: grid;
+  grid-template-columns: 1fr 1140px 1fr;
+  > * {
+    grid-column: 2;
+  }
 
+  // Temporary
+  margin-top: 4rem;
+  h3 {
+    @include fontProps(16px, 700, 24px);
+  }
+  .board-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
 
+    .board-preview {
+      background-color: $clr-bg-pink-bold;
+      color: white;
+      height: 80px;
+      padding: 8px;
+      border-radius: 3px;
+      text-align: left;
+    }
+  }
+}
