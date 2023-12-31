@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router"
 
 //redux
@@ -15,19 +15,17 @@ import { groupService } from "../services/group.service";
 
 export function BoardDetails() {
   const params = useParams()
-  // const board = useSelector(storeState => storeState.boardModule.curBoard)
-  console.log(board);
-  const [board, setBoard] = useState(null)
+  const board = useSelector(storeState => storeState.boardModule.curBoard)
+
 
   useEffect(() => {
     loadBoard()
-  }, [board])
+  }, [params.boardId])
 
   async function loadBoard() {
     try {
       await boardActions.loadBoard(params.boardId)
-      // const board = await boardService.getById(params.boardId)
-      // setBoard(board)
+
     } catch (err) {
       console.log('Had issues loading board', err);
     }
