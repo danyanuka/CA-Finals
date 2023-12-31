@@ -1,6 +1,5 @@
-
 const initialState = {
-  boards: null,
+  users: null,
   filterBy: null,
 };
 

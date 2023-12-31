@@ -1,18 +1,24 @@
-import { NavLink } from "react-router-dom"
-
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { boardActions } from "../store/actions/board.actions";
 
 export function BoardIndex() {
+  const boards = useSelector((storeState) => storeState.boardModule.boards);
 
-    return (
-        <div className="one-element-page-parent">
-            <section className="home one-element-page-child">
-                <p>Main page</p>
-                <nav>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/board">Board</NavLink>
-                </nav>
-            </section>
-        </div>
-    )
+  useEffect(() => {
+    loadBoards();
+  }, []);
+
+  async function loadBoards() {
+    try {
+      await boardActions.loadBoards();
+    } catch (err) {
+      console.log("Issues loading boards ,", err);
+    }
+  }
+
+  console.log("Boards from index :", boards);
+  if (!boards) return <div>Loading..</div>;
+  return <div></div>;
 }
