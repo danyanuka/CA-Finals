@@ -17,13 +17,12 @@ import { groupService } from "../services/group.service";
 
 export function BoardDetails() {
     const params = useParams()
-    const board = useSelector(storeState => storeState.boardModule.curBoard)
+    // const board = useSelector(storeState => storeState.boardModule.curBoard)
     console.log(board);
-    // const [board, setBoard] = useState(null)
+    const [board, setBoard] = useState(null)
 
     useEffect(() => {
-        // loadBoard()
-        boardActions.loadBoard(params.boardId)
+        loadBoard()
     }, [board])
 
     async function loadBoard() {
