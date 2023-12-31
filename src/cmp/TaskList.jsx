@@ -1,8 +1,33 @@
+import { useState } from "react"
+
+//cmps
 import { TaskPreview } from "./TaskPreview"
 
+//services
+import { groupService } from "../services/group.service"
 
-export function TaskList({ group }) {
+
+export function TaskList({ group, onAddTask }) {
     const tasks = group?.tasks
+    const [isAdding, setIsAdding] = useState(false)
+    const [taskTitle, setTaskTitle] = useState('')
+
+    function handleIsAdding() {
+        setIsAdding(!isAdding)
+    }
+
+    function handleChange(ev) {
+        let { value } = ev.target
+        setTaskTitle(value)
+    }
+
+    function handleAddTask(ev) {
+        ev.preventDefault()
+        const taskToAdd = groupService.getDefaultTask(taskTitle)
+        onAddTask(taskToAdd, group.id)
+        setTaskTitle("")
+        handleAddTask()
+    }
 
     return (
         <ul className="task-list">
@@ -17,10 +42,22 @@ export function TaskList({ group }) {
                 </li>)
             }
 
-            <div className="group-footer">
-                <button>Add a cart</button>
-                <button title="create from template">icon</button>
-            </div>
+
+            {!isAdding ? (
+                <div className="group-footer">
+                    <button onClick={handleIsAdding}>Add a card</button>
+                    <button title="create from template">icon</button>
+                </div>
+            ) : (
+                <form onSubmit={handleAddTask}>
+                    <input type="text" name='taskTitle' value={taskTitle} onChange={handleChange} placeholder='Enter task title...' />
+                    <div className="add-task-buttons">
+                        <button>Add task</button>
+                        <button onClick={handleIsAdding}>X</button>
+                    </div>
+                </form>
+            )}
+
         </ul>
     )
 }
