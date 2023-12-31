@@ -17,17 +17,20 @@ import { groupService } from "../services/group.service";
 
 export function BoardDetails() {
     const params = useParams()
-    // const board = useSelector(storeState => storeState.boardModule.curBoard)
-    const [board, setBoard] = useState(null)
+    const board = useSelector(storeState => storeState.boardModule.curBoard)
+    console.log(board);
+    // const [board, setBoard] = useState(null)
 
     useEffect(() => {
-        loadBoard()
-    }, [params.boardId])
+        // loadBoard()
+        boardActions.loadBoard(params.boardId)
+    }, [board])
 
     async function loadBoard() {
         try {
-            const board = await boardService.getById(params.boardId)
-            setBoard(board)
+            await boardActions.loadBoard(params.boardId)
+            // const board = await boardService.getById(params.boardId)
+            // setBoard(board)
         } catch (err) {
             console.log('Had issues loading board', err);
         }
@@ -48,8 +51,9 @@ export function BoardDetails() {
             console.log('Had issues adding task', err);
         }
     }
-
+    if (!board) return <div>Loading..</div>;
     return (
+
         <div className="home">
             <AppHeader />
             <BoardHeader />
