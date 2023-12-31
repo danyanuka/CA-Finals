@@ -1,5 +1,5 @@
 export const SET_BOARDS = "SET_BOARDS";
-export const SET_BOARD = "SET_BOARDS";
+export const SET_BOARD = "SET_BOARD";
 export const ADD_BOARD = "ADD_BOARD";
 export const REMOVE_BOARD = "REMOVE_BOARD";
 export const UPDATE_BOARD = "UPDATE_BOARD";
