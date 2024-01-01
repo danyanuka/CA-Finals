@@ -20,11 +20,19 @@ export function BoardIndex() {
     }
   }
 
-  async function onSaveBoard() {
+  async function onSaveBoard(board) {
     try {
       await boardActions.saveBoard();
     } catch (error) {
       console.log("Issues saving board ,", err);
+    }
+  }
+
+  async function onRemoveBoard(boardId) {
+    try {
+      await boardActions.removeBoard(boardId);
+    } catch (err) {
+      console.log("Issues removing board", err);
     }
   }
 
@@ -33,7 +41,7 @@ export function BoardIndex() {
   return (
     <div className="board-index-container">
       <h3>YOUR BOARDS</h3>
-      <BoardList boards={boards} />
+      <BoardList boards={boards} onSaveBoard={onSaveBoard} />
     </div>
   );
 }

@@ -41,8 +41,8 @@ async function loadBoard(boardId) {
 
 async function removeBoard(boardId) {
   try {
-    store.dispatch({ type: REMOVE_BOARD, boardId });
     await boardService.remove(boardId);
+    store.dispatch({ type: REMOVE_BOARD, boardId });
   } catch (err) {
     store.dispatch({ type: UNDO_CHANGES_BOARD });
     console.log("Had issues loading boards", err);
@@ -52,7 +52,7 @@ async function removeBoard(boardId) {
 
 async function saveBoard(board) {
   try {
-    const type = board.id ? UPDATE_BOARD : ADD_BOARD;
+    const actionType = board._id ? UPDATE_BOARD : ADD_BOARD;
     const boardToSave = await boardService.save(board);
     store.dispatch({ type, board: boardToSave });
   } catch (err) {
