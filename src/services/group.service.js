@@ -1,5 +1,6 @@
+
 import { utilService } from "./util.service.js";
-import { boardService } from "./board.service.js";
+import { boardActions } from "../store/actions/board.actions.js";
 
 export const groupService = {
     addList,
@@ -8,17 +9,16 @@ export const groupService = {
     getDefaultTask,
 };
 
-// const board = useSelector(storeState => storeState.boardModule.curBoard)
 
 async function addList(listToSave, board) {
-    const boardToSave = board.groups.push(listToSave)
-    return boardService.save(boardToSave)
+    board.groups.push(listToSave)
+    return boardActions.saveBoard(board)
 }
 
 async function addTask(taskToSave, groupId, board) {
     const groupInx = board.groups.findIndex(group => group.id === groupId)
-    const boardToSave = board.groups[groupInx].tasks.push(taskToSave)
-    return boardService.save(boardToSave)
+    board.groups[groupInx].tasks.push(taskToSave)
+    return boardActions.saveBoard(board)
 }
 
 function getDefaultList(title = "", tasks = [], style = {}) {
