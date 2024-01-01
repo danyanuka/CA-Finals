@@ -1,5 +1,5 @@
 const initialState = {
-  // boards: null,
+  modalType: null,
   filterBy: null,
 };
 
