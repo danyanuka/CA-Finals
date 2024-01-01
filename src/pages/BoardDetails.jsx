@@ -32,20 +32,15 @@ export function BoardDetails() {
   }
 
   async function onAddList(newList) {
-    try {
-      await groupService.addList(newList, board);
-    } catch (err) {
-      console.log("Had issues adding list", err);
-    }
+    const boardToUpdate = await groupService.addList(newList, board);
+    return boardActions.saveBoard(boardToUpdate)
   }
 
   async function onAddTask(newTask, groupId) {
-    try {
-      await groupService.addTask(newTask, groupId, board);
-    } catch (err) {
-      console.log("Had issues adding task", err);
-    }
+    const boardToUpdate = await groupService.addTask(newTask, groupId, board);
+    return boardActions.saveBoard(boardToUpdate)
   }
+
   if (!board) return <div>Loading..</div>;
   return (
     <div className="home">

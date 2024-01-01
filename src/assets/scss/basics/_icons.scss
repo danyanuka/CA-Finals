@@ -81,7 +81,7 @@
 }
 
 .icon-show-options {
-  content: url('/public/icons/svgexport-36')
+  content: url('/public/icons/svgexport-36.svg')
 }
 
 // Homepage
@@ -98,4 +98,13 @@
 
 .icon-carousel-left {
   content: url("/public/icons/carousel-arrow-left.svg");
+}
+
+//BoardDetails
+.icon-template {
+  content: url("/public/icons/template.svg");
+}
+
+.icon-edit {
+  content: url("/public/icons/edit.svg");
 }

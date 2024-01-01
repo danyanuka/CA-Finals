@@ -20,18 +20,39 @@
         align-items: center;
         margin: auto 8px 8px 8px;
 
-        button {
-            border: none;
-            padding: 12px;
-            font-size: large;
+        .add-task-button {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 280px;
+
+            .icon-add {
+                font-size: small;
+            }
+
+            button {
+                border: none;
+                padding: 12px;
+                font-size: large;
+            }
         }
+
     }
+}
+
+.edit-task-header {
+    display: none;
 }
 
 .task-item:hover {
     border: 1px solid blue;
 }
 
-.task-item:hover.edit-task-header {
-    display: flex;
+.task-item:hover .edit-task-header {
+    display: block;
+    border: none;
+    float: right;
+    background-color: white;
+    padding: 2px;
+    border-radius: 50%;
 }
