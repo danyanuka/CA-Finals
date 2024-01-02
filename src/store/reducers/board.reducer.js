@@ -56,6 +56,11 @@ export function boardReducer(state = initialState, action = {}) {
         ...state,
         boards: [...state.lastBoards],
       };
+    // case 'ADD_TASK':
+    //   return {
+    //     ...state,
+    //     curBoard: {...curBoard, },
+    //   };
     default:
       return state;
   }

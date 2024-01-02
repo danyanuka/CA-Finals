@@ -17,8 +17,9 @@ export function GroupList({ board, onAddList, onAddTask }) {
 
     function handleChange(ev) {
         let { value } = ev.target
-        setListTitle(value)
+        setListTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
     }
+
 
     function handleAddList(ev) {
         ev.preventDefault()
@@ -40,10 +41,13 @@ export function GroupList({ board, onAddList, onAddTask }) {
 
             <li className="group-item action">
                 {!isAdding ? (
-                    <button onClick={handleIsAdding}>Add another list</button>
+                    <div className='add-list-button'>
+                        <li className='icon-add'></li>
+                        <button onClick={handleIsAdding}>Add another list</button>
+                    </div>
                 ) : (
-                    <form onSubmit={handleAddList}>
-                        <input type="text" name='listTitle' value={listTitle} onChange={handleChange} placeholder='Enter list title...' />
+                    <form className="add-list-form" onSubmit={handleAddList}>
+                        <input className='list-title-input' type="text" name='listTitle' value={listTitle} onChange={handleChange} placeholder='Enter list title...' />
                         <div className="add-list-buttons">
                             <button>Add list</button>
                             <button onClick={handleIsAdding}>X</button>

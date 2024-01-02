@@ -18,7 +18,7 @@ export function TaskList({ group, onAddTask }) {
 
     function handleChange(ev) {
         let { value } = ev.target
-        setTaskTitle(value)
+        setTaskTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
     }
 
     function handleAddTask(ev) {
@@ -45,8 +45,11 @@ export function TaskList({ group, onAddTask }) {
 
             {!isAdding ? (
                 <div className="group-footer">
-                    <button onClick={handleIsAdding}>Add a card</button>
-                    <button title="create from template">icon</button>
+                    <div className="add-task-button">
+                        <li className='icon-add'></li>
+                        <button onClick={handleIsAdding}>Add a card</button>
+                    </div>
+                    <i className="icon-template" title="create from template"></i>
                 </div>
             ) : (
                 <form onSubmit={handleAddTask}>

@@ -1,6 +1,5 @@
 
 import { utilService } from "./util.service.js";
-import { boardActions } from "../store/actions/board.actions.js";
 
 export const groupService = {
     addList,
@@ -11,50 +10,40 @@ export const groupService = {
 
 
 async function addList(listToSave, board) {
+    board = structuredClone(board)
     board.groups.push(listToSave)
-    return boardActions.saveBoard(board)
+    return board
 }
 
 async function addTask(taskToSave, groupId, board) {
+    board = structuredClone(board)
     const groupInx = board.groups.findIndex(group => group.id === groupId)
     board.groups[groupInx].tasks.push(taskToSave)
-    return boardActions.saveBoard(board)
+    return board
 }
 
-function getDefaultList(title = "", tasks = [], style = {}) {
+function getDefaultList(title = "") {
     const list = {
         id: utilService.makeId(),
         title,
-        tasks,
-        style,
+        tasks: [],
+        style: {},
     };
     return list;
 }
 
-function getDefaultTask(
-    title = "",
-    status = "",
-    description = "",
-    byMember = {},
-    checkLists = [],
-    comments = [],
-    dueDate = null,
-    labelIds = [],
-    memberIds = [],
-    style = {}
-) {
+function getDefaultTask(title = "") {
     const task = {
         id: utilService.makeId(),
         title,
-        status,
-        style,
-        description,
-        byMember,
-        checkLists,
-        comments,
-        dueDate,
-        labelIds,
-        memberIds,
+        style: {},
+        description: "",
+        byMember: {},
+        checkLists: [],
+        comments: [],
+        dueDate: "",
+        labelIds: [],
+        memberIds: [],
     };
     return task;
 }
