@@ -2,6 +2,7 @@
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
+// TaskDetails
 .icon-close-grayblue {
   @include iconCustomColor(#42526e, "/public/icons/close.svg");
 }
@@ -21,6 +22,48 @@
 .icon-watch-task {
   content: url("/public/icons/watch-task.svg");
 }
+
+.icon-task-members {
+  content: url("/public/icons/member-gray.svg");
+}
+
+.icon-task-labels {
+  // content: url("/public/icons/.svg");
+}
+
+.icon-task-checklist {
+  // content: url("/public/icons/.svg");
+}
+
+.icon-task-dates {
+  // @include iconCustomColor(#182A4E, "/public/icons/clock.svg");
+  content: url("/public/icons/clock.svg");
+}
+
+.icon-task-attachments {
+  content: url("/public/icons/attachment2.svg");
+}
+
+.icon-task-move {
+  // content: url("/public/icons/.svg");
+}
+
+.icon-task-copy {
+  content: url("/public/icons/copy.svg");
+}
+
+.icon-task-make-template {
+  content: url("/public/icons/template.svg");
+}
+
+.icon-task-archive {
+  // content: url("/public/icons/.svg");
+}
+
+.icon-task-share {
+  content: url("/public/icons/share.svg");
+}
+
 
 //AppHeder Icons
 .icon-show-more {
@@ -76,8 +119,8 @@
   content: url("/public/icons/member.svg");
 }
 
-.icon-said-bar {
-  content: url("/public/icons/said-bar.svg");
+.icon-side-bar {
+  content: url("/public/icons/more-options.svg");
 }
 
 .icon-show-options {
@@ -108,3 +151,5 @@
 .icon-edit {
   content: url("/public/icons/edit.svg");
 }
+
+// TaskDetails

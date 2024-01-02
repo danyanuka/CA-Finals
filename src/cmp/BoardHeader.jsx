@@ -58,7 +58,7 @@ export function BoardHeader() {
                 </div>
 
                 <div className="board-header-btn" title="Share board" >
-                    <i className="icon icon-said-bar"></i>
+                    <i className="icon icon-side-bar"></i>
                 </div>
 
 
