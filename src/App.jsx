@@ -14,6 +14,8 @@ import { Login } from "./pages/Login";
 import { BoardIndex } from "./pages/BoardIndex";
 import { BoardDetails } from "./pages/BoardDetails";
 import { TaskDetails } from "./pages/TaskDetails";
+import { RootModal } from "./cmp/rootModal";
+import { useSelector } from "react-redux";
 
 export function App() {
   return (
@@ -30,6 +32,7 @@ export function App() {
           <Route path="/board/:boardId/:taskId" element={<TaskDetails />} />
         </Routes>
       </main>
+      <RootModal />
     </Router>
   );
 }

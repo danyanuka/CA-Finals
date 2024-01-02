@@ -1,11 +1,11 @@
 import { BoardPreview } from "./BoardPreview";
-import { CreateBoardModal } from "../CreateBoardModal";
+// import { RootModal } from "../RootModal";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../store/actions/app.actions";
 
 export function BoardList({ boards, onSaveBoard }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  console.log(isModalOpen);
+  const dispatch = useDispatch();
   return (
     <ul className="board-list">
       {boards.map((board) => (
@@ -13,14 +13,12 @@ export function BoardList({ boards, onSaveBoard }) {
           <BoardPreview board={board} />
         </li>
       ))}
-
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => dispatch(openModal("createBoard"))}
         className="board-preview new-board"
       >
         Create new board
       </button>
-      {isModalOpen && <CreateBoardModal />}
     </ul>
   );
 }
