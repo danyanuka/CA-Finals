@@ -34,7 +34,7 @@ export function RootModal() {
           {modalType === "createBoard" ? "Create Board" : "Default Title"}
         </p>
         <button className="close-modal" onClick={() => dispatch(closeModal())}>
-          <i className="icon-close"></i>
+          <i className="icon-close-regular"></i>
         </button>
       </header>
       <div className="modal-content">
