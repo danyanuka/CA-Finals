@@ -103,7 +103,13 @@
 					},
 					"style": {
 						"backgroundColor": "#26de81"
-					}
+					},
+					"attachment": [
+						{
+							"id": "1",
+							"imgUrl": "https://i.natgeofe.com/k/327b01e8-be2e-4694-9ae9-ae7837bd8aea/mallard-male-swimming.jpg"
+						}
+					]
 				}
 			],
 			"style": {}
