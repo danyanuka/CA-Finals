@@ -1,9 +1,9 @@
 import { BoardPreview } from "./BoardPreview";
-// import { RootModal } from "../RootModal";
+import { utilService } from "../../services/util.service";
+import { openModal } from "../../store/actions/app.actions";
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../store/actions/app.actions";
-import { utilService } from "../../services/util.service";
 
 export function BoardList({ boards }) {
   const dispatch = useDispatch();

@@ -10,4 +10,36 @@
     .task-body {
         margin: 12px;
     }
+
+    .task-actions {
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+
+        .task-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .icon-with-counts {
+                display: flex;
+                align-items: center;
+            }
+
+            .due-date {
+                display: flex;
+                align-items: center;
+                background-color: rgb(236, 151, 151);
+                color: rgb(105, 3, 3);
+                padding: 5px;
+                border-radius: 15px;
+            }
+        }
+
+        .members {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
 }
