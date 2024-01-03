@@ -64,7 +64,6 @@
   content: url("/public/icons/share.svg");
 }
 
-
 //AppHeder Icons
 .icon-show-more {
   content: url("/public/icons/show-more.svg");
@@ -124,7 +123,7 @@
 }
 
 .icon-show-options {
-  content: url('/public/icons/svgexport-36.svg')
+  content: url("/public/icons/svgexport-36.svg");
 }
 
 // Homepage
@@ -153,3 +152,7 @@
 }
 
 // TaskDetails
+
+.icon-close {
+  content: url("/public/icons/close.svg");
+}

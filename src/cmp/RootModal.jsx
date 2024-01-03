@@ -22,18 +22,24 @@ export function RootModal() {
   function setModalPos() {
     const { mousePos, elementRect } = data;
     modalRef.current.style.left = `${elementRect.left}px`;
+    modalRef.current.style.top = `${elementRect.bottom + 10}px`;
   }
 
   console.log("data", data);
-
   if (!isOpen) return <></>;
-
   return (
     <div ref={modalRef} className="root-modal">
-      <div>
+      <header className="modal-header">
+        <p className="modal-title">
+          {modalType === "createBoard" ? "Create Board" : "Default Title"}
+        </p>
+        <button className="close-modal" onClick={() => dispatch(closeModal())}>
+          <i className="icon-close"></i>
+        </button>
+      </header>
+      <div className="modal-content">
         <DynModalType modalType={modalType} />
       </div>
-      <button onClick={() => dispatch(closeModal())}>Close</button>
     </div>
   );
 }

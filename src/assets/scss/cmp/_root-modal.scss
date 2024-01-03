@@ -5,4 +5,29 @@
   box-shadow: 0px 8px 12px #091e4226, 0px 0px 1px #091e424f;
   overflow: hidden;
   border-radius: 8px;
+  .modal-header {
+    display: grid;
+    grid-template-columns: 32px auto 32px;
+    grid-template-rows: 40px auto;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    .modal-title {
+      @include fontProps(14px, 600, 40px);
+      color: $clr-text-black-subtle;
+      grid-area: 1/2;
+      align-self: center;
+      justify-self: center;
+    }
+    .close-modal {
+      grid-area: 1/3;
+      align-self: center;
+      justify-self: center;
+      @include buttonHoverPress(8px);
+      .icon-close {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
 }

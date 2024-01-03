@@ -44,7 +44,7 @@ export function BoardIndex() {
       <AppHeader></AppHeader>
       <div className="board-index-container">
         <h3>YOUR BOARDS</h3>
-        <BoardList boards={boards} onSaveBoard={onSaveBoard} />
+        <BoardList boards={boards} />
       </div>
     </div>
   );

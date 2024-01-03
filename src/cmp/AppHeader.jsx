@@ -1,13 +1,22 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { utilService } from "../services/util.service";
+import { useDispatch } from "react-redux";
+import { openModal } from "../store/actions/app.actions";
 
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownName, setDropdownName] = useState("");
+  const dispatch = useDispatch();
 
   function onToggle(dropdownName) {
     setIsOpen(!isOpen);
     setDropdownName(dropdownName);
+  }
+
+  function onCreateBoard(ev) {
+    const data = utilService.getEventPositionData(ev);
+    dispatch(openModal("createBoard", data));
   }
 
   return (
@@ -56,7 +65,12 @@ export function AppHeader() {
             <i className="icon-show-more"></i>
           </div>
 
-          <div className="nav-link create" to="" title="Create">
+          <div
+            onClick={onCreateBoard}
+            className="nav-link create"
+            to=""
+            title="Create"
+          >
             Create
           </div>
         </nav>
