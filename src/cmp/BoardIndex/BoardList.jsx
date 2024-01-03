@@ -4,8 +4,29 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../store/actions/app.actions";
 
-export function BoardList({ boards, onSaveBoard }) {
+export function BoardList({ boards }) {
   const dispatch = useDispatch();
+
+  function onCreateBoard(ev) {
+    const elementRect = ev.target.getBoundingClientRect();
+    const { clientY, clientX } = ev;
+    const mousePos = { clientX, clientY };
+    const data = {
+      elementRect: {
+        bottom: elementRect.bottom,
+        height: elementRect.height,
+        left: elementRect.left,
+        right: elementRect.right,
+        top: elementRect.top,
+        width: elementRect.width,
+        x: elementRect.x,
+        y: elementRect.y,
+      },
+      mousePos,
+    };
+    dispatch(openModal("createBoard", data));
+  }
+
   return (
     <ul className="board-list">
       {boards.map((board) => (
@@ -13,10 +34,7 @@ export function BoardList({ boards, onSaveBoard }) {
           <BoardPreview board={board} />
         </li>
       ))}
-      <button
-        onClick={() => dispatch(openModal("createBoard"))}
-        className="board-preview new-board"
-      >
+      <button onClick={onCreateBoard} className="board-preview new-board">
         Create new board
       </button>
     </ul>

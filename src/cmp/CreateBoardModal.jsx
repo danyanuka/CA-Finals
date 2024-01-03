@@ -1,7 +1,7 @@
 export function CreateBoardModal() {
   return (
     <div className="create-board-modal">
-      <p>Hello</p>
+      <p>Create board</p>
     </div>
   );
 }

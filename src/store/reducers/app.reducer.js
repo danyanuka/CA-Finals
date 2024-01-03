@@ -11,7 +11,6 @@ const initialState = {
 export function appReducer(state = initialState, action = {}) {
   switch (action.type) {
     case OPEN_MODAL:
-      console.log(action);
       return {
         ...state,
         modal: {

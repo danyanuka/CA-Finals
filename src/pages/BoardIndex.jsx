@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { boardActions } from "../store/actions/board.actions";
 
 import { BoardList } from "../cmp/BoardIndex/BoardList";
+import { AppHeader } from "../cmp/AppHeader";
 
 export function BoardIndex() {
   const boards = useSelector((storeState) => storeState.boardModule.boards);
@@ -36,12 +37,15 @@ export function BoardIndex() {
     }
   }
 
-  console.log("Boards from index :", boards);
+  //   console.log("Boards from index :", boards);
   if (!boards) return <div>Loading..</div>;
   return (
-    <div className="board-index-container">
-      <h3>YOUR BOARDS</h3>
-      <BoardList boards={boards} onSaveBoard={onSaveBoard} />
+    <div>
+      <AppHeader></AppHeader>
+      <div className="board-index-container">
+        <h3>YOUR BOARDS</h3>
+        <BoardList boards={boards} onSaveBoard={onSaveBoard} />
+      </div>
     </div>
   );
 }
