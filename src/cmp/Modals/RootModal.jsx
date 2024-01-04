@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { closeModal } from "../store/actions/app.actions";
+import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
 import { useEffect, useState, useRef } from "react";
 
