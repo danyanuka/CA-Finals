@@ -26,17 +26,9 @@ async function addTask(taskToSave, groupId, board) {
 async function updateGroup(groupToSave, board) {
     board = structuredClone(board)
     const groupInx = board.groups.findIndex(group => group.id === groupToSave.id)
-    board = board.groups.splice(groupInx, 1, groupToSave)
+    board.groups.splice(groupInx, 1, groupToSave)
 
-    // const group = board.groups.map((group) => {
-    //     if (group.id === groupToSave.id) {
-    //         group = groupToSave
-    //     }
-    //     return group;
-    // });
-
-    console.log(board);
-    // return board
+    return board
 
 }
 

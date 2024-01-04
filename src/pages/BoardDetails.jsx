@@ -46,7 +46,6 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
-
   if (!board) return <div>Loading..</div>;
   return (
     <div className="home">
