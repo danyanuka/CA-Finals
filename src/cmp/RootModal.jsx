@@ -9,7 +9,7 @@ export function RootModal() {
   const [styleProp, setStyleProp] = useState({});
   const dispatch = useDispatch();
   const {
-    modal: { isOpen, modalType, ev },
+    modal: { isOpen, modalType, ev, modalProps },
   } = useSelector((storeState) => storeState.appModule);
 
   useEffect(() => {
@@ -57,9 +57,9 @@ export function RootModal() {
     if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
       modalPos.top = buttonPos.bottom + 8
     } else if (buttonPos.top - 8 - modalSize.height > 0) {
-      modalPos.bottom = buttonPos.top - 8
+      modalPos.bottom = windowSize.height - (buttonPos.top - 8)
     } else {
-      modalPos.bottom = 4.4
+      modalPos.bottom = "4.4px"
     }
 
     setStyleProp((prevStyle) => ({ ...modalPos }))
