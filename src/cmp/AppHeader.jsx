@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { utilService } from "../services/util.service";
+
 import { useDispatch } from "react-redux";
 import { openModal } from "../store/actions/app.actions";
 
@@ -15,8 +15,7 @@ export function AppHeader() {
   }
 
   function onCreateBoard(ev) {
-    const data = utilService.getEventPositionData(ev);
-    dispatch(openModal("createBoard", data));
+    dispatch(openModal("createBoard", ev));
   }
 
   return (

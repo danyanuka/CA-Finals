@@ -1,5 +1,4 @@
 import { BoardPreview } from "./BoardPreview";
-import { utilService } from "../../services/util.service";
 import { openModal } from "../../store/actions/app.actions";
 
 import { useState } from "react";
@@ -9,8 +8,7 @@ export function BoardList({ boards }) {
   const dispatch = useDispatch();
 
   function onCreateBoard(ev) {
-    const data = utilService.getEventPositionData(ev);
-    dispatch(openModal("createBoard", data));
+    dispatch(openModal("createBoard", ev));
   }
 
   return (

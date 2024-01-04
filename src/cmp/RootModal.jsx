@@ -19,13 +19,34 @@ export function RootModal() {
 
   const dispatch = useDispatch();
 
+  function getEventPositionData() {
+    const elementRect = data.target.getBoundingClientRect();
+    const { clientY, clientX } = data;
+    const mousePos = { clientX, clientY };
+    const posData = {
+      elementRect: {
+        bottom: elementRect.bottom,
+        height: elementRect.height,
+        left: elementRect.left,
+        right: elementRect.right,
+        top: elementRect.top,
+        width: elementRect.width,
+        x: elementRect.x,
+        y: elementRect.y,
+      },
+      mousePos,
+    };
+    return posData;
+  }
+
   function setModalPos() {
-    const { mousePos, elementRect } = data;
+    const posData = getEventPositionData();
+    const { elementRect } = posData;
     modalRef.current.style.left = `${elementRect.left}px`;
     modalRef.current.style.top = `${elementRect.bottom + 10}px`;
   }
 
-  console.log("data", data);
+  // console.log("data", data.target.getBoundingClientRect());
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal">

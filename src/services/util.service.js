@@ -1,7 +1,6 @@
 export const utilService = {
   padTwo,
   makeId,
-  getEventPositionData,
 };
 
 function padTwo(num) {
@@ -18,22 +17,22 @@ function makeId(length = 5) {
   return text;
 }
 
-function getEventPositionData(ev) {
-  const elementRect = ev.target.getBoundingClientRect();
-  const { clientY, clientX } = ev;
-  const mousePos = { clientX, clientY };
-  const data = {
-    elementRect: {
-      bottom: elementRect.bottom,
-      height: elementRect.height,
-      left: elementRect.left,
-      right: elementRect.right,
-      top: elementRect.top,
-      width: elementRect.width,
-      x: elementRect.x,
-      y: elementRect.y,
-    },
-    mousePos,
-  };
-  return data;
-}
+// function getEventPositionData(ev) {
+//   const elementRect = ev.target.getBoundingClientRect();
+//   const { clientY, clientX } = ev;
+//   const mousePos = { clientX, clientY };
+//   const data = {
+//     elementRect: {
+//       bottom: elementRect.bottom,
+//       height: elementRect.height,
+//       left: elementRect.left,
+//       right: elementRect.right,
+//       top: elementRect.top,
+//       width: elementRect.width,
+//       x: elementRect.x,
+//       y: elementRect.y,
+//     },
+//     mousePos,
+//   };
+//   return data;
+// }
