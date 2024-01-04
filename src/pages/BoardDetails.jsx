@@ -20,7 +20,7 @@ export function BoardDetails() {
 
   useEffect(() => {
     loadBoard()
-  }, [params.boardId])
+  }, [params.boardId, board])
 
   async function loadBoard() {
     try {
@@ -31,8 +31,8 @@ export function BoardDetails() {
     }
   }
 
-  async function onAddList(newList) {
-    const boardToUpdate = await groupService.addList(newList, board);
+  async function onAddGroup(newGroup) {
+    const boardToUpdate = await groupService.addGroup(newGroup, board);
     return boardActions.saveBoard(boardToUpdate)
   }
 
@@ -41,12 +41,18 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
+  async function onEditGroup(newGroup) {
+    const boardToUpdate = await groupService.updateGroup(newGroup, board);
+    return boardActions.saveBoard(boardToUpdate)
+  }
+
+
   if (!board) return <div>Loading..</div>;
   return (
     <div className="home">
       <AppHeader />
       <BoardHeader />
-      <GroupList board={board} onAddList={onAddList} onAddTask={onAddTask} />
+      <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />
     </div>
   );
 }

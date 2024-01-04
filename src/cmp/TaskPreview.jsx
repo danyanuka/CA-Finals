@@ -9,9 +9,19 @@ export function TaskPreview({ task }) {
             <div className="task-header">
                 <button className="edit-task-header"><li className="icon-edit"></li></button>
             </div>
+
             <div className="task-body">
-                <p>{task.title}</p>
+
+                {/* labels not working yet */}
+                {task.labelIds &&
+                    <div className="labels">
+                        {task.labelIds.map((label) => { label })}
+                    </div>}
+
+                <p className="task-title">{task.title}</p>
+
             </div>
+
             <div className="task-actions">
                 <div className="task-icons">
                     {task.description &&

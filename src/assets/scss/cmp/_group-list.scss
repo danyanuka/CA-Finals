@@ -20,7 +20,7 @@
         display: flex;
         align-items: center;
 
-        .add-list-button {
+        .add-group-button {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -38,17 +38,17 @@
 
 
 
-        .add-list-form {
+        .add-group-form {
             width: 280px;
             height: auto;
 
-            .list-title-input {
+            .group-title-input {
                 width: 95%;
                 margin: 5px;
                 padding: 5px;
             }
 
-            .add-list-buttons {
+            .add-group-buttons {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;

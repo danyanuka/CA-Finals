@@ -7,18 +7,25 @@ import { TaskPreview } from "./TaskPreview"
 import { groupService } from "../services/group.service"
 
 
-export function TaskList({ group, onAddTask }) {
+export function TaskList({ group, onAddTask, onEditGroup }) {
     const tasks = group?.tasks
     const [isAdding, setIsAdding] = useState(false)
+    const [editing, setEditing] = useState(false)
+    const [groupTitle, setGroupTitle] = useState(group.title)
     const [taskTitle, setTaskTitle] = useState('')
 
     function handleIsAdding() {
         setIsAdding(!isAdding)
     }
 
-    function handleChange(ev) {
+    function handleChangeTaskTitle(ev) {
         let { value } = ev.target
         setTaskTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
+    }
+
+    function handleChangeGroupTitle(ev) {
+        let { value } = ev.target
+        setGroupTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
     }
 
     function handleAddTask(ev) {
@@ -26,15 +33,31 @@ export function TaskList({ group, onAddTask }) {
         const taskToAdd = groupService.getDefaultTask(taskTitle)
         onAddTask(taskToAdd, group.id)
         setTaskTitle("")
-        handleAddTask()
+        setIsAdding(false)
+    }
+
+    function handlePressEnter(ev) {
+        if (ev.key === 'Enter') {
+            const groupTpUpdate = { ...group, title: groupTitle }
+            onEditGroup(groupTpUpdate)
+            setEditing(false)
+        }
     }
 
     return (
         <ul className="task-list">
-            <div className="group-header">
-                <h4>{group.title}</h4>
-                <i className="icon-show-options"></i>
-            </div>
+
+
+            {editing ? (
+                <div className="group-header">
+                    <input type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
+                </div>
+            ) : (
+                <div className="group-header" onClick={() => setEditing(true)}>
+                    <h4>{group.title}</h4>
+                    <i className="icon-show-options"></i>
+                </div>
+            )}
             {
                 tasks?.map(task => <li className="task-item" key={task.id}>
                     <TaskPreview task={task} />
@@ -53,7 +76,7 @@ export function TaskList({ group, onAddTask }) {
                 </div>
             ) : (
                 <form onSubmit={handleAddTask}>
-                    <input type="text" name='taskTitle' value={taskTitle} onChange={handleChange} placeholder='Enter task title...' />
+                    <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
                     <div className="add-task-buttons">
                         <button>Add task</button>
                         <button onClick={handleIsAdding}>X</button>

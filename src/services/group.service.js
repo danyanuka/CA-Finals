@@ -2,16 +2,17 @@
 import { utilService } from "./util.service.js";
 
 export const groupService = {
-    addList,
+    addGroup,
     addTask,
-    getDefaultList,
+    updateGroup,
+    getDefaultGroup,
     getDefaultTask,
 };
 
 
-async function addList(listToSave, board) {
+async function addGroup(groupToSave, board) {
     board = structuredClone(board)
-    board.groups.push(listToSave)
+    board.groups.push(groupToSave)
     return board
 }
 
@@ -22,7 +23,24 @@ async function addTask(taskToSave, groupId, board) {
     return board
 }
 
-function getDefaultList(title = "") {
+async function updateGroup(groupToSave, board) {
+    board = structuredClone(board)
+    const groupInx = board.groups.findIndex(group => group.id === groupToSave.id)
+    board = board.groups.splice(groupInx, 1, groupToSave)
+
+    // const group = board.groups.map((group) => {
+    //     if (group.id === groupToSave.id) {
+    //         group = groupToSave
+    //     }
+    //     return group;
+    // });
+
+    console.log(board);
+    // return board
+
+}
+
+function getDefaultGroup(title = "") {
     const list = {
         id: utilService.makeId(),
         title,
@@ -36,14 +54,14 @@ function getDefaultTask(title = "") {
     const task = {
         id: utilService.makeId(),
         title,
-        style: {},
-        description: "",
-        byMember: {},
-        checkLists: [],
-        comments: [],
-        dueDate: "",
-        labelIds: [],
-        memberIds: [],
+        // style: {},
+        // description: "",
+        // byMember: {},
+        // checkLists: [],
+        // comments: [],
+        // dueDate: "",
+        // labelIds: [],
+        // memberIds: [],
     };
     return task;
 }

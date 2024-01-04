@@ -6,10 +6,10 @@ import { GroupPreview } from './GroupPreview'
 //services
 import { groupService } from '../services/group.service'
 
-export function GroupList({ board, onAddList, onAddTask }) {
+export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
     const groups = board?.groups
     const [isAdding, setIsAdding] = useState(false)
-    const [listTitle, setListTitle] = useState('')
+    const [groupTitle, setGroupTitle] = useState('')
 
     function handleIsAdding() {
         setIsAdding(!isAdding)
@@ -17,16 +17,16 @@ export function GroupList({ board, onAddList, onAddTask }) {
 
     function handleChange(ev) {
         let { value } = ev.target
-        setListTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
+        setGroupTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
     }
 
 
-    function handleAddList(ev) {
+    function handleAddGroup(ev) {
         ev.preventDefault()
-        const listToAdd = groupService.getDefaultList(listTitle)
-        onAddList(listToAdd)
-        setListTitle("")
-        handleAddList()
+        const groupToAdd = groupService.getDefaultGroup(groupTitle)
+        onAddGroup(groupToAdd)
+        setGroupTitle("")
+        setIsAdding(false)
     }
 
     return (
@@ -34,22 +34,22 @@ export function GroupList({ board, onAddList, onAddTask }) {
         <ul className="group-list">
             {
                 groups?.map(group => <li className='group-item' key={group.id}>
-                    <GroupPreview group={group} onAddTask={onAddTask} />
+                    <GroupPreview group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
 
                 </li>)
             }
 
             <li className="group-item action">
                 {!isAdding ? (
-                    <div className='add-list-button'>
+                    <div className='add-group-button'>
                         <li className='icon-add'></li>
-                        <button onClick={handleIsAdding}>Add another list</button>
+                        <button onClick={handleIsAdding}>Add another Group</button>
                     </div>
                 ) : (
-                    <form className="add-list-form" onSubmit={handleAddList}>
-                        <input className='list-title-input' type="text" name='listTitle' value={listTitle} onChange={handleChange} placeholder='Enter list title...' />
-                        <div className="add-list-buttons">
-                            <button>Add list</button>
+                    <form className="add-group-form" onSubmit={handleAddGroup}>
+                        <input className='group-title-input' type="text" name='groupTitle' value={groupTitle} onChange={handleChange} placeholder='Enter group title...' />
+                        <div className="add-group-buttons">
+                            <button>Add group</button>
                             <button onClick={handleIsAdding}>X</button>
                         </div>
                     </form>
