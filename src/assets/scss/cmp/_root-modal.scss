@@ -1,10 +1,12 @@
 .root-modal {
+  background-color: white;
   position: fixed;
   max-height: 639px;
   width: 304px;
   box-shadow: 0px 8px 12px #091e4226, 0px 0px 1px #091e424f;
   overflow: hidden;
   border-radius: 8px;
+  color: $clr-text-black-subtle;
   .modal-header {
     display: grid;
     grid-template-columns: 32px auto 32px;
@@ -14,7 +16,7 @@
     padding-right: 8px;
     .modal-title {
       @include fontProps(14px, 600, 40px);
-      color: $clr-text-black-subtle;
+
       grid-area: 1/2;
       align-self: center;
       justify-self: center;

@@ -14,13 +14,17 @@ export function BoardList({ boards }) {
   return (
     <ul className="board-list">
       {boards.map((board) => (
-        <li className="board-preview" key={board._id}>
+        <li
+          style={{ backgroundColor: board.style.backgroundColor }}
+          className="board-preview"
+          key={board._id}
+        >
           <BoardPreview board={board} />
         </li>
       ))}
-      <button onClick={onCreateBoard} className="board-preview new-board">
+      <li onClick={onCreateBoard} className="board-preview new-board">
         Create new board
-      </button>
+      </li>
     </ul>
   );
 }

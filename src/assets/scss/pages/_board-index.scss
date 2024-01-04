@@ -24,22 +24,32 @@
       width: fit-content;
       flex-basis: 25%;
       width: 25%;
-      background-color: $clr-bg-pink-bold;
       color: white;
       margin-right: 16.5px;
       margin-bottom: 16.5px;
       border-radius: 3px;
       text-align: left;
       &.new-board {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
         background-color: $clr-bg-neutral;
-        button {
-          @include fontProps(14px, 400, 24px);
-          background-color: transparent;
-          color: $clr-text-black;
-          border: none;
-          height: 100%;
-        }
+        @include fontProps(14px, 400, 24px);
+        color: $clr-text-black;
+        @include transitionAction(
+          background-color,
+          $clr-bg-neutral-hovered,
+          10ms
+        );
+        @include transitionAction(
+          background-color,
+          $clr-bg-neutral-pressed,
+          10ms,
+          active
+        );
       }
+
       .board-preview-content {
         margin: 8px;
         height: 80px;

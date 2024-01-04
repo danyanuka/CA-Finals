@@ -5,19 +5,17 @@ import { CreateBoardModal } from "./CreateBoardModal";
 import { useEffect, useRef } from "react";
 
 export function RootModal() {
+  const modalRef = useRef();
+  const dispatch = useDispatch();
   const {
     modal: { isOpen, modalType, data },
   } = useSelector((storeState) => storeState.appModule);
-
-  const modalRef = useRef();
 
   useEffect(() => {
     if (modalRef.current) {
       setModalPos();
     }
   }, [data]);
-
-  const dispatch = useDispatch();
 
   function getEventPositionData() {
     const elementRect = data.target.getBoundingClientRect();
@@ -46,14 +44,13 @@ export function RootModal() {
     modalRef.current.style.top = `${elementRect.bottom + 10}px`;
   }
 
-  // console.log("data", data.target.getBoundingClientRect());
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal">
       <header className="modal-header">
-        <p className="modal-title">
+        <h2 className="modal-title">
           {modalType === "createBoard" ? "Create Board" : "Default Title"}
-        </p>
+        </h2>
         <button className="close-modal" onClick={() => dispatch(closeModal())}>
           <i className="icon-close-regular"></i>
         </button>

@@ -1,5 +1,21 @@
 .create-board-modal {
-  background-color: black;
-  position: fixed;
-  z-index: 999;
+  padding: 0 12px 12px;
+  overflow-y: auto;
+  .board-demo-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+    .bg-board-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 120px;
+      border-radius: 3px;
+      background-color: aqua;
+      background-position-x: center;
+      background-position-y: center;
+      box-shadow: 0px 2px 1px #091e4240, 0px 0px 1px #091e424f;
+    }
+  }
 }
