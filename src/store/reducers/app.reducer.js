@@ -5,6 +5,7 @@ const initialState = {
   modal: {
     isOpen: false,
     modalType: null,
+    ev: null,
   },
 };
 
@@ -16,7 +17,7 @@ export function appReducer(state = initialState, action = {}) {
         modal: {
           isOpen: true,
           modalType: action.modalType,
-          data: action.data || null, // optional data for later use
+          ev: action.ev || null, // optional data for later use
         },
       };
     case CLOSE_MODAL:
@@ -25,7 +26,7 @@ export function appReducer(state = initialState, action = {}) {
         modal: {
           isOpen: false,
           modalType: null,
-          data: null,
+          ev: null,
         },
       };
 

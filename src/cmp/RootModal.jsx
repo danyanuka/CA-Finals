@@ -2,51 +2,61 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { closeModal } from "../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function RootModal() {
   const modalRef = useRef();
+  const [styleProp, setStyleProp] = useState({});
   const dispatch = useDispatch();
   const {
-    modal: { isOpen, modalType, data },
+    modal: { isOpen, modalType, ev },
   } = useSelector((storeState) => storeState.appModule);
 
   useEffect(() => {
     if (modalRef.current) {
       setModalPos();
     }
-  }, [data]);
+  }, [ev]);
 
-  function getEventPositionData() {
-    const elementRect = data.target.getBoundingClientRect();
-    const { clientY, clientX } = data;
-    const mousePos = { clientX, clientY };
-    const posData = {
-      elementRect: {
-        bottom: elementRect.bottom,
-        height: elementRect.height,
-        left: elementRect.left,
-        right: elementRect.right,
-        top: elementRect.top,
-        width: elementRect.width,
-        x: elementRect.x,
-        y: elementRect.y,
-      },
-      mousePos,
-    };
-    return posData;
+  function getButtonPosition() {
+    const elementRect = ev.target.getBoundingClientRect();
+    return {
+      bottom: elementRect.bottom,
+      left: elementRect.left,
+      right: elementRect.right,
+      top: elementRect.top,
+    }
+  }
+
+  function getModalSize() {
+    const elementRect = modalRef.current.getBoundingClientRect();
+    return {
+      height: elementRect.height,
+      width: elementRect.width
+    }
   }
 
   function setModalPos() {
-    const posData = getEventPositionData();
-    const { elementRect } = posData;
-    modalRef.current.style.left = `${elementRect.left}px`;
-    modalRef.current.style.top = `${elementRect.bottom + 10}px`;
+    const buttonPos = getButtonPosition();
+    const modalSize = getModalSize();
+    const windowSize = {
+      height: window.innerHeight, 
+      width: window.innerWidth
+    }
+
+
+
+    setStyleProp((prevStyle) => ({
+      ...prevStyle,
+      left: `${buttonPos.left}px`,
+      top: `${buttonPos.bottom + 10}px`
+    }))
   }
 
+  console.log(styleProp)
   if (!isOpen) return <></>;
   return (
-    <div ref={modalRef} className="root-modal">
+    <div ref={modalRef} className="root-modal" style={styleProp}>
       <header className="modal-header">
         <h2 className="modal-title">
           {modalType === "createBoard" ? "Create Board" : "Default Title"}
