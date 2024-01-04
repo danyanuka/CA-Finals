@@ -40,17 +40,29 @@ export function RootModal() {
     const buttonPos = getButtonPosition();
     const modalSize = getModalSize();
     const windowSize = {
-      height: window.innerHeight, 
+      height: window.innerHeight,
       width: window.innerWidth
     }
 
+    let modalPos = {}
 
+    // Horizontal
+    if (buttonPos.left + modalSize.width < windowSize.width) {
+      modalPos.left = buttonPos.left
+    } else {
+      modalPos.right = "0px"
+    }
 
-    setStyleProp((prevStyle) => ({
-      ...prevStyle,
-      left: `${buttonPos.left}px`,
-      top: `${buttonPos.bottom + 10}px`
-    }))
+    // Vertical
+    if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
+      modalPos.top = buttonPos.bottom + 8
+    } else if (buttonPos.top - 8 - modalSize.height > 0) {
+      modalPos.bottom = buttonPos.top - 8
+    } else {
+      modalPos.bottom = windowSize.height - 4.4
+    }
+
+    setStyleProp((prevStyle) => ({ ...modalPos }))
   }
 
   console.log(styleProp)
