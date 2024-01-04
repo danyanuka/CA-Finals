@@ -59,7 +59,7 @@ export function RootModal() {
     } else if (buttonPos.top - 8 - modalSize.height > 0) {
       modalPos.bottom = buttonPos.top - 8
     } else {
-      modalPos.bottom = windowSize.height - 4.4
+      modalPos.bottom = 4.4
     }
 
     setStyleProp((prevStyle) => ({ ...modalPos }))
