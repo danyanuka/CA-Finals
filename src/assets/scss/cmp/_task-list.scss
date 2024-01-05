@@ -6,6 +6,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        cursor: pointer;
+
+        .edit-group-title {
+            width: 86%;
+            border: 1.5px solid blue;
+            padding: 7px;
+            border-radius: 10px;
+        }
     }
 
     .task-item {
@@ -46,6 +54,7 @@
 
 .task-item:hover {
     border: 1px solid blue;
+    cursor: pointer;
 }
 
 .task-item:hover .edit-task-header {

@@ -1,0 +1,43 @@
+.show-options-modal {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: aliceblue;
+    border-radius: 15px;
+
+    .group-action-title {
+        font-weight: bold;
+    }
+
+    button {
+        border: none;
+        display: block;
+        margin: 10px;
+        font-size: medium;
+    }
+
+    //Change to grid
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon-close-regular {
+            font-size: small;
+        }
+    }
+
+    .modal-actions,
+    .modal-action-sort,
+    .modal-actions-automation,
+    .modal-more-actions {
+        border-bottom: 0.5px solid rgb(172, 168, 168);
+    }
+
+    .group-automation-title {
+        font-size: 13px;
+        font-weight: 550;
+        margin: 15px 10px;
+    }
+
+}

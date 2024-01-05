@@ -3,6 +3,9 @@ import { useState } from "react"
 //cmps
 import { TaskPreview } from "./TaskPreview"
 
+//modals
+import { ShowOptionsModal } from "./Modals/ShowOptionsModal"
+
 //services
 import { groupService } from "../services/group.service"
 
@@ -11,6 +14,7 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     const tasks = group?.tasks
     const [isAdding, setIsAdding] = useState(false)
     const [editing, setEditing] = useState(false)
+    const [isOpenOptions, setIsOpenOptions] = useState(false)
     const [groupTitle, setGroupTitle] = useState(group.title)
     const [taskTitle, setTaskTitle] = useState('')
 
@@ -45,45 +49,49 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     }
 
     return (
-        <ul className="task-list">
+        <>
+            <ul className="task-list">
 
-
-            {editing ? (
                 <div className="group-header">
-                    <input type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
+                    {editing ? (
+                        <input className="edit-group-title" type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
+                    ) : (
+                        <h4 onClick={() => setEditing(true)}>{group.title}</h4>
+                    )}
+                    <i onClick={() => setIsOpenOptions(true)} className="icon-show-options"></i>
+
                 </div>
-            ) : (
-                <div className="group-header" onClick={() => setEditing(true)}>
-                    <h4>{group.title}</h4>
-                    <i className="icon-show-options"></i>
-                </div>
-            )}
-            {
-                tasks?.map(task => <li className="task-item" key={task.id}>
-                    <TaskPreview task={task} />
 
-                </li>)
-            }
+                {
+                    tasks?.map(task => <li className="task-item" key={task.id}>
+                        <TaskPreview task={task} />
+
+                    </li>)
+                }
 
 
-            {!isAdding ? (
-                <div className="group-footer">
-                    <div className="add-task-button">
-                        <li className='icon-add'></li>
-                        <button onClick={handleIsAdding}>Add a card</button>
+                {!isAdding ? (
+                    <div className="group-footer">
+                        <div className="add-task-button">
+                            <li className='icon-add'></li>
+                            <button onClick={handleIsAdding}>Add a card</button>
+                        </div>
+                        <i className="icon-template" title="create from template"></i>
                     </div>
-                    <i className="icon-template" title="create from template"></i>
-                </div>
-            ) : (
-                <form onSubmit={handleAddTask}>
-                    <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
-                    <div className="add-task-buttons">
-                        <button>Add task</button>
-                        <button onClick={handleIsAdding}>X</button>
-                    </div>
-                </form>
-            )}
+                ) : (
+                    <form onSubmit={handleAddTask}>
+                        <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                        <div className="add-task-buttons">
+                            <button>Add task</button>
+                            <button onClick={handleIsAdding}>X</button>
+                        </div>
+                    </form>
+                )}
 
-        </ul>
+            </ul>
+
+            {/* {isOpenOptions &&
+                <ShowOptionsModal />} */}
+        </>
     )
 }

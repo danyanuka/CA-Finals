@@ -1,11 +1,18 @@
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export function TaskPreview({ task }) {
+    const navigate = useNavigate()
+    const { boardId } = useParams()
     let date = new Date(task.dueDate).toString();
     date = date.split(" ")
 
+    function handleGoToTask(taskId) {
+        navigate(`/board/${boardId}/${taskId}`)
+    }
+
     return (
-        <div className="task-preview">
+        <div className="task-preview" onClick={() => { handleGoToTask(task.id) }}>
             <div className="task-header">
                 <button className="edit-task-header"><li className="icon-edit"></li></button>
             </div>
