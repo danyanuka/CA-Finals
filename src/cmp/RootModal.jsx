@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { closeModal } from "../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 export function RootModal() {
   const modalRef = useRef();

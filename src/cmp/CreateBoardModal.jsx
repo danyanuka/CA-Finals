@@ -1,3 +1,5 @@
+import { BackgroundPicker } from "./BackgroundPicker";
+
 export function CreateBoardModal() {
   return (
     <div className="create-board-modal">
@@ -9,6 +11,10 @@ export function CreateBoardModal() {
             alt=""
           />
         </div>
+      </div>
+      <div className="background-picker-container">
+        <label htmlFor="background-picker">Background</label>
+        <BackgroundPicker />
       </div>
     </div>
   );

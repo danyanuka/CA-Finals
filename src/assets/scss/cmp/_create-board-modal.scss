@@ -1,4 +1,7 @@
 .create-board-modal {
+  label {
+    @include fontProps(12px, 700, 16px);
+  }
   padding: 0 12px 12px;
   overflow-y: auto;
   .board-demo-container {
@@ -18,4 +21,6 @@
       box-shadow: 0px 2px 1px #091e4240, 0px 0px 1px #091e424f;
     }
   }
+  // .background-picker-container {
+  // }
 }
