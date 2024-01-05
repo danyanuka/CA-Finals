@@ -78,13 +78,13 @@ export function RootModal() {
         </button>
       </header>
       <div className="modal-content">
-        <DynModalType modalType={modalType} />
+        <DynModalType modalType={modalType} modalProps={modalProps} />
       </div>
     </div>
   );
 }
 
-function DynModalType({ modalType }) {
+function DynModalType({ modalType, modalProps }) {
   switch (modalType) {
     case "createBoard":
       return <CreateBoardModal />;

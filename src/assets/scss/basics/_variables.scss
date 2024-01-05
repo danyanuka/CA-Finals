@@ -70,8 +70,8 @@ $clr-bg-danger-bold:                #C9372C;
 
 /* Mostly for neutral buttons */
 $clr-bg-neutral:                    #091E420F;
-$clr-bg-neutral-hovered:            #091E4224;
-$clr-bg-neutral-pressed:            #091E424F;
+$clr-bg-neutral-hovered:            #091E4224;  /* SAME AS: clr-dynamic-button-black-hovered */
+$clr-bg-neutral-pressed:            #091E424F;  /* SAME AS: clr-dynamic-button-black-pressed */
 
 /* For transparent buttons with dynamic colors */
 $clr-dynamic-button-black:                transparent;
