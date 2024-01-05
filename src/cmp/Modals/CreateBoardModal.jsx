@@ -1,4 +1,4 @@
-import { BackgroundPicker } from "./BackgroundPicker";
+import { BackgroundPicker } from "../BackgroundPicker";
 
 export function CreateBoardModal() {
   return (
