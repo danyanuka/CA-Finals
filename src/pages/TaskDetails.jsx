@@ -50,14 +50,16 @@ export function TaskDetails() {
                         <i className="icon-task-details-header"></i>
                         <h1>task.title</h1>
                         <h2>
-                            in list 
+                            in list
                             <button>group.title</button>
                         </h2>
                         <i className="icon-watch-task"></i>
                     </header>
                     <div className="task-details-main">
                         <div className="task-details-brief-items">
-                            <div className="task-details-members">Members</div>
+                            <div className="task-details-members">Members
+                                {/* <TaskMembersModal /> */}
+                            </div>
                             <div className="task-details-labels">Labels</div>
                             <div className="task-details-notifications">Notifications</div>
                             <div className="task-details-date">Dates / Due Date</div>
