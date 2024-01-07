@@ -1,17 +1,24 @@
+import { useDispatch } from "react-redux"
+import { closeModal } from "../../store/actions/app.actions";
 
-export function ShowOptionsModal() {
+export function ShowOptionsModal({ handleIsAddingFromModal }) {
+    const dispatch = useDispatch();
 
+    function onAddTask() {
+        handleIsAddingFromModal(true)
+        dispatch(closeModal());
+    }
     return (
         <div className="show-options-modal">
-            <div className="modal-header">
-                {/* not finish */}
+            {/* <div className="modal-header">
                 <span></span>
                 <h5 className="group-action-title">Group actions</h5>
                 <button><i className="icon-close-regular"></i></button>
-            </div>
+            </div> */}
+
             <div className="modal-actions">
                 <div className="action">
-                    <button>Add task</button>
+                    <button onClick={onAddTask}>Add task</button>
                 </div>
                 <div className="action">
                     <button>Copy group</button>

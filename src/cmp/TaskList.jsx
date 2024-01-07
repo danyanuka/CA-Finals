@@ -1,10 +1,11 @@
 import { useState } from "react"
 
+//Redux
+import { openModal } from "../store/actions/app.actions";
+import { useDispatch } from "react-redux";
+
 //cmps
 import { TaskPreview } from "./TaskPreview"
-
-//modals
-import { ShowOptionsModal } from "./Modals/ShowOptionsModal"
 
 //services
 import { groupService } from "../services/group.service"
@@ -13,13 +14,23 @@ import { groupService } from "../services/group.service"
 export function TaskList({ group, onAddTask, onEditGroup }) {
     const tasks = group?.tasks
     const [isAdding, setIsAdding] = useState(false)
+    const [isAddingFromModal, setIsAddingFromModal] = useState(false)
     const [editing, setEditing] = useState(false)
-    const [isOpenOptions, setIsOpenOptions] = useState(false)
     const [groupTitle, setGroupTitle] = useState(group.title)
     const [taskTitle, setTaskTitle] = useState('')
+    const dispatch = useDispatch();
+
+    function onMoreOptions(ev) {
+        dispatch(openModal("moreOptions", ev, handleIsAddingFromModal));
+
+    }
 
     function handleIsAdding() {
         setIsAdding(!isAdding)
+    }
+
+    function handleIsAddingFromModal(bol) {
+        setIsAddingFromModal(bol)
     }
 
     function handleChangeTaskTitle(ev) {
@@ -35,9 +46,11 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     function handleAddTask(ev) {
         ev.preventDefault()
         const taskToAdd = groupService.getDefaultTask(taskTitle)
-        onAddTask(taskToAdd, group.id)
+        const addToStart = isAddingFromModal ? true : false
+        onAddTask(taskToAdd, group.id, addToStart)
         setTaskTitle("")
         setIsAdding(false)
+        // setIsAddingFromModal(false)
     }
 
     function handlePressEnter(ev) {
@@ -58,17 +71,27 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                     ) : (
                         <h4 onClick={() => setEditing(true)}>{group.title}</h4>
                     )}
-                    <i onClick={() => setIsOpenOptions(true)} className="icon-show-options"></i>
+                    <i onClick={onMoreOptions} className="icon-show-options"></i>
 
                 </div>
+                <div className="scrollbar">
+                    {isAddingFromModal &&
+                        <form onSubmit={handleAddTask}>
+                            <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                            <div className="add-task-buttons">
+                                <button>Add task</button>
+                                <button onClick={() => { setIsAddingFromModal(false) }}>X</button>
+                            </div>
+                        </form>
+                    }
+                    {
+                        tasks?.map(task =>
+                            <li className="task-item" key={task.id}>
+                                <TaskPreview task={task} />
+                            </li>)
+                    }
 
-                {
-                    tasks?.map(task => <li className="task-item" key={task.id}>
-                        <TaskPreview task={task} />
-
-                    </li>)
-                }
-
+                </div>
 
                 {!isAdding ? (
                     <div className="group-footer">
@@ -89,9 +112,6 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                 )}
 
             </ul>
-
-            {/* {isOpenOptions &&
-                <ShowOptionsModal />} */}
         </>
     )
 }

@@ -16,10 +16,10 @@ async function addGroup(groupToSave, board) {
     return board
 }
 
-async function addTask(taskToSave, groupId, board) {
+async function addTask(taskToSave, groupId, board, addToStart) {
     board = structuredClone(board)
     const groupInx = board.groups.findIndex(group => group.id === groupId)
-    board.groups[groupInx].tasks.push(taskToSave)
+    addToStart ? board.groups[groupInx].tasks.unshift(taskToSave) : board.groups[groupInx].tasks.push(taskToSave)
     return board
 }
 

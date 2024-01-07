@@ -1,16 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
 import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { ShowOptionsModal } from "./ShowOptionsModal";
+
 
 export function RootModal() {
-  const modalRef = useRef();
   const [styleProp, setStyleProp] = useState({});
+
+  const modalRef = useRef();
   const dispatch = useDispatch();
-  const {
-    modal: { isOpen, modalType, ev, modalProps },
-  } = useSelector((storeState) => storeState.appModule);
+
+  const { modal: { isOpen, modalType, ev, modalProps }, } = useSelector((storeState) => storeState.appModule);
 
   useLayoutEffect(() => {
     if (modalRef.current) {
@@ -88,7 +90,8 @@ function DynModalType({ modalType, modalProps }) {
   switch (modalType) {
     case "createBoard":
       return <CreateBoardModal />;
-
+    case "moreOptions":
+      return <ShowOptionsModal handleIsAddingFromModal={modalProps} />
     // More type cases below
 
     default:
