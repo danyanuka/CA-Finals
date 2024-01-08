@@ -48,10 +48,10 @@ export function TaskDetails() {
                 <div className="task-details-data">
                     <header className="task-details-header">
                         <i className="icon-task-details-header"></i>
-                        <h1>task.title</h1>
+                        <h1>{task.title}</h1>
                         <h2>
                             in list
-                            <button>group.title</button>
+                            <button>{group.title}</button>
                         </h2>
                         <i className="icon-watch-task"></i>
                     </header>

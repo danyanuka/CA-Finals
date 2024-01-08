@@ -1,6 +1,8 @@
 export const utilService = {
   padTwo,
   makeId,
+  getTargetPosition,
+  calcModalPosition
 };
 
 function padTwo(num) {
@@ -17,22 +19,41 @@ function makeId(length = 5) {
   return text;
 }
 
-// function getEventPositionData(ev) {
-//   const elementRect = ev.target.getBoundingClientRect();
-//   const { clientY, clientX } = ev;
-//   const mousePos = { clientX, clientY };
-//   const data = {
-//     elementRect: {
-//       bottom: elementRect.bottom,
-//       height: elementRect.height,
-//       left: elementRect.left,
-//       right: elementRect.right,
-//       top: elementRect.top,
-//       width: elementRect.width,
-//       x: elementRect.x,
-//       y: elementRect.y,
-//     },
-//     mousePos,
-//   };
-//   return data;
-// }
+function getTargetPosition(targetElement) {
+  const elementRect = targetElement.getBoundingClientRect();
+  return {
+    bottom: elementRect.bottom,
+    left: elementRect.left,
+    right: elementRect.right,
+    top: elementRect.top,
+  };
+}
+
+function calcModalPosition(buttonPos, modalSize) {
+  const windowSize = {
+    height: window.innerHeight,
+    width: window.innerWidth,
+  };
+
+  let modalPos = {};
+
+  // Horizontal
+  if (buttonPos.left + modalSize.width < windowSize.width) {
+    modalPos.left = buttonPos.left;
+  } else {
+    modalPos.right = 0;
+  }
+
+  // Vertical
+  if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
+    modalPos.top = buttonPos.bottom + 8;
+  } else if (buttonPos.top - 8 - modalSize.height > 0) {
+    modalPos.bottom = windowSize.height - (buttonPos.top - 8);
+  } else {
+    modalPos.bottom = 4.4;
+  }
+
+  return modalPos;
+}
+
+

@@ -18,7 +18,7 @@ export function appReducer(state = initialState, action = {}) {
         modal: {
           isOpen: true,
           modalType: action.modalType,
-          ev: action.ev || null,
+          target: action.target || null,
           modalProps: action.modalProps || null  // optional data for later use
         },
       };
@@ -28,7 +28,7 @@ export function appReducer(state = initialState, action = {}) {
         modal: {
           isOpen: false,
           modalType: null,
-          ev: null,
+          target: null,
           modalProps: null
         },
       };
