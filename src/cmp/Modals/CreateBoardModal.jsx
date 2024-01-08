@@ -1,8 +1,10 @@
+import { RootModalHeader } from "./RootModalHeader";
 import { BackgroundPicker } from "../BackgroundPicker";
 
 export function CreateBoardModal() {
   return (
     <div className="create-board-modal">
+      <RootModalHeader label="Create Board"/>
       <div className="board-demo-container">
         <div className="bg-board-demo">
           <img

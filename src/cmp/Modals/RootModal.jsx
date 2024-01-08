@@ -65,21 +65,11 @@ export function RootModal() {
     setStyleProp((prevStyle) => ({ ...modalPos }));
   }
 
-  console.log(styleProp);
+
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal" style={styleProp}>
-      <header className="modal-header">
-        <h2 className="modal-title">
-          {modalType === "createBoard" ? "Create Board" : "Default Title"}
-        </h2>
-        <button className="close-modal" onClick={() => dispatch(closeModal())}>
-          <i className="icon-close-regular"></i>
-        </button>
-      </header>
-      <div className="modal-content">
-        <DynModalType modalType={modalType} modalProps={modalProps} />
-      </div>
+      <DynModalType modalType={modalType} modalProps={modalProps} />
     </div>
   );
 }
