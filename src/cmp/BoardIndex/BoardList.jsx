@@ -1,6 +1,7 @@
 import { BoardPreview } from "./BoardPreview";
 import { openModal } from "../../store/actions/app.actions";
 
+import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 

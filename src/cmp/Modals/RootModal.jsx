@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
@@ -65,7 +66,6 @@ export function RootModal() {
     setStyleProp((prevStyle) => ({ ...modalPos }));
   }
 
-  console.log(styleProp);
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal" style={styleProp}>
