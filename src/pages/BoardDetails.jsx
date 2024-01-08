@@ -12,7 +12,6 @@ import { GroupList } from "../cmp/GroupList";
 
 //services
 import { groupService } from "../services/group.service";
-import { ShowOptionsModal } from "../cmp/Modals/ShowOptionsModal";
 
 export function BoardDetails() {
   const params = useParams()
@@ -37,8 +36,8 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
-  async function onAddTask(newTask, groupId) {
-    const boardToUpdate = await groupService.addTask(newTask, groupId, board);
+  async function onAddTask(newTask, groupId, addToStart) {
+    const boardToUpdate = await groupService.addTask(newTask, groupId, board, addToStart);
     return boardActions.saveBoard(boardToUpdate)
   }
 
@@ -52,7 +51,6 @@ export function BoardDetails() {
     <div className="home">
       <AppHeader />
       <BoardHeader />
-      <ShowOptionsModal />
       <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />
 
     </div>
