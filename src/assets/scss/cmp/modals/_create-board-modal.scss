@@ -1,9 +1,13 @@
 .create-board-modal {
   label {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 12px;
     @include fontProps(12px, 700, 16px);
   }
   padding: 0 12px 12px;
   overflow-y: auto;
+  overflow-x: auto;
   .board-demo-container {
     display: flex;
     justify-content: center;
@@ -21,6 +25,25 @@
       box-shadow: 0px 2px 1px #091e4240, 0px 0px 1px #091e424f;
     }
   }
-  // .background-picker-container {
-  // }
+  .background-picker-container {
+    .bg-list-colors {
+      display: flex;
+      justify-content: space-between;
+      li {
+        list-style: none;
+      }
+      button {
+        border-radius: 3px;
+        border: none;
+        width: 40px;
+        height: 32px;
+        background-size: cover;
+      }
+    }
+  }
+  .bg-more-options {
+    background-color: $clr-bg-neutral;
+    padding-top: 6px;
+    align-self: center;
+  }
 }

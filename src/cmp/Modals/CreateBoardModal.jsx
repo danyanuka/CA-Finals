@@ -1,5 +1,7 @@
 import { RootModalHeader } from "./RootModalHeader";
 import { BackgroundPicker } from "../BackgroundPicker";
+import { useSelector } from "react-redux";
+import React from "react";
 
 export function CreateBoardModal() {
   return (
@@ -14,10 +16,7 @@ export function CreateBoardModal() {
           />
         </div>
       </div>
-      <div className="background-picker-container">
-        <label htmlFor="background-picker">Background</label>
-        <BackgroundPicker />
-      </div>
+      <BackgroundPicker />
     </div>
   );
 }

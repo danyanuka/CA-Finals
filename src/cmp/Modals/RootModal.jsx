@@ -5,14 +5,15 @@ import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 
-
 export function RootModal() {
   const [styleProp, setStyleProp] = useState({});
 
   const modalRef = useRef();
   const dispatch = useDispatch();
 
-  const { modal: { isOpen, modalType, ev, modalProps }, } = useSelector((storeState) => storeState.appModule);
+  const {
+    modal: { isOpen, modalType, ev, modalProps },
+  } = useSelector((storeState) => storeState.appModule);
 
   useLayoutEffect(() => {
     if (modalRef.current) {
@@ -67,7 +68,6 @@ export function RootModal() {
     setStyleProp((prevStyle) => ({ ...modalPos }));
   }
 
-
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal" style={styleProp}>
@@ -81,7 +81,7 @@ function DynModalType({ modalType, modalProps }) {
     case "createBoard":
       return <CreateBoardModal />;
     case "moreOptions":
-      return <ShowOptionsModal handleIsAddingFromModal={modalProps} />
+      return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     // More type cases below
 
     default:
