@@ -15,10 +15,11 @@
 
     .action {
         border: 1px solid black;
-        border-radius: 4%;
+        border-radius: 10px;
         height: 60px;
         display: flex;
         align-items: center;
+        padding: 10px;
 
         .add-group-button {
             display: flex;
@@ -26,6 +27,7 @@
             align-items: center;
             width: 280px;
             cursor: pointer;
+            background-color: transparent;
 
             .icon-add {
                 font-size: small;
@@ -33,6 +35,8 @@
 
             button {
                 border: none;
+                font-size: medium;
+                font-weight: 500;
 
             }
         }

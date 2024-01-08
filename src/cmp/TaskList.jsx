@@ -22,7 +22,6 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
 
     function onMoreOptions(ev) {
         dispatch(openModal("moreOptions", ev.target, handleIsAddingFromModal));
-
     }
 
     function handleIsAdding() {
@@ -77,10 +76,14 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                 <div className="scrollbar">
                     {isAddingFromModal &&
                         <form onSubmit={handleAddTask}>
-                            <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                            <li className="task-item">
+                                <input className="task-title-input" type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter a title for this task...' />
+                            </li>
                             <div className="add-task-buttons">
-                                <button>Add task</button>
-                                <button onClick={() => { setIsAddingFromModal(false) }}>X</button>
+                                <button className="btn add-task-button">Add task</button>
+                                <button className="btn close-button" onClick={() => { setIsAddingFromModal(false) }}>
+                                    <i className="icon-close-regular"></i>
+                                </button>
                             </div>
                         </form>
                     }
@@ -97,7 +100,7 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                     <div className="group-footer">
                         <div className="add-task-button">
                             <li className='icon-add'></li>
-                            <button onClick={handleIsAdding}>Add a card</button>
+                            <button onClick={handleIsAdding}>Add a Task</button>
                         </div>
                         <i className="icon-template" title="create from template"></i>
                     </div>
@@ -108,8 +111,8 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                             <input className="task-title-input" type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter a title for this task...' />
                         </li>
                         <div className="add-task-buttons">
-                            <button>Add task</button>
-                            <button onClick={handleIsAdding}>X</button>
+                            <button className="btn add-task-button">Add task</button>
+                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-regular"></i></button>
                         </div>
                     </form>
 

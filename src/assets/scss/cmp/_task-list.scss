@@ -81,6 +81,30 @@
     border: none;
     border-radius: 10px;
     font-size: medium;
+    padding: 7px;
+}
+
+.add-task-buttons {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+
+    .add-task-button {
+        background-color: #0c66e4;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: medium;
+    }
+
+    .close-button {
+        background-color: transparent;
+        color: black;
+        font-size: large;
+        font-weight: 500;
+    }
 }
 
 .edit-task-header {
