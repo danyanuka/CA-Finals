@@ -33,13 +33,13 @@ export function TaskDetails() {
     return (
         <div className="task-details-wrapper">
             <div className="task-details">
-                <button className="transparent-btn-black task-details-icon-close">
+                <button className="task-details-icon-close">
                     <i className="icon-close-grayblue"></i>
                 </button>
                 {
                     task.style.backgroundColor &&
                     <div className="task-details-cover">
-                        <button className="transparent-btn-black task-details-cover-btn">
+                        <button className="task-details-cover-btn">
                             <i className="icon-task-details-cover"></i>
                             &nbsp;Cover
                         </button>
