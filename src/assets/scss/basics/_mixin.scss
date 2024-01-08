@@ -21,3 +21,11 @@
   -webkit-mask-position: 50% 50%;
   background-color: $color;
 }
+
+@mixin btnColors($colorHover, $colorActive, $color: transparent) {
+  border-radius: 3px;
+  border-width: 0px;
+  background-color: $color;
+  @include transitionAction(background-color, $colorHover, 10ms);
+  @include transitionAction(background-color, $colorActive, 10ms, active);
+}

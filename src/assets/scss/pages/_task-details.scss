@@ -18,10 +18,6 @@
     display: grid;
     overflow: hidden;
 
-    &-btn {
-
-    }
-
     &-icon-close {
         z-index: 21;
         position: absolute;
@@ -40,6 +36,10 @@
             width: 20px;
             height: 20px;
         }
+    }
+
+    &-btn {
+        @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed, $clr-bg-neutral);
     }
 
     &-cover {
