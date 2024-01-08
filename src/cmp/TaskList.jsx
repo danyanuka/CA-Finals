@@ -69,7 +69,7 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                     {editing ? (
                         <input className="edit-group-title" type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
                     ) : (
-                        <h4 onClick={() => setEditing(true)}>{group.title}</h4>
+                        <h4 className="group-title" onClick={() => setEditing(true)}>{group.title}</h4>
                     )}
                     <i onClick={onMoreOptions} className="icon-show-options"></i>
 
@@ -102,13 +102,17 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                         <i className="icon-template" title="create from template"></i>
                     </div>
                 ) : (
+
                     <form onSubmit={handleAddTask}>
-                        <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                        <li className="task-item">
+                            <input className="task-title-input" type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter a title for this task...' />
+                        </li>
                         <div className="add-task-buttons">
                             <button>Add task</button>
                             <button onClick={handleIsAdding}>X</button>
                         </div>
                     </form>
+
                 )}
 
             </ul>

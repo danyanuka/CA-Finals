@@ -1,5 +1,6 @@
 .task-list {
     list-style-type: none;
+    background-color: #eeeff1;
 
 
     .group-header {
@@ -8,6 +9,10 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+
+        .group-title {
+            font-weight: 500;
+        }
 
         .edit-group-title {
             width: 86%;
@@ -41,6 +46,8 @@
         text-decoration: none;
         border: 1px solid lightgrey;
         margin: 7px;
+        background-color: white;
+        border-radius: 10px;
     }
 
     .group-footer {
@@ -67,6 +74,13 @@
         }
 
     }
+}
+
+.task-title-input {
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    font-size: medium;
 }
 
 .edit-task-header {
