@@ -22,7 +22,7 @@ export function TaskPreview({ task }) {
                 {/* labels not working yet */}
                 {task.labelIds &&
                     <div className="labels">
-                        {task.labelIds.map((label) => { label })}
+                        {/* {task.labelIds.map((label) => label)} */}
                     </div>}
 
                 <p className="task-title">{task.title}</p>

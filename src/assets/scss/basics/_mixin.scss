@@ -21,15 +21,3 @@
   -webkit-mask-position: 50% 50%;
   background-color: $color;
 }
-
-@mixin buttonHoverPress($borderRadius) {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: $borderRadius;
-  border: none;
-  @include transitionAction(background-color, $clr-bg-neutral-hovered, 10ms);
-  @include transitionAction(background-color, $clr-bg-neutral-pressed, 10ms, active);
-}

@@ -1,14 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import React from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
 import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { ShowOptionsModal } from "./ShowOptionsModal";
 
 export function RootModal() {
-  const modalRef = useRef();
   const [styleProp, setStyleProp] = useState({});
+
+  const modalRef = useRef();
   const dispatch = useDispatch();
+
   const {
     modal: { isOpen, modalType, ev, modalProps },
   } = useSelector((storeState) => storeState.appModule);
@@ -69,17 +71,7 @@ export function RootModal() {
   if (!isOpen) return <></>;
   return (
     <div ref={modalRef} className="root-modal" style={styleProp}>
-      <header className="modal-header">
-        <h2 className="modal-title">
-          {modalType === "createBoard" ? "Create Board" : "Default Title"}
-        </h2>
-        <button className="close-modal" onClick={() => dispatch(closeModal())}>
-          <i className="icon-close-regular"></i>
-        </button>
-      </header>
-      <div className="modal-content">
-        <DynModalType modalType={modalType} modalProps={modalProps} />
-      </div>
+      <DynModalType modalType={modalType} modalProps={modalProps} />
     </div>
   );
 }
@@ -88,7 +80,8 @@ function DynModalType({ modalType, modalProps }) {
   switch (modalType) {
     case "createBoard":
       return <CreateBoardModal />;
-
+    case "moreOptions":
+      return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     // More type cases below
 
     default:
