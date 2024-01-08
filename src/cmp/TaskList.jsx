@@ -21,7 +21,7 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     const dispatch = useDispatch();
 
     function onMoreOptions(ev) {
-        dispatch(openModal("moreOptions", ev, handleIsAddingFromModal));
+        dispatch(openModal("moreOptions", ev.target, handleIsAddingFromModal));
     }
 
     function handleIsAdding() {
