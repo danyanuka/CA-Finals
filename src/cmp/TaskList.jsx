@@ -15,7 +15,7 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     const tasks = group?.tasks
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
-    const [editing, setEditing] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
     const [groupTitle, setGroupTitle] = useState(group.title)
     const [taskTitle, setTaskTitle] = useState('')
     const dispatch = useDispatch();
@@ -30,6 +30,10 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
 
     function handleIsAddingFromModal(bol) {
         setIsAddingFromModal(bol)
+    }
+
+    function handleIsEditing() {
+        setIsEditing(!isEditing)
     }
 
     function handleChangeTaskTitle(ev) {
@@ -48,15 +52,13 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
         const addToStart = isAddingFromModal ? true : false
         onAddTask(taskToAdd, group.id, addToStart)
         setTaskTitle("")
-        setIsAdding(false)
-        // setIsAddingFromModal(false)
     }
 
     function handlePressEnter(ev) {
         if (ev.key === 'Enter') {
             const groupTpUpdate = { ...group, title: groupTitle }
             onEditGroup(groupTpUpdate)
-            setEditing(false)
+            setIsEditing(false)
         }
     }
 
@@ -65,10 +67,17 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
             <ul className="task-list">
 
                 <div className="group-header">
-                    {editing ? (
-                        <input className="edit-group-title" type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
+                    {isEditing ? (
+                        <input className="edit-group-title"
+                            type="text"
+                            value={groupTitle}
+                            name="groupTitle"
+                            onBlur={handleIsEditing}
+                            onChange={handleChangeGroupTitle}
+                            onKeyDown={handlePressEnter}
+                            autoFocus />
                     ) : (
-                        <h4 className="group-title" onClick={() => setEditing(true)}>{group.title}</h4>
+                        <h4 className="group-title" onClick={handleIsEditing}>{group.title}</h4>
                     )}
                     <i onClick={onMoreOptions} className="icon-show-options"></i>
 
@@ -77,11 +86,18 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                     {isAddingFromModal &&
                         <form onSubmit={handleAddTask}>
                             <li className="task-item">
-                                <input className="task-title-input" type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter a title for this task...' />
+                                <input className="task-title-input"
+                                    type="text"
+                                    name='taskTitle'
+                                    value={taskTitle}
+                                    onBlur={() => setIsAddingFromModal(false)}
+                                    onChange={handleChangeTaskTitle}
+                                    placeholder='Enter a title for this task...'
+                                    autoFocus />
                             </li>
                             <div className="add-task-buttons">
                                 <button className="btn add-task-button">Add task</button>
-                                <button className="btn close-button" onClick={() => { setIsAddingFromModal(false) }}>
+                                <button className="btn close-button" onClick={() => setIsAddingFromModal(false)}>
                                     <i className="icon-close-regular"></i>
                                 </button>
                             </div>
@@ -108,7 +124,15 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
 
                     <form onSubmit={handleAddTask}>
                         <li className="task-item">
-                            <input className="task-title-input" type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter a title for this task...' />
+                            <input className="task-title-input"
+                                type="text"
+                                name='taskTitle'
+                                value={taskTitle}
+                                onChange={handleChangeTaskTitle}
+                                placeholder='Enter a title for this task...'
+                                autoFocus
+                                onBlur={handleIsAdding} />
+
                         </li>
                         <div className="add-task-buttons">
                             <button className="btn add-task-button">Add task</button>
