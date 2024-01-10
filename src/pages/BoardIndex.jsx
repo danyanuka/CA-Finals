@@ -40,12 +40,14 @@ export function BoardIndex() {
   //   console.log("Boards from index :", boards);
   if (!boards) return <div>Loading..</div>;
   return (
-    <div>
-      <AppHeader></AppHeader>
+    <>
+      <AppHeader />
       <div className="board-index-container">
-        <h3>YOUR BOARDS</h3>
-        <BoardList boards={boards} />
+        <div className="all-boards">
+          <h3 className="board-list-title">YOUR BOARDS</h3>
+          <BoardList boards={boards} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

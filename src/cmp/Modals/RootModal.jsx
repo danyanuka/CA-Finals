@@ -6,7 +6,7 @@ import { CreateBoardModal } from "./CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 
 export function RootModal() {
-  const [styleProp, setStyleProp] = useState({});
+  const [styleProp, setStyleProp] = useState();
 
   const modalRef = useRef();
   const dispatch = useDispatch();

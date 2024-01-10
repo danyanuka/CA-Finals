@@ -2,13 +2,14 @@ import { storageService } from "./async-storage.service.js";
 import { dbInitStorageService } from "./db-init-storage.service.js";
 
 import { STORAGE_KEY_BOARDS } from "./db-utils.service.js";
+import { utilService } from "./util.service.js";
 
 export const boardService = {
   query,
   save,
   remove,
   getById,
-  createBoard,
+
   getDefaultFilter,
   getFilterFromParams,
 };
@@ -39,12 +40,26 @@ function save(boardToSave) {
   if (boardToSave._id) {
     return storageService.put(STORAGE_KEY_BOARDS, boardToSave);
   } else {
-    return storageService.post(STORAGE_KEY_BOARDS, boardToSave);
+    const initBoard = _createBoard();
+    const board = { ...initBoard, ...boardToSave };
+    console.log(board);
+    return storageService.post(STORAGE_KEY_BOARDS, board);
   }
 }
 
-function createBoard() {
-  console.log("dummy createBoard");
+function _createBoard(title = "") {
+  const board = {
+    _id: utilService.makeId(),
+    title,
+    isStarred: false,
+    archivedAt: null,
+    style: {},
+    labels: [],
+    members: [],
+    groups: [],
+    activities: [],
+  };
+  return board;
 }
 
 function getDefaultFilter() {

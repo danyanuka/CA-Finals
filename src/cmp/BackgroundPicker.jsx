@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { unsplashService } from "../services/unsplash.service";
 
-export function BackgroundPicker() {
+export function BackgroundPicker({ setNewBoard }) {
   const [photos, setPhotos] = useState([]);
   const colors = [
     "rgb(0, 121, 191)",
@@ -29,22 +29,36 @@ export function BackgroundPicker() {
   if (!photos) return <>Loading...</>;
   return (
     <div className="background-picker-container">
-      <label htmlFor="bg-photos-list">Background</label>
-      <div id="bg-photos-list">
+      <label htmlFor="bg-list">Background</label>
+      <div id="bg-list">
         <ul className="bg-list-photos">
-          {photos.map((photo) => {
+          {photos.slice(0, 4).map((photo) => (
             <li>
               <button
+                onClick={() =>
+                  setNewBoard((prev) => ({
+                    ...prev,
+                    style: { backgroundImage: `url(${photo.urls.regular})` },
+                  }))
+                }
                 key={photo.id}
-                style={{ backgroundImage: `url(${photo.urls.small})` }}
+                style={{ backgroundImage: `url(${photo.urls.thumb})` }}
               ></button>
-            </li>;
-          })}
+            </li>
+          ))}
         </ul>
         <ul className="bg-list-colors">
           {colors.slice(0, 5).map((color) => (
             <li>
-              <button style={{ backgroundColor: color }}></button>
+              <button
+                onClick={() =>
+                  setNewBoard((prev) => ({
+                    ...prev,
+                    style: { backgroundColor: color },
+                  }))
+                }
+                style={{ backgroundColor: color }}
+              ></button>
             </li>
           ))}
           <li className="transparent-btn-black">

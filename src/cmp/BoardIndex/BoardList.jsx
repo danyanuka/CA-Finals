@@ -15,11 +15,7 @@ export function BoardList({ boards }) {
   return (
     <ul className="board-list">
       {boards.map((board) => (
-        <li
-          style={{ backgroundColor: board.style.backgroundColor }}
-          className="board-preview"
-          key={board._id}
-        >
+        <li style={board.style} className="board-preview" key={board._id}>
           <BoardPreview board={board} />
         </li>
       ))}

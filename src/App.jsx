@@ -16,6 +16,7 @@ import { BoardDetails } from "./pages/BoardDetails";
 import { TaskDetails } from "./pages/TaskDetails";
 import { RootModal } from "./cmp/Modals/RootModal";
 import { useSelector } from "react-redux";
+import { AppHeader } from "./cmp/AppHeader";
 
 export function App() {
   return (
