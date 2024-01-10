@@ -21,6 +21,7 @@
     display: grid;
     overflow: hidden;
     color: $clr-text-black;
+    min-height: 50%;
 
     &-icon-close {
         z-index: 21;
