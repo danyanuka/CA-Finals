@@ -25,11 +25,12 @@ export function BoardDetails() {
   async function loadBoard() {
     try {
       await boardActions.loadBoard(params.boardId)
-
     } catch (err) {
       console.log('Had issues loading board', err);
     }
   }
+
+  
 
   async function onAddGroup(newGroup) {
     const boardToUpdate = await groupService.addGroup(newGroup, board);

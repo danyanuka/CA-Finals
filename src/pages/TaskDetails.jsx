@@ -1,34 +1,46 @@
 import { NavLink } from "react-router-dom"
+import { useEffect } from "react";
+import { useParams } from "react-router"
 
 import { tempExampleBoard } from "./TaskDetailsTempBoard.js"
 
 
 export function TaskDetails() {
-    // const [isCover, setIsCover] = useState(true);  // dummy
-    const board = tempExampleBoard
-    const taskId = "c104"
-    let groupId
-    let task
-    let group
-    for (let gr of board.groups) {
-        for (let ta of gr.tasks) {
-            if (ta.id === taskId) {
-                groupId = gr.id
-                group = gr
-                task = ta
-                break
-            }
+    const params = useParams()
+    const board = useSelector(storeState => storeState.boardModule.curBoard)
+
+    useEffect(() => {
+        loadBoard()
+    }, [params.boardId, board])
+
+    async function loadBoard() {
+        try {
+            await boardActions.loadBoard(params.boardId)
+        } catch (err) {
+            console.log('Had issues loading board', err);
         }
-        if (groupId) break
     }
-    console.log(task)
+    // const board = tempExampleBoard
+    // const taskId = "c104"
+    // let groupId
+    // let task
+    // let group
+    // for (let gr of board.groups) {
+    //     for (let ta of gr.tasks) {
+    //         if (ta.id === taskId) {
+    //             groupId = gr.id
+    //             group = gr
+    //             task = ta
+    //             break
+    //         }
+    //     }
+    //     if (groupId) break
+    // }
+    // console.log(task)
 
     function dummy(ev) {
         console.log("dummy: ", ev)
     }
-
-    console.log("might: ", window.gStore);
-
 
     return (
         <div className="task-details-wrapper">
@@ -72,7 +84,7 @@ export function TaskDetails() {
                     </div>
                     <aside className="task-details-sidebar">
                         <div className="task-details-sidebar-prop">
-                            <p>Add to card</p>
+                            <h3>Add to card</h3>
                             <button className="task-details-btn task-details-sidebar-members">
                                 <i className="icon-task-members"></i>
                                 Member
@@ -95,7 +107,7 @@ export function TaskDetails() {
                             </button>
                         </div>
                         <div className="task-details-sidebar-actions">
-                            <p>Actions</p>
+                            <h3>Actions</h3>
                             <button className="task-details-btn task-details-sidebar-move">
                                 <i className=""></i>
                                 Move
