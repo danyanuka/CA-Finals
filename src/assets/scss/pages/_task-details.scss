@@ -17,10 +17,7 @@
     background-color: $clr-bg-default;
     display: grid;
     overflow: hidden;
-
-    &-btn {
-
-    }
+    color: $clr-text-black;
 
     &-icon-close {
         z-index: 21;
@@ -57,7 +54,7 @@
             display: flex;
             align-items: center;
 
-            & i {
+            i {
                 box-sizing: border-box;
                 width: 20px;
                 height: 20px;
@@ -66,11 +63,26 @@
         }
     }
 
+    &-btn {
+        @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed, $clr-bg-neutral);
+        @include fontProps(14px, 500, 20px);
+        height: 32px;
+        display: flex;
+        align-items: center;
+
+        & i {
+            margin-left: 2px;
+            margin-right: 8px;
+            height: 16px;
+            width: 16px;
+        }
+    }
+
     &-data {
-        padding: 8px 16px 8px 16px;
+        padding: 8px 16px 32px 16px;
         display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 168px;
         grid-template-areas:
          "a a" 
          "b c";
@@ -114,6 +126,11 @@
 
     &-sidebar {
         grid-area: c;
+        &-prop, &-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
     }
 
 

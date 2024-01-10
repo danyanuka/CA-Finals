@@ -25,7 +25,7 @@ export function CreateBoardModal() {
   console.log("New Board", newBoard);
   return (
     <>
-      <RootModalHeader label="Create Board" />
+      <RootModalHeader title="Create Board" />
       <div className="create-board-modal">
         <div className="board-demo-container">
           <div style={newBoard.style} className="bg-board-demo">

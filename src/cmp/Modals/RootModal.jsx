@@ -1,35 +1,25 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
 import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
+import { utilService } from "/src/services/util.service.js";
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
 
   const modalRef = useRef();
-  const dispatch = useDispatch();
 
   const {
-    modal: { isOpen, modalType, ev, modalProps },
+    modal: { isOpen, modalType, target, modalProps },
   } = useSelector((storeState) => storeState.appModule);
 
   useLayoutEffect(() => {
     if (modalRef.current) {
       setModalPos();
     }
-  }, [ev]);
-
-  function getButtonPosition() {
-    const elementRect = ev.target.getBoundingClientRect();
-    return {
-      bottom: elementRect.bottom,
-      left: elementRect.left,
-      right: elementRect.right,
-      top: elementRect.top,
-    };
-  }
+  }, [target]);
 
   function getModalSize() {
     const elementRect = modalRef.current.getBoundingClientRect();
@@ -40,32 +30,10 @@ export function RootModal() {
   }
 
   function setModalPos() {
-    const buttonPos = getButtonPosition();
+    const buttonPos = utilService.getTargetPosition(target);
     const modalSize = getModalSize();
-    const windowSize = {
-      height: window.innerHeight,
-      width: window.innerWidth,
-    };
-
-    let modalPos = {};
-
-    // Horizontal
-    if (buttonPos.left + modalSize.width < windowSize.width) {
-      modalPos.left = buttonPos.left;
-    } else {
-      modalPos.right = 0;
-    }
-
-    // Vertical
-    if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
-      modalPos.top = buttonPos.bottom + 8;
-    } else if (buttonPos.top - 8 - modalSize.height > 0) {
-      modalPos.bottom = windowSize.height - (buttonPos.top - 8);
-    } else {
-      modalPos.bottom = 4.4;
-    }
-
-    setStyleProp((prevStyle) => ({ ...modalPos }));
+    const modalPos = utilService.calcModalPosition(buttonPos, modalSize);
+    setStyleProp({ ...modalPos });
   }
 
   if (!isOpen) return <></>;

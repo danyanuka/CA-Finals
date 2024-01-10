@@ -15,14 +15,13 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
     const tasks = group?.tasks
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
-    const [editing, setEditing] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
     const [groupTitle, setGroupTitle] = useState(group.title)
     const [taskTitle, setTaskTitle] = useState('')
     const dispatch = useDispatch();
 
     function onMoreOptions(ev) {
-        dispatch(openModal("moreOptions", ev, handleIsAddingFromModal));
-
+        dispatch(openModal("moreOptions", ev.target, handleIsAddingFromModal));
     }
 
     function handleIsAdding() {
@@ -31,6 +30,10 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
 
     function handleIsAddingFromModal(bol) {
         setIsAddingFromModal(bol)
+    }
+
+    function handleIsEditing() {
+        setIsEditing(!isEditing)
     }
 
     function handleChangeTaskTitle(ev) {
@@ -49,15 +52,13 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
         const addToStart = isAddingFromModal ? true : false
         onAddTask(taskToAdd, group.id, addToStart)
         setTaskTitle("")
-        setIsAdding(false)
-        // setIsAddingFromModal(false)
     }
 
     function handlePressEnter(ev) {
         if (ev.key === 'Enter') {
             const groupTpUpdate = { ...group, title: groupTitle }
             onEditGroup(groupTpUpdate)
-            setEditing(false)
+            setIsEditing(false)
         }
     }
 
@@ -66,10 +67,17 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
             <ul className="task-list">
 
                 <div className="group-header">
-                    {editing ? (
-                        <input className="edit-group-title" type="text" value={groupTitle} name="groupTitle" onChange={handleChangeGroupTitle} onKeyDown={handlePressEnter} />
+                    {isEditing ? (
+                        <input className="edit-group-title"
+                            type="text"
+                            value={groupTitle}
+                            name="groupTitle"
+                            onBlur={handleIsEditing}
+                            onChange={handleChangeGroupTitle}
+                            onKeyDown={handlePressEnter}
+                            autoFocus />
                     ) : (
-                        <h4 onClick={() => setEditing(true)}>{group.title}</h4>
+                        <h4 className="group-title" onClick={handleIsEditing}>{group.title}</h4>
                     )}
                     <i onClick={onMoreOptions} className="icon-show-options"></i>
 
@@ -77,10 +85,21 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                 <div className="scrollbar">
                     {isAddingFromModal &&
                         <form onSubmit={handleAddTask}>
-                            <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                            <li className="task-item">
+                                <input className="task-title-input"
+                                    type="text"
+                                    name='taskTitle'
+                                    value={taskTitle}
+                                    onBlur={() => setIsAddingFromModal(false)}
+                                    onChange={handleChangeTaskTitle}
+                                    placeholder='Enter a title for this task...'
+                                    autoFocus />
+                            </li>
                             <div className="add-task-buttons">
-                                <button>Add task</button>
-                                <button onClick={() => { setIsAddingFromModal(false) }}>X</button>
+                                <button className="btn add-task-button">Add task</button>
+                                <button className="btn close-button" onClick={() => setIsAddingFromModal(false)}>
+                                    <i className="icon-close-regular"></i>
+                                </button>
                             </div>
                         </form>
                     }
@@ -97,18 +116,30 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                     <div className="group-footer">
                         <div className="add-task-button">
                             <li className='icon-add'></li>
-                            <button onClick={handleIsAdding}>Add a card</button>
+                            <button onClick={handleIsAdding}>Add a Task</button>
                         </div>
                         <i className="icon-template" title="create from template"></i>
                     </div>
                 ) : (
+
                     <form onSubmit={handleAddTask}>
-                        <input type="text" name='taskTitle' value={taskTitle} onChange={handleChangeTaskTitle} placeholder='Enter task title...' />
+                        <li className="task-item">
+                            <input className="task-title-input"
+                                type="text"
+                                name='taskTitle'
+                                value={taskTitle}
+                                onChange={handleChangeTaskTitle}
+                                placeholder='Enter a title for this task...'
+                                autoFocus
+                                onBlur={handleIsAdding} />
+
+                        </li>
                         <div className="add-task-buttons">
-                            <button>Add task</button>
-                            <button onClick={handleIsAdding}>X</button>
+                            <button className="btn add-task-button">Add task</button>
+                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-regular"></i></button>
                         </div>
                     </form>
+
                 )}
 
             </ul>

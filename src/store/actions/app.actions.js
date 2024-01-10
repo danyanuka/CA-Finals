@@ -1,9 +1,9 @@
 import { OPEN_MODAL, CLOSE_MODAL } from "../reducers/app.reducer";
 
-export const openModal = (modalType, ev, modalProps = null) => ({
+export const openModal = (modalType, target, modalProps = null) => ({
   type: OPEN_MODAL,
   modalType,
-  ev,
+  target,
   modalProps
 });
 

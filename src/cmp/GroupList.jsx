@@ -47,11 +47,21 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                     </div>
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
-                        <input className='group-title-input' type="text" name='groupTitle' value={groupTitle} onChange={handleChange} placeholder='Enter group title...' />
+
+                        <input className='group-title-input'
+                            type="text"
+                            name='groupTitle'
+                            value={groupTitle}
+                            onBlur={handleIsAdding}
+                            onChange={handleChange}
+                            placeholder='Enter group title...'
+                            autoFocus />
+
                         <div className="add-group-buttons">
                             <button>Add group</button>
-                            <button onClick={handleIsAdding}>X</button>
+                            <button onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
+
                     </form>
                 )}
             </li>

@@ -7,6 +7,7 @@ scrollable-square-white
 */
 
 .one-element-page {
+
   /* one-element-page-parent */
   &-parent {
     width: 100vw;
@@ -149,36 +150,10 @@ scrollable-square-white
 
 .transparent-btn {
   &-black {
-    border-radius: 3px;
-    border-width: 0px;
-    background-color: transparent;
-    @include transitionAction(
-      background-color,
-      $clr-dynamic-button-black-hovered,
-      10ms
-    );
-    @include transitionAction(
-      background-color,
-      $clr-dynamic-button-black-pressed,
-      10ms,
-      active
-    );
+    @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed);
   }
 
   &-white {
-    border-radius: 3px;
-    border-width: 0px;
-    background-color: transparent;
-    @include transitionAction(
-      background-color,
-      $clr-dynamic-button-white-hovered,
-      10ms
-    );
-    @include transitionAction(
-      background-color,
-      $clr-dynamic-button-white-pressed,
-      10ms,
-      active
-    );
+    @include btnColors($clr-dynamic-button-white-hovered, $clr-dynamic-button-white-pressed);
   }
 }

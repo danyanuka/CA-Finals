@@ -9,7 +9,7 @@ export function BoardList({ boards }) {
   const dispatch = useDispatch();
 
   function onCreateBoard(ev) {
-    dispatch(openModal("createBoard", ev));
+    dispatch(openModal("createBoard", ev.target));
   }
 
   return (

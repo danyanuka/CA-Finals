@@ -15,7 +15,7 @@ export function AppHeader() {
   }
 
   function onCreateBoard(ev) {
-    dispatch(openModal("createBoard", ev));
+    dispatch(openModal("createBoard", ev.target));
   }
 
   return (
