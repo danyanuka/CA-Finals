@@ -43,14 +43,17 @@ export function TaskDetails() {
             }
             if (groupId) break
         }
-        console.log(task)
     }
 
     function dummy(ev) {
         console.log("dummy: ", ev)
     }
 
-    if (!task) return <p>Loading...</p>
+    if (!task) return <div className="task-details-wrapper">
+        <div className="task-details">
+            <p><br />&nbsp;&nbsp;Loading...</p>
+        </div>
+    </div>
 
     return (
         <div className="task-details-wrapper">
@@ -59,7 +62,7 @@ export function TaskDetails() {
                     <i className="icon-close-grayblue"></i>
                 </button>
                 {
-                    task && task.style.backgroundColor &&
+                    task.style.backgroundColor &&
                     <div className="task-details-cover">
                         <button className="transparent-btn-black task-details-cover-btn">
                             <i className="icon-task-details-cover"></i>
@@ -114,6 +117,10 @@ export function TaskDetails() {
                             <button className="task-details-btn task-details-sidebar-attachments">
                                 <i className="icon-task-attachments"></i>
                                 Attachments
+                            </button>
+                            <button className="task-details-btn task-details-sidebar-cover">
+                                <i className="icon-task-cover"></i>
+                                Cover
                             </button>
                         </div>
                         <div className="task-details-sidebar-actions">

@@ -47,12 +47,11 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
-
   return (
     <div className="home">
       <AppHeader />
       <BoardHeader />
-      <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />
+      {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
       <Outlet />
     </div>
   );

@@ -32,7 +32,7 @@
 }
 
 .icon-task-checklist {
-  // content: url("/public/icons/.svg");
+  content: url("/public/icons/checklists.svg");
 }
 
 .icon-task-dates {
@@ -41,6 +41,10 @@
 
 .icon-task-attachments {
   content: url("/public/icons/attachment2.svg");
+}
+
+.icon-task-cover {
+  // content: url("/public/icons/cover.svg");
 }
 
 .icon-task-move {
