@@ -66,7 +66,7 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
         <>
             <ul className="task-list">
 
-                <div className="group-header">
+                <div className="group-header" >
                     {isEditing ? (
                         <input className="edit-group-title"
                             type="text"
@@ -110,8 +110,8 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                         //     </li>) */}
 
                     <Droppable droppableId={group.id}>
-                        {provided => (
-                            <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
+                        {(provided) => (
+                            <li className="task-item" key={group.id} ref={provided.innerRef} {...provided.droppableProps}>
                                 {tasks?.map((task, index) => (
                                     <TaskPreview key={task.id} task={task} index={index} />
                                 ))}
@@ -154,6 +154,7 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                 )}
 
             </ul>
+
         </>
     )
 }

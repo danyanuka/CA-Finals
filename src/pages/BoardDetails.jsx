@@ -30,7 +30,7 @@ export function BoardDetails() {
     }
   }
 
-  
+
 
   async function onAddGroup(newGroup) {
     const boardToUpdate = await groupService.addGroup(newGroup, board);
@@ -47,7 +47,7 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
-  if (!board) return <div>Loading..</div>;
+
   return (
     <div className="home">
       <AppHeader />

@@ -25,7 +25,6 @@ export function TaskPreview({ task, index }) {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
-                // isDragging={snapshot.isDragging}
                 >
                     <div className="task-header">
                         <button className="edit-task-header"><li className="icon-edit"></li></button>
