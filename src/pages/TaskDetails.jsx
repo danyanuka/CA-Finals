@@ -118,6 +118,10 @@ export function TaskDetails() {
                                 <i className="icon-task-attachments"></i>
                                 Attachments
                             </button>
+                            <button className="task-details-btn task-details-sidebar-cover">
+                                <i className="icon-task-cover"></i>
+                                Cover
+                            </button>
                         </div>
                         <div className="task-details-sidebar-actions">
                             <h3>Actions</h3>
