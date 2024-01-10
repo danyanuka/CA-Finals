@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router"
+import { Outlet, useParams } from "react-router"
 
 //redux
 import { useSelector } from "react-redux";
@@ -53,7 +53,7 @@ export function BoardDetails() {
       <AppHeader />
       <BoardHeader />
       <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />
-
+      <Outlet />
     </div>
   );
 }

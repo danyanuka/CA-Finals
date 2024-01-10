@@ -1,17 +1,25 @@
 import { NavLink } from "react-router-dom"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 
-import { tempExampleBoard } from "./TaskDetailsTempBoard.js"
+//redux
+import { useSelector } from "react-redux";
+import { boardActions } from "../store/actions/board.actions";
 
 
 export function TaskDetails() {
     const params = useParams()
     const board = useSelector(storeState => storeState.boardModule.curBoard)
+    const [group, setGroup] = useState()
+    const [task, setTask] = useState()
 
     useEffect(() => {
         loadBoard()
     }, [params.boardId])
+
+    useEffect(() => {
+        parseBoard()
+    }, [board])
 
     async function loadBoard() {
         try {
@@ -20,25 +28,29 @@ export function TaskDetails() {
             console.log('Had issues loading board', err);
         }
     }
-    let groupId
-    let task
-    let group
-    for (let gr of board.groups) {
-        for (let ta of gr.tasks) {
-            if (ta.id === paramsץtaskId) {
-                groupId = gr.id
-                group = gr
-                task = ta
-                break
+
+    function parseBoard() {
+        if (!board) return
+        let groupId
+        for (let gr of board.groups) {
+            for (let ta of gr.tasks) {
+                if (ta.id === params.taskId) {
+                    groupId = gr.id
+                    setGroup(gr)
+                    setTask(ta)
+                    break
+                }
             }
+            if (groupId) break
         }
-        if (groupId) break
+        console.log(task)
     }
-    console.log(task)
 
     function dummy(ev) {
         console.log("dummy: ", ev)
     }
+
+    if (!task) return <p>Loading...</p>
 
     return (
         <div className="task-details-wrapper">
@@ -47,7 +59,7 @@ export function TaskDetails() {
                     <i className="icon-close-grayblue"></i>
                 </button>
                 {
-                    task.style.backgroundColor &&
+                    task && task.style.backgroundColor &&
                     <div className="task-details-cover">
                         <button className="transparent-btn-black task-details-cover-btn">
                             <i className="icon-task-details-cover"></i>

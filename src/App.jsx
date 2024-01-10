@@ -28,9 +28,8 @@ export function App() {
           <Route path="/about" element={<About />} />
           <Route path="/board" element={<BoardIndex />} />
           <Route path="/board/:boardId" element={<BoardDetails />}>
-            {/* <Route path="/board/:boardId/:taskId" element={<TaskDetails />} /> */}
+            <Route path="/board/:boardId/:taskId" element={<TaskDetails />} />
           </Route>
-          <Route path="/board/:boardId/:taskId" element={<TaskDetails />} />
         </Routes>
       </main>
       <RootModal />
