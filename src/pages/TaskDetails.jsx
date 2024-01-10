@@ -11,7 +11,7 @@ export function TaskDetails() {
 
     useEffect(() => {
         loadBoard()
-    }, [params.boardId, board])
+    }, [params.boardId])
 
     async function loadBoard() {
         try {
@@ -20,23 +20,21 @@ export function TaskDetails() {
             console.log('Had issues loading board', err);
         }
     }
-    // const board = tempExampleBoard
-    // const taskId = "c104"
-    // let groupId
-    // let task
-    // let group
-    // for (let gr of board.groups) {
-    //     for (let ta of gr.tasks) {
-    //         if (ta.id === taskId) {
-    //             groupId = gr.id
-    //             group = gr
-    //             task = ta
-    //             break
-    //         }
-    //     }
-    //     if (groupId) break
-    // }
-    // console.log(task)
+    let groupId
+    let task
+    let group
+    for (let gr of board.groups) {
+        for (let ta of gr.tasks) {
+            if (ta.id === paramsץtaskId) {
+                groupId = gr.id
+                group = gr
+                task = ta
+                break
+            }
+        }
+        if (groupId) break
+    }
+    console.log(task)
 
     function dummy(ev) {
         console.log("dummy: ", ev)
