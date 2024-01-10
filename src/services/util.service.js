@@ -1,8 +1,10 @@
+
 export const utilService = {
   padTwo,
   makeId,
   getTargetPosition,
-  calcModalPosition
+  calcModalPosition,
+  getLabels
 };
 
 function padTwo(num) {
@@ -56,4 +58,15 @@ function calcModalPosition(buttonPos, modalSize) {
   return modalPos;
 }
 
+function getLabels(labelIds, board) {
+  console.log(typeof (labelIds));
+  // labelIds?.map((labelId) => {
+
+  //   board.labels?.filter(label => {
+  //     labelId === label
+  //     // console.log("label", label);
+  //   })
+  // })
+
+}
 

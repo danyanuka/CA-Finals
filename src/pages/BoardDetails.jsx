@@ -20,7 +20,7 @@ export function BoardDetails() {
 
   useEffect(() => {
     loadBoard()
-  }, [params.boardId, board])
+  }, [params.boardId])
 
   async function loadBoard() {
     try {

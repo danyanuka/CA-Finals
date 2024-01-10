@@ -34,7 +34,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
         <ul className="group-list">
             {
                 groups?.map(group => <li className='group-item' key={group.id}>
-                    <GroupPreview group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
+                    <GroupPreview groups={groups} group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
 
                 </li>)
             }

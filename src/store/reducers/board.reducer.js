@@ -31,6 +31,7 @@ export function boardReducer(state = initialState, action = {}) {
       return {
         ...state,
         boards: [...state.boards, action.board],
+        curBoard: action.board,
       };
     case REMOVE_BOARD:
       const lastBoards = [...state.boards];
@@ -45,6 +46,7 @@ export function boardReducer(state = initialState, action = {}) {
         boards: state.boards?.map((board) =>
           board.id === action.board.id ? action.board : board
         ),
+        curBoard: action.board,
       };
     case SET_BOARD_FILTER_BY:
       return {

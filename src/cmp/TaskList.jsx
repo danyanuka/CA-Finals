@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Droppable } from 'react-beautiful-dnd';
 
 //Redux
 import { openModal } from "../store/actions/app.actions";
@@ -11,8 +12,7 @@ import { TaskPreview } from "./TaskPreview"
 import { groupService } from "../services/group.service"
 
 
-export function TaskList({ group, onAddTask, onEditGroup }) {
-    const tasks = group?.tasks
+export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
@@ -103,12 +103,23 @@ export function TaskList({ group, onAddTask, onEditGroup }) {
                             </div>
                         </form>
                     }
-                    {
-                        tasks?.map(task =>
-                            <li className="task-item" key={task.id}>
-                                <TaskPreview task={task} />
-                            </li>)
-                    }
+
+                    {/* // tasks?.map(task =>
+                        //     <li className="task-item" key={task.id}>
+                        //         <TaskPreview task={task} />
+                        //     </li>) */}
+
+                    <Droppable droppableId={group.id}>
+                        {provided => (
+                            <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
+                                {tasks?.map((task, index) => (
+                                    <TaskPreview key={task.id} task={task} index={index} />
+                                ))}
+                                {provided.placeholder}
+                            </li>
+                        )}
+                    </Droppable>
+
 
                 </div>
 
