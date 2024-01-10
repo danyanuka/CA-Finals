@@ -29,14 +29,6 @@ export function BoardIndex() {
     }
   }
 
-  async function onRemoveBoard(boardId) {
-    try {
-      await boardActions.removeBoard(boardId);
-    } catch (err) {
-      console.log("Issues removing board", err);
-    }
-  }
-
   //   console.log("Boards from index :", boards);
   if (!boards) return <div>Loading..</div>;
   return (

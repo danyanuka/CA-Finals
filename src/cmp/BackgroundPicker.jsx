@@ -26,7 +26,7 @@ export function BackgroundPicker({ setNewBoard }) {
     console.log(photos);
   }
 
-  if (!photos) return <>Loading...</>;
+  // if (!photos) return <>Loading...</>;
   return (
     <div className="background-picker-container">
       <label htmlFor="bg-list">Background</label>

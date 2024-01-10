@@ -28,7 +28,10 @@ export function CreateBoardModal() {
       <RootModalHeader title="Create Board" />
       <div className="create-board-modal">
         <div className="board-demo-container">
-          <div style={newBoard.style} className="bg-board-demo">
+          <div
+            style={newBoard.style || { backgroundColor: "rgb(0, 121, 191)" }}
+            className="bg-board-demo"
+          >
             <img
               className="board-demo-img"
               src="imgs/board-demo-img.svg"

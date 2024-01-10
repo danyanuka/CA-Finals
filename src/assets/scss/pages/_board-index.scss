@@ -21,11 +21,21 @@
       list-style: none;
 
       .board-preview {
+        background-size: cover;
+        display: flex;
+        background-position: center center;
+        background-repeat: no-repeat;
         width: 23.5%;
         color: white;
         margin: 0 1.5% 1.5% 0;
         border-radius: 3px;
         text-align: left;
+        overflow: hidden;
+        &:hover {
+          filter: brightness(0.9);
+          transition: 20ms;
+        }
+
         &.new-board {
           height: 96px;
           display: flex;
@@ -47,6 +57,9 @@
             active
           );
         }
+        .link-to-board {
+          width: 100%;
+        }
 
         .board-preview-content {
           width: auto;
@@ -60,3 +73,13 @@
     }
   }
 }
+// .icon-star {
+//   position: absolute;
+//   top: 50%;
+//   right: -40px; /* Adjust this value if needed */
+//   transform: translateY(-50%);
+//   transition: right 0.3s ease-in-out; /* Adjust transition duration if needed */
+//   &:hover .board-preview-content .icon-star {
+//     right: 0;
+//   }
+// }
