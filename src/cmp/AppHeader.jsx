@@ -2,12 +2,15 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { openModal } from "../store/actions/app.actions";
 
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownName, setDropdownName] = useState("");
   const dispatch = useDispatch();
+  const board = useSelector(storeState => storeState.boardModule.curBoard)
+
 
   function onToggle(dropdownName) {
     setIsOpen(!isOpen);

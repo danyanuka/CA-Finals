@@ -10,6 +10,7 @@ import { groupService } from '../services/group.service'
 export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
     const groups = board?.groups
     const [isAdding, setIsAdding] = useState(false)
+    const [isClick, setIsClick] = useState(false)
     const [groupTitle, setGroupTitle] = useState('')
 
     function handleIsAdding() {
@@ -21,7 +22,6 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
         setGroupTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
     }
 
-
     function handleAddGroup(ev) {
         ev.preventDefault()
         const groupToAdd = groupService.getDefaultGroup(groupTitle)
@@ -30,8 +30,15 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
         setIsAdding(false)
     }
 
+    function handleOnBlur() {
+        if (isClick) return
+        handleIsAdding(false)
+    }
+
     function onDragEnd(result) {
         const { destination, source, draggableId } = result;
+        // console.log("source.index", source.index);
+        // console.log("destination.index", destination.index);
 
         if (!destination) {
             return;
@@ -50,16 +57,21 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
         if (startGroup.id === finishGroup.id) {
             const newTasks = startGroup.tasks;
+            // console.log("newTasks", newTasks);
             const taskToReplace = newTasks.find((task) => task.id === draggableId)
+            console.log("taskToReplace", taskToReplace);
 
             newTasks.splice(source.index, 1);
+            // console.log("newTasks", newTasks);
             newTasks.splice(destination.index, 0, taskToReplace);
+            // console.log("newTasks", newTasks);
 
             const newGroup = {
                 ...startGroup,
                 tasks: newTasks,
             };
             onEditGroup(newGroup)
+            return
         }
 
         // Moving from one list to another
@@ -111,13 +123,13 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                             type="text"
                             name='groupTitle'
                             value={groupTitle}
-                            onBlur={handleIsAdding}
+                            onBlur={handleOnBlur}
                             onChange={handleChange}
                             placeholder='Enter group title...'
                             autoFocus />
 
                         <div className="add-group-buttons">
-                            <button>Add group</button>
+                            <button onClick={(() => setIsClick(true))}>Add group</button>
                             <button onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 

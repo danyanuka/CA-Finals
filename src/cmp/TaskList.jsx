@@ -12,7 +12,7 @@ import { TaskPreview } from "./TaskPreview"
 import { groupService } from "../services/group.service"
 
 
-export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
+export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
@@ -109,9 +109,9 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                         //         <TaskPreview task={task} />
                         //     </li>) */}
 
-                    <Droppable droppableId={group.id}>
+                    <Droppable droppableId={group.id} index={index}>
                         {(provided) => (
-                            <li className="task-item" key={group.id} ref={provided.innerRef} {...provided.droppableProps}>
+                            <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
                                 {tasks?.map((task, index) => (
                                     <TaskPreview key={task.id} task={task} index={index} />
                                 ))}

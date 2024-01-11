@@ -30,8 +30,6 @@ export function BoardDetails() {
     }
   }
 
-
-
   async function onAddGroup(newGroup) {
     const boardToUpdate = await groupService.addGroup(newGroup, board);
     return boardActions.saveBoard(boardToUpdate)
@@ -50,9 +48,11 @@ export function BoardDetails() {
   return (
     <div className="home">
       <AppHeader />
-      <BoardHeader />
-      {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
-      <Outlet />
+      <div style={board?.style}>
+        <BoardHeader />
+        {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
+        <Outlet />
+      </div>
     </div>
   );
 }

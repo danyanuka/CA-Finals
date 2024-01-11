@@ -4,7 +4,8 @@ export const utilService = {
   makeId,
   getTargetPosition,
   calcModalPosition,
-  getLabels
+  getLabels,
+  checkDueDate
 };
 
 function padTwo(num) {
@@ -59,14 +60,35 @@ function calcModalPosition(buttonPos, modalSize) {
 }
 
 function getLabels(labelIds, board) {
-  console.log(typeof (labelIds));
-  // labelIds?.map((labelId) => {
+  let labels = []
+  labelIds?.map((labelId) => {
+    let label = board.labels?.find(label => labelId === label.id)
+    labels.push(label)
+  })
+  // console.log("labels", labels);
+  return labels
+}
 
-  //   board.labels?.filter(label => {
-  //     labelId === label
-  //     // console.log("label", label);
-  //   })
-  // })
+function checkDueDate(dueDate) {
+  const today = new Date()
+  const tomorrow = new Date(today)
 
+  let dateStatus = {
+    isPass: null,
+    isToday: null,
+    isTomorrow: null
+  }
+
+  if (dueDate < Date.now()) {
+    return { ...dateStatus, isPass: true }
+  }
+  if (dueDate === Date.now()) {
+    return { ...dateStatus, isToday: true }
+  }
+  if (dueDate > tomorrow) {
+    return { ...dateStatus, isTomorrow: true }
+  }
+
+  return dateStatus
 }
 

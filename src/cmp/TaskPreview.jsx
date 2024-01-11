@@ -1,42 +1,54 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { utilService } from "../services/util.service";
+import { utilService } from "../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from 'react-beautiful-dnd';
 
 
 export function TaskPreview({ task, index }) {
     const board = useSelector((storeState => storeState.boardModule.curBoard))
+    const labels = utilService.getLabels(task.labelIds, board)
+    const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate)
 
-    const navigate = useNavigate()
-    const { boardId } = useParams()
     let date = new Date(task.dueDate).toString();
     date = date.split(" ")
 
-    // const labels = utilService.getLabels(task.labelIds, board)
-    // console.log(labels);
+    const { boardId } = useParams()
+    const navigate = useNavigate()
+
+
     function handleGoToTask(taskId) {
         navigate(`/board/${boardId}/${taskId}`)
     }
 
     return (
-        <Draggable draggableId={task.id} index={index} >
+        <Draggable draggableId={task.id} index={index}>
             {(provided, snapshot) => (
-                <div className={`task-preview is-dragging-${snapshot.isDragging}`} onClick={() => { handleGoToTask(task.id) }}
+                <div className={`task-preview is-dragging-${snapshot.isDragging}`} key={task.id} onClick={() => { handleGoToTask(task.id) }}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
-                    <div className="task-header">
-                        <button className="edit-task-header"><li className="icon-edit"></li></button>
-                    </div>
+                    {task.style ? (
+                        <div style={task.style} >
+                            <button className="edit-task-header"><li className="icon-edit"></li></button>
+                        </div>
+                    ) : (
+                        <div>
+                            <button className="edit-task-header"><li className="icon-edit"></li></button>
+                        </div>
+                    )}
 
                     <div className="task-body">
 
-                        {/* labels not working yet */}
-                        {task.labelIds &&
+                        {labels &&
                             <div className="labels">
-                                {/* {task.labelIds.map((label) => label)} */}
-                            </div>}
+                                {labels.map((label) => {
+                                    // <span style={{ backgroundColor: "blue" }}></span>
+                                    <span title={`color: ${label.color}, title: ${label.title}`} style={{ backgroundColor: label.color }}></span>
+                                    // <span className="blue">{label.color}</span>
+                                })}
+                            </div>
+                        }
 
                         <p className="task-title">{task.title}</p>
 
@@ -68,10 +80,37 @@ export function TaskPreview({ task, index }) {
                                 </div>
                             }
 
-                            {task.dueDate < Date.now() &&
+                            {/* {task.dueDate < Date.now() &&
                                 <div className="due-date">
                                     <i className="icon-clock-alert" title="Checklists"></i>
-                                    <span>{date[1]} {date[2]} {date[3]}</span>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            } */}
+
+                            {task.dueDate && isPass &&
+                                <div className="due-date pass">
+                                    <i className="icon-clock-alert" ></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+
+                            {task.dueDate && isToday &&
+                                <div className="due-date today">
+                                    <i className="icon-clock-alert" ></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+
+                            {task.dueDate && isTomorrow &&
+                                <div className="due-date tomorrow">
+                                    <i className="icon-clock-alert" ></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+                            {task.dueDate && !isPass && !isToday && !isTomorrow &&
+                                <div className="due-date">
+                                    <i className="icon-clock-alert" title="Checklists"></i>
+                                    <span>{date[1]} {date[2]} </span>
                                 </div>
                             }
                         </div>
