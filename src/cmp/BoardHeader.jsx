@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 
 export function BoardHeader() {
+    const board = useSelector(storeState => storeState.boardModule.curBoard)
 
     return (
-        <div className="board-header">
-
+        <div className="board-header" style={board?.style}>
 
             <div className="board-header-section">
                 <div className="board-name" >

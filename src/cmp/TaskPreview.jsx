@@ -19,18 +19,19 @@ export function TaskPreview({ task, index }) {
     function handleGoToTask(taskId) {
         navigate(`/board/${boardId}/${taskId}`)
     }
-
     return (
+
         <Draggable draggableId={task.id} index={index}>
             {(provided, snapshot) => (
+
                 <div className={`task-preview is-dragging-${snapshot.isDragging}`} key={task.id} onClick={() => { handleGoToTask(task.id) }}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
                     {task.style ? (
-                        <div style={task.style} >
-                            <button className="edit-task-header"><li className="icon-edit"></li></button>
+                        <div className="task-header" style={task.style} >
+                            <button className="edit-task-header-styled"><li className="icon-edit"></li></button>
                         </div>
                     ) : (
                         <div>
@@ -40,12 +41,14 @@ export function TaskPreview({ task, index }) {
 
                     <div className="task-body">
 
-                        {labels &&
+                        {task.labelIds &&
                             <div className="labels">
                                 {labels.map((label) => {
-                                    // <span style={{ backgroundColor: "blue" }}></span>
-                                    <span title={`color: ${label.color}, title: ${label.title}`} style={{ backgroundColor: label.color }}></span>
-                                    // <span className="blue">{label.color}</span>
+                                    { console.log(label.color) }
+                                    <span className="label"
+                                        title={`color: ${label.color}, title: ${label.title}`}
+                                        style={{ backgroundColor: label.color }}>
+                                    </span>
                                 })}
                             </div>
                         }
@@ -113,11 +116,12 @@ export function TaskPreview({ task, index }) {
                                     <span>{date[1]} {date[2]} </span>
                                 </div>
                             }
+                            {task.memberIds &&
+                                <div className="members">
+                                    <i className="icon-member-gray" title="User name"></i>
+                                </div>}
                         </div>
-                        {task.memberIds &&
-                            <div className="members">
-                                <i className="icon-member-gray" title="User name"></i>
-                            </div>}
+
                     </div>
                 </div>
             )}

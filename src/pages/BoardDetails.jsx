@@ -17,7 +17,6 @@ export function BoardDetails() {
   const params = useParams()
   const board = useSelector(storeState => storeState.boardModule.curBoard)
 
-
   useEffect(() => {
     loadBoard()
   }, [params.boardId])

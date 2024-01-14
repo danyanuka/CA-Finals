@@ -136,6 +136,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                     </form>
                 )}
             </li>
+            {/* <AddGroupOrTask onAddGroup={onAddGroup} type={'Group'}/> */}
         </ul>
 
 

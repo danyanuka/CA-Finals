@@ -1,9 +1,9 @@
 .task-list {
     list-style-type: none;
-    background-color: #eeeff1;
-
+    border-radius: 10px;
 
     .group-header {
+        color: $clr-text-black;
         padding: 10px;
         display: flex;
         justify-content: space-between;
@@ -42,15 +42,21 @@
 
     }
 
-    .task-item {
+    .task-preview {
         text-decoration: none;
-        border: 1px solid lightgrey;
-        margin: 7px;
-        background-color: white;
-        border-radius: 10px;
+        box-shadow: $ds-shadow-raised;
+        margin: 10px;
+        background-color: $clr-background-item-list;
+        border-radius: 8px;
+        padding: 8px 12px 4px;
+        min-height: 24px;
+        z-index: 10;
+        border: 1px solid transparent;
+        font-size: 14px;
     }
 
     .group-footer {
+        color: $clr-text-black;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -107,20 +113,31 @@
     }
 }
 
-.edit-task-header {
+.edit-task-header,
+.edit-task-header-styled {
     display: none;
 }
 
-.task-item:hover {
-    border: 1px solid blue;
+.task-preview:hover {
+    border: 1px solid $clr-bg-blue-bold;
+    box-shadow: $ds-shadow-raised;
     cursor: pointer;
 }
 
-.task-item:hover .edit-task-header {
+.task-preview:hover .edit-task-header {
     display: block;
     border: none;
     float: right;
     background-color: white;
     padding: 2px;
+    border-radius: 50%;
+}
+
+.task-preview:hover .edit-task-header-styled {
+    padding: 8px;
+    display: block;
+    border: none;
+    float: right;
+    background-color: white;
     border-radius: 50%;
 }

@@ -23,7 +23,7 @@ export function AppHeader() {
 
   return (
     <>
-      <section className="app-navbar">
+      <section className="app-navbar" style={board?.style}>
         <nav className="nav-links">
           <NavLink className="nav-link" to="/">
             <img
@@ -80,7 +80,7 @@ export function AppHeader() {
         <div className="nav-buttons">
           <div className="search-section">
             <i className="icon-search"></i>
-            <input type="text" className="search-input" placeholder="Search" />
+            <input style={board?.style} type="text" className="search-input" placeholder="Search" />
           </div>
           <i
             className="icon-notifications notifications-btn"

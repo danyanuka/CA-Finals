@@ -47,7 +47,9 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     }
 
     function handleAddTask(ev) {
+        console.log('hello');
         ev.preventDefault()
+        ev.stopPropagation()
         const taskToAdd = groupService.getDefaultTask(taskTitle)
         const addToStart = isAddingFromModal ? true : false
         onAddTask(taskToAdd, group.id, addToStart)
@@ -142,11 +144,12 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                                 onChange={handleChangeTaskTitle}
                                 placeholder='Enter a title for this task...'
                                 autoFocus
-                                onBlur={handleIsAdding} />
+                                onBlur={handleIsAdding}
+                            />
 
                         </li>
                         <div className="add-task-buttons">
-                            <button className="btn add-task-button">Add task</button>
+                            <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
                             <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-regular"></i></button>
                         </div>
                     </form>
