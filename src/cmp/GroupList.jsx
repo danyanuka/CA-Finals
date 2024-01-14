@@ -110,11 +110,11 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
             </DragDropContext>
 
-            <li className="group-item action">
+            <li className="group-item">
                 {!isAdding ? (
-                    <div className='add-group-button'>
-                        <li className='icon-add'></li>
-                        <button onClick={handleIsAdding}>Add another Group</button>
+                    <div className='action add-group-button'>
+                        <li className='icon-add-group'></li>
+                        <button onClick={handleIsAdding}>Add another group</button>
                     </div>
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
@@ -129,8 +129,8 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                             autoFocus />
 
                         <div className="add-group-buttons">
-                            <button onClick={(() => setIsClick(true))}>Add group</button>
-                            <button onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
+                            <button className='add-group-button' onClick={(() => setIsClick(true))}>Add group</button>
+                            <button className='close-button' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 
                     </form>

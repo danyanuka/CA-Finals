@@ -7,6 +7,7 @@ import { Draggable } from 'react-beautiful-dnd';
 export function TaskPreview({ task, index }) {
     const board = useSelector((storeState => storeState.boardModule.curBoard))
     const labels = utilService.getLabels(task.labelIds, board)
+    const { todos, isDone } = utilService.getStatusChecklist(task.checklists)
     const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate)
 
     let date = new Date(task.dueDate).toString();
@@ -29,22 +30,17 @@ export function TaskPreview({ task, index }) {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
-                    {task.style ? (
+                    {task.style &&
                         <div className="task-header" style={task.style} >
-                            <button className="edit-task-header-styled"><li className="icon-edit"></li></button>
-                        </div>
-                    ) : (
-                        <div>
                             <button className="edit-task-header"><li className="icon-edit"></li></button>
                         </div>
-                    )}
+                    }
 
                     <div className="task-body">
 
                         {task.labelIds &&
                             <div className="labels">
                                 {labels.map((label) => {
-                                    { console.log(label.color) }
                                     <span className="label"
                                         title={`color: ${label.color}, title: ${label.title}`}
                                         style={{ backgroundColor: label.color }}>
@@ -52,8 +48,18 @@ export function TaskPreview({ task, index }) {
                                 })}
                             </div>
                         }
+                        {!task.style ? (
+                            <div>
+                                <button className="edit-task-header"><li className="icon-edit"></li></button>
+                                <p className="task-title">{task.title}</p>
+                            </div>
+                        ) : (
+                            <p className="task-title">{task.title}</p>
 
-                        <p className="task-title">{task.title}</p>
+                        )
+
+                        }
+
 
                     </div>
 
@@ -79,27 +85,20 @@ export function TaskPreview({ task, index }) {
                             {task.checklists &&
                                 <div className="icon-with-counts">
                                     <i className="icon-checklists" title="Checklists"></i>
-                                    {/* <span>{task.checklists.todos?.length + 1}</span> */}
+                                    <span>{isDone}/{todos}</span>
                                 </div>
                             }
 
-                            {/* {task.dueDate < Date.now() &&
-                                <div className="due-date">
-                                    <i className="icon-clock-alert" title="Checklists"></i>
-                                    <span>{date[1]} {date[2]} </span>
-                                </div>
-                            } */}
-
                             {task.dueDate && isPass &&
                                 <div className="due-date pass">
-                                    <i className="icon-clock-alert" ></i>
+                                    <i className="icon-clock-alert-red" ></i>
                                     <span>{date[1]} {date[2]} </span>
                                 </div>
                             }
 
                             {task.dueDate && isToday &&
                                 <div className="due-date today">
-                                    <i className="icon-clock-alert" ></i>
+                                    <i className="icon-clock-alert-white" ></i>
                                     <span>{date[1]} {date[2]} </span>
                                 </div>
                             }
@@ -123,6 +122,7 @@ export function TaskPreview({ task, index }) {
                         </div>
 
                     </div>
+
                 </div>
             )}
         </Draggable>

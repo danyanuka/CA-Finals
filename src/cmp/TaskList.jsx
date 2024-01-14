@@ -87,7 +87,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                 <div className="scrollbar">
                     {isAddingFromModal &&
                         <form onSubmit={handleAddTask}>
-                            <li className="task-item">
+                            <li className="task-preview">
                                 <input className="task-title-input"
                                     type="text"
                                     name='taskTitle'
@@ -128,15 +128,15 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                 {!isAdding ? (
                     <div className="group-footer">
                         <div className="add-task-button">
-                            <li className='icon-add'></li>
-                            <button onClick={handleIsAdding}>Add a Task</button>
+                            <li className='icon-add-task'></li>
+                            <button onClick={handleIsAdding}>Add a task</button>
                         </div>
                         <i className="icon-template" title="create from template"></i>
                     </div>
                 ) : (
 
                     <form onSubmit={handleAddTask}>
-                        <li className="task-item">
+                        <li className="task-preview">
                             <input className="task-title-input"
                                 type="text"
                                 name='taskTitle'
@@ -150,7 +150,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                         </li>
                         <div className="add-task-buttons">
                             <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
-                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-regular"></i></button>
+                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
                         </div>
                     </form>
 

@@ -45,10 +45,9 @@
     .task-preview {
         text-decoration: none;
         box-shadow: $ds-shadow-raised;
-        margin: 10px;
+        margin: 8px;
         background-color: $clr-background-item-list;
         border-radius: 8px;
-        padding: 8px 12px 4px;
         min-height: 24px;
         z-index: 10;
         border: 1px solid transparent;
@@ -56,26 +55,33 @@
     }
 
     .group-footer {
+        padding: 8px 8px 0;
         color: $clr-text-black;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: auto 8px 8px 8px;
+        // margin: auto 8px 8px 8px;
 
         .add-task-button {
+            padding: 6px 12px 6px 8px;
             display: flex;
-            justify-content: flex-start;
             align-items: center;
-            width: 280px;
-
-            .icon-add {
-                font-size: small;
-            }
+            justify-content: flex-start;
+            flex-grow: 1;
+            margin: 0;
 
             button {
                 border: none;
-                padding: 12px;
-                font-size: large;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .icon-template {
+                margin: 0;
+                flex-grow: 0;
+                flex-shrink: 0;
+                border-radius: 8px;
+                padding: 8px;
             }
         }
 
@@ -93,22 +99,25 @@
 .add-task-buttons {
     display: flex;
     align-items: center;
-    margin: 10px;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-top: 8px;
 
     .add-task-button {
-        background-color: #0c66e4;
+        background-color: $clr-background-brand-bold;
+        box-shadow: none;
+        border: none;
         color: white;
-        padding: 10px;
-        border-radius: 5px;
+        border-radius: 3px;
+        padding: 6px 12px;
         font-weight: 500;
-        font-size: medium;
+        font-size: 14px;
     }
 
     .close-button {
         background-color: transparent;
         color: black;
-        font-size: large;
+        padding: 6px;
         font-weight: 500;
     }
 }
@@ -134,7 +143,7 @@
 }
 
 .task-preview:hover .edit-task-header-styled {
-    padding: 8px;
+    padding: 20px;
     display: block;
     border: none;
     float: right;

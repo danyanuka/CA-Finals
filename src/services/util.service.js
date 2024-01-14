@@ -5,7 +5,8 @@ export const utilService = {
   getTargetPosition,
   calcModalPosition,
   getLabels,
-  checkDueDate
+  checkDueDate,
+  getStatusChecklist
 };
 
 function padTwo(num) {
@@ -65,7 +66,6 @@ function getLabels(labelIds, board) {
     let label = board.labels?.find(label => labelId === label.id)
     labels.push(label)
   })
-  // console.log("labels", labels);
   return labels
 }
 
@@ -90,5 +90,27 @@ function checkDueDate(dueDate) {
   }
 
   return dateStatus
+}
+
+function getStatusChecklist(checklist) {
+  let todos = [];
+  let isDone = []
+
+  checklist?.map((list) => {
+    todos.push(list.todos)
+  })
+
+  todos?.map((todo) => {
+    if (todo.isDone) {
+      isDone.push(todo)
+    }
+  })
+
+  const counts = {
+    todos: todos.length + 1,
+    isDone: isDone.length + 1
+  }
+
+  return counts
 }
 
