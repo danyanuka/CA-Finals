@@ -71,10 +71,8 @@ $clr-bg-danger-bold: #C9372C;
 
 /* Mostly for neutral buttons */
 $clr-bg-neutral: #091E420F;
-$clr-bg-neutral-hovered: #091E4224;
-/* SAME AS: clr-dynamic-button-black-hovered */
-$clr-bg-neutral-pressed: #091E424F;
-/* SAME AS: clr-dynamic-button-black-pressed */
+$clr-bg-neutral-hovered: #091E4224; // SAME AS: clr-dynamic-button-black-hovered
+$clr-bg-neutral-pressed: #091E424F; // SAME AS: clr-dynamic-button-black-pressed
 
 /* For transparent buttons with dynamic colors */
 $clr-dynamic-button-black: transparent;
@@ -88,8 +86,10 @@ $clr-dynamic-button-white-pressed: #BFDBF847;
 $clr-text-black: #172b4d;
 $clr-text-black-subtle: #44546f;
 
-//List & Group
+/* List & Group */
 $clr-background-list: #f1f2f4;
 $clr-background-item-list: #FFFFFF;
 $ds-shadow-raised: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F;
-$border-focused: #388BFF
+
+/* textarea focus */
+$ds-border-focused: #388bff;
