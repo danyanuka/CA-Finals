@@ -1,9 +1,9 @@
 .task-list {
     list-style-type: none;
-    background-color: #eeeff1;
-
+    border-radius: 10px;
 
     .group-header {
+        color: $clr-text-black;
         padding: 10px;
         display: flex;
         justify-content: space-between;
@@ -42,34 +42,46 @@
 
     }
 
-    .task-item {
+    .task-preview {
         text-decoration: none;
-        border: 1px solid lightgrey;
-        margin: 7px;
-        background-color: white;
-        border-radius: 10px;
+        box-shadow: $ds-shadow-raised;
+        margin: 8px;
+        background-color: $clr-background-item-list;
+        border-radius: 8px;
+        min-height: 24px;
+        z-index: 10;
+        border: 1px solid transparent;
+        font-size: 14px;
     }
 
     .group-footer {
+        padding: 8px 8px 0;
+        color: $clr-text-black;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: auto 8px 8px 8px;
+        // margin: auto 8px 8px 8px;
 
         .add-task-button {
+            padding: 6px 12px 6px 8px;
             display: flex;
-            justify-content: flex-start;
             align-items: center;
-            width: 280px;
-
-            .icon-add {
-                font-size: small;
-            }
+            justify-content: flex-start;
+            flex-grow: 1;
+            margin: 0;
 
             button {
                 border: none;
-                padding: 12px;
-                font-size: large;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .icon-template {
+                margin: 0;
+                flex-grow: 0;
+                flex-shrink: 0;
+                border-radius: 8px;
+                padding: 8px;
             }
         }
 
@@ -87,40 +99,54 @@
 .add-task-buttons {
     display: flex;
     align-items: center;
-    margin: 10px;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-top: 8px;
 
     .add-task-button {
-        background-color: #0c66e4;
+        background-color: $clr-background-brand-bold;
+        box-shadow: none;
+        border: none;
         color: white;
-        padding: 10px;
-        border-radius: 5px;
+        border-radius: 3px;
+        padding: 6px 12px;
         font-weight: 500;
-        font-size: medium;
+        font-size: 14px;
     }
 
     .close-button {
         background-color: transparent;
         color: black;
-        font-size: large;
+        padding: 6px;
         font-weight: 500;
     }
 }
 
-.edit-task-header {
+.edit-task-header,
+.edit-task-header-styled {
     display: none;
 }
 
-.task-item:hover {
-    border: 1px solid blue;
+.task-preview:hover {
+    border: 1px solid $clr-bg-blue-bold;
+    box-shadow: $ds-shadow-raised;
     cursor: pointer;
 }
 
-.task-item:hover .edit-task-header {
+.task-preview:hover .edit-task-header {
     display: block;
     border: none;
     float: right;
     background-color: white;
     padding: 2px;
+    border-radius: 50%;
+}
+
+.task-preview:hover .edit-task-header-styled {
+    padding: 20px;
+    display: block;
+    border: none;
+    float: right;
+    background-color: white;
     border-radius: 50%;
 }

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $clr-bg-pink-bold;
+  // background-color: $clr-bg-pink-bold;
   color: white;
   padding: 10px;
   border-bottom: 0.1px solid white;
@@ -19,7 +19,7 @@
   .nav-link:hover,
   .create,
   .search-section {
-    background-color: $clr-dynamic-button-white-hovered;
+    // background-color: $clr-dynamic-button-white-hovered;
     border-radius: 5px;
     text-decoration: none;
     padding: 8px;
@@ -59,7 +59,7 @@
       }
 
       .search-input {
-        background-color: rgb(172 92 148);
+        // background-color: rgb(172 92 148);
         border: none;
       }
     }
@@ -71,7 +71,7 @@
 
     .search-section:hover .search-input,
     .search-section:hover {
-      background-color: rgb(179 112 166);
+      // background-color: rgb(179 112 166);
     }
 
     .notifications-btn,

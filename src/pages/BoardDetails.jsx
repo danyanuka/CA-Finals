@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router"
+import { Outlet, useParams } from "react-router"
 
 //redux
 import { useSelector } from "react-redux";
@@ -17,7 +17,6 @@ export function BoardDetails() {
   const params = useParams()
   const board = useSelector(storeState => storeState.boardModule.curBoard)
 
-
   useEffect(() => {
     loadBoard()
   }, [params.boardId])
@@ -29,8 +28,6 @@ export function BoardDetails() {
       console.log('Had issues loading board', err);
     }
   }
-
-  
 
   async function onAddGroup(newGroup) {
     const boardToUpdate = await groupService.addGroup(newGroup, board);
@@ -47,13 +44,14 @@ export function BoardDetails() {
     return boardActions.saveBoard(boardToUpdate)
   }
 
-  if (!board) return <div>Loading..</div>;
   return (
     <div className="home">
       <AppHeader />
-      <BoardHeader />
-      <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />
-
+      <div style={board?.style}>
+        <BoardHeader />
+        {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
+        <Outlet />
+      </div>
     </div>
   );
 }

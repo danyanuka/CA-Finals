@@ -12,7 +12,7 @@ import { TaskPreview } from "./TaskPreview"
 import { groupService } from "../services/group.service"
 
 
-export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
+export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
@@ -47,7 +47,9 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
     }
 
     function handleAddTask(ev) {
+        console.log('hello');
         ev.preventDefault()
+        ev.stopPropagation()
         const taskToAdd = groupService.getDefaultTask(taskTitle)
         const addToStart = isAddingFromModal ? true : false
         onAddTask(taskToAdd, group.id, addToStart)
@@ -66,7 +68,7 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
         <>
             <ul className="task-list">
 
-                <div className="group-header">
+                <div className="group-header" >
                     {isEditing ? (
                         <input className="edit-group-title"
                             type="text"
@@ -85,7 +87,7 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                 <div className="scrollbar">
                     {isAddingFromModal &&
                         <form onSubmit={handleAddTask}>
-                            <li className="task-item">
+                            <li className="task-preview">
                                 <input className="task-title-input"
                                     type="text"
                                     name='taskTitle'
@@ -109,8 +111,8 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                         //         <TaskPreview task={task} />
                         //     </li>) */}
 
-                    <Droppable droppableId={group.id}>
-                        {provided => (
+                    <Droppable droppableId={group.id} index={index}>
+                        {(provided) => (
                             <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
                                 {tasks?.map((task, index) => (
                                     <TaskPreview key={task.id} task={task} index={index} />
@@ -126,15 +128,15 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                 {!isAdding ? (
                     <div className="group-footer">
                         <div className="add-task-button">
-                            <li className='icon-add'></li>
-                            <button onClick={handleIsAdding}>Add a Task</button>
+                            <li className='icon-add-task'></li>
+                            <button onClick={handleIsAdding}>Add a task</button>
                         </div>
                         <i className="icon-template" title="create from template"></i>
                     </div>
                 ) : (
 
                     <form onSubmit={handleAddTask}>
-                        <li className="task-item">
+                        <li className="task-preview">
                             <input className="task-title-input"
                                 type="text"
                                 name='taskTitle'
@@ -142,18 +144,20 @@ export function TaskList({ group, tasks, onAddTask, onEditGroup }) {
                                 onChange={handleChangeTaskTitle}
                                 placeholder='Enter a title for this task...'
                                 autoFocus
-                                onBlur={handleIsAdding} />
+                                onBlur={handleIsAdding}
+                            />
 
                         </li>
                         <div className="add-task-buttons">
-                            <button className="btn add-task-button">Add task</button>
-                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-regular"></i></button>
+                            <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
+                            <button className="btn close-button" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
                         </div>
                     </form>
 
                 )}
 
             </ul>
+
         </>
     )
 }

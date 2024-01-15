@@ -32,7 +32,7 @@
 }
 
 .icon-task-checklist {
-  // content: url("/public/icons/.svg");
+  content: url("/public/icons/checklists.svg");
 }
 
 .icon-task-dates {
@@ -41,6 +41,10 @@
 
 .icon-task-attachments {
   content: url("/public/icons/attachment2.svg");
+}
+
+.icon-task-cover {
+  // content: url("/public/icons/cover.svg");
 }
 
 .icon-task-move {
@@ -157,39 +161,83 @@
 //BoardDetails
 .icon-template {
   content: url("/public/icons/template.svg");
+  width: 19px;
+  height: 19px;
 }
 
 .icon-edit {
   content: url("/public/icons/edit.svg");
+  width: 20px;
+  height: 20px;
 }
 
 // TaskDetails
 .icon-description {
   content: url("/public/icons/description.svg");
+  width: 17px;
+  height: 17px;
 }
 
 .icon-comments {
   content: url("/public/icons/comments.svg");
+  width: 17px;
+  height: 17px;
 }
 
 .icon-checklists {
   content: url("/public/icons/checklists.svg");
+  width: 17px;
+  height: 17px;
 }
 
 .icon-clock-alert {
   content: url("/public/icons/clock-alert.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-clock-alert-red {
+  content: url("/public/icons/clock-red.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-clock-alert-white {
+  content: url("/public/icons/clock-white.svg");
+  width: 17px;
+  height: 17px;
 }
 
 .icon-member-gray {
   content: url("/public/icons/member-gray.svg");
+  width: 17px;
+  height: 17px;
 }
 
 .icon-close-regular {
   content: url("/public/icons/close.svg");
 }
 
-.icon-more-options {
-  content: url("/public/icons/more-options.svg");
+.icon-close-add-task {
+  content: url("/public/icons/close.svg");
   width: 18px;
   height: 18px;
+}
+
+.icon-more-options {
+  content: url("/public/icons/more-options.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-add-group {
+  content: url("/public/icons/add-group.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-add-task {
+  content: url("/public/icons/add-task.svg");
+  width: 17px;
+  height: 17px;
 }

@@ -1,45 +1,65 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { utilService } from "../services/util.service";
+import { utilService } from "../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from 'react-beautiful-dnd';
 
 
 export function TaskPreview({ task, index }) {
     const board = useSelector((storeState => storeState.boardModule.curBoard))
+    const labels = utilService.getLabels(task.labelIds, board)
+    const { todos, isDone } = utilService.getStatusChecklist(task.checklists)
+    const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate)
 
-    const navigate = useNavigate()
-    const { boardId } = useParams()
     let date = new Date(task.dueDate).toString();
     date = date.split(" ")
 
-    // const labels = utilService.getLabels(task.labelIds, board)
-    // console.log(labels);
+    const { boardId } = useParams()
+    const navigate = useNavigate()
+
+
     function handleGoToTask(taskId) {
         navigate(`/board/${boardId}/${taskId}`)
     }
-
     return (
-        <Draggable draggableId={task.id} index={index} >
+
+        <Draggable draggableId={task.id} index={index}>
             {(provided, snapshot) => (
-                <div className={`task-preview is-dragging-${snapshot.isDragging}`} onClick={() => { handleGoToTask(task.id) }}
+
+                <div className={`task-preview is-dragging-${snapshot.isDragging}`} key={task.id} onClick={() => { handleGoToTask(task.id) }}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
-                // isDragging={snapshot.isDragging}
                 >
-                    <div className="task-header">
-                        <button className="edit-task-header"><li className="icon-edit"></li></button>
-                    </div>
+                    {task.style &&
+                        <div className="task-header" style={task.style} >
+                            <button className="edit-task-header"><li className="icon-edit"></li></button>
+                        </div>
+                    }
 
                     <div className="task-body">
 
-                        {/* labels not working yet */}
                         {task.labelIds &&
                             <div className="labels">
-                                {/* {task.labelIds.map((label) => label)} */}
-                            </div>}
+                                {labels.map((label) => {
+                                    <span className="label"
+                                        title={`color: ${label.color}, title: ${label.title}`}
+                                        style={{ backgroundColor: label.color }}>
+                                    </span>
+                                })}
+                            </div>
+                        }
+                        {!task.style ? (
+                            <div>
+                                <button className="edit-task-header"><li className="icon-edit"></li></button>
+                                <p className="task-title">{task.title}</p>
+                            </div>
+                        ) : (
+                            <p className="task-title">{task.title}</p>
 
-                        <p className="task-title">{task.title}</p>
+                        )
+
+                        }
+
 
                     </div>
 
@@ -65,22 +85,44 @@ export function TaskPreview({ task, index }) {
                             {task.checklists &&
                                 <div className="icon-with-counts">
                                     <i className="icon-checklists" title="Checklists"></i>
-                                    {/* <span>{task.checklists.todos?.length + 1}</span> */}
+                                    <span>{isDone}/{todos}</span>
                                 </div>
                             }
 
-                            {task.dueDate < Date.now() &&
-                                <div className="due-date">
-                                    <i className="icon-clock-alert" title="Checklists"></i>
-                                    <span>{date[1]} {date[2]} {date[3]}</span>
+                            {task.dueDate && isPass &&
+                                <div className="due-date pass">
+                                    <i className="icon-clock-alert-red" ></i>
+                                    <span>{date[1]} {date[2]} </span>
                                 </div>
                             }
+
+                            {task.dueDate && isToday &&
+                                <div className="due-date today">
+                                    <i className="icon-clock-alert-white" ></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+
+                            {task.dueDate && isTomorrow &&
+                                <div className="due-date tomorrow">
+                                    <i className="icon-clock-alert" ></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+                            {task.dueDate && !isPass && !isToday && !isTomorrow &&
+                                <div className="due-date">
+                                    <i className="icon-clock-alert" title="Checklists"></i>
+                                    <span>{date[1]} {date[2]} </span>
+                                </div>
+                            }
+                            {task.memberIds &&
+                                <div className="members">
+                                    <i className="icon-member-gray" title="User name"></i>
+                                </div>}
                         </div>
-                        {task.memberIds &&
-                            <div className="members">
-                                <i className="icon-member-gray" title="User name"></i>
-                            </div>}
+
                     </div>
+
                 </div>
             )}
         </Draggable>

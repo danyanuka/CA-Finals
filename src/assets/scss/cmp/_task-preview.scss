@@ -1,49 +1,92 @@
 .task-preview {
     min-height: 24px;
+    border: 1px solid transparent;
 
     .task-header {
-        height: 30px;
-        background-color: lightgray;
-        margin-bottom: 7px;
+        height: 36px;
+        width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
     }
 
     .task-body {
-        margin: 12px;
-    }
+        padding: 8px 12px 4px;
 
-    .task-actions {
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
+        .labels {
 
-        .task-icons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            .icon-with-counts {
-                display: flex;
-                align-items: center;
+            .label {
+                margin-top: 0;
+                margin-bottom: 0;
+                // padding-right: 0;
+                // padding-left: 0;
+                min-width: 40px;
+                max-width: 40px;
+                height: 8px;
+                background-color: aqua;
+                border-radius: 4px;
+                padding: 0 8px;
             }
-
-            .due-date {
-                display: flex;
-                align-items: center;
-                background-color: rgb(236, 151, 151);
-                color: rgb(105, 3, 3);
-                padding: 5px;
-                border-radius: 5px;
-                font-size: small;
-            }
-        }
-
-        .members {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
         }
     }
 }
+
+.task-actions {
+    padding-left: 12px;
+    padding-right: 8px;
+    padding-bottom: 10px;
+
+    .task-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .icon-with-counts {
+            display: flex;
+            align-items: center;
+
+            span {
+                padding-right: 2px;
+                padding-left: 2px;
+                font-size: 12px;
+            }
+        }
+
+        .due-date {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+
+            span {
+                margin-left: 3px;
+            }
+        }
+
+        .pass {
+            background-color: rgb(239, 189, 189);
+            color: #690303;
+        }
+
+        .today {
+            background-color: rgb(180, 9, 9);
+            color: white;
+        }
+
+        .tomorrow {
+            background-color: darkgoldenrod;
+            color: darkgrey;
+        }
+    }
+
+    .members {
+        display: flex;
+        align-items: center;
+        position: relative;
+        left: 15px;
+    }
+}
+
 
 .is-dragging-true {
     background-color: white;

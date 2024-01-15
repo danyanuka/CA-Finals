@@ -1,13 +1,18 @@
-
+/* General props */
 .task-details {
     &-wrapper {
         z-index: 20;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
-        display: grid;
-        align-items: center;
-        justify-items: center;
+        display: flex;
+        align-items: start;
+        justify-content: center;
         background-color: rgba(0, 0, 0, 0.64);
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     position: relative;
@@ -18,6 +23,8 @@
     display: grid;
     overflow: hidden;
     color: $clr-text-black;
+    min-height: 50%;
+
 
     &-icon-close {
         z-index: 21;
@@ -30,6 +37,7 @@
         height: 20px;
         padding: 10px;
         border-radius: 50%;
+
         & i {
             z-index: 22;
             box-sizing: content-box;
@@ -42,15 +50,15 @@
     &-cover {
         position: relative;
         height: 116px;
-        background-color: $clr-bg-red;  /* test */
+        background-color: $clr-bg-red;
+        /* test */
+        overflow: hidden;
 
         &-btn {
             position: absolute;
             bottom: 12px;
             right: 12px;
             padding: 6px 12px 6px 6px;
-            border-radius: 3px;
-            border-width: 0px;
             display: flex;
             align-items: center;
 
@@ -78,19 +86,35 @@
         }
     }
 
+    h1 {
+        @include fontProps(20px, 600, 24px);
+    }
+
+    h2 {
+        @include fontProps(16px, 600, 20px);
+    }
+
+    h3 {
+        color: $clr-text-black-subtle;
+        @include fontProps(12px, 600, 20px);
+    }
+}
+
+/* Main-Props */
+.task-details {
     &-data {
         padding: 8px 16px 32px 16px;
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: 1fr 168px;
         grid-template-areas:
-         "a a" 
-         "b c";
+            "a a"
+            "b c";
     }
 
     &-header {
         grid-area: a;
-        padding: 8px 52px 8px 56px;
+        padding: 0px 52px 8px 56px;
         position: relative;
 
         & .icon-task-details-header {
@@ -102,21 +126,26 @@
             height: 15px;
         }
 
-        & h1 {
+        & textarea {
             @include fontProps(20px, 600, 24px);
-            margin-top: 12px;
+            height: 37px;
+            padding: 6px 10px 6px 10px;
+            margin: 6px -6px -6px -6px;
         }
 
-        & h2 {
-            color: $clr-text-black-subtle;
+        & span {
             @include fontProps(14px, 400, 20px);
             margin: 4px 8px 12px 2px;
             display: inline-flex;
+
+            a {
+                text-decoration: underline;
+            }
         }
 
         & .icon-watch-task {
             width: 16px;
-            margin: 0px 8px 0px 2px;
+            margin-left: 10px;
         }
     }
 
@@ -126,14 +155,23 @@
 
     &-sidebar {
         grid-area: c;
-        &-prop, &-actions {
+
+        &-prop {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        &-actions {
             display: grid;
             grid-template-columns: 1fr;
             gap: 8px;
         }
+
+        .sidebar-header {
+            margin-bottom: -4px;
+        }
     }
 
-
-
 }
-
