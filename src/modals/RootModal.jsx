@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
-import { closeModal } from "../../store/actions/app.actions";
 import { CreateBoardModal } from "./CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 import { utilService } from "/src/services/util.service.js";

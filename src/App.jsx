@@ -14,7 +14,7 @@ import { Login } from "./pages/Login";
 import { BoardIndex } from "./pages/BoardIndex";
 import { BoardDetails } from "./pages/BoardDetails";
 import { TaskDetails } from "./pages/TaskDetails";
-import { RootModal } from "./cmp/Modals/RootModal";
+import { RootModal } from "./modals/RootModal";
 import { useSelector } from "react-redux";
 import { AppHeader } from "./cmp/AppHeader";
 

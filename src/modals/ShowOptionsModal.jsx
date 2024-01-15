@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { closeModal } from "../../store/actions/app.actions";
+import { closeModal } from "/src/store/actions/app.actions";
 import { RootModalHeader } from "./RootModalHeader";
 
 export function ShowOptionsModal({ handleIsAddingFromModal }) {

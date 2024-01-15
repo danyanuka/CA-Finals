@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { boardActions } from "../../store/actions/board.actions";
+import { boardActions } from "/src/store/actions/board.actions";
 
 import { RootModalHeader } from "./RootModalHeader";
-import { BackgroundPicker } from "../BackgroundPicker";
-import { boardService } from "../../services/board.service";
+import { BackgroundPicker } from "/src/cmp/BackgroundPicker";
+import { boardService } from "/src/services/board.service";
 
 export function CreateBoardModal() {
   const [newBoard, setNewBoard] = useState({});
