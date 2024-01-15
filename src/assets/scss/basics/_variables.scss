@@ -3,7 +3,6 @@ $clr-bg-default: #f1f2f4;
 $clr-bg-default-hovered: #e3e6ea;
 $clr-bg-default-pressed: #d0d4dc;
 
-<<<<<<< HEAD
 $clr-bg-lime-subtle: #d3f1a7;
 $clr-bg-lime-subtle-hovered: #b3df72;
 $clr-bg-lime: #94c748;
@@ -65,6 +64,7 @@ $clr-bg-black-hovered: #b3b9c4;
 $clr-bg-black-bold: #626f86;
 $clr-bg-black-bold-hovered: #44546f;
 $clr-bg-black-bold-pressed: #2c3e5d;
+$clr-background-brand-bold: #0c66e4;
 
 /* danger colors */
 $clr-bg-danger-bold: #c9372c;
@@ -81,92 +81,10 @@ $clr-dynamic-button-black-pressed: #091e424f;
 $clr-dynamic-button-white: transparent;
 $clr-dynamic-button-white-hovered: #a6c5e229;
 $clr-dynamic-button-white-pressed: #bfdbf847;
-=======
-$clr-bg-lime-subtle: #D3F1A7;
-$clr-bg-lime-subtle-hovered: #B3DF72;
-$clr-bg-lime: #94C748;
-$clr-bg-lime-hovered: #B3DF72;
-$clr-bg-lime-bold: #5B7F24;
-$clr-bg-lime-bold-hovered: #4C6B1F;
-$clr-bg-red-subtle: #FFD5D2;
-$clr-bg-red-subtle-hovered: #FD9891;
-$clr-bg-red: #F87168;
-$clr-bg-red-hovered: #FD9891;
-$clr-bg-red-bold: #C9372C;
-$clr-bg-red-bold-hovered: #AE2E24;
-$clr-bg-orange-subtle: #FEDEC8;
-$clr-bg-orange-subtle-hovered: #FEC195;
-$clr-bg-orange: #FEA362;
-$clr-bg-orange-hovered: #FEC195;
-$clr-bg-orange-bold: #C25100;
-$clr-bg-orange-bold-hovered: #A54800;
-$clr-bg-yellow-subtle: #F8E6A0;
-$clr-bg-yellow-subtle-hovered: #F5CD47;
-$clr-bg-yellow: #F5CD47;
-$clr-bg-yellow-hovered: #E2B203;
-$clr-bg-yellow-bold: #946F00;
-$clr-bg-yellow-bold-hovered: #7F5F01;
-$clr-bg-green-subtle: #BAF3DB;
-$clr-bg-green-subtle-hovered: #7EE2B8;
-$clr-bg-green: #4BCE97;
-$clr-bg-green-hovered: #7EE2B8;
-$clr-bg-green-bold: #1F845A;
-$clr-bg-green-bold-hovered: #216E4E;
-$clr-bg-sky-subtle: #C6EDFB;
-$clr-bg-sky-subtle-hovered: #9DD9EE;
-$clr-bg-sky: #6CC3E0;
-$clr-bg-sky-hovered: #9DD9EE;
-$clr-bg-sky-bold: #227D9B;
-$clr-bg-sky-bold-hovered: #206A83;
-$clr-bg-blue-subtle: #CCE0FF;
-$clr-bg-blue-subtle-hovered: #85B8FF;
-$clr-bg-blue: #579DFF;
-$clr-bg-blue-hovered: #85B8FF;
-$clr-bg-blue-bold: #0C66E4;
-$clr-bg-blue-bold-hovered: #0055CC;
-$clr-bg-purple-subtle: #DFD8FD;
-$clr-bg-purple-subtle-hovered: #B8ACF6;
-$clr-bg-purple: #9F8FEF;
-$clr-bg-purple-hovered: #B8ACF6;
-$clr-bg-purple-bold: #6E5DC6;
-$clr-bg-purple-bold-hovered: #5E4DB2;
-$clr-bg-pink-subtle: #FDD0EC;
-$clr-bg-pink-subtle-hovered: #F797D2;
-$clr-bg-pink: #E774BB;
-$clr-bg-pink-hovered: #F797D2;
-$clr-bg-pink-bold: #AE4787;
-$clr-bg-pink-bold-hovered: #943D73;
-$clr-bg-black-subtle: #DCDFE4;
-$clr-bg-black-subtle-hovered: #B3B9C4;
-$clr-bg-black: #8590A2;
-$clr-bg-black-hovered: #B3B9C4;
-$clr-bg-black-bold: #626F86;
-$clr-bg-black-bold-hovered: #44546F;
-$clr-bg-black-bold-pressed: #2C3E5D;
-$clr-background-brand-bold: #0C66E4;
-
-/* danger colors */
-$clr-bg-danger-bold: #C9372C;
-
-/* Mostly for neutral buttons */
-$clr-bg-neutral: #091E420F;
-$clr-bg-neutral-hovered: #091E4224; // SAME AS: clr-dynamic-button-black-hovered
-$clr-bg-neutral-pressed: #091E424F; // SAME AS: clr-dynamic-button-black-pressed
-
-/* For transparent buttons with dynamic colors */
-$clr-dynamic-button-black: transparent;
-$clr-dynamic-button-black-hovered: #091E4224;
-$clr-dynamic-button-black-pressed: #091E424F;
-$clr-dynamic-button-white: transparent;
-$clr-dynamic-button-white-hovered: #A6C5E229;
-$clr-dynamic-button-white-pressed: #BFDBF847;
->>>>>>> 8ffcc5b8c19266139eb54b5e4d0c82ccb0d39b8f
 
 /* text */
 $clr-text-black: #172b4d;
 $clr-text-black-subtle: #44546f;
-<<<<<<< HEAD
-=======
 
 /* List & Group */
 $clr-background-list: #f1f2f4;
@@ -175,4 +93,4 @@ $ds-shadow-raised: 0px 1px 1px #091E4240, 0px 0px 1px #091E424F;
 
 /* textarea focus */
 $ds-border-focused: #388bff;
->>>>>>> 8ffcc5b8c19266139eb54b5e4d0c82ccb0d39b8f
+
