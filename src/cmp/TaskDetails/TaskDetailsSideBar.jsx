@@ -30,7 +30,7 @@ export function TaskDetailsSideBar() {
         <div className="task-details-sidebar-actions">
             <h3 className="sidebar-header">Actions</h3>
             <button className="td-btn task-details-sidebar-move">
-                <i className=""></i>
+                <i className="icon-task-move"></i>
                 Move
             </button>
             <button className="td-btn task-details-sidebar-copy">

@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
+import { useNavigate } from "react-router-dom";
 
 //redux
 import { useSelector } from "react-redux";
@@ -17,6 +17,8 @@ export function TaskDetails() {
     const board = useSelector(storeState => storeState.boardModule.curBoard)
     const [group, setGroup] = useState()
     const [task, setTask] = useState()
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadBoard()
@@ -50,6 +52,15 @@ export function TaskDetails() {
         }
     }
 
+    function closeTaskDetails(ev) {
+        // TODO - Keep the old query params from the BoardDetails
+        // const newSearchParams = emailService.getRelevantSearchParam(filterBy)
+        navigate({
+            pathname: `/board/${params.boardId}`,
+            // search: createSearchParams(newSearchParams).toString()
+        })
+    }
+
     function dummy(ev) {
         console.log("dummy: ", ev)
     }
@@ -61,9 +72,9 @@ export function TaskDetails() {
     </div>
 
     return (
-        <div className="task-details-wrapper">
-            <div className="task-details">
-                <button className="transparent-btn-black task-details-icon-close">
+        <div onClick={closeTaskDetails} className="task-details-wrapper">
+            <div onClick={(ev) => ev.stopPropagation()} className="task-details">
+                <button onClick={closeTaskDetails} className="transparent-btn-black task-details-icon-close">
                     <i className="icon-close-grayblue"></i>
                 </button>
                 { 

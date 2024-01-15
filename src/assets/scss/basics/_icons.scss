@@ -15,8 +15,13 @@
   content: url("/public/icons/task-cover.png");
 }
 
-.icon-task-details-header {
-  content: url("/public/icons/task-details-header.png");
+.icon-task-header {
+  content: url("/public/icons/task-header.png");
+  height: 18px;
+}
+
+.icon-task-header-cover {
+  content: url("/public/icons/task-cover.png");
 }
 
 .icon-watch-task {
@@ -28,7 +33,7 @@
 }
 
 .icon-task-labels {
-  // content: url("/public/icons/.svg");
+  content: url("/public/icons/labels.png");
 }
 
 .icon-task-checklist {
@@ -36,7 +41,7 @@
 }
 
 .icon-task-dates {
-  content: url("/public/icons/clock.svg");
+  content: url("/public/icons/clock.png");
 }
 
 .icon-task-attachments {
@@ -44,11 +49,11 @@
 }
 
 .icon-task-cover {
-  // content: url("/public/icons/cover.svg");
+  content: url("/public/icons/cover.png");
 }
 
 .icon-task-move {
-  // content: url("/public/icons/.svg");
+  content: url("/public/icons/arrow-right.png");
 }
 
 .icon-task-copy {
@@ -60,7 +65,7 @@
 }
 
 .icon-task-archive {
-  // content: url("/public/icons/.svg");
+  content: url("/public/icons/archive.png");
 }
 
 .icon-task-share {

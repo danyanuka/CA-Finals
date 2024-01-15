@@ -84,7 +84,7 @@
     }
 
     &-data {
-        padding: 20px 16px 32px 16px;
+        padding: 8px 16px 32px 16px;
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: 1fr 168px;
@@ -95,23 +95,14 @@
 
     &-header {
         grid-area: a;
-        padding: 0px 52px 8px 40px;
+        padding: 0px 52px 8px 0px;
         position: relative;
-
-        & .icon-task-details-header {
-            position: absolute;
-            top: 8px;
-            left: 0px;
-            display: block;
-            box-sizing: border-box;
-            height: 15px;
-        }
 
         & textarea {
             @include fontProps(20px, 600, 24px);
             height: 37px;
             padding: 6px 10px 6px 10px;
-            margin: -6px -10px -6px -10px;
+            margin: 6px -10px -6px -10px;
         }
 
         & span {
@@ -164,8 +155,13 @@
 
     &-section-icon {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 8px;
+        left: -40px;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        height: 32px;
+        width: 32px;
     }
 
     &-btn {
