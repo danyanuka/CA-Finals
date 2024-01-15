@@ -12,7 +12,7 @@ export function ShowOptionsModal({ handleIsAddingFromModal }) {
     return (
 
         <>
-            <RootModalHeader title={"Group actions"} />
+            <RootModalHeader title="Group actions" />
             <div className="show-options-modal">
                 <div className="modal-actions">
                     <div className="action">

@@ -61,10 +61,6 @@ export function TaskDetails() {
         })
     }
 
-    function dummy(ev) {
-        console.log("dummy: ", ev)
-    }
-
     if (!task) return <div className="task-details-wrapper">
         <div className="task-details">
             <p><br />&nbsp;&nbsp;Loading...</p>
@@ -77,7 +73,7 @@ export function TaskDetails() {
                 <button onClick={closeTaskDetails} className="transparent-btn-black task-details-icon-close">
                     <i className="icon-close-grayblue"></i>
                 </button>
-                { 
+                {
                     task.style &&
                     task.style.backgroundColor &&
                     <TaskDetailsCover />
