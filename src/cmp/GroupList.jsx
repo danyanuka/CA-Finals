@@ -1,11 +1,15 @@
 import { useState } from 'react'
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 //cmps
 import { GroupPreview } from './GroupPreview'
 
 //services
 import { groupService } from '../services/group.service'
+
+//store
+import { boardActions } from "../store/actions/board.actions";
+
 
 export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
     const groups = board?.groups
@@ -36,7 +40,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
     }
 
     function onDragEnd(result) {
-        const { destination, source, draggableId } = result;
+        const { destination, source, draggableId, type } = result;
         // console.log("source.index", source.index);
         // console.log("destination.index", destination.index);
 
@@ -44,13 +48,30 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
             return;
         }
 
-        if (
-            destination.droppableId === source.droppableId &&
-            destination.index === source.index
-        ) {
+        if (destination.droppableId === source.droppableId && destination.index === source.index) {
             return;
         }
 
+        // if (!destination ||  destination.droppableId === source.droppableId && destination.index === source.index) {
+        //     return;
+        // }
+        // console.log("type:", type);
+        // console.log("source:", source.index);
+        // console.log("destination", destination.index);
+        // console.log("draggableId", draggableId);
+
+        if (type === 'group') {
+            const groupToReplace = groups.find((group) => group.id === draggableId)
+
+            groups.splice(source.index, 1);
+            groups.splice(destination.index, 0, groupToReplace);
+
+            const newBoard = {
+                ...board,
+                groups: groups,
+            };
+            return boardActions.saveBoard(newBoard);
+        }
 
         const startGroup = groups.find((group) => group.id === source.droppableId)
         const finishGroup = groups.find((group) => group.id === destination.droppableId)
@@ -99,23 +120,31 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
     return (
 
-        <ul className="group-list">
+        <ul className="group-list-ul">
 
             <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId='all-groups' direction='horizontal' type='group'>
+                    {(provided) => (
+                        <div className="group-list" {...provided.droppableProps} ref={provided.innerRef}>
+                            {
+                                groups?.map((group, index) =>
+                                    <li className='group-item' key={group.id} >
+                                        <GroupPreview groups={groups} index={index} group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
+                                    </li>)
+                            }
+                            {provided.placeholder}
+                        </div>
+                    )}
 
-                {groups?.map((group, index) => <li className='group-item' key={group.id} >
-                    <GroupPreview groups={groups} index={index} group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
-
-                </li>)}
-
+                </Droppable>
             </DragDropContext>
 
             <li className="group-item">
                 {!isAdding ? (
-                    <div className='action add-group-button'>
+                    <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
                         <li className='icon-add-group'></li>
-                        <button onClick={handleIsAdding}>Add another group</button>
-                    </div>
+                        <div>Add another group</div>
+                    </button>
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
 
@@ -130,7 +159,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
                         <div className="add-group-buttons">
                             <button className='add-group-button' onClick={(() => setIsClick(true))}>Add group</button>
-                            <button className='close-button' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
+                            <button className='close-button transparent-btn-black' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 
                     </form>

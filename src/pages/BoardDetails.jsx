@@ -45,9 +45,9 @@ export function BoardDetails() {
   }
 
   return (
-    <div className="home">
+    <div className="home" style={board?.style}>
       <AppHeader />
-      <div style={board?.style}>
+      <div>
         <BoardHeader />
         {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
         <Outlet />

@@ -10,7 +10,13 @@
     }
 
     .task-body {
-        padding: 8px 12px 4px;
+        padding: 8px;
+
+        .edit-task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
         .labels {
 
@@ -89,6 +95,11 @@
 
 
 .is-dragging-true {
+    background-color: white;
+    opacity: .5;
+}
+
+.is-dragging {
     background-color: white;
     opacity: .5;
 }
