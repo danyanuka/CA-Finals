@@ -1,29 +1,22 @@
 .root-modal-header {
   display: grid;
-  grid-template-columns: 31px auto 31px;
-  grid-template-rows: 40px auto;
-  padding: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  align-items: center;
-  justify-items: center;
+  place-items: center;
+  padding: 12px;
 
   .modal-title {
-    @include fontProps(14px, 600, 40px);
-
-    grid-area: 1/2;
+    @include fontProps(14px, 600, 24px);
   }
 
   .close-modal {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: grid;
+    place-items: center;
     padding: none;
-    justify-self: end;
     border-radius: 8px;
-    grid-area: 1/3;
     width: 32px;
     height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     .icon-close-regular {
       height: 16px;
