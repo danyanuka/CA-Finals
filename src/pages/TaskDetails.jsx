@@ -66,7 +66,7 @@ export function TaskDetails() {
                 <button className="transparent-btn-black task-details-icon-close">
                     <i className="icon-close-grayblue"></i>
                 </button>
-                {
+                { 
                     task.style.backgroundColor &&
                     <TaskDetailsCover />
                 }

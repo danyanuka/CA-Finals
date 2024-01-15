@@ -25,6 +25,18 @@
     color: $clr-text-black;
     min-height: 50%;
 
+    h1 {
+        @include fontProps(20px, 600, 24px);
+    }
+
+    h2 {
+        @include fontProps(16px, 600, 20px);
+    }
+
+    h3 {
+        color: $clr-text-black-subtle;
+        @include fontProps(12px, 600, 20px);
+    }
 
     &-icon-close {
         z-index: 21;
@@ -71,39 +83,8 @@
         }
     }
 
-    &-btn {
-        @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed, $clr-bg-neutral);
-        @include fontProps(14px, 500, 20px);
-        height: 32px;
-        display: flex;
-        align-items: center;
-
-        & i {
-            margin-left: 2px;
-            margin-right: 8px;
-            height: 16px;
-            width: 16px;
-        }
-    }
-
-    h1 {
-        @include fontProps(20px, 600, 24px);
-    }
-
-    h2 {
-        @include fontProps(16px, 600, 20px);
-    }
-
-    h3 {
-        color: $clr-text-black-subtle;
-        @include fontProps(12px, 600, 20px);
-    }
-}
-
-/* Main-Props */
-.task-details {
     &-data {
-        padding: 8px 16px 32px 16px;
+        padding: 20px 16px 32px 16px;
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: 1fr 168px;
@@ -114,13 +95,13 @@
 
     &-header {
         grid-area: a;
-        padding: 0px 52px 8px 56px;
+        padding: 0px 52px 8px 40px;
         position: relative;
 
         & .icon-task-details-header {
             position: absolute;
-            top: 24px;
-            left: 22px;
+            top: 8px;
+            left: 0px;
             display: block;
             box-sizing: border-box;
             height: 15px;
@@ -130,12 +111,12 @@
             @include fontProps(20px, 600, 24px);
             height: 37px;
             padding: 6px 10px 6px 10px;
-            margin: 6px -6px -6px -6px;
+            margin: -6px -10px -6px -10px;
         }
 
         & span {
             @include fontProps(14px, 400, 20px);
-            margin: 4px 8px 12px 2px;
+            margin: 0px 8px 12px 2px;
             display: inline-flex;
 
             a {
@@ -174,4 +155,31 @@
         }
     }
 
+}
+
+.td {
+    &-section {
+        margin-left: 40px;
+    }
+
+    &-section-icon {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    &-btn {
+        @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed, $clr-bg-neutral);
+        @include fontProps(14px, 500, 20px);
+        height: 32px;
+        display: flex;
+        align-items: center;
+
+        & i {
+            margin-left: 2px;
+            margin-right: 8px;
+            height: 16px;
+            width: 16px;
+        }
+    }
 }
