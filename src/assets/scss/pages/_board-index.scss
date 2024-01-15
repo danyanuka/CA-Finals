@@ -3,6 +3,9 @@
   grid-template-columns: 1fr minmax(auto, 256px) minmax(228px, 825px) 1fr;
 
   .all-boards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-top: 40px;
     grid-area: 1/3;
     .board-list-title {
@@ -62,24 +65,35 @@
         }
 
         .board-preview-content {
+          position: relative;
           width: auto;
           margin: 8px;
           height: 80px;
           .board-name {
             @include fontProps(16px, 700, 20px);
           }
+          .board-tile-options {
+            display: flex;
+            position: absolute;
+            top: 76%;
+            right: -29px;
+            opacity: 5%;
+            transition: right 0.1s ease-in-out, opacity 0.1s;
+          }
+          &:hover {
+            .board-tile-options {
+              right: 1%;
+              opacity: 100%;
+              i {
+                &:hover {
+                  height: 18px;
+                  width: 18px;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
-// .icon-star {
-//   position: absolute;
-//   top: 50%;
-//   right: -40px; /* Adjust this value if needed */
-//   transform: translateY(-50%);
-//   transition: right 0.3s ease-in-out; /* Adjust transition duration if needed */
-//   &:hover .board-preview-content .icon-star {
-//     right: 0;
-//   }
-// }

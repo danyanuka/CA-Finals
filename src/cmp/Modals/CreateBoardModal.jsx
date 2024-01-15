@@ -18,10 +18,6 @@ export function CreateBoardModal() {
     boardActions.saveBoard(newBoard);
   }
 
-  // function setBgDemo () {
-  //   if()
-  // }
-
   console.log("New Board", newBoard);
   return (
     <>
@@ -40,13 +36,26 @@ export function CreateBoardModal() {
           </div>
         </div>
         <BackgroundPicker setNewBoard={setNewBoard} />
-        <button onClick={onCreateBoard}>Create</button>
+        <label htmlFor="title">
+          Board title<span> *</span>
+        </label>
         <input
+          className="board-title-input"
           onChange={handleChange}
           value={newBoard.title}
           name="title"
           type="text"
         ></input>
+        <p className="title-require">👋 Board title is required</p>
+        <button
+          style={
+            newBoard.title === false || { backgroundColor: "rgb(0, 121, 191)" }
+          }
+          className="create-board-submit"
+          onClick={onCreateBoard}
+        >
+          Create
+        </button>
       </div>
     </>
   );

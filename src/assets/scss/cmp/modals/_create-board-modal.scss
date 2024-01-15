@@ -4,6 +4,9 @@
     margin-bottom: 4px;
     margin-top: 12px;
     @include fontProps(12px, 700, 16px);
+    span {
+      color: red;
+    }
   }
   padding: 0 12px 12px;
   overflow-y: auto;
@@ -88,6 +91,31 @@
   .bg-more-options {
     background-color: $clr-bg-neutral;
     padding-top: 6px;
-    align-self: center;
+    // align-self: center;
+  }
+  .board-title-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    box-shadow: inset 0 0 0 2px var(--ds-border-danger, #e34935);
+    &:focus {
+      box-shadow: inset 0 0 0 2px var(--ds-border-focus, #0078bf);
+    }
+    border-radius: 3px;
+  }
+  .title-require {
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: $clr-text-black;
+    @include fontProps(14px, 400, 20px);
+  }
+  .create-board-submit {
+    width: 100%;
+    padding: 6px 12px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border: none;
+    background-color: blue;
+    border-radius: 3px;
   }
 }

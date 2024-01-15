@@ -37,14 +37,14 @@ export function boardReducer(state = initialState, action = {}) {
       const lastBoards = [...state.boards];
       return {
         ...state,
-        boards: state.boards.filter((board) => board.id !== action.boardId),
+        boards: state.boards.filter((board) => board._id !== action.boardId),
         lastBoards,
       };
     case UPDATE_BOARD:
       return {
         ...state,
         boards: state.boards?.map((board) =>
-          board.id === action.board.id ? action.board : board
+          board._id === action.board._id ? action.board : board
         ),
         curBoard: action.board,
       };

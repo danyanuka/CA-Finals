@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { boardActions } from "../store/actions/board.actions";
 
 import { BoardList } from "../cmp/BoardIndex/BoardList";
+import { StarredBoardList } from "../cmp/BoardIndex/StarredBoardList";
 import { AppHeader } from "../cmp/AppHeader";
 
 export function BoardIndex() {
@@ -21,23 +22,14 @@ export function BoardIndex() {
     }
   }
 
-  async function onSaveBoard(board) {
-    try {
-      await boardActions.saveBoard();
-    } catch (error) {
-      console.log("Issues saving board ,", err);
-    }
-  }
-
-  //   console.log("Boards from index :", boards);
   if (!boards) return <div>Loading..</div>;
   return (
     <>
       <AppHeader />
       <div className="board-index-container">
         <div className="all-boards">
-          <h3 className="board-list-title">YOUR BOARDS</h3>
           <BoardList boards={boards} />
+          <StarredBoardList boards={boards} />
         </div>
       </div>
     </>

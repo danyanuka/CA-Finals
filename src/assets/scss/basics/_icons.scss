@@ -90,9 +90,20 @@
 
 //BoardHeader icons
 .icon-star {
+  z-index: 999;
   content: url("/public/icons/star.svg");
+}
+
+.icon-star-starred {
+  @include iconCustomColor(rgb(226, 178, 3), "/public/icons/star-filled.svg");
   width: 18px;
   height: 18px;
+}
+
+.icon-star-starred-hovered {
+  @include iconCustomColor(rgb(226, 178, 3), "/public/icons/star.svg");
+  width: 15px;
+  height: 15px;
 }
 
 .icon-members {

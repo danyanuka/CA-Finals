@@ -13,15 +13,18 @@ export function BoardList({ boards }) {
   }
 
   return (
-    <ul className="board-list">
-      {boards.map((board) => (
-        <li style={board.style} className="board-preview" key={board._id}>
-          <BoardPreview board={board} />
+    <div>
+      <h3 className="board-list-title">Your boards</h3>
+      <ul className="board-list">
+        {boards.map((board) => (
+          <li style={board.style} className="board-preview" key={board._id}>
+            <BoardPreview board={board} />
+          </li>
+        ))}
+        <li onClick={onCreateBoard} className="board-preview new-board">
+          Create new board
         </li>
-      ))}
-      <li onClick={onCreateBoard} className="board-preview new-board">
-        Create new board
-      </li>
-    </ul>
+      </ul>
+    </div>
   );
 }

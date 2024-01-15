@@ -1,105 +1,103 @@
 .app-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $clr-bg-pink-bold;
+  color: white;
+  padding: 10px;
+  border-bottom: 0.1px solid white;
+
+  .nav-link {
+    display: inline;
+    margin: 8px;
+    text-decoration: none;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .nav-link:hover,
+  .create,
+  .search-section {
+    background-color: $clr-dynamic-button-white-hovered;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .create:hover {
+    background-color: $clr-dynamic-button-white-pressed;
+  }
+
+  .icon-logo {
+    height: 32;
+    width: 91;
+  }
+
+  .icon-show-more {
+    height: 16px;
+    width: 16px;
+    margin: 0 6px;
+  }
+
+  .nav-buttons {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: $clr-bg-pink-bold;
-    color: white;
-    padding: 10px;
-    border-bottom: 0.1px solid white;
+    cursor: pointer;
 
-    .nav-link {
-        display: inline;
-        margin: 8px;
-        text-decoration: none;
-        padding: 8px;
-        position: relative;
-        cursor: pointer;
-    }
-
-    .nav-link:hover,
-    .create,
     .search-section {
-        background-color: $clr-dynamic-button-white-hovered;
-        border-radius: 5px;
-        text-decoration: none;
-        padding: 8px;
-        text-align: center;
+      display: flex;
+      border: 0.5px white solid;
+      border-radius: 10px;
+      padding: 7px;
+
+      .icon-search {
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+      }
+
+      .search-input {
+        background-color: rgb(172 92 148);
+        border: none;
+      }
     }
 
-    .create:hover {
-        background-color: $clr-dynamic-button-white-pressed;
+    input::placeholder {
+      color: white;
+      float: left;
     }
 
-    .icon-logo {
-        height: 32;
-        width: 91;
+    .search-section:hover .search-input,
+    .search-section:hover {
+      background-color: rgb(179 112 166);
     }
 
-    .icon-show-more {
-        height: 16px;
-        width: 16px;
-        margin: 0 6px;
+    .notifications-btn,
+    .info-btn,
+    .account-btn {
+      margin: 0 4px;
+      padding: 4px;
     }
 
-    .nav-buttons {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-
-        .search-section {
-            display: flex;
-            border: 0.5px white solid;
-            border-radius: 10px;
-            padding: 7px;
-
-            .icon-search {
-                width: 20px;
-                height: 20px;
-                margin: 0 5px;
-            }
-
-            .search-input {
-
-                background-color: rgb(172 92 148);
-                border: none;
-            }
-        }
-
-        input::placeholder {
-            color: white;
-            float: left;
-        }
-
-        .search-section:hover .search-input,
-        .search-section:hover {
-            background-color: rgb(179 112 166);
-        }
-
-        .notifications-btn,
-        .info-btn,
-        .account-btn {
-            margin: 0 4px;
-            padding: 4px;
-
-        }
-
-        .notifications-btn:hover,
-        .info-btn:hover,
-        .account-btn:hover {
-            background-color: $clr-dynamic-button-white-hovered;
-            border-radius: 50%;
-            padding: 4px;
-        }
+    .notifications-btn:hover,
+    .info-btn:hover,
+    .account-btn:hover {
+      background-color: $clr-dynamic-button-white-hovered;
+      border-radius: 50%;
+      padding: 4px;
     }
+  }
 }
 
 .dropdown {
-    border: 2px solid $clr-bg-pink-bold-hovered;
-    border-radius: 10px;
-    height: 100px;
-    width: 200px;
-    margin: 10px;
-    position: absolute;
-    top: 40px;
-    left: 1px;
+  border: 2px solid $clr-bg-pink-bold-hovered;
+  border-radius: 10px;
+  height: 100px;
+  width: 200px;
+  margin: 10px;
+  position: absolute;
+  top: 40px;
+  left: 1px;
 }
