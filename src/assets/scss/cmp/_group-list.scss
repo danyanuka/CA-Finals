@@ -1,13 +1,17 @@
-.group-list {
+.group-list-ul {
     border-radius: 10px;
     display: flex;
-    justify-content: flex-start;
     list-style-type: none;
+    margin: 5px;
     height: 81vh;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-color: #fff6 #00000026;
-    scrollbar-width: auto;
+    padding-bottom: 8px;
+
+    .group-list {
+        display: flex;
+        justify-content: flex-start;
+    }
 
     .group-item {
         margin: 7px;
@@ -31,7 +35,7 @@
         padding: 12px;
         cursor: pointer;
 
-        button {
+        div {
             border: none;
             font-size: 16px;
             color: white;
@@ -85,7 +89,6 @@
 
             .close-button {
                 border: none;
-                background-color: transparent;
                 color: black;
                 padding: 6px;
                 font-weight: 500;
@@ -95,10 +98,26 @@
     }
 }
 
+.group-list-ul::-webkit-scrollbar {
+    height: 15px;
+}
+
+.group-list-ul::-webkit-scrollbar-track {
+    background-color: #00000026;
+    border-radius: 50px;
+}
+
+.group-list-ul::-webkit-scrollbar-thumb {
+    background-color: #fff6;
+    border-radius: 50px;
+}
+
 .group-preview {
     background-color: $clr-background-list;
     border-radius: 14px;
     padding: 0 6px;
     width: 290px;
     height: auto;
+    // display: flex;
+    // flex-direction: column;
 }

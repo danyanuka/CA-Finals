@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { boardActions } from "../../store/actions/board.actions";
+import { boardActions } from "/src/store/actions/board.actions";
 
 import { RootModalHeader } from "./RootModalHeader";
-import { BackgroundPicker } from "../BackgroundPicker";
-import { boardService } from "../../services/board.service";
-import { constService } from "../../services/const-service";
+import { BackgroundPicker } from "/src/cmp/BackgroundPicker";
+import { boardService } from "/src/services/board.service";
 
 export function CreateBoardModal() {
   const [newBoard, setNewBoard] = useState({});
@@ -16,15 +15,7 @@ export function CreateBoardModal() {
   }
 
   function onCreateBoard() {
-    if (newBoard.style) boardActions.saveBoard(newBoard);
-    else {
-      boardActions.saveBoard({
-        ...newBoard,
-        style: {
-          background: "linear-gradient(45deg, #ff8e36, #ff5f6d)",
-        },
-      });
-    }
+    boardActions.saveBoard(newBoard);
   }
 
   console.log("New Board", newBoard);
@@ -34,11 +25,7 @@ export function CreateBoardModal() {
       <div className="create-board-modal">
         <div className="board-demo-container">
           <div
-            style={
-              newBoard.style || {
-                background: "linear-gradient(45deg, #ff8e36, #ff5f6d)",
-              }
-            }
+            style={newBoard.style || { backgroundColor: "rgb(0, 121, 191)" }}
             className="bg-board-demo"
           >
             <img
@@ -62,11 +49,8 @@ export function CreateBoardModal() {
         <p className="title-require">👋 Board title is required</p>
         <button
           style={
-            !newBoard.title
-              ? { backgroundColor: "#091E4208" }
-              : { backgroundColor: "#0C66E4", color: "white" }
+            newBoard.title === false || { backgroundColor: "rgb(0, 121, 191)" }
           }
-          disabled={!newBoard.title}
           className="create-board-submit"
           onClick={onCreateBoard}
         >

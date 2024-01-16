@@ -9,6 +9,7 @@ export function TaskPreview({ task, index }) {
     const labels = utilService.getLabels(task.labelIds, board)
     const { todos, isDone } = utilService.getStatusChecklist(task.checklists)
     const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate)
+    const isTaskActions = task.checklists || task.attachment || task.dueDate || task.memberIds || task.description ? true : false
 
     let date = new Date(task.dueDate).toString();
     date = date.split(" ")
@@ -25,19 +26,21 @@ export function TaskPreview({ task, index }) {
         <Draggable draggableId={task.id} index={index}>
             {(provided, snapshot) => (
 
-                <div className={`task-preview is-dragging-${snapshot.isDragging}`} key={task.id} onClick={() => { handleGoToTask(task.id) }}
+                <div
+                    className={`task-preview is-dragging-${snapshot.isDragging}`}
+                    key={task.id}
+                    onClick={() => { handleGoToTask(task.id) }}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
                     {task.style &&
                         <div className="task-header" style={task.style} >
-                            <button className="edit-task-header"><li className="icon-edit"></li></button>
+                            <button className="edit-task-header-styled"><i className="icon-edit"></i></button>
                         </div>
                     }
 
                     <div className="task-body">
-
                         {task.labelIds &&
                             <div className="labels">
                                 {labels.map((label) => {
@@ -49,22 +52,18 @@ export function TaskPreview({ task, index }) {
                             </div>
                         }
                         {!task.style ? (
-                            <div>
-                                <button className="edit-task-header"><li className="icon-edit"></li></button>
+                            <div className="edit-task">
                                 <p className="task-title">{task.title}</p>
+                                <button className="edit-task-header" ><li className="icon-edit"></li></button>
                             </div>
                         ) : (
                             <p className="task-title">{task.title}</p>
-
-                        )
-
-                        }
-
+                        )}
 
                     </div>
 
-                    <div className="task-actions">
-                        <div className="task-icons">
+                    <div className={isTaskActions ? "task-actions" : null}>
+                        <div className="task-icons ">
                             {task.description &&
                                 <i className="icon-description" title="This card has a description"></i>
                             }

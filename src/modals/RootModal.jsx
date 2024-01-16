@@ -1,10 +1,20 @@
 import { useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
-import { closeModal } from "../../store/actions/app.actions";
+import { utilService } from "/src/services/util.service.js";
+
 import { CreateBoardModal } from "./CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
-import { utilService } from "/src/services/util.service.js";
+import { MdlTaskMembers } from "./TaskDetails/MdlTaskMembers";
+import { MdlTaskLabels } from "./TaskDetails/MdlTaskLabels";
+import { MdlTaskChecklist } from "./TaskDetails/MdlTaskChecklist";
+import { MdlTaskDates } from "./TaskDetails/MdlTaskDates";
+import { MdlTaskAttach } from "./TaskDetails/MdlTaskAttach";
+import { MdlTaskCover } from "./TaskDetails/MdlTaskCover";
+import { MdlTaskMove } from "./TaskDetails/MdlTaskMove";
+import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
+import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
+
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
@@ -50,7 +60,26 @@ function DynModalType({ modalType, modalProps }) {
       return <CreateBoardModal />;
     case "moreOptions":
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
+    case "taskMembers":
+      return <MdlTaskMembers />;
+    case "taskLabels":
+      return <MdlTaskLabels />;
+    case "taskChecklist":
+      return <MdlTaskChecklist />;
+    case "taskDates":
+      return <MdlTaskDates />;
+    case "taskAttach":
+      return <MdlTaskAttach />;
+    case "taskCover":
+      return <MdlTaskCover />;
+    case "taskMove":
+      return <MdlTaskMove />;
+    case "taskCopy":
+      return <MdlTaskCopy />;
+    case "taskShare":
+      return <MdlTaskShare />;
     // More type cases below
+
 
     default:
       return <div>Sorry, something unexpected happened</div>;

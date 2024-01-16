@@ -1,0 +1,26 @@
+.root-modal-header {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+
+  .modal-title {
+    @include fontProps(14px, 600, 24px);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: grid;
+    place-items: center;
+    padding: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+
+    .icon-close-regular {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}

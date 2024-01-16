@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { closeModal } from "../../store/actions/app.actions";
+import { closeModal } from "/src/store/actions/app.actions";
 import { RootModalHeader } from "./RootModalHeader";
 
 export function ShowOptionsModal({ handleIsAddingFromModal }) {
@@ -12,7 +12,7 @@ export function ShowOptionsModal({ handleIsAddingFromModal }) {
     return (
 
         <>
-            <RootModalHeader title={"Group actions"} />
+            <RootModalHeader title="Group actions" />
             <div className="show-options-modal">
                 <div className="modal-actions">
                     <div className="action">
