@@ -27,7 +27,7 @@
         padding: 10px;
     }
 
-    .add-group-button {
+    .add-group-button-styled {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -39,6 +39,21 @@
             border: none;
             font-size: 16px;
             color: white;
+        }
+    }
+
+    .add-group-button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 280px;
+        padding: 12px;
+        cursor: pointer;
+
+        div {
+            border: none;
+            font-size: 16px;
+            color: $clr-text-black;
         }
     }
 

@@ -69,9 +69,12 @@ function getLabels(labelIds, board) {
   return labels
 }
 
+//not working yet
 function checkDueDate(dueDate) {
-  const today = new Date()
-  const tomorrow = new Date(today)
+  const today = Date.now()
+  // console.log(today);
+  const tomorrow = Date.now() + 1
+  // console.log(tomorrow);
 
   let dateStatus = {
     isPass: null,
@@ -79,10 +82,10 @@ function checkDueDate(dueDate) {
     isTomorrow: null
   }
 
-  if (dueDate < Date.now()) {
+  if (dueDate < today) {
     return { ...dateStatus, isPass: true }
   }
-  if (dueDate === Date.now()) {
+  if (dueDate === today) {
     return { ...dateStatus, isToday: true }
   }
   if (dueDate > tomorrow) {
@@ -93,12 +96,12 @@ function checkDueDate(dueDate) {
 }
 
 function getStatusChecklist(checklist) {
-  let todos = [];
+  let todos;
   let isDone = []
 
-  checklist?.map((list) => {
-    todos.push(list.todos)
-  })
+  checklist?.map((list) => (
+    todos = list.todos
+  ))
 
   todos?.map((todo) => {
     if (todo.isDone) {
@@ -107,8 +110,8 @@ function getStatusChecklist(checklist) {
   })
 
   const counts = {
-    todos: todos.length + 1,
-    isDone: isDone.length + 1
+    todos: todos?.length,
+    isDone: isDone.length
   }
 
   return counts

@@ -8,7 +8,9 @@ export function TaskPreview({ task, index }) {
     const board = useSelector((storeState => storeState.boardModule.curBoard))
     const labels = utilService.getLabels(task.labelIds, board)
     const { todos, isDone } = utilService.getStatusChecklist(task.checklists)
+    console.log(todos, isDone);
     const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate)
+    // console.log(isPass, isToday, isTomorrow);
     const isTaskActions = task.checklists || task.attachment || task.dueDate || task.memberIds || task.description ? true : false
 
     let date = new Date(task.dueDate).toString();
@@ -44,10 +46,14 @@ export function TaskPreview({ task, index }) {
                         {task.labelIds &&
                             <div className="labels">
                                 {labels.map((label) => {
-                                    <span className="label"
-                                        title={`color: ${label.color}, title: ${label.title}`}
-                                        style={{ backgroundColor: label.color }}>
-                                    </span>
+                                    return (
+                                        <div key={label.id} className="label"
+                                            title={`title: ${label.title}`}
+                                            style={{ backgroundColor: label.color }}
+                                        >
+                                        </div>
+                                    )
+
                                 })}
                             </div>
                         }
@@ -81,7 +87,13 @@ export function TaskPreview({ task, index }) {
                                     <span>{task.comments.length + 1}</span>
                                 </div>
                             }
-                            {task.checklists &&
+                            {task.checklists && isDone === todos &&
+                                <div className="icon-with-counts checklists-done">
+                                    <i className="icon-checklists-white" title="Checklists"></i>
+                                    <span>{isDone}/{todos}</span>
+                                </div>
+                            }
+                            {task.checklists && isDone != todos &&
                                 <div className="icon-with-counts">
                                     <i className="icon-checklists" title="Checklists"></i>
                                     <span>{isDone}/{todos}</span>

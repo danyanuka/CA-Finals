@@ -126,10 +126,20 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
             <li className="group-item">
                 {!isAdding ? (
-                    <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
-                        <li className='icon-add-group'></li>
-                        <div>Add another group</div>
-                    </button>
+                    <>
+                        {board?.style.backgroundImage === "" ? (
+                            <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
+                                <li className='icon-add-non-style'></li>
+                                <div>Add another group</div>
+                            </button>) : (
+                            <button onClick={handleIsAdding} className='action add-group-button-styled transparent-btn-black'>
+
+                                <li className='icon-add-group'></li>
+                                <div>Add another group</div>
+                            </button>
+                        )}
+                    </>
+
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
 

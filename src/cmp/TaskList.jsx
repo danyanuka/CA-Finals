@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
 //Redux
 import { openModal } from "../store/actions/app.actions";
@@ -36,6 +36,11 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
         setIsEditing(!isEditing)
     }
 
+    function handleOnBlur(ev) {
+        handleAddTask(ev)
+        handleIsAdding()
+    }
+
     function handleChangeTaskTitle(ev) {
         let { value } = ev.target
         setTaskTitle(value.toLowerCase().replace(/\b\w/g, s => s.toUpperCase()))
@@ -47,9 +52,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     }
 
     function handleAddTask(ev) {
-        console.log('hello');
         ev.preventDefault()
-        ev.stopPropagation()
         const taskToAdd = groupService.getDefaultTask(taskTitle)
         const addToStart = isAddingFromModal ? true : false
         onAddTask(taskToAdd, group.id, addToStart)
@@ -65,103 +68,91 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     }
 
     return (
-        <>
-            <Draggable draggableId={group.id} index={index}>
-                {(provided, snapshot) => (
-                    <>
-                        <ul className={`task-list is-dragging-${snapshot.isDragging}`} ref={provided.innerRef} {...provided.draggableProps}>
-
-                            <div className="group-header" {...provided.dragHandleProps}>
-                                {isEditing ? (
-                                    <input className="edit-group-title"
-                                        type="text"
-                                        value={groupTitle}
-                                        name="groupTitle"
-                                        onBlur={handleIsEditing}
-                                        onChange={handleChangeGroupTitle}
-                                        onKeyDown={handlePressEnter}
-                                        autoFocus />
-                                ) : (
-                                    <h4 className="group-title" onClick={handleIsEditing}>{group.title}</h4>
-                                )}
-                                <i onClick={onMoreOptions} className="transparent-btn-black icon-show-options"></i>
-
-                            </div>
-                            <div className="scrollbar">
-                                {isAddingFromModal &&
-                                    <form onSubmit={handleAddTask}>
-                                        <li className="task-preview">
-                                            <input className="task-title-input"
-                                                type="text"
-                                                name='taskTitle'
-                                                value={taskTitle}
-                                                onBlur={() => setIsAddingFromModal(false)}
-                                                onChange={handleChangeTaskTitle}
-                                                placeholder='Enter a title for this task...'
-                                                autoFocus />
-                                        </li>
-
-                                        <div className="add-task-buttons">
-                                            <button className="btn add-task-button">Add task</button>
-                                            <button className="btn transparent-btn-black close-button" onClick={() => setIsAddingFromModal(false)}>
-                                                <i className="icon-close-add-task"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                }
-
-                                <Droppable droppableId={group.id} index={index} type="task">
-                                    {(provided) => (
-                                        <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
-                                            {tasks?.map((task, index) => (
-                                                <TaskPreview key={task.id} task={task} index={index} />
-                                            ))}
-                                            {provided.placeholder}
-                                        </li>
-                                    )}
-                                </Droppable>
-
-
-                            </div>
-
-                            {!isAdding ? (
-                                <div className="group-footer">
-                                    <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
-                                        <li className='icon-add-task'></li>
-                                        <div >Add a task</div>
-                                    </button>
-                                    <i className="transparent-btn-black icon-template" title="create from template"></i>
-                                </div>
-                            ) : (
-
-                                <form onSubmit={handleAddTask}>
-                                    <li className="task-preview">
-                                        <input className="task-title-input"
-                                            type="text"
-                                            name='taskTitle'
-                                            value={taskTitle}
-                                            onChange={handleChangeTaskTitle}
-                                            placeholder='Enter a title for this task...'
-                                            autoFocus
-                                            onBlur={handleIsAdding}
-                                        />
-
-                                    </li>
-                                    <div className="add-task-buttons">
-                                        <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
-                                        <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
-                                    </div>
-                                </form>
-
-                            )}
-                            {provided.placeholder}
-
-                        </ul>
-
-                    </>
+        <ul className="task-list">
+            <div className="group-header" >
+                {isEditing ? (
+                    <input className="edit-group-title"
+                        type="text"
+                        value={groupTitle}
+                        name="groupTitle"
+                        onBlur={handleIsEditing}
+                        onChange={handleChangeGroupTitle}
+                        onKeyDown={handlePressEnter}
+                        autoFocus />
+                ) : (
+                    <h4 className="group-title" onClick={handleIsEditing}>{group.title}</h4>
                 )}
-            </Draggable>
+                <i onClick={onMoreOptions} className="transparent-btn-black icon-show-options"></i>
 
-        </>
+            </div>
+            <div className="scrollbar">
+                {isAddingFromModal &&
+                    <form onSubmit={handleAddTask}>
+                        <li className="task-preview">
+                            <input className="task-title-input"
+                                type="text"
+                                name='taskTitle'
+                                value={taskTitle}
+                                onBlur={() => setIsAddingFromModal(false)}
+                                onChange={handleChangeTaskTitle}
+                                placeholder='Enter a title for this task...'
+                                autoFocus />
+                        </li>
+
+                        <div className="add-task-buttons">
+                            <button className="btn add-task-button">Add task</button>
+                            <button className="btn transparent-btn-black close-button" onClick={() => setIsAddingFromModal(false)}>
+                                <i className="icon-close-add-task"></i>
+                            </button>
+                        </div>
+                    </form>
+                }
+
+                <Droppable droppableId={group.id} index={index} type="task">
+                    {(provided) => (
+                        <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
+                            {tasks?.map((task, index) => (
+                                <TaskPreview key={task.id} task={task} index={index} />
+                            ))}
+                            {provided.placeholder}
+                        </li>
+                    )}
+                </Droppable>
+
+
+            </div>
+
+            {!isAdding ? (
+                <div className="group-footer">
+                    <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
+                        <li className='icon-add-task'></li>
+                        <div >Add a task</div>
+                    </button>
+                    <i className="transparent-btn-black icon-template" title="create from template"></i>
+                </div>
+            ) : (
+
+                <form onSubmit={handleAddTask}>
+                    <li className="task-preview">
+                        <input className="task-title-input"
+                            type="text"
+                            name='taskTitle'
+                            value={taskTitle}
+                            onChange={handleChangeTaskTitle}
+                            placeholder='Enter a title for this task...'
+                            autoFocus
+                            onBlur={(ev) => handleOnBlur(ev)}
+                        />
+
+                    </li>
+                    <div className="add-task-buttons">
+                        <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
+                        <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
+                    </div>
+                </form>
+
+            )}
+
+        </ul>
     )
 }

@@ -380,6 +380,29 @@ function createBoards(overwrite) {
                 id: "c103",
                 title: "Do that",
                 archivedAt: 1589983468418,
+                checklists: [
+                  {
+                    id: "YEhmF",
+                    title: "Checklist",
+                    todos: [
+                      {
+                        id: "212jX",
+                        title: "To Do 1",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 2",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 3",
+                        isDone: true,
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 id: "c104",
@@ -408,6 +431,16 @@ function createBoards(overwrite) {
                       {
                         id: "212jX",
                         title: "To Do 1",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 2",
+                        isDone: false,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 3",
                         isDone: false,
                       },
                     ],
