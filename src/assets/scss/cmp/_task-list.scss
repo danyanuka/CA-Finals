@@ -142,6 +142,7 @@
     border: 1px solid $clr-bg-blue-bold;
     box-shadow: $ds-shadow-raised;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .task-preview:hover .edit-task-header {

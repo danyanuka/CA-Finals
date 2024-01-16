@@ -100,10 +100,11 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                                                 placeholder='Enter a title for this task...'
                                                 autoFocus />
                                         </li>
+
                                         <div className="add-task-buttons">
                                             <button className="btn add-task-button">Add task</button>
-                                            <button className="btn close-button" onClick={() => setIsAddingFromModal(false)}>
-                                                <i className="icon-close-regular"></i>
+                                            <button className="btn transparent-btn-black close-button" onClick={() => setIsAddingFromModal(false)}>
+                                                <i className="icon-close-add-task"></i>
                                             </button>
                                         </div>
                                     </form>
