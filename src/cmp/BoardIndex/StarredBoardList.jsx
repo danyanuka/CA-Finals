@@ -2,7 +2,9 @@ import { BoardPreview } from "./BoardPreview";
 export function StarredBoardList({ boards }) {
   return (
     <div>
-      <h3 className="board-list-title">Starred boards</h3>
+      <div className="starred-boards-title-container">
+        <h3 className="board-list-title starred">Starred boards </h3>
+      </div>
       <ul className="board-list">
         {boards
           .filter((board) => board.isStarred)

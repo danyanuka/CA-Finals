@@ -14,7 +14,9 @@ export function BoardList({ boards }) {
 
   return (
     <div>
-      <h3 className="board-list-title">Your boards</h3>
+      <div className="starred-boards-title-container">
+        <h3 className="board-list-title">Your boards</h3>
+      </div>
       <ul className="board-list">
         {boards.map((board) => (
           <li style={board.style} className="board-preview" key={board._id}>

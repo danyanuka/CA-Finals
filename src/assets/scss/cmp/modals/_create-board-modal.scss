@@ -55,13 +55,9 @@
         &:focus {
           filter: brightness(0.7);
         }
-        &:focus::before {
-          content: url("public/icons/check-mark.svg");
-          width: 50px;
-          height: 25px;
-        }
       }
     }
+
     .bg-list-colors {
       display: flex;
       justify-content: space-between;
@@ -69,6 +65,9 @@
         list-style: none;
       }
       button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 3px;
         border: none;
         width: 40px;
@@ -80,18 +79,17 @@
         &:focus {
           filter: brightness(0.7);
         }
-        &:focus::before {
-          content: url("public/icons/check-mark.svg");
-          width: 50px;
-          height: 25px;
-        }
       }
     }
   }
+  .bg-photo-thumb:focus::before,
+  .bg-color-thumb:focus::before {
+    content: url("public/icons/check-mark.svg");
+    width: 50px;
+    height: 25px;
+  }
   .bg-more-options {
     background-color: $clr-bg-neutral;
-    padding-top: 6px;
-    // align-self: center;
   }
   .board-title-input {
     width: 100%;
@@ -110,12 +108,16 @@
     @include fontProps(14px, 400, 20px);
   }
   .create-board-submit {
+    @include fontProps(14px, 500, 20px);
+    color: rgba(9, 30, 66, 0.31);
     width: 100%;
     padding: 6px 12px;
     margin-top: 16px;
     margin-bottom: 8px;
     border: none;
-    background-color: blue;
     border-radius: 3px;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 }

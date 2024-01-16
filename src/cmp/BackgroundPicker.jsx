@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { unsplashService } from "../services/unsplash.service";
+import { constService } from "../services/const-service";
 
 export function BackgroundPicker({ setNewBoard }) {
   const [photos, setPhotos] = useState([]);
-  const colors = [
-    "rgb(0, 121, 191)",
-    "rgb(210, 144, 52) ",
-    "rgb(81, 152, 57)",
-    "rgb(176, 70, 50)",
-    "rgb(137, 96, 158)",
-    "rgb(205, 90, 145)",
-    "rgb(75, 191, 107)",
-    "rgb(0, 174, 204)",
-    "rgb(131, 140, 145)",
-  ];
 
   useEffect(() => {
     getUnsplash();
@@ -26,38 +16,38 @@ export function BackgroundPicker({ setNewBoard }) {
     console.log(photos);
   }
 
-  // if (!photos) return <>Loading...</>;
   return (
     <div className="background-picker-container">
       <label htmlFor="bg-list">Background</label>
       <div id="bg-list">
         <ul className="bg-list-photos">
           {photos.slice(0, 4).map((photo) => (
-            <li>
+            <li key={photo.id}>
               <button
+                className="bg-photo-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
                     style: { backgroundImage: `url(${photo.urls.regular})` },
                   }))
                 }
-                key={photo.id}
                 style={{ backgroundImage: `url(${photo.urls.thumb})` }}
               ></button>
             </li>
           ))}
         </ul>
         <ul className="bg-list-colors">
-          {colors.slice(0, 5).map((color) => (
-            <li>
+          {constService.gradColors.slice(0, 5).map((color) => (
+            <li key={color.id}>
               <button
+                className="bg-color-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
-                    style: { backgroundColor: color },
+                    style: { background: color.color },
                   }))
                 }
-                style={{ backgroundColor: color }}
+                style={{ background: color.color }}
               ></button>
             </li>
           ))}

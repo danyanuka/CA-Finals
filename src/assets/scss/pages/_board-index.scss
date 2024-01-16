@@ -1,6 +1,6 @@
 .board-index-container {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 256px) minmax(228px, 825px) 1fr;
+  grid-template-columns: 1fr minmax(auto, 256px) minmax(228px, 850px) 1fr;
 
   .all-boards {
     display: flex;
@@ -9,9 +9,25 @@
     margin-top: 40px;
     grid-area: 1/3;
 
-    .board-list-title {
-      padding-bottom: 11px;
-      @include fontProps(16px, 700, 24px);
+    .starred-boards-title-container {
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      .board-list-title {
+        padding-bottom: 12px;
+        @include fontProps(16px, 700, 24px);
+        &.starred {
+          margin-left: 35px;
+          position: relative;
+          &::before {
+            content: url("public/icons/star-lg.svg");
+            position: absolute;
+            top: 50%;
+            right: 105%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
 
     a {
@@ -31,9 +47,9 @@
         display: flex;
         background-position: center center;
         background-repeat: no-repeat;
-        width: 23.5%;
+        width: 23%;
         color: white;
-        margin: 0 1.5% 1.5% 0;
+        margin: 0 2% 2% 0;
         border-radius: 3px;
         text-align: left;
 

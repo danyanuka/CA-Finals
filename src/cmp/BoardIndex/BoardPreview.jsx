@@ -33,6 +33,14 @@ export function BoardPreview({ board }) {
           style={board.isStarred ? { right: "1%", opacity: "100%" } : {}}
           className="board-tile-options"
         >
+          {/* Temporary btn */}
+          <button
+            style={{ border: "none", marginRight: "5px" }}
+            onClick={(ev) => onRemoveBoard(ev)}
+          >
+            x
+          </button>
+
           {board.isStarred === false ? (
             <i onClick={(ev) => onStarBoard(ev)} className="icon-star" />
           ) : (
@@ -52,11 +60,3 @@ export function BoardPreview({ board }) {
     </Link>
   );
 }
-
-/* TEMPORARY BUTTON for deleting from boardPreview */
-/* <button
-            style={{ border: "none", marginRight: "5px" }}
-            onClick={(ev) => onRemoveBoard(ev)}
-          >
-            x
-          </button> */
