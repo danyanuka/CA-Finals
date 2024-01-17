@@ -96,11 +96,15 @@ function createBoards(overwrite) {
             "tasks": [
               {
                 "id": "c101",
-                "title": "Replace logo"
+                "title": "Replace logo",
+                "startDate": 16156200000,
+                "dueDate": 1705416898828,
               },
               {
                 "id": "c102",
-                "title": "Add Samples"
+                "title": "Add Samples",
+                "startDate": 16156200000,
+                "dueDate": 1705416898827,
               }
             ],
             "style": {}
@@ -112,7 +116,9 @@ function createBoards(overwrite) {
               {
                 "id": "c103",
                 "title": "Do that",
-                "archivedAt": 1589983468418
+                "archivedAt": 1589983468418,
+                "startDate": 16156200000,
+                "dueDate": 1705416898826,
               },
               {
                 "id": "c104",
@@ -374,6 +380,29 @@ function createBoards(overwrite) {
                 id: "c103",
                 title: "Do that",
                 archivedAt: 1589983468418,
+                checklists: [
+                  {
+                    id: "YEhmF",
+                    title: "Checklist",
+                    todos: [
+                      {
+                        id: "212jX",
+                        title: "To Do 1",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 2",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 3",
+                        isDone: true,
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 id: "c104",
@@ -402,6 +431,16 @@ function createBoards(overwrite) {
                       {
                         id: "212jX",
                         title: "To Do 1",
+                        isDone: true,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 2",
+                        isDone: false,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 3",
                         isDone: false,
                       },
                     ],

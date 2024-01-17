@@ -172,8 +172,8 @@
 
 .icon-edit {
   content: url("/public/icons/edit.svg");
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 // TaskDetails
@@ -191,6 +191,12 @@
 
 .icon-checklists {
   content: url("/public/icons/checklists.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-checklists-white {
+  content: url("/public/icons/checklists-white.svg");
   width: 17px;
   height: 17px;
 }
@@ -243,6 +249,12 @@
 
 .icon-add-task {
   content: url("/public/icons/add-task.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-add-non-style {
+  content: url("/public/icons/add.svg");
   width: 17px;
   height: 17px;
 }

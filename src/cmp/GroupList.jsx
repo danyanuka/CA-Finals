@@ -41,8 +41,6 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
     function onDragEnd(result) {
         const { destination, source, draggableId, type } = result;
-        // console.log("source.index", source.index);
-        // console.log("destination.index", destination.index);
 
         if (!destination) {
             return;
@@ -52,19 +50,10 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
             return;
         }
 
-        // if (!destination ||  destination.droppableId === source.droppableId && destination.index === source.index) {
-        //     return;
-        // }
-        // console.log("type:", type);
-        // console.log("source:", source.index);
-        // console.log("destination", destination.index);
-        // console.log("draggableId", draggableId);
 
         if (type === 'group') {
-            const groupToReplace = groups.find((group) => group.id === draggableId)
-
-            groups.splice(source.index, 1);
-            groups.splice(destination.index, 0, groupToReplace);
+            const [removed] = groups.splice(source.index, 1);
+            groups.splice(destination.index, 0, removed);
 
             const newBoard = {
                 ...board,
@@ -78,14 +67,10 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
         if (startGroup.id === finishGroup.id) {
             const newTasks = startGroup.tasks;
-            // console.log("newTasks", newTasks);
             const taskToReplace = newTasks.find((task) => task.id === draggableId)
-            console.log("taskToReplace", taskToReplace);
 
             newTasks.splice(source.index, 1);
-            // console.log("newTasks", newTasks);
             newTasks.splice(destination.index, 0, taskToReplace);
-            // console.log("newTasks", newTasks);
 
             const newGroup = {
                 ...startGroup,
@@ -141,10 +126,20 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
 
             <li className="group-item">
                 {!isAdding ? (
-                    <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
-                        <li className='icon-add-group'></li>
-                        <div>Add another group</div>
-                    </button>
+                    <>
+                        {board?.style.backgroundImage === "" ? (
+                            <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
+                                <li className='icon-add-non-style'></li>
+                                <div>Add another group</div>
+                            </button>) : (
+                            <button onClick={handleIsAdding} className='action add-group-button-styled transparent-btn-black'>
+
+                                <li className='icon-add-group'></li>
+                                <div>Add another group</div>
+                            </button>
+                        )}
+                    </>
+
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
 

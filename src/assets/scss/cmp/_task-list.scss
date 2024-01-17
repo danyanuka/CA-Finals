@@ -65,7 +65,7 @@
     }
 
     .group-footer {
-        padding: 3px 3px 0;
+        padding: 3px 5px 0;
         color: $clr-text-black;
         display: flex;
         justify-content: space-between;
@@ -101,11 +101,11 @@
 }
 
 .task-title-input {
-    height: 80px;
     border: none;
     border-radius: 10px;
     font-size: medium;
     padding: 7px;
+    margin-bottom: 55px
 }
 
 .add-task-buttons {
@@ -142,6 +142,7 @@
     border: 1px solid $clr-bg-blue-bold;
     box-shadow: $ds-shadow-raised;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .task-preview:hover .edit-task-header {

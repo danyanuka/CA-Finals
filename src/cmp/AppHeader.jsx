@@ -24,13 +24,11 @@ export function AppHeader() {
 
   function dynColors() {
     const pathname = location.pathname;
-    if (pathname === "/board") {
+    if (pathname === "/board" || board?.style.backgroundImage === "") {
       return {
         backgroundColor: "white",
         color: "black",
       };
-    } else {
-      return board?.style;
     }
   }
 

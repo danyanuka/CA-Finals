@@ -1,10 +1,23 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 export function BoardHeader() {
+    // const [style, setStyle] = useState({})
     const board = useSelector(storeState => storeState.boardModule.curBoard)
 
+    // useEffect(() => {
+    //     if (board?.style.backgroundColor) {
+    //         setStyle({ backgroundColor: `${board?.style.backgroundColor}BF` })
+    //     }
+    // }, [])
+
+    const style = {
+        backgroundColor: board?.style.backgroundColor,
+        opacity: 1.5
+    }
+
     return (
-        <div className="board-header" style={board?.style}>
+        <div className="board-header" style={style}>
 
             <div className="board-header-section">
                 <div className="board-name" >
