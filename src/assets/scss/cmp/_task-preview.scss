@@ -90,15 +90,19 @@
             color: darkgrey;
         }
     }
-
-    .members {
-        display: flex;
-        align-items: center;
-        position: relative;
-        left: 15px;
-    }
 }
 
+.members {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+
+    .user-img {
+        width: 25px;
+        height: 25px;
+    }
+}
 
 .is-dragging-true {
     background-color: white;

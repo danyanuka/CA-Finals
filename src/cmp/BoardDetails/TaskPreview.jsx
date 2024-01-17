@@ -5,12 +5,12 @@ import { Draggable } from "react-beautiful-dnd";
 
 export function TaskPreview({ task, index }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+
   const labels = utilService.getLabels(task.labelIds, board);
+  const members = utilService.getMembers(task.memberIds, board);
+
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
-  console.log(todos, isDone);
-  const { isPass, isToday, isTomorrow } = utilService.checkDueDate(
-    task.dueDate
-  );
+  const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate);
   // console.log(isPass, isToday, isTomorrow);
   const isTaskActions =
     task.checklists ||
@@ -152,9 +152,20 @@ export function TaskPreview({ task, index }) {
                   </span>
                 </div>
               )}
+            </div>
+            <div>
               {task.memberIds && (
                 <div className="members">
-                  <i className="icon-member-gray" title="User name"></i>
+                  {members.map((member) => {
+                    return (
+                      <div key={member._id} className="member">
+                        <img className="user-img"
+                          alt="Account image"
+                          title={`${member.fullname} (${member.username})`}
+                          src={member.imgUrl} />
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

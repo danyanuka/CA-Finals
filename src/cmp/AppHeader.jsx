@@ -9,9 +9,13 @@ import { useLocation } from "react-router-dom";
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownName, setDropdownName] = useState("");
-  const dispatch = useDispatch();
+
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+  const user = useSelector(storeState => storeState.userModule.user)
+
+  const dispatch = useDispatch();
   const location = useLocation();
+
 
   function onToggle(dropdownName) {
     setIsOpen(!isOpen);
@@ -30,6 +34,10 @@ export function AppHeader() {
         color: "black",
       };
     }
+  }
+
+  function handleAccountClick() {
+    dispatch(openModal("accountMenu"));
   }
 
   return (
@@ -105,7 +113,11 @@ export function AppHeader() {
 
           <i className="icon-info info-btn" title="Information"></i>
 
-          <i className="icon-account account-btn" title="Account"></i>
+          {user ? (
+            <img className="user-img" alt="Account image" title={`${user.fullname} (${user.username})`} src={user.imgUrl} onClick={handleAccountClick} />
+          ) : (
+            <i className="icon-account account-btn" title="Account"></i>
+          )}
         </div>
       </section>
     </>

@@ -62,13 +62,14 @@ function getEmptyUser() {
     return {
         username: '',
         fullname: '',
+        email: '',
         password: '',
         imgUrl: '',
     }
 }
 
 function saveLocalUser(user) {
-    user = { id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
+    user = { id: user._id, fullname: user.fullname, username: user.username, imgUrl: user.imgUrl, email: user.email }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

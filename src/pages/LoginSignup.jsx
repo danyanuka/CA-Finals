@@ -9,11 +9,15 @@ import { ImgUploader } from '../cmp/ImgUploader'
 //Redux
 import { loadUsers, login, signup } from '../store/actions/user.actions.js'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginSignup() {
-    const users = useSelector(storeState => storeState.userModule.users)
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
     const [isSignup, setIsSignup] = useState(false)
+
+    const users = useSelector(storeState => storeState.userModule.users)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadUsers()
@@ -36,6 +40,7 @@ export function LoginSignup() {
         try {
             await login(credentials)
             clearState()
+            navigate('/board')
         } catch (err) {
             console.log(err);
         }
@@ -43,10 +48,12 @@ export function LoginSignup() {
 
     async function onSignup(ev = null) {
         if (ev) ev.preventDefault()
-        if (!credentials.username || !credentials.password || !credentials.fullname) return
+        if (!credentials.username || !credentials.password || !credentials.fullname | !credentials.email) return
         try {
             await signup(credentials)
             clearState()
+            navigate('/board')
+
         } catch (err) {
             console.log(err);
         }
@@ -71,7 +78,7 @@ export function LoginSignup() {
                     onChange={handleChange}
                 >
                     <option value="">Select User</option>
-                    {users.map(user => <option key={user.id} value={user.username}>{user.fullname}</option>)}
+                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
                 </select>
                 {/* <input
                         type="text"
@@ -107,6 +114,14 @@ export function LoginSignup() {
                         name="username"
                         value={credentials.username}
                         placeholder="Username"
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        value={credentials.email}
+                        placeholder="Email"
                         onChange={handleChange}
                         required
                     />

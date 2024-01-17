@@ -5,6 +5,7 @@ export const utilService = {
   getTargetPosition,
   calcModalPosition,
   getLabels,
+  getMembers,
   checkDueDate,
   getStatusChecklist
 };
@@ -67,6 +68,15 @@ function getLabels(labelIds, board) {
     labels.push(label)
   })
   return labels
+}
+
+function getMembers(memberIds, board) {
+  let members = []
+  memberIds?.map((id) => {
+    let member = board.members?.find(member => id === member._id)
+    members.push(member)
+  })
+  return members
 }
 
 //not working yet
