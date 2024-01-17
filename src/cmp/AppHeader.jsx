@@ -36,8 +36,8 @@ export function AppHeader() {
     }
   }
 
-  function handleAccountClick() {
-    dispatch(openModal("accountMenu"));
+  function handleAccountClick(ev) {
+    dispatch(openModal("accountMenu", ev.target));
   }
 
   return (

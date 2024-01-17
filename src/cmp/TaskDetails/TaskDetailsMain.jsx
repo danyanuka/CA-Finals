@@ -16,31 +16,41 @@ export function TaskDetailsMain() {
             </div>
         </div>
         <div className="td-section td-description">
-            <i clasName="td-section-icon"></i>
+            <div clasName="td-section-icon">
+                <i clasName=""></i>
+            </div>
             <div>
                 <h2>Description</h2>
             </div>
         </div>
         <div className="td-section td-attachments">
-            <i clasName="td-section-icon"></i>
+            <div clasName="td-section-icon">
+                <i clasName=""></i>
+            </div>
             <div>
                 <h2>Trello attachments</h2>
             </div>
         </div>
         <div className="td-section td-checklist">
-            <i clasName="td-section-icon"></i>
+            <div clasName="td-section-icon">
+                <i clasName=""></i>
+            </div>
             <div>
                 <h2>Checklists</h2>
             </div>
         </div>
         <div className="td-section td-activity">
-            <i clasName="td-section-icon"></i>
+            <div clasName="td-section-icon">
+                <i clasName=""></i>
+            </div>
             <div>
                 <h2>Activity</h2>
             </div>
         </div>
         <div className="td-section td-comments">
-            <i clasName="td-section-icon"></i>
+            <div clasName="td-section-icon">
+                <i clasName=""></i>
+            </div>
             <div>
                 <h2>Comments</h2>
             </div>
