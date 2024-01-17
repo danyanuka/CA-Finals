@@ -1,21 +1,27 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { boardActions } from "/src/store/actions/board.actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { RootModalHeader } from "./RootModalHeader";
+import { boardActions } from "/src/store/actions/board.actions";
+import { RootModalHeader } from "../RootModalHeader";
 import { BackgroundPicker } from "/src/cmp/BackgroundPicker";
-import { boardService } from "/src/services/board.service";
+import { closeModal } from "../../store/actions/app.actions";
 
 export function CreateBoardModal() {
   const [newBoard, setNewBoard] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleChange({ target }) {
     let { name: field, value } = target;
     setNewBoard((prevBoard) => ({ ...prevBoard, [field]: value }));
   }
 
-  function onCreateBoard() {
-    boardActions.saveBoard(newBoard);
+  async function onCreateBoard() {
+    const board = await boardActions.saveBoard(newBoard);
+    console.log(board);
+    dispatch(closeModal());
+    navigate(`/board/${board._id}`);
   }
 
   console.log("New Board", newBoard);
@@ -49,8 +55,11 @@ export function CreateBoardModal() {
         <p className="title-require">👋 Board title is required</p>
         <button
           style={
-            newBoard.title === false || { backgroundColor: "rgb(0, 121, 191)" }
+            !newBoard.title
+              ? { backgroundColor: "#091E4208" }
+              : { backgroundColor: "#0C66E4", color: "white" }
           }
+          disabled={!newBoard.title}
           className="create-board-submit"
           onClick={onCreateBoard}
         >

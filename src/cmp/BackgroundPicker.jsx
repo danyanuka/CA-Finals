@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { unsplashService } from "../services/unsplash.service";
 import { constService } from "../services/const-service";
+import { MoreBgOptions } from "../modals/CreateBoard/MoreBgOptions";
 
 export function BackgroundPicker({ setNewBoard }) {
   const [photos, setPhotos] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getUnsplash();
@@ -15,6 +17,14 @@ export function BackgroundPicker({ setNewBoard }) {
     setPhotos(photos);
     console.log(photos);
   }
+
+  const handleOpenMore = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="background-picker-container">
@@ -52,12 +62,19 @@ export function BackgroundPicker({ setNewBoard }) {
             </li>
           ))}
           <li className="transparent-btn-black">
-            <button className="bg-more-options  ">
+            <button onClick={handleOpenMore} className="bg-more-options  ">
               <i className="icon-more-options"></i>
             </button>
           </li>
         </ul>
       </div>
+      {isOpen && (
+        <MoreBgOptions
+          setNewBoard={setNewBoard}
+          handleCloseModal={handleCloseModal}
+          photos={photos}
+        />
+      )}
     </div>
   );
 }

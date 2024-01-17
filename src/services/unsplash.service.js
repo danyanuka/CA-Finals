@@ -5,8 +5,7 @@ export const unsplashService = { getUnsplashList30 };
 const BASE_URL_RANDOM =
   "https://api.unsplash.com/photos/random?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&count=30";
 
-const COLLECTION_URL =
-  "https://api.unsplash.com/collections/2595483/photos?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&count=30";
+const COLLECTION_URL = `https://api.unsplash.com/collections/2595483/photos?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&page=1`;
 
 async function getUnsplashList30() {
   try {

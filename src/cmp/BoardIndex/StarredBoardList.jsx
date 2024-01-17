@@ -2,7 +2,7 @@ import { BoardPreview } from "./BoardPreview";
 export function StarredBoardList({ boards }) {
   return (
     <div>
-      <div className="starred-boards-title-container">
+      <div className="boards-title-container">
         <h3 className="board-list-title starred">Starred boards </h3>
       </div>
       <ul className="board-list">

@@ -14,8 +14,8 @@ export function BoardList({ boards }) {
 
   return (
     <div>
-      <div className="starred-boards-title-container">
-        <h3 className="board-list-title">Your boards</h3>
+      <div className="boards-title-container">
+        <h3 className="board-list-title user-icon">Your boards</h3>
       </div>
       <ul className="board-list">
         {boards.map((board) => (

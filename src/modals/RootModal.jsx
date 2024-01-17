@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
 import { utilService } from "/src/services/util.service.js";
 
-import { CreateBoardModal } from "./CreateBoardModal";
+import { CreateBoardModal } from "./CreateBoard/CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 import { MdlTaskMembers } from "./TaskDetails/MdlTaskMembers";
 import { MdlTaskLabels } from "./TaskDetails/MdlTaskLabels";
@@ -14,7 +14,6 @@ import { MdlTaskCover } from "./TaskDetails/MdlTaskCover";
 import { MdlTaskMove } from "./TaskDetails/MdlTaskMove";
 import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
 import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
-
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
@@ -78,8 +77,8 @@ function DynModalType({ modalType, modalProps }) {
       return <MdlTaskCopy />;
     case "taskShare":
       return <MdlTaskShare />;
-    // More type cases below
 
+    // More type cases below
 
     default:
       return <div>Sorry, something unexpected happened</div>;

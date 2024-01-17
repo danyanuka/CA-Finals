@@ -15,6 +15,9 @@ const gradColors = [
   { color: "linear-gradient(45deg, #00cc99, #009966)", id: 11 },
   { color: "linear-gradient(45deg, #ffcc00, #ff9900)", id: 12 },
   { color: "linear-gradient(45deg, #e6e600, #cc9900)", id: 13 },
+  { color: "linear-gradient(45deg, #ff3399, #cc0066)", id: 14 },
+  { color: "linear-gradient(45deg, #3366ff, #003366)", id: 15 },
+  { color: "linear-gradient(45deg, #ff6633, #cc3300)", id: 16 },
 ];
 
 export const constService = {

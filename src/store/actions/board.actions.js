@@ -53,9 +53,9 @@ async function removeBoard(boardId) {
 async function saveBoard(board) {
   try {
     const type = board._id ? UPDATE_BOARD : ADD_BOARD;
-    const boardToSave = await boardService.save(board);
-    store.dispatch({ type, board: boardToSave });
-
+    const savedBoard = await boardService.save(board);
+    store.dispatch({ type, board: savedBoard });
+    return savedBoard;
   } catch (err) {
     console.log("Had issues loading boards", err);
     throw err;

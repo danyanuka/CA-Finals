@@ -27,9 +27,11 @@ export function BoardIndex() {
     <>
       <AppHeader />
       <div className="board-index-container">
-        <div className="all-boards">
-          <BoardList boards={boards} />
-          <StarredBoardList boards={boards} />
+        <div className="all-boards-container">
+          <div className="all-boards">
+            <StarredBoardList boards={boards} />
+            <BoardList boards={boards} />
+          </div>
         </div>
       </div>
     </>

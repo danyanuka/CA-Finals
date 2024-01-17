@@ -1,117 +1,136 @@
 .board-index-container {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 256px) minmax(228px, 850px) 1fr;
+  grid-template-columns: 1fr minmax(228px, 850px) 1fr;
+  // minmax(auto, 256px) this comes after the 1st fr if the sidebar will be added
 
-  .all-boards {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 40px;
-    grid-area: 1/3;
+  .all-boards-container {
+    grid-area: 1/2 / 2/4;
+    overflow: auto;
+    width: 100%;
+    height: calc(100vh - 4rem);
 
-    .starred-boards-title-container {
+    .all-boards {
       margin-left: 8px;
       display: flex;
-      align-items: center;
-      .board-list-title {
-        padding-bottom: 12px;
-        @include fontProps(16px, 700, 24px);
-        &.starred {
-          margin-left: 35px;
-          position: relative;
-          &::before {
-            content: url("public/icons/star-lg.svg");
-            position: absolute;
-            top: 50%;
-            right: 105%;
-            transform: translateY(-50%);
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 40px;
+      max-width: 850px;
+
+      .boards-title-container {
+        margin-left: 8px;
+        display: flex;
+        align-items: center;
+        .board-list-title {
+          padding-bottom: 12px;
+          @include fontProps(16px, 700, 24px);
+          &.starred {
+            margin-left: 35px;
+            position: relative;
+            &::before {
+              content: url("public/icons/star-lg.svg");
+              position: absolute;
+              top: 55%;
+              right: 105%;
+              transform: translateY(-50%);
+            }
+          }
+          &.user-icon {
+            margin-left: 35px;
+            position: relative;
+            &::before {
+              content: url("public/icons/member-gray.svg");
+              position: absolute;
+              top: 40%;
+              right: 115%;
+              transform: translateY(-50%);
+            }
           }
         }
       }
-    }
 
-    a {
-      text-decoration: none;
-    }
+      a {
+        text-decoration: none;
+      }
 
-    .board-list {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      transform: translate(0);
-      flex-wrap: wrap;
-      list-style: none;
-
-      .board-preview {
-        background-size: cover;
+      .board-list {
+        width: 100%;
         display: flex;
-        background-position: center center;
-        background-repeat: no-repeat;
-        width: 23%;
-        color: white;
-        margin: 0 2% 2% 0;
-        border-radius: 3px;
-        text-align: left;
+        justify-content: flex-start;
+        transform: translate(0);
+        flex-wrap: wrap;
+        list-style: none;
 
-        overflow: hidden;
-        &:hover {
-          filter: brightness(0.9);
-          transition: 20ms;
-        }
-
-        &.new-board {
-          height: 96px;
+        .board-preview {
+          background-size: cover;
           display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          background-color: $clr-bg-neutral;
-          @include fontProps(14px, 400, 24px);
-          color: $clr-text-black;
-          @include transitionAction(
-            background-color,
-            $clr-bg-neutral-hovered,
-            10ms
-          );
-          @include transitionAction(
-            background-color,
-            $clr-bg-neutral-pressed,
-            10ms,
-            active
-          );
-        }
-        .link-to-board {
-          width: 100%;
-        }
-        .link-to-board {
-          width: 100%;
-        }
-
-        .board-preview-content {
-          position: relative;
-          width: auto;
-          margin: 8px;
-          height: 80px;
-
-          .board-name {
-            @include fontProps(16px, 700, 20px);
-          }
-          .board-tile-options {
-            display: flex;
-            position: absolute;
-            top: 76%;
-            right: -29px;
-            opacity: 5%;
-            transition: right 0.1s ease-in-out, opacity 0.1s;
-          }
+          background-position: center center;
+          background-repeat: no-repeat;
+          width: 23%;
+          color: white;
+          margin: 0 2% 2% 0;
+          border-radius: 3px;
+          text-align: left;
+          overflow: hidden;
           &:hover {
+            filter: brightness(0.9);
+            transition: 20ms;
+          }
+
+          &.new-board {
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: $clr-bg-neutral;
+            @include fontProps(14px, 400, 24px);
+            color: $clr-text-black;
+            @include transitionAction(
+              background-color,
+              $clr-bg-neutral-hovered,
+              10ms
+            );
+            @include transitionAction(
+              background-color,
+              $clr-bg-neutral-pressed,
+              10ms,
+              active
+            );
+          }
+          .link-to-board {
+            width: 100%;
+          }
+          .link-to-board {
+            width: 100%;
+          }
+
+          .board-preview-content {
+            position: relative;
+            width: auto;
+            margin: 8px;
+            height: 80px;
+
+            .board-name {
+              @include fontProps(16px, 700, 20px);
+            }
             .board-tile-options {
-              right: 1%;
-              opacity: 100%;
-              i {
-                &:hover {
-                  height: 18px;
-                  width: 18px;
+              display: flex;
+              position: absolute;
+              top: 76%;
+              right: -29px;
+              opacity: 5%;
+              transition: right 0.1s ease-in-out, opacity 0.1s;
+            }
+            &:hover {
+              .board-tile-options {
+                right: 1%;
+                opacity: 100%;
+                i {
+                  &:hover {
+                    height: 18px;
+                    width: 18px;
+                  }
                 }
               }
             }
