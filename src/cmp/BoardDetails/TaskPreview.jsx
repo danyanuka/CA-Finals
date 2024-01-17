@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { utilService } from "../services/util.service.js";
+import { utilService } from "../../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
 
@@ -14,10 +14,10 @@ export function TaskPreview({ task, index }) {
   // console.log(isPass, isToday, isTomorrow);
   const isTaskActions =
     task.checklists ||
-    task.attachment ||
-    task.dueDate ||
-    task.memberIds ||
-    task.description
+      task.attachment ||
+      task.dueDate ||
+      task.memberIds ||
+      task.description
       ? true
       : false;
 

@@ -5,16 +5,15 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { GroupPreview } from './GroupPreview'
 
 //services
-import { groupService } from '../services/group.service'
+import { groupService } from '../../services/group.service'
 
 //store
-import { boardActions } from "../store/actions/board.actions";
+import { boardActions } from "../../store/actions/board.actions";
 
 
 export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
     const groups = board?.groups
     const [isAdding, setIsAdding] = useState(false)
-    const [isClick, setIsClick] = useState(false)
     const [groupTitle, setGroupTitle] = useState('')
 
     function handleIsAdding() {
@@ -34,9 +33,12 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
         setIsAdding(false)
     }
 
-    function handleOnBlur() {
-        if (isClick) return
-        handleIsAdding(false)
+
+    function handleOnBlur(ev) {
+        if (groupTitle !== '') {
+            handleAddGroup(ev)
+        }
+        handleIsAdding()
     }
 
     function onDragEnd(result) {
@@ -147,13 +149,13 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                             type="text"
                             name='groupTitle'
                             value={groupTitle}
-                            onBlur={handleOnBlur}
+                            onBlur={(ev) => handleOnBlur(ev)}
                             onChange={handleChange}
                             placeholder='Enter group title...'
                             autoFocus />
 
                         <div className="add-group-buttons">
-                            <button className='add-group-button' onClick={(() => setIsClick(true))}>Add group</button>
+                            <button className='add-group-button'>Add group</button>
                             <button className='close-button transparent-btn-black' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 

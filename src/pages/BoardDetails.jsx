@@ -7,8 +7,8 @@ import { boardActions } from "../store/actions/board.actions";
 
 //cmps
 import { AppHeader } from "../cmp/AppHeader";
-import { BoardHeader } from "../cmp/BoardHeader";
-import { GroupList } from "../cmp/GroupList";
+import { BoardHeader } from "../cmp/BoardDetails/BoardHeader";
+import { GroupList } from "../cmp/BoardDetails/GroupList";
 
 //services
 import { groupService } from "../services/group.service";
