@@ -1,5 +1,5 @@
 .create-board-modal {
-  // position: relative;
+  position: relative;
   label {
     display: block;
     margin-bottom: 4px;
@@ -10,8 +10,7 @@
     }
   }
   padding: 0 12px 12px;
-  overflow-y: auto;
-  overflow-x: auto;
+
   .board-demo-container {
     display: flex;
     justify-content: center;
@@ -81,11 +80,17 @@
       }
     }
   }
+  .bg-photo-thumb,
+  .bg-color-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .bg-photo-thumb:focus::before,
   .bg-color-thumb:focus::before {
     content: url("public/icons/check-mark.svg");
-    width: 50px;
-    height: 25px;
+    position: absolute;
+    opacity: 1;
   }
   .bg-more-options {
     background-color: $clr-bg-neutral;

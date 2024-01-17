@@ -48,6 +48,7 @@ export function MoreBgOptions({ handleCloseModal, photos, setNewBoard }) {
           {constService.gradColors.map((color) => (
             <li key={color.id}>
               <button
+                className="bg-color-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
