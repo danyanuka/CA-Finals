@@ -2,6 +2,12 @@
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
+.icon-logo {
+  content: url('/public/icons/trello-blue.svg');
+  width: 40px;
+  height: 40px;
+}
+
 // TaskDetails
 .icon-close-grayblue {
   @include iconCustomColor(#42526e, "/public/icons/close.svg");

@@ -17,9 +17,9 @@ export function HomeHeader() {
             </NavLink>
           </div>
         ) : (
-          <div>
-            <Link to='login'>Log in</Link>
-            <Link className="link-to-boards nav-link" to="/login">
+          <div className="login-signup-links">
+            <Link to='login' className="nav-link login-link" >Log in</Link>
+            <Link className="nav-link" to="/signup">
               Get Trello for free
             </Link>
           </div>

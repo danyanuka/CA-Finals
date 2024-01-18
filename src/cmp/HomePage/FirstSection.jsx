@@ -1,4 +1,19 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export function FirstSection() {
+  const [email, setEmail] = useState('')
+  const navigate = useNavigate()
+
+  function handleChange(ev) {
+    const value = ev.target.value
+    setEmail(value)
+  }
+
+  function handleOnSignup() {
+    navigate(`/signup?email=${email}`)
+  }
+
   return (
     <div className="section1-container">
       <section className="first-section">
@@ -8,8 +23,8 @@ export function FirstSection() {
             <p>Keep everything in the same place-even if your team isn't.</p>
           </div>
           <form>
-            <input placeholder="Email" type="email" />
-            <button>Sign up - it's free!</button>
+            <input value={email} onChange={handleChange} placeholder="Email" type="email" />
+            <button onClick={handleOnSignup}>Sign up - it's free!</button>
           </form>
           <a>
             <span>Watch video</span>

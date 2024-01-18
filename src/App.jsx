@@ -25,6 +25,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginSignup />} />
+          <Route path="/signup?" element={<LoginSignup />} />
           <Route path="/about" element={<About />} />
           <Route path="/board" element={<BoardIndex />} />
           <Route path="/board/:boardId" element={<BoardDetails />}>
