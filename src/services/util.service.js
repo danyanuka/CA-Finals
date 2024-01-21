@@ -8,6 +8,9 @@ export const utilService = {
   getMembers,
   checkDueDate,
   getStatusChecklist,
+  getUserShortName,
+  isImgDark,
+  getUserDetails,
   getUserAvatar,
   toTitleCase
 };
@@ -129,6 +132,40 @@ function getStatusChecklist(checklist) {
   return counts
 }
 
+function getUserShortName(fullName) {
+  const nameParts = fullName.split(' ')
+  if (nameParts.length >= 2) {
+    return (nameParts[0][0] + nameParts[1][0]).toUpperCase()
+  } else if (nameParts.length == 1 && nameParts[0].length >= 2) {
+    return nameParts[0].slice(0, 2).toUpperCase()
+  }
+  return "N/A"
+}
+
+function isImgDark(imgPath) {
+  const canvas = document.createElement('canvas')
+  // const ctx = canvas.getContext('2d')
+  const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
+  var img = new Image;
+  img.onload = () => { ctx.drawImage(img, 0, 0) }
+  img.src = imgPath;
+  console.log(img.src)
+  const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
+  console.log(rgbaData)
+  canvas.remove()
+
+  return true
+
+}
+
+function getUserDetails(userId, board) {
+
+  return {
+    userImg: "g",
+    userFullName: "g"
+  }
+
+}
 
 function getUserAvatar(user) {
   const username = user.fullname.split(' ')
@@ -142,7 +179,6 @@ function getUserAvatar(user) {
   return avatar;
 }
 
-
 function toTitleCase(str) {
   return str.replace(
     /\w\S*/g,
@@ -151,3 +187,4 @@ function toTitleCase(str) {
     }
   );
 }
+

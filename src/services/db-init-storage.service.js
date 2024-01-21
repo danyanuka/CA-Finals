@@ -86,6 +86,16 @@ function createBoards(overwrite) {
             "_id": "u101",
             "fullname": "Tal Tarablus",
             "imgUrl": "https://www.google.com"
+          },
+          {
+            "_id": "uk5",
+            "fullname": "hey harablus",
+            "imgUrl": "https://www.google.com"
+          },
+          {
+            "_id": "uk7",
+            "fullname": "bee barablus",
+            "imgUrl": "https://www.google.com"
           }
         ],
         "groups": [
