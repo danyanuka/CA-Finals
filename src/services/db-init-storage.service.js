@@ -245,12 +245,8 @@ function createBoards(overwrite) {
         members: [
           {
             _id: "u101",
-            fullname: "Abi Abambi",
-            imgUrl: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-          },
-          {
-            _id: "u105",
-            fullname: "Hodaya Abu",
+            fullname: "Tal Tarablus",
+            imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
           },
         ],
         groups: [

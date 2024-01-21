@@ -1,4 +1,8 @@
 
+import isDarkColor from 'is-dark-color'
+import { FastAverageColor } from 'fast-average-color';
+
+
 export const utilService = {
   padTwo,
   makeId,
@@ -9,8 +13,8 @@ export const utilService = {
   checkDueDate,
   getStatusChecklist,
   getUserShortName,
-  isImgDark,
-  // getUserAvatar,
+  isDarkImg,
+  getUserAvatar,
   toTitleCase
 };
 
@@ -141,57 +145,47 @@ function getUserShortName(fullName) {
   return "N/A"
 }
 
-// function isImgDark(imgPath) {
+async function isDarkImg(imgPath) {
+  const fac = new FastAverageColor();
+  const color = await fac.getColorAsync(imgPath);
+  console.log("color.isDark: ", color.isDark)
+  return color.isDark
+}
+
+// async function isDarkImg(imgPath) {
+//   const img = await _loadImage(imgPath)
 //   const canvas = document.createElement('canvas')
 //   const ctx = canvas.getContext('2d')
-//   // const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
-//   var img = new Image;
-//   img.onload = () => { ctx.drawImage(img, 0, 0) }
-//   img.src = imgPath;
-//   console.log(img.src)
 //   if (img.width == 0) return true
+//   canvas.width = img.width;
+//   canvas.height = img.height;
+//   ctx.drawImage(img, 0, 0)
 //   const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
-//   console.log(rgbaData)
-//   console.log("a:", rgbaData[78])
 //   canvas.remove()
+
+//   for (let i = 0; i)
+//   while (i < rgbaData.length)
+//   console.log("rgbaData: ", rgbaData)
 //   return true
 // }
 
 
-function isImgDark(imgPath) {
-  var img = new Image;
-  img.src = imgPath;
-  console.log(img.src)
-
-  const canvas = document.createElement('canvas')
-  const ctx = canvas.getContext('2d')
-  canvas.width = img.width;
-  canvas.height = img.height;
-  ctx.drawImage(img, 0, 0)
-
-  if (img.width == 0) { console.log("bla"); return true; }
-
-  const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
-  console.log(rgbaData)
-  console.log("a:", rgbaData[78])
-
-  canvas.remove()
-
-  return true
-
+async function _loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
 }
 
-// function getUserAvatar(user) {
-//   const username = user.fullname.split(' ')
-//   const firstName = username[0]
-//   const lastName = username[1]
 
-//   const firstLetter = firstName.charAt(0)
-//   const secondLetter = lastName ? lastName.charAt(0) : ''
-
-//   const avatar = { firstLetter, secondLetter }
-//   return avatar;
-// }
+function getUserAvatar(user) {
+  const username = user.fullname.split(' ')
+  const firstName = username[0]
+  const lastName = username[1]
+}
 
 function toTitleCase(str) {
   return str.replace(
