@@ -10,7 +10,6 @@ export const utilService = {
   getStatusChecklist,
   getUserShortName,
   isImgDark,
-  getUserDetails,
   getUserAvatar,
   toTitleCase
 };
@@ -155,15 +154,6 @@ function isImgDark(imgPath) {
   canvas.remove()
 
   return true
-
-}
-
-function getUserDetails(userId, board) {
-
-  return {
-    userImg: "g",
-    userFullName: "g"
-  }
 
 }
 
