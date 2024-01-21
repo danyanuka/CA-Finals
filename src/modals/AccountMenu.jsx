@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { closeModal } from "/src/store/actions/app.actions";
 import { useNavigate } from "react-router-dom";
 
-import { utilService } from "../services/util.service";
+import { UserAvatar } from "./../cmp/UserAvatar";
+
 
 export function AccountMenu() {
     const user = useSelector(storeState => storeState.userModule.user)
-    const userAvatar = utilService.getUserAvatar(user)
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -25,15 +25,10 @@ export function AccountMenu() {
         <div className="account-menu" onBlur={onClose}>
             <h5>ACCOUNT</h5>
             <div className="menu-header user-info">
-                {user.imgUrl &&
-                    <img className='user-img' src={user?.imgUrl} alt="user-img" title={`${user?.fullname} (${user?.username})`} />
-                }
 
-                {!user.imgUrl &&
-                    <div className="user-avatar">
-                        <h5>{userAvatar.firstLetter} {userAvatar.secondLetter}</h5>
-                    </div>
-                }
+                <div className="user-avatar">
+                    <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl} />
+                </div>
                 <div className="username">
                     <p>{user?.fullname}</p>
                     <p>{user?.email}</p>

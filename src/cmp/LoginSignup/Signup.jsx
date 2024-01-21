@@ -70,7 +70,7 @@ export function Signup({ onSignup, email }) {
                     required
                 />
                 <ImgUploader onUploaded={onUploaded} />
-                <button onClick={handleSignup} className='form-item btn' >Sign up</button>
+                <button className='form-item btn' >Sign up</button>
 
                 <Link className='link' to='/login'>Already have an Atlassian account? Log in</Link>
             </form>

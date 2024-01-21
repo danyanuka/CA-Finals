@@ -169,8 +169,7 @@ async function isDarkImg(imgPath) {
 //   return true
 // }
 
-// We first need to wait for the img to load. 
-// We should define the 'onload' before setting the 'src'.
+
 async function _loadImage(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -186,12 +185,6 @@ function getUserAvatar(user) {
   const username = user.fullname.split(' ')
   const firstName = username[0]
   const lastName = username[1]
-
-  const firstLetter = firstName.charAt(0)
-  const secondLetter = lastName ? lastName.charAt(0) : ''
-
-  const avatar = { firstLetter, secondLetter }
-  return avatar;
 }
 
 function toTitleCase(str) {
