@@ -145,29 +145,41 @@ function getUserShortName(fullName) {
   return "N/A"
 }
 
-async function isDarkImg(imgPath) {
-  const fac = new FastAverageColor();
-  const color = await fac.getColorAsync(imgPath);
-  console.log("color.isDark: ", color.isDark)
-  return color.isDark
-}
-
 // async function isDarkImg(imgPath) {
-//   const img = await _loadImage(imgPath)
-//   const canvas = document.createElement('canvas')
-//   const ctx = canvas.getContext('2d')
-//   if (img.width == 0) return true
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-//   ctx.drawImage(img, 0, 0)
-//   const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
-//   canvas.remove()
-
-//   for (let i = 0; i)
-//   while (i < rgbaData.length)
-//   console.log("rgbaData: ", rgbaData)
-//   return true
+//   const fac = new FastAverageColor();
+//   const color = await fac.getColorAsync(imgPath);
+//   console.log("color.isDark: ", color.isDark)
+//   return color.isDark
 // }
+
+async function isDarkImg(imgPath) {
+  const img = await _loadImage(imgPath)
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d')
+  if (img.width == 0) return true
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0)
+  const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
+  console.log(rgbaData)
+  canvas.remove()
+
+  let sum_r = 0;
+  let sum_g = 0;
+  let sum_b = 0;
+  let sum_a = 0;
+  for (let i = 0; i + 3 < rgbaData.length; i += 4) {
+    sum_r += rgbaData[i];
+    sum_g += rgbaData[i + 1];
+    sum_b += rgbaData[i + 2];
+    sum_a += rgbaData[i + 3];
+  }
+  // get avg and calculate
+
+
+  console.log("rgbaData: ", rgbaData)
+  return true
+}
 
 
 async function _loadImage(src) {
