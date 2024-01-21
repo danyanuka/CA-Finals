@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 export function BoardHeader() {
     // const [style, setStyle] = useState({})
     const board = useSelector(storeState => storeState.boardModule.curBoard)
-    console.log(board.members);
+    console.log(board?.members);
 
     // useEffect(() => {
     //     if (board?.style.backgroundColor) {

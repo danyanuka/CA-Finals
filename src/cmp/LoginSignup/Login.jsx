@@ -62,7 +62,7 @@ export function Login({ onLogin }) {
                     onChange={handleChange}
                     required
                 />
-                <button className='form-item btn'>Login!</button>
+                <button onClick={handleLogin} className='form-item btn'>Login!</button>
                 <Link className='link' to='/signup'>Create account</Link>
 
             </form>

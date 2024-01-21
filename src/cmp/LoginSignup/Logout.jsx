@@ -36,7 +36,7 @@ export function Logout({ onLogout }) {
                         <p>{user?.email}</p>
                     </div>
                 </div>
-                <button className='form-item btn'>Log out</button>
+                <button onClick={handleLogout} className='form-item btn'>Log out</button>
                 <Link className='link' to='/login'>Log in to another account</Link>
             </form>
 

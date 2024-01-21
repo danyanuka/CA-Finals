@@ -9,7 +9,6 @@ import { ImgUploader } from './ImgUploader.jsx'
 export function Signup({ onSignup, email }) {
     const [credentials, setCredentials] = useState({ ...userService.getEmptyUser(), email })
 
-
     function handleChange(ev) {
         const field = ev.target.name
         const value = ev.target.value
@@ -20,7 +19,6 @@ export function Signup({ onSignup, email }) {
     function handleSignup(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname | !credentials.email) return
-
         onSignup(credentials)
         setCredentials(userService.getEmptyUser())
 
@@ -72,7 +70,7 @@ export function Signup({ onSignup, email }) {
                     required
                 />
                 <ImgUploader onUploaded={onUploaded} />
-                <button className='form-item btn' >Sign up!</button>
+                <button onClick={handleSignup} className='form-item btn' >Sign up</button>
 
                 <Link className='link' to='/login'>Already have an Atlassian account? Log in</Link>
             </form>

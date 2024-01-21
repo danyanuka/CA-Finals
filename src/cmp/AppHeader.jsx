@@ -14,7 +14,7 @@ export function AppHeader() {
 
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const user = useSelector(storeState => storeState.userModule.user)
-  const userAvatar = utilService.getUserAvatar(user)
+  const userAvatar = user ? utilService.getUserAvatar(user) : ''
 
   const dispatch = useDispatch();
   const location = useLocation();

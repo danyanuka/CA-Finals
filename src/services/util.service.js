@@ -131,9 +131,9 @@ function getStatusChecklist(checklist) {
 
 
 function getUserAvatar(user) {
-  const fullname = user.fullname.split(' ')
-  const firstName = fullname[0]
-  const lastName = fullname[1]
+  const username = user.fullname.split(' ')
+  const firstName = username[0]
+  const lastName = username[1]
 
   const firstLetter = firstName.charAt(0)
   const secondLetter = lastName ? lastName.charAt(0) : ''
