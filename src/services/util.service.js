@@ -7,7 +7,9 @@ export const utilService = {
   getLabels,
   getMembers,
   checkDueDate,
-  getStatusChecklist
+  getStatusChecklist,
+  getUserAvatar,
+  toTitleCase
 };
 
 function padTwo(num) {
@@ -127,3 +129,25 @@ function getStatusChecklist(checklist) {
   return counts
 }
 
+
+function getUserAvatar(user) {
+  const fullname = user.fullname.split(' ')
+  const firstName = fullname[0]
+  const lastName = fullname[1]
+
+  const firstLetter = firstName.charAt(0)
+  const secondLetter = lastName ? lastName.charAt(0) : ''
+
+  const avatar = { firstLetter, secondLetter }
+  return avatar;
+}
+
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}

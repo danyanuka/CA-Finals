@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 export function BoardHeader() {
     // const [style, setStyle] = useState({})
     const board = useSelector(storeState => storeState.boardModule.curBoard)
+    console.log(board.members);
 
     // useEffect(() => {
     //     if (board?.style.backgroundColor) {
@@ -62,7 +63,7 @@ export function BoardHeader() {
                 </div>
 
                 <div className="board-header-btn board-members" title="User-Name" >
-                    <i className="icon icon-member"></i>
+                    {/* <i className="icon icon-member"></i> */}
 
                 </div>
 

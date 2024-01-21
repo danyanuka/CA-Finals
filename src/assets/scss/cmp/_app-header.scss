@@ -95,16 +95,21 @@
       height: 25px;
       margin: 0 4px;
     }
-  }
-}
 
-.dropdown {
-  border: 2px solid $clr-bg-pink-bold-hovered;
-  border-radius: 10px;
-  height: 100px;
-  width: 200px;
-  margin: 10px;
-  position: absolute;
-  top: 40px;
-  left: 1px;
+    .user-avatar {
+      background-color: #091E42;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h5 {
+        font-weight: 600;
+        font-size: 20px;
+      }
+    }
+  }
 }
