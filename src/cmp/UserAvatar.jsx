@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { utilService } from "/src/services/util.service.js";
 
 
-export function UserAvatar({ userFullName, userImg="/public/imgs/defaultUserImg.png" }) {
+export function UserAvatar({ userFullName, userImg = "/public/imgs/defaultUserImg.png" }) {
 
   const [isDarkImg, setIsDarkImg] = useState(true)
 
@@ -16,7 +16,16 @@ export function UserAvatar({ userFullName, userImg="/public/imgs/defaultUserImg.
     updateIsDark()
   }, [])
 
+  function isWebUrl(userImg) {
+    const path = userImg.toLowerCase()
+    const strToCheck = ["http", "//", "www"]
+    return 0 < strToCheck.filter((st) => path.includes(st)).length
+  }
+
   return <button className="user-avatar" style={{ backgroundImage: `url(${userImg})`, color: (isDarkImg ? "white" : "black") }}>
-    <data>{utilService.getUserShortName(userFullName)}</data>
+    {
+      !isWebUrl(userImg) &&
+      <data>{utilService.getUserShortName(userFullName)}</data>
+    }
   </button>
 }

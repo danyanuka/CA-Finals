@@ -3,7 +3,8 @@ button.user-avatar {
     display: grid;
     align-content: center;
     justify-content: center;
-
+    background-size: 100% 100%;
+    
     &:hover {
         opacity: 0.8;
     }

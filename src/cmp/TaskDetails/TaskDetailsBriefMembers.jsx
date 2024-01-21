@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-
-import { utilService } from "/src/services/util.service.js";
 
 import { UserAvatar } from "/src/cmp/UserAvatar";
 
@@ -28,8 +25,8 @@ export function TaskDetailsBriefMembers({ boardMembers, taskMembers, cbOpenTaskM
                     <UserAvatar userFullName={getMemberFullName(memberId)} userImg={getMemberImg(memberId)} />
                 </div>
             })}
-            <button className="transparent-btn-black">
-
+            <button className="transparent-btn-neutral add-btn" onClick={(ev) => cbOpenTaskModal(ev, "taskMembers")} >
+                <i className="icon-task-plus2"></i>
             </button>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import {TaskDetailsBriefMembers} from "./TaskDetailsBriefMembers"
+import {TaskDetailsBriefLabels} from "./TaskDetailsBriefLabels"
 
 
 export function TaskDetailsBriefItems({ board, task, cbOnUpdateTask, cbOpenTaskModal }) {
@@ -11,13 +12,8 @@ export function TaskDetailsBriefItems({ board, task, cbOnUpdateTask, cbOpenTaskM
             <TaskDetailsBriefMembers boardMembers={board.members} taskMembers={task.memberIds} cbOpenTaskModal={cbOpenTaskModal} />
         }
         {   // Labels
-            // task.memeberIds.length !== 0 &&
-            <div className="td-labels brief-item">
-                <h3>Labels</h3>
-                <div className="brief-data">
-
-                </div>
-            </div>
+            task.labelIds.length !== 0 &&
+            <TaskDetailsBriefLabels boardLabels={board.labels} taskLabels={task.labelIds} cbOpenTaskModal={cbOpenTaskModal} />
         }
         {   // Notifications
             // task.memeberIds.length !== 0 &&
