@@ -21,9 +21,9 @@ export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskM
         <textarea defaultValue={headerRef.current}
             onBlur={headerOnBlur}
             onChange={headerOnChange}
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false">
+            autoCapitalize="off"
+            autoCorrect="off"
+            spellCheck="false">
         </textarea>
         <span>
             in list&nbsp;
