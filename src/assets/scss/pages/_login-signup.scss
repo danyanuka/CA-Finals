@@ -10,28 +10,20 @@
 
 .image-left {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: rgb(250, 251, 252);
-    background-image: url(https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.531/trello-left.4f52d13c.svg);
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: fixed, fixed;
-    background-size: 550px, 550px;
-    background-position: left bottom;
+    left: 0px;
+    bottom: 0px;
+    width: 400px;
+    max-width: 30%;
+    z-index: -100;
 }
 
 .image-right {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: rgb(250, 251, 252);
-    background-image: url(https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.531/trello-right.3ee60d6f.svg);
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: fixed, fixed;
-    background-size: 550px, 550px;
-    background-position: right bottom;
+    right: 0px;
+    bottom: 0px;
+    width: 400px;
+    max-width: 30%;
+    z-index: -100;
 }
 
 .login-signup-preview {

@@ -63,7 +63,7 @@ export function LoginSignup() {
 
     return (
         <div className="login-signup-page">
-            <div className="image-left "></div>
+            <img className="image-left" src="/public/imgs/bg-login-left.svg" />
             <div className="login-signup-preview">
 
                 {path === 'login' &&
@@ -76,7 +76,7 @@ export function LoginSignup() {
                     <Logout onLogout={onLogout} />
                 }
             </div>
-            <div className="image-right"></div>
+            <img className="image-right" src="/public/imgs/bg-login-right.svg" />
         </div>
     )
 }

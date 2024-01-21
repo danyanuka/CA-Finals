@@ -141,16 +141,40 @@ function getUserShortName(fullName) {
   return "N/A"
 }
 
+// function isImgDark(imgPath) {
+//   const canvas = document.createElement('canvas')
+//   const ctx = canvas.getContext('2d')
+//   // const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
+//   var img = new Image;
+//   img.onload = () => { ctx.drawImage(img, 0, 0) }
+//   img.src = imgPath;
+//   console.log(img.src)
+//   if (img.width == 0) return true
+//   const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
+//   console.log(rgbaData)
+//   console.log("a:", rgbaData[78])
+//   canvas.remove()
+//   return true
+// }
+
+
 function isImgDark(imgPath) {
-  const canvas = document.createElement('canvas')
-  // const ctx = canvas.getContext('2d')
-  const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
   var img = new Image;
-  img.onload = () => { ctx.drawImage(img, 0, 0) }
   img.src = imgPath;
   console.log(img.src)
+
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d')
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0)
+
+  if (img.width == 0) {console.log("bla"); return true;}
+
   const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
   console.log(rgbaData)
+  console.log("a:", rgbaData[78])
+
   canvas.remove()
 
   return true
