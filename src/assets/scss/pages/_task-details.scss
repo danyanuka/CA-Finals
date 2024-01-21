@@ -211,4 +211,23 @@
         }
     }
 
+    &-labels {
+        button {
+            height: 32px;
+            border-radius: 3px;
+            border-width: 0px;
+            padding: 0px, 12px, 0px, 12px;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .add-btn {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            width: 32px;
+        }
+    }
+
 }
