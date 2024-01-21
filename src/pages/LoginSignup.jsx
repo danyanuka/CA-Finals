@@ -22,16 +22,16 @@ export function LoginSignup() {
 
     useEffect(() => {
         loadUsers()
-        if (pathname === "/signup") {
-            setPath('signup')
-        }
-        if (pathname === "/login") {
-            setPath('login')
-        }
-        if (pathname === "/logout") {
-            setPath('logout')
-        }
-    }, [pathname])
+        // if (pathname === "/signup") {
+        //     setPath('signup')
+        // }
+        // if (pathname === "/login") {
+        //     setPath('login')
+        // }
+        // if (pathname === "/logout") {
+        //     setPath('logout')
+        // }
+    }, [])
 
 
     async function onLogin(credentials) {
@@ -66,13 +66,13 @@ export function LoginSignup() {
             <img className="image-left" src="/public/imgs/bg-login-left.svg" />
             <div className="login-signup-preview">
 
-                {path === 'login' &&
+                {pathname === '/login' &&
                     <Login onLogin={onLogin} />
                 }
-                {path === 'signup' &&
+                {pathname === '/signup' &&
                     <Signup onSignup={onSignup} email={email} />
                 }
-                {path === 'logout' &&
+                {pathname === '/logout' &&
                     <Logout onLogout={onLogout} />
                 }
             </div>

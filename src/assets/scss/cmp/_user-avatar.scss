@@ -1,9 +1,9 @@
-.user-avatar {
+button.user-avatar {
     @include fontProps(14px, 600, 14px);
     display: grid;
     align-content: center;
     justify-content: center;
-    
+
     &:hover {
         opacity: 0.8;
     }

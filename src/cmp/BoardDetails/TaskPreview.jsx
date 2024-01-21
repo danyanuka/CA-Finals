@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { utilService } from "../../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
+import { UserAvatar } from "../UserAvatar.jsx"
 
 export function TaskPreview({ task, index }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
@@ -11,7 +12,7 @@ export function TaskPreview({ task, index }) {
 
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
   const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate);
-  // console.log(isPass, isToday, isTomorrow);
+  console.log(isPass, isToday, isTomorrow);
   const isTaskActions =
     task.checklists ||
       task.attachment ||
@@ -158,12 +159,15 @@ export function TaskPreview({ task, index }) {
                 <div className="members">
                   {members.map((member) => {
                     return (
-                      <div key={member._id} className="member">
-                        <img className="user-img"
-                          alt="Account image"
-                          title={`${member.fullname} (${member.username})`}
-                          src={member.imgUrl} />
+                      <div key={member._id} title={`${member.fullname} (${member.username})`} className="member">
+                        <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
                       </div>
+                      // <div key={member._id} className="member">
+                      //   <img className="user-img"
+                      //     alt="Account image"
+                      //     title={`${member.fullname} (${member.username})`}
+                      //     src={member.imgUrl} />
+                      // </div>
                     );
                   })}
                 </div>

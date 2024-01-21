@@ -104,7 +104,6 @@ export function AppHeader() {
           <div className="search-section">
             <i className="icon-search"></i>
             <input
-              style={board?.style}
               type="text"
               className="search-input"
               placeholder="Search"
@@ -117,12 +116,16 @@ export function AppHeader() {
 
           <i className="icon-info info-btn" title="Information"></i>
 
-          {!user &&
+          {user ? (
+            <div className="user-avatar" onClick={handleAccountClick}>
+              <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl} />
+            </div>
+          ) : (
             <i className="icon-account account-btn" title="Account"></i>
+
+          )
           }
-          <div className="user-avatar" onClick={handleAccountClick}>
-            <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl} />
-          </div>
+
 
         </div>
       </section>

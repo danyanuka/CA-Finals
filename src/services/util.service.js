@@ -132,10 +132,10 @@ function getStatusChecklist(checklist) {
 }
 
 function getUserShortName(fullName) {
-  const nameParts = fullName.split(' ')
-  if (nameParts.length >= 2) {
+  const nameParts = fullName?.split(' ')
+  if (nameParts?.length >= 2) {
     return (nameParts[0][0] + nameParts[1][0]).toUpperCase()
-  } else if (nameParts.length == 1 && nameParts[0].length >= 2) {
+  } else if (nameParts?.length == 1 && nameParts[0].length >= 2) {
     return nameParts[0].slice(0, 2).toUpperCase()
   }
   return "N/A"
