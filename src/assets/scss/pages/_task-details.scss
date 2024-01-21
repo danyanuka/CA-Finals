@@ -62,9 +62,6 @@
     &-cover {
         position: relative;
         height: 116px;
-        background-color: $clr-bg-red;
-        /* test */
-        overflow: hidden;
 
         &-btn {
             position: absolute;
@@ -177,5 +174,9 @@
             height: 16px;
             width: 16px;
         }
+    }
+
+    &-brief-items {
+        display: flex;
     }
 }

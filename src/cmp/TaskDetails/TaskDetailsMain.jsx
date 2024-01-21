@@ -1,4 +1,10 @@
+import { useEffect, useState } from "react";
+
+
 export function TaskDetailsMain() {
+
+    const [currDescription, setCurrDescription] = useState()
+
     return <div className="task-details-main">
         <div className="td-section td-brief-items">
             <div className="td-members">
@@ -21,6 +27,7 @@ export function TaskDetailsMain() {
             </div>
             <div>
                 <h2>Description</h2>
+                {}
             </div>
         </div>
         <div className="td-section td-attachments">

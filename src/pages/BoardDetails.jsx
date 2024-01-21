@@ -30,18 +30,15 @@ export function BoardDetails() {
   }
 
   async function onAddGroup(newGroup) {
-    const boardToUpdate = await groupService.addGroup(newGroup, board);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.addGroup(newGroup, board);
   }
 
   async function onAddTask(newTask, groupId, addToStart) {
-    const boardToUpdate = await groupService.addTask(newTask, groupId, board, addToStart);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.addTask(newTask, groupId, board, addToStart);
   }
 
   async function onEditGroup(newGroup) {
-    const boardToUpdate = await groupService.updateGroup(newGroup, board);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.updateGroup(newGroup, board);
   }
 
   return (
