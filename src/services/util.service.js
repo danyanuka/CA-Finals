@@ -10,7 +10,7 @@ export const utilService = {
   getStatusChecklist,
   getUserShortName,
   isImgDark,
-  getUserAvatar,
+  // getUserAvatar,
   toTitleCase
 };
 
@@ -142,32 +142,32 @@ function getUserShortName(fullName) {
 }
 
 function isImgDark(imgPath) {
-  const canvas = document.createElement('canvas')
-  // const ctx = canvas.getContext('2d')
-  const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
-  var img = new Image;
-  img.onload = () => { ctx.drawImage(img, 0, 0) }
-  img.src = imgPath;
-  console.log(img.src)
-  const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
-  console.log(rgbaData)
-  canvas.remove()
+  // const canvas = document.createElement('canvas')
+  // // const ctx = canvas.getContext('2d')
+  // const ctx = canvas.getContext('2d', { colorSpace: "display-p3" })
+  // var img = new Image;
+  // img.onload = () => { ctx.drawImage(img, 0, 0) }
+  // img.src = imgPath;
+  // console.log(img.src)
+  // const rgbaData = ctx.getImageData(0, 0, img.width, img.height).data;
+  // console.log(rgbaData)
+  // canvas.remove()
 
   return true
 
 }
 
-function getUserAvatar(user) {
-  const username = user.fullname.split(' ')
-  const firstName = username[0]
-  const lastName = username[1]
+// function getUserAvatar(user) {
+//   const username = user.fullname.split(' ')
+//   const firstName = username[0]
+//   const lastName = username[1]
 
-  const firstLetter = firstName.charAt(0)
-  const secondLetter = lastName ? lastName.charAt(0) : ''
+//   const firstLetter = firstName.charAt(0)
+//   const secondLetter = lastName ? lastName.charAt(0) : ''
 
-  const avatar = { firstLetter, secondLetter }
-  return avatar;
-}
+//   const avatar = { firstLetter, secondLetter }
+//   return avatar;
+// }
 
 function toTitleCase(str) {
   return str.replace(
