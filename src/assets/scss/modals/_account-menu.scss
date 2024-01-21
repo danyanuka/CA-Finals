@@ -1,0 +1,57 @@
+.account-menu {
+    padding: 15px;
+    color: $clr-text-black-subtle;
+
+    h5 {
+        @include fontProps(14px, 600, 24px);
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
+
+    .menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        padding-bottom: 20px;
+        border-bottom: 0.5px solid rgb(172, 168, 168);
+
+        .user-img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .user-avatar {
+            background-color: #091E42;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h5 {
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+    }
+
+
+
+    .menu-footer {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+
+        button {
+            border: none;
+        }
+    }
+
+    .menu-footer:hover {
+        background-color: lightgrey;
+
+    }
+}

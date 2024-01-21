@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { openModal } from "../store/actions/app.actions";
 import { useLocation } from "react-router-dom";
+import { utilService } from "../services/util.service";
+
 
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +14,7 @@ export function AppHeader() {
 
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const user = useSelector(storeState => storeState.userModule.user)
+  const userAvatar = utilService.getUserAvatar(user)
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -113,11 +116,17 @@ export function AppHeader() {
 
           <i className="icon-info info-btn" title="Information"></i>
 
-          {user ? (
-            <img className="user-img" alt="Account image" title={`${user.fullname} (${user.username})`} src={user.imgUrl} onClick={handleAccountClick} />
-          ) : (
+          {!user &&
             <i className="icon-account account-btn" title="Account"></i>
-          )}
+          }
+          {user && user.imgUrl &&
+            <img className='user-img' src={user?.imgUrl} alt="user-img" title={`${user?.fullname} (${user?.username})`} onClick={handleAccountClick} />
+          }
+          {user && !user.imgUrl &&
+            <div className="user-avatar" onClick={handleAccountClick}>
+              <h5>{userAvatar.firstLetter} {userAvatar.secondLetter}</h5>
+            </div>
+          }
         </div>
       </section>
     </>

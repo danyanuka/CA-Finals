@@ -1,39 +1,50 @@
 .login-signup-page {
-    height: auto;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
+    min-width: 0px;
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
 }
 
-
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 30px;
-    gap: 10px;
-
-    h1 {
-        font-weight: 700;
-    }
+.image-left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgb(250, 251, 252);
+    background-image: url(https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.531/trello-left.4f52d13c.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    background-size: 550px, 550px;
+    background-position: left bottom;
 }
 
-.sub-title {
-    font-weight: 600;
-    font-size: 20px;
-
+.image-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgb(250, 251, 252);
+    background-image: url(https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.531/trello-right.3ee60d6f.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    background-size: 550px, 550px;
+    background-position: right bottom;
 }
 
-.login-signup-page {
+.login-signup-preview {
     display: flex;
     flex-direction: column;
-    margin: 0px auto;
+    margin: 100px auto;
     width: 400px;
     padding: 32px 40px;
-    background: rgb(255, 255, 255);
+    background: #ffffff;
     border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+    box-shadow: #0000001a 0px 0px 10px;
     box-sizing: border-box;
-    color: rgb(94, 108, 132);
+    color: #5e6c84;
 
     .header {
         display: flex;
@@ -42,6 +53,24 @@
         align-items: center;
         text-align: center;
         margin-bottom: 16px;
+
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 30px;
+            gap: 10px;
+
+            h1 {
+                font-weight: 700;
+            }
+        }
+
+        .sub-title {
+            font-weight: 600;
+            font-size: 20px;
+
+        }
     }
 
     input:placeholder-shown {
@@ -93,8 +122,36 @@
     }
 
     .link {
-        margin: 10px;
+        padding: 32px 40px;
         color: $clr-background-brand-bold;
-        font-size: 15px;
+        font-size: 13px;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+
+        .user-img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+    .user-avatar {
+        background-color: #091E42;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h5 {
+            font-weight: 600;
+            font-size: 20px;
+        }
     }
 }
