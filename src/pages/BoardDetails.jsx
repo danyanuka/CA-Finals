@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router"
 
 //redux
@@ -40,6 +40,7 @@ export function BoardDetails() {
   async function onEditGroup(newGroup) {
     return groupService.updateGroup(newGroup, board);
   }
+
 
   return (
     <div className="home" style={board?.style}>

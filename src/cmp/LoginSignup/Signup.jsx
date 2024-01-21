@@ -17,12 +17,11 @@ export function Signup({ onSignup, email }) {
     }
 
     function handleSignup(ev = null) {
+        console.log('hello');
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname | !credentials.email) return
         onSignup(credentials)
         setCredentials(userService.getEmptyUser())
-
-
     }
 
     function onUploaded(imgUrl) {
@@ -32,7 +31,7 @@ export function Signup({ onSignup, email }) {
     return (
         <div className="signup-section">
 
-            <form className="signup-form" onSubmit={handleSignup}>
+            <form className="signup-form" >
                 <Header title={'Sign in to continue'} />
                 <input
                     className='form-item'
@@ -70,7 +69,7 @@ export function Signup({ onSignup, email }) {
                     required
                 />
                 <ImgUploader onUploaded={onUploaded} />
-                <button className='form-item btn' >Sign up</button>
+                <button onClick={handleSignup} className='form-item btn'>Sign up</button>
 
                 <Link className='link' to='/login'>Already have an Atlassian account? Log in</Link>
             </form>

@@ -19,7 +19,7 @@ export function Logout({ onLogout }) {
     return (
         <div className="logout-section">
 
-            <form className="lgout-form" onSubmit={handleLogout}>
+            <form className="lgout-form" >
                 <Header title={'Log out of your Atlassian account'} />
                 <div className="user-info">
 
@@ -32,7 +32,7 @@ export function Logout({ onLogout }) {
                         <p>{user?.email}</p>
                     </div>
                 </div>
-                <button className='form-item btn'>Log out</button>
+                <button onClick={handleLogout} className='form-item btn'>Log out</button>
                 <Link className='link' to='/login'>Log in to another account</Link>
             </form>
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { utilService } from "/src/services/util.service.js";
 
-import {UserAvatar} from "/src/cmp/UserAvatar";
+import { UserAvatar } from "/src/cmp/UserAvatar";
 
 
 export function TaskDetailsBriefMembers({ boardMembers, taskMembers, cbOpenTaskModal }) {

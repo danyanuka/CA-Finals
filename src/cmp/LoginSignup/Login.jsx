@@ -15,10 +15,8 @@ export function Login({ onLogin }) {
     function handleLogin(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
-
         onLogin(credentials)
         setCredentials(userService.getEmptyUser())
-
     }
 
     function handleChange(ev) {
@@ -62,7 +60,7 @@ export function Login({ onLogin }) {
                     onChange={handleChange}
                     required
                 />
-                <button onClick={handleLogin} className='form-item btn'>Login!</button>
+                <button onClick={handleLogin} className='form-item btn'>Login</button>
                 <Link className='link' to='/signup'>Create account</Link>
 
             </form>
