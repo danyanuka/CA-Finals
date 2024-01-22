@@ -1,4 +1,4 @@
-import isDarkColor from "is-dark-color";
+
 import { FastAverageColor } from "fast-average-color";
 
 export const utilService = {
@@ -11,19 +11,18 @@ export const utilService = {
   checkDueDate,
   getStatusChecklist,
   getUserShortName,
+  getImgAvgColor,
   isDarkImg,
   getUserAvatar,
   toTitleCase,
   getCleanURL,
+  isDarkColor
 };
 
-function getCleanURL(board) {
-  if (board) {
-    const regex = /url\((.*?)\)/;
-    const imgPath = board?.style?.backgroundImage;
-    const imageUrl = imgPath.match(regex)[1];
-    return imageUrl;
-  }
+function getCleanURL(url) {
+  const regex = /url\((.*?)\)/;
+  const cleanUrl = url.match(regex)[1];
+  return cleanUrl;
 }
 
 function padTwo(num) {
@@ -151,7 +150,7 @@ function getUserShortName(fullName) {
   return "N/A";
 }
 
-async function getAvgColorImg(imgPath) {
+async function getImgAvgColor(imgPath) {
   const fac = new FastAverageColor();
   const color = await fac.getColorAsync(imgPath);
   return color.hex;
@@ -240,6 +239,40 @@ function _YtoLstar(Y) {
   } else {
     return Math.pow(Y, 1 / 3) * 116 - 16;
   }
+}
+
+function hexToRgb(hex) {
+  hex = hex.toLowerCase()
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function isDarkColor(hexColor) {
+  const rgbColor = hexToRgb(hexColor);
+
+  let vR = rgbColor.r / 255;
+  let vG = rgbColor.g / 255;
+  let vB = rgbColor.b / 255;
+
+  // Step 2
+  vR = _sRGBtoLin(vR);
+  vG = _sRGBtoLin(vG);
+  vB = _sRGBtoLin(vB);
+
+  // Step 3
+  const Y = 0.2126 * vR + 0.7152 * vG + 0.0722 * vB;
+
+  // Step 4
+  const Lstar = _YtoLstar(Y);
+
+  if (Lstar < 50) {
+    return true
+  };
+  return false;
 }
 
 function getUserAvatar(user) {

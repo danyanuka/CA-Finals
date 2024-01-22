@@ -1,27 +1,45 @@
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useColorThief from "use-color-thief";
 import { useDispatch, useSelector } from "react-redux";
 import { utilService } from "../services/util.service";
+
 
 export function AppDynHeader() {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const [headerStyleProps, setHeaderStyleProps] = useState();
 
-  const { color } = useColorThief(utilService.getCleanURL(board), {
-    format: "hex",
-    colorCount: 10,
-    quality: 10,
-  });
+  const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
+
+
+  useEffect(() => {
+    async function setColorAsync() {
+      const avgColor = await getBoardAvgColor(board);
+      setAvgColorBg(avgColor)
+    }
+    setColorAsync();
+  }, [board]);
 
   useEffect(() => {
     setHeaderStyles();
-  }, [board]);
+  }, [avgColorBg])
+
+ async function getBoardAvgColor(board) {
+    if (board?.style?.backgroundImage) {
+      const imgPath = board.style.backgroundImage;
+      const cleanImgUrl = utilService.getCleanURL(imgPath);
+      return utilService.getImgAvgColor(cleanImgUrl);
+    } else if (board?.style?.backgroundColor) {
+      const bgColor = board.style.backgroundColor
+      return new Promise((resolve, reject) => resolve(bgColor))
+    } else {
+      return new Promise((resolve, reject) => resolve("#FFFFFF"))
+    }
+  }
 
   function setHeaderStyles() {
     let headerStyles = {};
-    headerStyles.backgroundColor = color;
-    // console.log(headerStyles);
+    headerStyles.backgroundColor = avgColorBg;
+    headerStyles.color = (utilService.isDarkColor(avgColorBg) ? "#FFFFFF" : "#000000");
     setHeaderStyleProps(headerStyles);
   }
 
