@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
 export function HomeHeader() {
-  const user = useSelector(storeState => storeState.userModule.user)
+  const user = useSelector((storeState) => storeState.userModule.user);
 
   return (
     <div className="home-header">
@@ -11,21 +10,24 @@ export function HomeHeader() {
         <img className="logo" src="home-page/logo.svg"></img>
 
         {user ? (
-          <div className="link-to-boards">
+          <div className="blue-link-wrapper">
             <NavLink className="nav-link" to="/board">
               Go to your boards
             </NavLink>
           </div>
         ) : (
           <div className="login-signup-links">
-            <Link to='login' className="nav-link login-link" >Log in</Link>
-            <Link className="nav-link" to="/signup">
-              Get Trello for free
+            <Link to="login" className="nav-link login-link">
+              Log in
             </Link>
+            <div className="blue-link-wrapper">
+              <Link className="nav-link" to="/signup">
+                Get Trello for free
+              </Link>
+            </div>
           </div>
         )}
       </div>
     </div>
-
   );
 }

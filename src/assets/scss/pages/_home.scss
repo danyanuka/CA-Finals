@@ -25,7 +25,7 @@
         padding-bottom: 11px;
       }
 
-      .link-to-boards {
+      .blue-link-wrapper {
         height: 60px;
         grid-area: 1 / 2;
         justify-self: end;
@@ -34,39 +34,28 @@
         background-color: rgb(23, 43, 77);
         color: white;
         @include transitionAction(background-color, rgb(80, 95, 121), 50ms);
-
-        .nav-link {
-          text-decoration: none;
-          padding: 8px;
-          padding-left: 24px;
-          padding-right: 24px;
-          @include fontProps(19.2px, 400, 28.8px);
-        }
+      }
+      .nav-link {
+        text-decoration: none;
+        padding: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
+        @include fontProps(19.2px, 400, 28.8px);
       }
 
       .login-signup-links {
-        height: 60px;
         grid-area: 1 / 2;
         justify-self: end;
         display: flex;
         align-items: center;
-        background-color: rgb(23, 43, 77);
         color: white;
-        @include transitionAction(background-color, rgb(80, 95, 121), 50ms);
-
-        .nav-link {
-          text-decoration: none;
-          padding: 8px;
-          padding-left: 24px;
-          padding-right: 24px;
-          @include fontProps(19.2px, 400, 28.8px);
-        }
       }
 
       .login-link {
-        height: 60px;
-        background-color: white;
-        color: black;
+        color: rgb(14, 28, 73);
+        height: 100%;
+        padding-top: 15px;
+        @include transitionAction(background-color, rgb(179, 184, 209), 50ms);
       }
     }
   }
@@ -76,12 +65,14 @@
     display: grid;
     grid-template-columns: 1fr 1140px 1fr;
 
-    background: url("/icons/white-wave-bg.svg") center bottom -0.5px / 100% 14% no-repeat scroll padding-box border-box,
-      linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto repeat scroll padding-box border-box rgb(82, 67, 170);
+    background: url("/icons/white-wave-bg.svg") center bottom -0.5px / 100% 14% no-repeat
+        scroll padding-box border-box,
+      linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto
+        repeat scroll padding-box border-box rgb(82, 67, 170);
     background-blend-mode: normal, normal;
     color: rgb(255, 255, 255);
 
-    >* {
+    > * {
       grid-column: 2;
     }
 
@@ -129,10 +120,12 @@
             padding: 12px;
             @include fontProps(16px, 400);
             border: 1px solid rgb(255, 255, 255);
-            @include transitionAction(outline,
+            @include transitionAction(
+              outline,
               2px solid rgb(255, 255, 255),
               150ms,
-              focus);
+              focus
+            );
           }
 
           button {
@@ -190,10 +183,11 @@
   .section2-container {
     grid-template-columns: 1fr 1140px 1fr;
     display: grid;
-    background: linear-gradient(0deg, rgb(230, 252, 255), rgb(255, 255, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(178, 212, 255);
+    background: linear-gradient(0deg, rgb(230, 252, 255), rgb(255, 255, 255)) 0%
+      0% / auto repeat scroll padding-box border-box rgb(178, 212, 255);
     background-blend-mode: normal;
 
-    >* {
+    > * {
       grid-column: 2;
     }
 
@@ -299,7 +293,7 @@
     display: grid;
     overflow-x: hidden;
 
-    >* {
+    > * {
       grid-column: 2;
     }
 
@@ -351,9 +345,11 @@
         height: 100%;
         border-radius: 8px;
         box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5rem 1rem 0px;
-        @include transitionAction(box-shadow,
+        @include transitionAction(
+          box-shadow,
           rgba(9, 30, 66, 0.25) 0px 0.5rem 1rem 0px,
-          50ms);
+          50ms
+        );
 
         .card-color {
           border-top-left-radius: 8px;
