@@ -1,23 +1,24 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { utilService } from "../services/util.service.js";
+import { utilService } from "../../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
+import { UserAvatar } from "../UserAvatar.jsx"
 
 export function TaskPreview({ task, index }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+
   const labels = utilService.getLabels(task.labelIds, board);
+  const members = utilService.getMembers(task.memberIds, board);
+
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
-  console.log(todos, isDone);
-  const { isPass, isToday, isTomorrow } = utilService.checkDueDate(
-    task.dueDate
-  );
-  // console.log(isPass, isToday, isTomorrow);
+  const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate);
+  console.log(isPass, isToday, isTomorrow);
   const isTaskActions =
     task.checklists ||
-    task.attachment ||
-    task.dueDate ||
-    task.memberIds ||
-    task.description
+      task.attachment ||
+      task.dueDate ||
+      task.memberIds ||
+      task.description
       ? true
       : false;
 
@@ -152,9 +153,23 @@ export function TaskPreview({ task, index }) {
                   </span>
                 </div>
               )}
+            </div>
+            <div>
               {task.memberIds && (
                 <div className="members">
-                  <i className="icon-member-gray" title="User name"></i>
+                  {members.map((member) => {
+                    return (
+                      <div key={member._id} title={`${member.fullname} (${member.username})`} className="member">
+                        <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
+                      </div>
+                      // <div key={member._id} className="member">
+                      //   <img className="user-img"
+                      //     alt="Account image"
+                      //     title={`${member.fullname} (${member.username})`}
+                      //     src={member.imgUrl} />
+                      // </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

@@ -17,7 +17,7 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 /* Pages */
 @import "./pages/home";
 @import "./pages/about";
-@import "./pages/login";
+@import "./pages/login-signup";
 @import "./pages/board-index";
 @import "./pages/board-details";
 @import "./pages/task-details";
@@ -28,6 +28,7 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 @import "./cmp/group-list";
 @import "./cmp/task-list";
 @import "./cmp/task-preview";
+@import "./cmp/user-avatar";
 
 /* Modals */
 @import "./modals/root-modal";
@@ -36,3 +37,4 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 @import "./modals/show-options";
 @import "./modals/more-bg-options";
 @import "./cmp/app-dyn-header";
+@import "./modals/account-menu";

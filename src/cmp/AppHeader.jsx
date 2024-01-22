@@ -5,13 +5,21 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { openModal } from "../store/actions/app.actions";
 import { useLocation } from "react-router-dom";
+import { utilService } from "../services/util.service";
+import { UserAvatar } from "./UserAvatar";
+
+
 
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownName, setDropdownName] = useState("");
-  const dispatch = useDispatch();
+
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+  const user = useSelector(storeState => storeState.userModule.user)
+
+  const dispatch = useDispatch();
   const location = useLocation();
+
 
   function onToggle(dropdownName) {
     setIsOpen(!isOpen);
@@ -30,6 +38,10 @@ export function AppHeader() {
         color: "black",
       };
     }
+  }
+
+  function handleAccountClick(ev) {
+    dispatch(openModal("accountMenu", ev.target));
   }
 
   return (
@@ -92,7 +104,6 @@ export function AppHeader() {
           <div className="search-section">
             <i className="icon-search"></i>
             <input
-              style={board?.style}
               type="text"
               className="search-input"
               placeholder="Search"
@@ -105,7 +116,17 @@ export function AppHeader() {
 
           <i className="icon-info info-btn" title="Information"></i>
 
-          <i className="icon-account account-btn" title="Account"></i>
+          {user ? (
+            <div className="user-avatar" onClick={handleAccountClick}>
+              <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl} />
+            </div>
+          ) : (
+            <i className="icon-account account-btn" title="Account"></i>
+
+          )
+          }
+
+
         </div>
       </section>
     </>

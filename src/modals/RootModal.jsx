@@ -5,6 +5,7 @@ import { utilService } from "/src/services/util.service.js";
 
 import { CreateBoardModal } from "./CreateBoard/CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
+import { AccountMenu } from "./AccountMenu";
 import { MdlTaskMembers } from "./TaskDetails/MdlTaskMembers";
 import { MdlTaskLabels } from "./TaskDetails/MdlTaskLabels";
 import { MdlTaskChecklist } from "./TaskDetails/MdlTaskChecklist";
@@ -57,6 +58,8 @@ function DynModalType({ modalType, modalProps }) {
   switch (modalType) {
     case "createBoard":
       return <CreateBoardModal />;
+    case "accountMenu":
+      return <AccountMenu />;
     case "moreOptions":
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     case "taskMembers":

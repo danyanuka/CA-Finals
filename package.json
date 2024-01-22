@@ -15,8 +15,12 @@
     "watch": "sass --watch src/assets/scss/styles.scss:src/assets/css/styles.css"
   },
   "dependencies": {
+    "@check-light-or-dark/image": "^1.0.5",
+    "@rarebearsoft/marvinj": "^1.0.0",
     "axios": "^1.6.5",
+    "fast-average-color": "^9.4.0",
     "framer-motion": "^10.16.5",
+    "is-dark-color": "^1.2.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",

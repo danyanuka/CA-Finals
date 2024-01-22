@@ -2,14 +2,14 @@ import { useState } from "react"
 import { Droppable } from 'react-beautiful-dnd';
 
 //Redux
-import { openModal } from "../store/actions/app.actions";
+import { openModal } from "../../store/actions/app.actions";
 import { useDispatch } from "react-redux";
 
 //cmps
 import { TaskPreview } from "./TaskPreview"
 
 //services
-import { groupService } from "../services/group.service"
+import { groupService } from "../../services/group.service"
 
 
 export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
@@ -37,7 +37,9 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
     }
 
     function handleOnBlur(ev) {
-        handleAddTask(ev)
+        if (taskTitle !== '') {
+            handleAddTask(ev)
+        }
         handleIsAdding()
     }
 

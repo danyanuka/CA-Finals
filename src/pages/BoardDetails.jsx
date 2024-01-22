@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router"
 
 //redux
@@ -7,8 +7,8 @@ import { boardActions } from "../store/actions/board.actions";
 
 //cmps
 import { AppHeader } from "../cmp/AppHeader";
-import { BoardHeader } from "../cmp/BoardHeader";
-import { GroupList } from "../cmp/GroupList";
+import { BoardHeader } from "../cmp/BoardDetails/BoardHeader";
+import { GroupList } from "../cmp/BoardDetails/GroupList";
 
 //services
 import { groupService } from "../services/group.service";
@@ -30,19 +30,17 @@ export function BoardDetails() {
   }
 
   async function onAddGroup(newGroup) {
-    const boardToUpdate = await groupService.addGroup(newGroup, board);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.addGroup(newGroup, board);
   }
 
   async function onAddTask(newTask, groupId, addToStart) {
-    const boardToUpdate = await groupService.addTask(newTask, groupId, board, addToStart);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.addTask(newTask, groupId, board, addToStart);
   }
 
   async function onEditGroup(newGroup) {
-    const boardToUpdate = await groupService.updateGroup(newGroup, board);
-    return boardActions.saveBoard(boardToUpdate)
+    return groupService.updateGroup(newGroup, board);
   }
+
 
   return (
     <div className="home" style={board?.style}>

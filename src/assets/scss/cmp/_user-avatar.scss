@@ -1,0 +1,19 @@
+button.user-avatar {
+    @include fontProps(14px, 600, 14px);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-size: 100% 100%;
+    
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.7;
+    }
+
+    data {
+        padding-bottom: 2px;
+    }
+}

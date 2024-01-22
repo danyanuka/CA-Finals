@@ -161,4 +161,12 @@ scrollable-square-white
       $clr-dynamic-button-white-pressed
     );
   }
+
+  &-neutral {
+    @include btnColors(
+      $clr-bg-neutral-hovered,
+      $clr-bg-neutral-pressed,
+      $clr-bg-neutral
+    );
+  }
 }

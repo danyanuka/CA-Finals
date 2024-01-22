@@ -10,7 +10,7 @@ import {
 
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { Login } from "./pages/Login";
+import { LoginSignup } from "./pages/LoginSignup";
 import { BoardIndex } from "./pages/BoardIndex";
 import { BoardDetails } from "./pages/BoardDetails";
 import { TaskDetails } from "./pages/TaskDetails";
@@ -24,7 +24,9 @@ export function App() {
       <main className="main-app">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginSignup />} />
+          <Route path="/signup?" element={<LoginSignup />} />
+          <Route path="/logout" element={<LoginSignup />} />
           <Route path="/about" element={<About />} />
           <Route path="/board" element={<BoardIndex />} />
           <Route path="/board/:boardId" element={<BoardDetails />}>

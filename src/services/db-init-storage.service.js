@@ -23,7 +23,22 @@ function createUsers(overwrite) {
         fullname: "Abi Abambi",
         username: "abi@ababmi.com",
         password: "aBambi123",
-        imgUrl: "http://some-img.jpg",
+        imgUrl:
+          "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+        mentions: [
+          {
+            //optional - Watching tasks (for each user)
+            id: "m101",
+            boardId: "m101",
+            taskId: "t101",
+          },
+        ],
+      },
+      {
+        _id: "u105",
+        fullname: "Hodaya Abu",
+        username: "hodaya@.com",
+        password: "hodaya123",
         mentions: [
           {
             //optional - Watching tasks (for each user)
@@ -38,7 +53,6 @@ function createUsers(overwrite) {
         fullname: "daby",
         username: "daby@ababmi.com",
         password: "aBambi123",
-        imgUrl: "http://some-img.jpg",
         mentions: [
           {
             //optional - Watching tasks (for each user)
@@ -85,6 +99,16 @@ function createBoards(overwrite) {
           {
             _id: "u101",
             fullname: "Tal Tarablus",
+            imgUrl: "https://www.google.com",
+          },
+          {
+            _id: "uk5",
+            fullname: "hey harablus",
+            imgUrl: "https://www.google.com",
+          },
+          {
+            _id: "uk7",
+            fullname: "bee barablus",
             imgUrl: "https://www.google.com",
           },
         ],
@@ -199,7 +223,8 @@ function createBoards(overwrite) {
         createdBy: {
           _id: "u101",
           fullname: "Abi Abambi",
-          imgUrl: "http://some-img",
+          imgUrl:
+            "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         },
         style: {
           backgroundColor: "#61bd4f",
@@ -220,7 +245,8 @@ function createBoards(overwrite) {
           {
             _id: "u101",
             fullname: "Tal Tarablus",
-            imgUrl: "https://www.google.com",
+            imgUrl:
+              "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
           },
         ],
         groups: [
@@ -248,6 +274,17 @@ function createBoards(overwrite) {
                 id: "c103",
                 title: "Do that",
                 archivedAt: 1589983468418,
+                dueDate: 1705855855905,
+              },
+              {
+                id: "c1015",
+                title: "Add Filter",
+                archivedAt: 1589983468418,
+              },
+              {
+                id: "c1015",
+                title: "Add Filter",
+                archivedAt: 1589983468418,
               },
               {
                 id: "c104",
@@ -262,9 +299,9 @@ function createBoards(overwrite) {
                     createdAt: 1590999817436,
                     byMember: {
                       _id: "u101",
-                      fullname: "Tal Tarablus",
+                      fullname: "Abi Abambi",
                       imgUrl:
-                        "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                        "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
                     },
                   },
                 ],
@@ -278,6 +315,16 @@ function createBoards(overwrite) {
                         title: "To Do 1",
                         isDone: false,
                       },
+                      {
+                        id: "212jX",
+                        title: "To Do 2",
+                        isDone: false,
+                      },
+                      {
+                        id: "212jX",
+                        title: "To Do 3",
+                        isDone: true,
+                      },
                     ],
                   },
                 ],
@@ -286,10 +333,9 @@ function createBoards(overwrite) {
                 dueDate: 16156215211,
                 byMember: {
                   _id: "u101",
-                  username: "Tal",
-                  fullname: "Tal Tarablus",
+                  fullname: "Abi Abambi",
                   imgUrl:
-                    "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                    "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
                 },
                 style: {
                   backgroundColor: "#26de81",

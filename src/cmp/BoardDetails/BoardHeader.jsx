@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
+import { UserAvatar } from "../UserAvatar";
+
 
 export function BoardHeader() {
     // const [style, setStyle] = useState({})
     const board = useSelector(storeState => storeState.boardModule.curBoard)
+    console.log(board?.members);
 
     // useEffect(() => {
     //     if (board?.style.backgroundColor) {
@@ -61,10 +64,15 @@ export function BoardHeader() {
                     Filters
                 </div>
 
-                <div className="board-header-btn board-members" title="User-Name" >
-                    <i className="icon icon-member"></i>
+                {board?.members &&
+                    <div className="board-header-btn board-members" title="User-Name" >
+                        {board.members?.map((member, i) => {
+                            return <div key={i} title={member?.fullname}>
+                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl && member?.imgUrl} />
+                            </div>
+                        })}
 
-                </div>
+                    </div>}
 
                 <div className="board-header-btn share-btn" title="Share board" >
                     <i className="icon icon-account"></i>

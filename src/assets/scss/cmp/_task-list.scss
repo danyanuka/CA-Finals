@@ -31,11 +31,14 @@
     }
 
     .scrollbar {
-        min-height: 30px;
         max-height: 55vh;
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
+
+        .task-item {
+            min-height: 30px;
+        }
     }
 
     .scrollbar::-webkit-scrollbar {

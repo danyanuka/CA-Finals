@@ -2,6 +2,12 @@
   content: url("//www.gstatic.com/images/icons/material/system_gm/2x/drag_indicator_white_20dp.png");
 }
 
+.icon-logo {
+  content: url('/public/icons/trello-blue.svg');
+  width: 40px;
+  height: 40px;
+}
+
 // TaskDetails
 .icon-close-grayblue {
   @include iconCustomColor(#42526e, "/public/icons/close.svg");
@@ -70,6 +76,16 @@
 
 .icon-task-share {
   content: url("/public/icons/share.svg");
+}
+
+.icon-task-plus {
+  content: url("/public/icons/plus.svg");
+  width: 16px;
+}
+
+.icon-task-plus2 {
+  content: url("/public/icons/plus2.svg");
+  width: 16px;
 }
 
 //AppHeder Icons
