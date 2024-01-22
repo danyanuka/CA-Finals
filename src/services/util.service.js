@@ -145,14 +145,19 @@ function getUserShortName(fullName) {
   return "N/A"
 }
 
-// async function isDarkImg(imgPath) {
-//   const fac = new FastAverageColor();
-//   const color = await fac.getColorAsync(imgPath);
-//   console.log("color.isDark: ", color.isDark)
-//   return color.isDark
-// }
+async function getAvgColorImg(imgPath) {
+  const fac = new FastAverageColor();
+  const color = await fac.getColorAsync(imgPath);
+  return color.hex
+}
 
 async function isDarkImg(imgPath) {
+  const fac = new FastAverageColor();
+  const color = await fac.getColorAsync(imgPath);
+  return color.isDark
+}
+
+async function isDarkImg2(imgPath) {
   const img = await _loadImage(imgPath)
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
@@ -194,12 +199,11 @@ async function isDarkImg(imgPath) {
   const Y = 0.2126 * vR + 0.7152 * vG + 0.0722 * vB
 
   // Step 4 
-  const Lstar = YtoLstar(Y)
+  const Lstar = _YtoLstar(Y)
   
   if (Lstar < 50)
     return true
   return false
-
 }
 
 async function _loadImage(src) {
@@ -222,7 +226,7 @@ function _sRGBtoLin(colorChannel) {
   }
 }
 
-function YtoLstar(Y) {
+function _YtoLstar(Y) {
   // Send this function a luminance value between 0.0 and 1.0,
   // and it returns L* which is "perceptual lightness"
   if (Y <= (216 / 24389)) {       // The CIE standard states 0.008856 but 216/24389 is the intent for 0.008856451679036

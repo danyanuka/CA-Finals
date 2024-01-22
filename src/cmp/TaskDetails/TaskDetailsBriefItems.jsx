@@ -12,7 +12,7 @@ export function TaskDetailsBriefItems({ board, task, cbOnUpdateTask, cbOpenTaskM
             <TaskDetailsBriefMembers boardMembers={board.members} taskMembers={task.memberIds} cbOpenTaskModal={cbOpenTaskModal} />
         }
         {   // Labels
-            task.labelIds.length !== 0 &&
+            task.labelIds?.length !== 0 &&
             <TaskDetailsBriefLabels boardLabels={board.labels} taskLabels={task.labelIds} cbOpenTaskModal={cbOpenTaskModal} />
         }
         {   // Notifications
