@@ -75,8 +75,8 @@ export function TaskDetails() {
         })
     }
 
-    function openTaskModal(ev, modalName) {
-        dispatch(openModal(modalName, ev.target, { board: board, task: task }));
+    function openTaskModal(ev, modalName, modalProps = {}) {
+        dispatch(openModal(modalName, ev.target, { board: board, task: task, ...modalProps }));
     }
 
 

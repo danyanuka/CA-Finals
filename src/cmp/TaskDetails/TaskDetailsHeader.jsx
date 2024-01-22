@@ -14,6 +14,12 @@ export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskM
         headerRef.current = ev.target.value
     }
 
+    function handleKeyDown(ev) {
+        if (ev.key === 'Enter') {
+            ev.target.blur()
+        }
+    }
+
     return <header className="td-section task-details-header">
         <div className="td-section-icon">
             <i className="icon-task-header"></i>
@@ -21,6 +27,7 @@ export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskM
         <textarea defaultValue={headerRef.current}
             onBlur={headerOnBlur}
             onChange={headerOnChange}
+            onKeyDown={handleKeyDown}
             autoCapitalize="off"
             autoCorrect="off"
             spellCheck="false">

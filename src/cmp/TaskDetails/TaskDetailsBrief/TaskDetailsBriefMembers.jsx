@@ -11,7 +11,6 @@ export function TaskDetailsBriefMembers({ boardMembers, taskMembers, cbOpenTaskM
 
     function getMemberImg(memberId) {
         const userIndx = boardMembers.findIndex((mem) => mem._id === memberId)
-        console.log("g: ", boardMembers[userIndx]?.imgUrl)
         if (userIndx >= 0 && boardMembers[userIndx]?.imgUrl)
             return boardMembers[userIndx]?.imgUrl
         return "/public/imgs/defaultUserImg.png"

@@ -10,7 +10,6 @@ export function UserAvatar({ userFullName, userImg = "/public/imgs/defaultUserIm
   useEffect(() => {
     async function updateIsDark() {
       const isDark = await utilService.isDarkImg(userImg)
-      console.log("meitar: ", isDark)
       setIsDarkImg(isDark)
     }
     updateIsDark()
@@ -22,7 +21,7 @@ export function UserAvatar({ userFullName, userImg = "/public/imgs/defaultUserIm
     return 0 < strToCheck.filter((st) => path.includes(st)).length
   }
 
-  return <button className="user-avatar" style={{ backgroundImage: `url(${userImg})`, color: (isDarkImg ? "white" : "black") }}>
+  return <button className="user-avatar" style={{ backgroundImage: `url(${userImg})`, backgroundColor: "#C0C0C0", color: (isDarkImg ? "white" : "black") }}>
     {
       !isWebUrl(userImg) &&
       <data>{utilService.getUserShortName(userFullName)}</data>
