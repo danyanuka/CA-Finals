@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { TaskDetailsBriefItems} from "./TaskDetailsBriefItems";
+import { TaskDetailsBriefItems} from "./TaskDetailsBrief/TaskDetailsBriefItems";
 
 
 export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }) {

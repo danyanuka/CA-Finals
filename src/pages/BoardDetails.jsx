@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router"
+import { Outlet, useParams } from "react-router";
 
 //redux
 import { useSelector } from "react-redux";
 import { boardActions } from "../store/actions/board.actions";
 
 //cmps
-import { AppHeader } from "../cmp/AppHeader";
+import { AppDynHeader } from "../cmp/AppDynHeader";
 import { BoardHeader } from "../cmp/BoardDetails/BoardHeader";
 import { GroupList } from "../cmp/BoardDetails/GroupList";
 
@@ -14,18 +14,18 @@ import { GroupList } from "../cmp/BoardDetails/GroupList";
 import { groupService } from "../services/group.service";
 
 export function BoardDetails() {
-  const params = useParams()
-  const board = useSelector(storeState => storeState.boardModule.curBoard)
+  const params = useParams();
+  const board = useSelector((storeState) => storeState.boardModule.curBoard);
 
   useEffect(() => {
-    loadBoard()
-  }, [params.boardId])
+    loadBoard();
+  }, [params.boardId]);
 
   async function loadBoard() {
     try {
-      await boardActions.loadBoard(params.boardId)
+      await boardActions.loadBoard(params.boardId);
     } catch (err) {
-      console.log('Had issues loading board', err);
+      console.log("Had issues loading board", err);
     }
   }
 
@@ -41,13 +41,19 @@ export function BoardDetails() {
     return groupService.updateGroup(newGroup, board);
   }
 
-
   return (
     <div className="home" style={board?.style}>
-      <AppHeader />
+      <AppDynHeader />
       <div>
         <BoardHeader />
-        {board && <GroupList board={board} onAddGroup={onAddGroup} onAddTask={onAddTask} onEditGroup={onEditGroup} />}
+        {board && (
+          <GroupList
+            board={board}
+            onAddGroup={onAddGroup}
+            onAddTask={onAddTask}
+            onEditGroup={onEditGroup}
+          />
+        )}
         <Outlet />
       </div>
     </div>
