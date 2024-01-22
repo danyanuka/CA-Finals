@@ -89,21 +89,26 @@ function getMembers(memberIds, board) {
 
 //not working yet
 function checkDueDate(dueDate) {
-  const today = Date.now()
-  // console.log(today);
-  const tomorrow = Date.now() + 1
-  // console.log(tomorrow);
+  var today = new Date()
 
+  var yesterday = today.getTime() - (24 * 60 * 60 * 1000);
+
+  var tomorrow = today.getTime() + (24 * 60 * 60 * 1000);
+  console.log(today.getTime());
   let dateStatus = {
     isPass: null,
     isToday: null,
-    isTomorrow: null
+    isTomorrow: null,
+    isYesterday: null
   }
 
-  if (dueDate < today) {
+  if (dueDate === yesterday) {
+    return { ...dateStatus, isYesterday: true }
+  }
+  if (dueDate < today.getTime()) {
     return { ...dateStatus, isPass: true }
   }
-  if (dueDate === today) {
+  if (dueDate === today.getTime()) {
     return { ...dateStatus, isToday: true }
   }
   if (dueDate > tomorrow) {
@@ -195,7 +200,7 @@ async function isDarkImg(imgPath) {
 
   // Step 4 
   const Lstar = YtoLstar(Y)
-  
+
   if (Lstar < 50)
     return true
   return false

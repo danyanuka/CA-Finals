@@ -8,11 +8,11 @@ export function TaskPreview({ task, index }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
 
   const labels = utilService.getLabels(task.labelIds, board);
-  const members = utilService.getMembers(task.memberIds, board);
 
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
-  const { isPass, isToday, isTomorrow } = utilService.checkDueDate(task.dueDate);
-  console.log(isPass, isToday, isTomorrow);
+  const { isPass, isToday, isTomorrow, isYesterday } = utilService.checkDueDate(task.dueDate);
+  // console.log(isPass, isToday, isTomorrow, isYesterday);
+
   const isTaskActions =
     task.checklists ||
       task.attachment ||
@@ -30,6 +30,18 @@ export function TaskPreview({ task, index }) {
 
   function handleGoToTask(taskId) {
     navigate(`/board/${boardId}/${taskId}`);
+  }
+
+  function getMemberFullName(memberId) {
+    const memberIndex = board.members.findIndex((mem) => mem._id === memberId)
+    return board.members[memberIndex]?.fullname
+  }
+
+  function getMemberImg(memberId) {
+    const userIndx = board.members.findIndex((mem) => mem._id === memberId)
+    if (userIndx >= 0 && board.members[userIndx]?.imgUrl)
+      return board.members[userIndx]?.imgUrl
+    return "/public/imgs/defaultUserImg.png"
   }
 
   return (
@@ -145,7 +157,16 @@ export function TaskPreview({ task, index }) {
                   </span>
                 </div>
               )}
-              {task.dueDate && !isPass && !isToday && !isTomorrow && (
+
+              {task.dueDate && isYesterday && (
+                <div className="due-date yesterday">
+                  <i className="icon-clock-alert"></i>
+                  <span>
+                    {date[1]} {date[2]}{" "}
+                  </span>
+                </div>
+              )}
+              {task.dueDate && !isPass && !isToday && !isTomorrow && !isYesterday && (
                 <div className="due-date">
                   <i className="icon-clock-alert" title="Checklists"></i>
                   <span>
@@ -153,23 +174,18 @@ export function TaskPreview({ task, index }) {
                   </span>
                 </div>
               )}
+
+
             </div>
             <div>
               {task.memberIds && (
                 <div className="members">
-                  {members.map((member) => {
-                    return (
-                      <div key={member._id} title={`${member.fullname} (${member.username})`} className="member">
-                        <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
-                      </div>
-                      // <div key={member._id} className="member">
-                      //   <img className="user-img"
-                      //     alt="Account image"
-                      //     title={`${member.fullname} (${member.username})`}
-                      //     src={member.imgUrl} />
-                      // </div>
-                    );
+                  {task.memberIds.map((memberId, i) => {
+                    return <div key={i}>
+                      <UserAvatar userFullName={getMemberFullName(memberId)} userImg={getMemberImg(memberId)} />
+                    </div>
                   })}
+
                 </div>
               )}
             </div>

@@ -9,14 +9,14 @@ import { userService } from '../../services/user.service.js'
 import { Header } from "./Header";
 
 export function Login({ onLogin }) {
-    const [credentials, setCredentials] = useState(userService.getEmptyUser())
+    const [credentials, setCredentials] = useState({ username: '', password: '' })
     // const users = useSelector(storeState => storeState.userModule.users)
 
     function handleLogin(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
         onLogin(credentials)
-        setCredentials(userService.getEmptyUser())
+        setCredentials({ username: '', password: '' })
     }
 
     function handleChange(ev) {

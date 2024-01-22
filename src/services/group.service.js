@@ -1,6 +1,6 @@
 
 import { utilService } from "./util.service.js";
-import { boardActions } from "/src/store/actions/board.actions";
+import { boardActions } from "../store/actions/board.actions.js";
 
 export const groupService = {
     addTask,

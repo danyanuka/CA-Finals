@@ -280,11 +280,13 @@ function createBoards(overwrite) {
                 id: "c1015",
                 title: "Add Filter",
                 archivedAt: 1589983468418,
+                dueDate: 1705860793070
               },
               {
                 id: "c1015",
                 title: "Add Filter",
                 archivedAt: 1589983468418,
+                dueDate: 1706033593070
               },
               {
                 id: "c104",
@@ -330,7 +332,7 @@ function createBoards(overwrite) {
                 ],
                 memberIds: ["u101"],
                 labelIds: ["l101", "l102"],
-                dueDate: 16156215211,
+                dueDate: 1705947281491,
                 byMember: {
                   _id: "u101",
                   fullname: "Abi Abambi",

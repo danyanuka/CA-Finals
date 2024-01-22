@@ -40,15 +40,18 @@ export function LoginSignup() {
             navigate('/board')
         } catch (err) {
             console.log(err);
+            alert(err)
         }
     }
 
     async function onSignup(credentials) {
+        console.log('hey');
         try {
             await signup(credentials)
             navigate('/board')
         } catch (err) {
             console.log(err);
+            alert(err)
         }
     }
 

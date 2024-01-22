@@ -2,9 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // background-color: transparent;
     filter: brightness(70%);
-    // opacity: 1.5;
     color: white;
     padding: 10px;
 
@@ -55,6 +53,18 @@
             text-align: center;
         }
 
+        .board-members {
+            display: inline-flex;
+            gap: 4px;
+
+            button {
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+                border-width: 0px;
+            }
+        }
+
         .board-header-btn:hover {
             background-color: $clr-dynamic-button-white-hovered;
             border-radius: 5px;
@@ -62,14 +72,14 @@
             text-align: center;
         }
 
-        .board-members:hover {
-            background-color: $clr-bg-pink-bold-hovered;
-        }
+        // .board-members:hover {
+        //     background-color: $clr-bg-pink-bold-hovered;
+        // }
 
-        .icon-member:hover {
-            background-color: $clr-dynamic-button-white-hovered;
-            border-radius: 50%;
-        }
+        // .icon-member:hover {
+        //     background-color: $clr-dynamic-button-white-hovered;
+        //     border-radius: 50%;
+        // }
 
         .board-btn:hover,
         .share-btn:hover {
