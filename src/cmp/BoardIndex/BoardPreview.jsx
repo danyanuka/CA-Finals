@@ -17,8 +17,12 @@ export function BoardPreview({ board }) {
   async function onStarBoard(ev) {
     try {
       ev.preventDefault();
-      const updatedBoard = { ...board, isStarred: !board.isStarred };
-      console.log(updatedBoard);
+      // when working locally
+      // const updatedBoard = { ...board, isStarred: !board.isStarred };
+
+      // when working with mongo
+      const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
+
       await boardActions.saveBoard(updatedBoard);
     } catch (err) {
       console.log("Issues removing board", err);

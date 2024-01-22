@@ -5,7 +5,7 @@ import { boardActions } from "../store/actions/board.actions";
 
 import { BoardList } from "../cmp/BoardIndex/BoardList";
 import { StarredBoardList } from "../cmp/BoardIndex/StarredBoardList";
-import { AppHeader } from "../cmp/AppHeader";
+import { AppDynHeader } from "../cmp/AppDynHeader";
 
 export function BoardIndex() {
   const boards = useSelector((storeState) => storeState.boardModule.boards);
@@ -25,7 +25,7 @@ export function BoardIndex() {
   if (!boards) return <div>Loading..</div>;
   return (
     <>
-      <AppHeader />
+      <AppDynHeader />
       <div className="board-index-container">
         <div className="all-boards-container">
           <div className="all-boards">

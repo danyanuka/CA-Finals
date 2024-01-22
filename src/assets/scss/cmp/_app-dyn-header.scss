@@ -1,0 +1,60 @@
+.app-header-container {
+  z-index: 1000;
+  width: 100%;
+  background-color: white;
+  min-height: 48px;
+  max-height: 48px;
+
+  .app-header-content {
+    display: flex;
+    padding: 8px;
+    border-bottom: 0.8px solid rgba(23, 43, 77, 0.16);
+    .app-header-logo-link {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 8px;
+      height: 32px;
+
+      .app-header-logo-container {
+        position: relative;
+        width: 75px;
+        height: 16px;
+        grid-area: 1 / 2;
+        padding: 8px 0;
+        opacity: 1;
+        filter: brightness(0) saturate(100%) invert(30%) sepia(53%)
+          saturate(323%) hue-rotate(179deg) brightness(91%) contrast(88%);
+        &::before {
+          content: "";
+          background-image: url("/public/logo.gif");
+          position: absolute;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+          top: 0;
+        }
+      }
+    }
+
+    .link-to-boards {
+      height: 60px;
+      grid-area: 1 / 2;
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      background-color: rgb(23, 43, 77);
+      color: white;
+      @include transitionAction(background-color, rgb(80, 95, 121), 50ms);
+      .nav-link {
+        text-decoration: none;
+        padding: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
+        @include fontProps(19.2px, 400, 28.8px);
+      }
+    }
+  }
+}

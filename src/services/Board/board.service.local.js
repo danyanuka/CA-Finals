@@ -1,8 +1,8 @@
-import { storageService } from "./async-storage.service.js";
-import { dbInitStorageService } from "./db-init-storage.service.js";
+import { storageService } from "../async-storage.service.js";
+import { dbInitStorageService } from "../db-init-storage.service.js";
 
-import { STORAGE_KEY_BOARDS } from "./db-utils.service.js";
-import { utilService } from "./util.service.js";
+import { STORAGE_KEY_BOARDS } from "../db-utils.service.js";
+import { utilService } from "../util.service.js";
 
 export const boardService = {
   query,
@@ -50,7 +50,7 @@ function save(boardToSave) {
 function _createBoard(title = "") {
   const board = {
     _id: utilService.makeId(),
-    title,
+    title: "",
     isStarred: false,
     archivedAt: null,
     style: {},
