@@ -10,7 +10,6 @@ export function Logout({ onLogout }) {
     const user = useSelector(storeState => storeState.userModule.user)
 
     function handleLogout(ev = null) {
-        console.log('hello');
         if (ev) ev.preventDefault()
         onLogout()
     }
@@ -24,7 +23,7 @@ export function Logout({ onLogout }) {
                 <div className="user-info">
 
                     <div className="user-avatar">
-                        <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
+                        <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl ? user.imgUrl : "/public/imgs/defaultUserImg.png"} />
                     </div>
 
                     <div className="username">

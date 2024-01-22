@@ -16,6 +16,9 @@ export function AppHeader() {
 
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const user = useSelector(storeState => storeState.userModule.user)
+  const userImg = user?.imgUrl ? user.imgUrl : "/public/imgs/defaultUserImg.png";
+
+
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -118,7 +121,7 @@ export function AppHeader() {
 
           {user ? (
             <div className="user-avatar" onClick={handleAccountClick}>
-              <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl} />
+              <UserAvatar userFullName={user?.fullname} userImg={userImg} />
             </div>
           ) : (
             <i className="icon-account account-btn" title="Account"></i>

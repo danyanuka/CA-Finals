@@ -4,20 +4,13 @@ import { UserAvatar } from "../UserAvatar";
 
 
 export function BoardHeader() {
-    // const [style, setStyle] = useState({})
     const board = useSelector(storeState => storeState.boardModule.curBoard)
-    console.log(board?.members);
-
-    // useEffect(() => {
-    //     if (board?.style.backgroundColor) {
-    //         setStyle({ backgroundColor: `${board?.style.backgroundColor}BF` })
-    //     }
-    // }, [])
 
     const style = {
         backgroundColor: board?.style.backgroundColor,
         opacity: 1.5
     }
+
 
     return (
         <div className="board-header" style={style}>
@@ -65,10 +58,10 @@ export function BoardHeader() {
                 </div>
 
                 {board?.members &&
-                    <div className="board-header-btn board-members" title="User-Name" >
+                    <div className="board-members" title="User-Name" >
                         {board.members?.map((member, i) => {
                             return <div key={i} title={member?.fullname}>
-                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl && member?.imgUrl} />
+                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl ? member?.imgUrl : "/public/imgs/defaultUserImg.png"} />
                             </div>
                         })}
 

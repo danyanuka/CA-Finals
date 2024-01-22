@@ -46,6 +46,8 @@ async function login(userCred) {
     const user = users.find(user => user.username === userCred.username)
     if (user) {
         return saveLocalUser(user)
+    } else {
+        throw 'Invalid user name'
     }
 }
 
