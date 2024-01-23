@@ -1,14 +1,14 @@
 const colors = [
-  { color: "rgb(0, 121, 191)", id: 1 },
-  { color: "rgb(81, 152, 57)", id: 2 },
-  { color: "rgb(176, 70, 50)", id: 3 },
-  { color: "rgb(205, 90, 145)", id: 4 },
-  { color: "rgb(75, 191, 107)", id: 5 },
-  { color: "rgb(0, 174, 204)", id: 6 },
-  { color: "rgb(131, 140, 145)", id: 7 },
+  { color: "#0079BF", id: 1 },
+  { color: "#519839", id: 2 },
+  { color: "#B04632", id: 3 },
+  { color: "#CD5A91", id: 4 },
+  { color: "#4BBF6B", id: 5 },
+  { color: "#00AECC", id: 6 },
+  { color: "#838C91", id: 7 },
 ];
 
-const gradColors = [
+const gradImageBg = [
   { color: "linear-gradient(45deg, #ff8e36, #ff5f6d)", id: 8 },
   { color: "linear-gradient(45deg, #001f3f, #003366)", id: 9 },
   { color: "linear-gradient(45deg, #9900cc, #4d0099)", id: 10 },
