@@ -29,7 +29,9 @@ export function BoardIndex() {
       <div className="board-index-container">
         <div className="all-boards-container">
           <div className="all-boards">
-            <StarredBoardList boards={boards} />
+            {boards.some((board) => board.isStarred) && (
+              <StarredBoardList boards={boards} />
+            )}
             <BoardList boards={boards} />
           </div>
         </div>

@@ -16,7 +16,8 @@
       padding: 0 8px;
       height: 32px;
 
-      .app-header-logo-container {
+      .app-header-logo-container,
+      .app-header-logo-container-white {
         position: relative;
         width: 75px;
         height: 16px;
@@ -25,6 +26,7 @@
         opacity: 1;
         filter: brightness(0) saturate(100%) invert(30%) sepia(53%)
           saturate(323%) hue-rotate(179deg) brightness(91%) contrast(88%);
+
         &::before {
           content: "";
           background-image: url("/public/logo.gif");
@@ -36,6 +38,23 @@
           height: 100%;
           top: 0;
         }
+
+        &:hover {
+          &::before {
+            content: "";
+            background-image: url("/public/logo.moving.gif");
+            position: absolute;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            top: 0;
+          }
+        }
+      }
+      .app-header-logo-container-white {
+        filter: none;
       }
     }
 
