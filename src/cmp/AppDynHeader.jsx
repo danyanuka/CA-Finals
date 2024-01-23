@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 export function AppDynHeader() {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
-  const user = useSelector(storeState => storeState.userModule.user)
+  const user = useSelector((storeState) => storeState.userModule.user);
   const [headerStyleProps, setHeaderStyleProps] = useState();
   const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export function AppDynHeader() {
     if (pathname === "/board") return;
     let headerStyles = {};
     headerStyles.backgroundColor = avgColorBg;
-    headerStyles.color = utilService.isDarkColor(avgColorBg)
+    headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
       ? "#FFFFFF"
       : "#000000";
 
@@ -54,7 +54,7 @@ export function AppDynHeader() {
   function setLogoColor() {
     if (pathname === "/board") return "app-header-logo-container";
     else {
-      return utilService.isDarkColor(avgColorBg)
+      return utilService.isDarkColor(avgColorBg, 80)
         ? "app-header-logo-container-white"
         : "app-header-logo-container";
     }
@@ -64,6 +64,10 @@ export function AppDynHeader() {
     dispatch(openModal("accountMenu", ev.target));
   }
 
+  function onCreateBoard(ev) {
+    dispatch(openModal("createBoard", ev.target));
+  }
+  console.log(headerStyleProps);
   return (
     <div style={headerStyleProps} className="app-header-container">
       <div className="app-header-content ">
@@ -72,15 +76,20 @@ export function AppDynHeader() {
           <div className={setLogoColor()}></div>
         </Link>
         {user ? (
-          <div className="user-avatar" onClick={handleAccountClick}>
+          <div className="app-header-avatar" onClick={handleAccountClick}>
             <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
           </div>
         ) : (
           <i className="icon-account account-btn" title="Account"></i>
-
-        )
-        }
-
+        )}
+        <div
+          onClick={onCreateBoard}
+          className="header-create-button"
+          to=""
+          title="Create"
+        >
+          Create
+        </div>
       </div>
     </div>
   );
