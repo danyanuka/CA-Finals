@@ -8,8 +8,6 @@ import { TaskDetailsBriefDates } from "./TaskDetailsBriefDates"
 
 export function TaskDetailsBriefItems({ board, task, cbOnUpdateTask, cbOpenTaskModal }) {
 
-    console.log("mm: ", task)
-
     return <div className="td-section task-details-brief-items">
         {   // Members
             task?.memberIds?.length > 0 &&

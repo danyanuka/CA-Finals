@@ -42,6 +42,11 @@
 
 .icon-task-check-mark {
   content: url("/public/icons/check-mark.svg");
+  width: 16px;
+}
+
+.icon-task-check-mark-dyn {
+  @include iconCustomColor(#ffffff, "/public/icons/check-mark.svg");
 }
 
 .icon-task-members {
