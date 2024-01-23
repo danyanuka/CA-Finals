@@ -149,7 +149,7 @@ function createBoards(overwrite) {
               {
                 id: "c104",
                 title: "Help me",
-                isDone: "in-progress", // What is it? Complete/Overdue/In-Progress/In-Queue
+                isDone: true,
                 description: "description",
                 comments: [
                   {
