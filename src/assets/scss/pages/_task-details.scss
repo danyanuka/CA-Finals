@@ -113,7 +113,6 @@
         }
 
         & .icon-watch-task {
-            width: 16px;
             margin-left: 10px;
         }
     }
@@ -153,10 +152,22 @@
             h3 {
                 margin-bottom: 4px;
             }
+        }
 
-            .brief-data {
-                display: inline-flex;
-                gap: 4px;
+        .brief-data {
+            display: inline-flex;
+            gap: 4px;
+
+            button {
+                @include fontProps(14px, 500, 14px);
+                height: 32px;
+                border-width: 0px;
+                display: grid;
+                grid-auto-flow: column;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
             }
         }
     }
@@ -198,10 +209,8 @@
 
     &-members {
         button {
-            height: 32px;
             width: 32px;
             border-radius: 50%;
-            border-width: 0px;
         }
 
         .add-btn {
@@ -213,13 +222,8 @@
 
     &-labels {
         button {
-            height: 32px;
             border-radius: 3px;
-            border-width: 0px;
-            padding: 0px, 12px, 0px, 12px;
-            display: grid;
-            align-content: center;
-            justify-content: center;
+            padding: 0px 12px 0px 12px;
         }
 
         .add-btn {
@@ -228,6 +232,34 @@
             justify-items: center;
             width: 32px;
         }
+    }
+
+    &-notifications {
+        button {
+            padding: 0px 4px 0px 8px;
+        }
+
+        .icon-watch-task {
+            margin-right: 8px;
+        }
+
+        .text-watch {
+            @include fontProps(14px, 500, 14px);
+            margin-right: 12px;
+        }
+
+        .v-wrapper {
+            box-sizing: content-box;
+            width: 28px;
+            height: 24px;
+            margin: 4px 4px 4px 2px;
+            border-radius: 3px;
+            background-color: $clr-bg-black-bold;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
     }
 
 }

@@ -27,7 +27,7 @@ export function AccountMenu() {
             <div className="menu-header user-info">
 
                 <div className="user-avatar">
-                    <UserAvatar userFullName={user?.fullname} userImg={user.imgUrl ? user.imgUrl : "/public/imgs/defaultUserImg.png"} />
+                    <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
                 </div>
                 <div className="username">
                     <p>{user?.fullname}</p>

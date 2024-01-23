@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { unsplashService } from "../services/unsplash.service";
-import { constService } from "../services/const-service";
+import { constService } from "../services/const.service";
 import { MoreBgOptions } from "../modals/CreateBoard/MoreBgOptions";
 
 export function BackgroundPicker({ setNewBoard }) {
@@ -47,17 +47,17 @@ export function BackgroundPicker({ setNewBoard }) {
           ))}
         </ul>
         <ul className="bg-list-colors">
-          {constService.gradColors.slice(0, 5).map((color) => (
+          {constService.gradColorPics.slice(0, 5).map((color) => (
             <li key={color.id}>
               <button
                 className="bg-color-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
-                    style: { background: color.color },
+                    style: { backgroundImage: `url(${color.color})` },
                   }))
                 }
-                style={{ background: color.color }}
+                style={{ backgroundImage: `url(${color.color})` }}
               ></button>
             </li>
           ))}

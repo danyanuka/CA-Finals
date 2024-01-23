@@ -1,5 +1,5 @@
 import { RootModalHeader } from "../RootModalHeader";
-import { constService } from "../../services/const-service";
+import { constService } from "../../services/const.service";
 import { unsplashService } from "../../services/unsplash.service";
 import { useState, useEffect } from "react";
 
@@ -45,17 +45,17 @@ export function MoreBgOptions({ handleCloseModal, photos, setNewBoard }) {
           {/* <button className="see-more-colors>See More</button> */}
         </header>
         <ul className="bg-colors-list-more">
-          {constService.gradColors.map((color) => (
+          {constService.gradColorPics.map((color) => (
             <li key={color.id}>
               <button
                 className="bg-color-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
-                    style: { background: color.color },
+                    style: { backgroundImage: `url(${color.color})` },
                   }))
                 }
-                style={{ background: color.color }}
+                style={{ backgroundImage: `url(${color.color})` }}
               ></button>
             </li>
           ))}
