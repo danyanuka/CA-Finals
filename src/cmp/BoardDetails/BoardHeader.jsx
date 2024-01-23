@@ -61,7 +61,7 @@ export function BoardHeader() {
                     <div className="board-members" title="User-Name" >
                         {board.members?.map((member, i) => {
                             return <div key={i} title={member?.fullname}>
-                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl ? member?.imgUrl : "/public/imgs/defaultUserImg.png"} />
+                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
                             </div>
                         })}
 

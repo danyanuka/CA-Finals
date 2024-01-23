@@ -13,7 +13,7 @@ export function TaskDetailsBriefMembers({ boardMembers, taskMembers, cbOpenTaskM
         const userIndx = boardMembers.findIndex((mem) => mem._id === memberId)
         if (userIndx >= 0 && boardMembers[userIndx]?.imgUrl)
             return boardMembers[userIndx]?.imgUrl
-        return "/public/imgs/defaultUserImg.png"
+        return null
     }
 
     return <div className="td-members brief-item">
