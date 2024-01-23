@@ -41,7 +41,7 @@ export function TaskPreview({ task, index }) {
     const userIndx = board.members.findIndex((mem) => mem._id === memberId)
     if (userIndx >= 0 && board.members[userIndx]?.imgUrl)
       return board.members[userIndx]?.imgUrl
-    return "/public/imgs/defaultUserImg.png"
+    return null
   }
 
   return (

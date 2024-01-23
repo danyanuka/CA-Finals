@@ -23,7 +23,7 @@ export function Logout({ onLogout }) {
                 <div className="user-info">
 
                     <div className="user-avatar">
-                        <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl ? user.imgUrl : "/public/imgs/defaultUserImg.png"} />
+                        <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
                     </div>
 
                     <div className="username">
