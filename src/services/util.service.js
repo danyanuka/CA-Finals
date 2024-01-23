@@ -254,7 +254,7 @@ function hexToRgb(hex) {
   } : null;
 }
 
-function isDarkColor(hexColor) {
+function isDarkColor(hexColor, midVal=50) {
   const rgbColor = hexToRgb(hexColor);
 
   let vR = rgbColor.r / 255;
@@ -272,7 +272,7 @@ function isDarkColor(hexColor) {
   // Step 4
   const Lstar = _YtoLstar(Y);
 
-  if (Lstar < 50) {
+  if (Lstar < midVal) {
     return true
   };
   return false;
