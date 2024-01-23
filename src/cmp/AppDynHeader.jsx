@@ -23,7 +23,7 @@ export function AppDynHeader() {
     setHeaderStyles();
   }, [avgColorBg])
 
- async function getBoardAvgColor(board) {
+  async function getBoardAvgColor(board) {
     if (board?.style?.backgroundImage) {
       const imgPath = board.style.backgroundImage;
       const cleanImgUrl = utilService.getCleanURL(imgPath);
@@ -51,6 +51,8 @@ export function AppDynHeader() {
         <Link className="app-header-logo-link transparent-btn-black" to="/">
           <div className="app-header-logo-container"></div>
         </Link>
+
+
       </div>
     </div>
   );

@@ -97,15 +97,15 @@ function getMembers(memberIds, board) {
 //not working yet
 function checkDueDate(dueDate) {
   var today = new Date()
-
   var yesterday = today.getTime() - (24 * 60 * 60 * 1000);
-
   var tomorrow = today.getTime() + (24 * 60 * 60 * 1000);
   console.log(today.getTime());
+
   let dateStatus = {
     isPass: null,
     isToday: null,
-    isTomorrow: null
+    isTomorrow: null,
+    isYesterday: null
   }
 
   if (dueDate < today) {
