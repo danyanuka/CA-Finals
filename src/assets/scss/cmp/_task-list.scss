@@ -31,7 +31,7 @@
     }
 
     .scrollbar {
-        max-height: 55vh;
+        max-height: 75vh;
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
@@ -68,6 +68,7 @@
     }
 
     .group-footer {
+        position: sticky;
         padding: 3px 5px 0;
         color: $clr-text-black;
         display: flex;
