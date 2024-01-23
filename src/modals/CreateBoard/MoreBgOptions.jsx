@@ -1,5 +1,5 @@
 import { RootModalHeader } from "../RootModalHeader";
-import { constService } from "../../services/const-service";
+import { constService } from "../../services/const.service";
 import { unsplashService } from "../../services/unsplash.service";
 import { useState, useEffect } from "react";
 

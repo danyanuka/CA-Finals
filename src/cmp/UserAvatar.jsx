@@ -1,18 +1,31 @@
 import { useEffect, useState } from "react";
 
 import { utilService } from "/src/services/util.service.js";
+import { constService } from "/src/services/const.service.js";
 
 
 export function UserAvatar({ userFullName, userImg }) {
 
-  const [isDarkImg, setIsDarkImg] = useState(false)
+  const [isValidImg, setIsValidImg] = useState(false)
+  const [isDarkText, setIsDarkText] = useState(true)
+  const [bgColor, setBgColor] = useState("#C0C0C0")
 
   useEffect(() => {
-    async function updateIsDark() {
-      const isDark = await utilService.isDarkImg(userImg)
-      setIsDarkImg(isDark)
+    async function updateImage() {
+      if (userImg && isValidUrl(userImg)) {
+        const isDark = await utilService.isDarkImg(userImg)
+        setIsValidImg(true)
+        setIsDarkText(false)
+      } else {
+        const defaultColors = constService.defaultAvatarColor
+        const calcIndx = userFullName.length % defaultColors.length
+        const userColor = defaultColors[calcIndx]
+        const isDark = utilService.isDarkColor(userColor)
+        setBgColor(userColor)
+        setIsDarkText(!isDark)
+      }
     }
-    updateIsDark()
+    updateImage()
   }, [])
 
   function isWebUrl(userImg) {
@@ -25,9 +38,18 @@ export function UserAvatar({ userFullName, userImg }) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
   }
 
-  return <button className="user-avatar" style={{ backgroundImage: `url(${userImg})`, backgroundColor: "#C0C0C0", color: (isDarkImg ? "white" : "black") }}>
+  function buildStyles() {
+    // { backgroundImage: `url(${userImg})`, backgroundColor: "#C0C0C0", color: (isDarkImg ? "white" : "black") }
+    const styleProps = {}
+    styleProps.backgroundImage = `url(${userImg})`
+    styleProps.backgroundColor = bgColor
+    styleProps.color = isDarkText ? "black" : "white"
+    return styleProps
+  }
+
+  return <button className="user-avatar" style={buildStyles()}>
     {
-      !isValidUrl(userImg) &&
+      !isValidImg &&
       <data>{utilService.getUserShortName(userFullName)}</data>
     }
   </button>

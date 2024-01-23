@@ -20,7 +20,16 @@ const gradColors = [
   { color: "linear-gradient(45deg, #ff6633, #cc3300)", id: 16 },
 ];
 
+const defaultAvatarColor = [
+  "#5b7f24",
+  "#c9372c",
+  "#1f845a",
+  "#0c66e4",
+  "#6e5dc6"
+]
+
 export const constService = {
   colors,
   gradColors,
+  defaultAvatarColor
 };
