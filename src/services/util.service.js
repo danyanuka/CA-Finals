@@ -8,7 +8,6 @@ export const utilService = {
   calcModalPosition,
   getLabels,
   getMembers,
-  checkDueDate,
   getStatusChecklist,
   getUserShortName,
   getImgAvgColor,
@@ -16,7 +15,8 @@ export const utilService = {
   getUserAvatar,
   toTitleCase,
   getCleanURL,
-  isDarkColor
+  isDarkColor,
+  getTimeStatus
 };
 
 function getCleanURL(url) {
@@ -94,31 +94,21 @@ function getMembers(memberIds, board) {
   return members;
 }
 
-//not working yet
-function checkDueDate(dueDate) {
-  var today = new Date()
-  var yesterday = today.getTime() - (24 * 60 * 60 * 1000);
-  var tomorrow = today.getTime() + (24 * 60 * 60 * 1000);
-  console.log(today.getTime());
+function getTimeStatus(timestamp) {
+  const currentTimestamp = new Date().getTime();
+  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60);
 
-  let dateStatus = {
-    isPass: null,
-    isToday: null,
-    isTomorrow: null,
-    isYesterday: null
+  if (timeDifferenceHours < 0 && timeDifferenceHours > -24) {
+    return 'yesterday'
+  } else if (timeDifferenceHours < 0) {
+    return 'past';
+  } else if (timeDifferenceHours < 24) {
+    return 'today';
+  } else if (timeDifferenceHours < 48) {
+    return 'tomorrow';
+  } else {
+    return 'future';
   }
-
-  if (dueDate < today) {
-    return { ...dateStatus, isPass: true }
-  }
-  if (dueDate === today) {
-    return { ...dateStatus, isToday: true }
-  }
-  if (dueDate > tomorrow) {
-    return { ...dateStatus, isTomorrow: true };
-  }
-
-  return dateStatus;
 }
 
 function getStatusChecklist(checklist) {

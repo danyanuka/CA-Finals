@@ -73,9 +73,17 @@
             span {
                 margin-left: 3px;
             }
+
+            .checkbox-due-date {
+                display: none;
+            }
+
+            .i:hover .checkbox-due-date {
+                display: inline;
+            }
         }
 
-        .pass {
+        .past {
             background-color: $clr-background-accent-red-subtle;
             color: $clr-text-accent-red;
         }

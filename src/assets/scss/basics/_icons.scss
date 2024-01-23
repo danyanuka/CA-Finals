@@ -222,19 +222,25 @@
   height: 17px;
 }
 
-.icon-clock-alert {
+.icon-clock-alert- {
   content: url("/public/icons/clock-alert.svg");
   width: 17px;
   height: 17px;
 }
 
-.icon-clock-alert-red {
+.icon-clock-alert-past {
   content: url("/public/icons/clock-red.svg");
   width: 17px;
   height: 17px;
 }
 
-.icon-clock-alert-white {
+.icon-clock-alert-today {
+  content: url("/public/icons/clock-white.svg");
+  width: 17px;
+  height: 17px;
+}
+
+.icon-clock-alert-yesterday {
   content: url("/public/icons/clock-white.svg");
   width: 17px;
   height: 17px;

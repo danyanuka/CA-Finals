@@ -10,8 +10,8 @@ export function TaskPreview({ task, index }) {
   const labels = utilService.getLabels(task.labelIds, board);
 
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
-  const { isPass, isToday, isTomorrow, isYesterday } = utilService.checkDueDate(task.dueDate);
-  // console.log(isPass, isToday, isTomorrow, isYesterday);
+  const timeStatus = utilService.getTimeStatus(task.dueDate);
+
 
   const isTaskActions =
     task.checklists ||
@@ -43,6 +43,8 @@ export function TaskPreview({ task, index }) {
       return board.members[userIndx]?.imgUrl
     return null
   }
+
+
 
   return (
     <Draggable draggableId={task.id} index={index}>
@@ -131,50 +133,15 @@ export function TaskPreview({ task, index }) {
                 </div>
               )}
 
-              {task.dueDate && isPass && (
-                <div className="due-date pass">
-                  <i className="icon-clock-alert-red"></i>
+              {task.dueDate && (
+                <div className={`due-date ${timeStatus}`}>
+                  <i className={`icon-clock-alert-${timeStatus}`}></i>
+                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} />
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
                 </div>
               )}
-
-              {task.dueDate && isToday && (
-                <div className="due-date today">
-                  <i className="icon-clock-alert-white"></i>
-                  <span>
-                    {date[1]} {date[2]}{" "}
-                  </span>
-                </div>
-              )}
-
-              {task.dueDate && isTomorrow && (
-                <div className="due-date tomorrow">
-                  <i className="icon-clock-alert"></i>
-                  <span>
-                    {date[1]} {date[2]}{" "}
-                  </span>
-                </div>
-              )}
-
-              {task.dueDate && isYesterday && (
-                <div className="due-date yesterday">
-                  <i className="icon-clock-alert"></i>
-                  <span>
-                    {date[1]} {date[2]}{" "}
-                  </span>
-                </div>
-              )}
-              {task.dueDate && !isPass && !isToday && !isTomorrow && !isYesterday && (
-                <div className="due-date">
-                  <i className="icon-clock-alert" title="Checklists"></i>
-                  <span>
-                    {date[1]} {date[2]}{" "}
-                  </span>
-                </div>
-              )}
-
 
             </div>
             <div>
