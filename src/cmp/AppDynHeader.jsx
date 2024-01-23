@@ -2,12 +2,16 @@ import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { utilService } from "../services/util.service";
+import { openModal } from "../store/actions/app.actions";
+import { UserAvatar } from "./UserAvatar";
 import { useLocation } from "react-router-dom";
 
 export function AppDynHeader() {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+  const user = useSelector(storeState => storeState.userModule.user)
   const [headerStyleProps, setHeaderStyleProps] = useState();
   const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
+  const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -56,6 +60,10 @@ export function AppDynHeader() {
     }
   }
 
+  function handleAccountClick(ev) {
+    dispatch(openModal("accountMenu", ev.target));
+  }
+
   return (
     <div style={headerStyleProps} className="app-header-container">
       <div className="app-header-content ">
@@ -63,7 +71,15 @@ export function AppDynHeader() {
         <Link className="app-header-logo-link transparent-btn-black" to="/">
           <div className={setLogoColor()}></div>
         </Link>
+        {user ? (
+          <div className="user-avatar" onClick={handleAccountClick}>
+            <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
+          </div>
+        ) : (
+          <i className="icon-account account-btn" title="Account"></i>
 
+        )
+        }
 
       </div>
     </div>
