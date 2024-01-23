@@ -78,9 +78,29 @@
                 display: none;
             }
 
-            .i:hover .checkbox-due-date {
-                display: inline;
-            }
+
+            // .past {
+            //     color: $clr-background-accent-red-subtle;
+            // }
+
+            // .today,
+            // .yesterday {
+            //     color: $clr-bg-red-bold;
+            // }
+
+            // .tomorrow {
+            //     color: $clr-bg-yellow;
+            // }
+
+            // .done {
+            //     color: $clr-bg-green-bold;
+
+            // }
+
+            // .i:hover .checkbox-due-date {
+            //     display: inline;
+            // }
+
         }
 
         .past {
