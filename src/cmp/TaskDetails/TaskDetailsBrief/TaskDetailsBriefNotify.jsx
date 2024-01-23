@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function TaskDetailsBriefNotify({ boardId, taskId }) {
+export function TaskDetailsBriefNotify({  }) {
 
     // TODO - How to toggle currUsers to watch?
     const [isWatching, setIsWatching] = useState(false);

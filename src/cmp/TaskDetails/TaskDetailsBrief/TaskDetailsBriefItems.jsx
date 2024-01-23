@@ -20,11 +20,11 @@ export function TaskDetailsBriefItems({ board, task, cbOnUpdateTask, cbOpenTaskM
             <TaskDetailsBriefLabels boardLabels={board.labels} taskLabels={task.labelIds} cbOpenTaskModal={cbOpenTaskModal} />
         }
 
-        <TaskDetailsBriefNotify boardId={board._id} taskId={task.id} />
+        <TaskDetailsBriefNotify />
 
         {   // Dates
-            task?.memeberIds &&
-            <TaskDetailsBriefDates />
+            task?.dueDate &&
+            <TaskDetailsBriefDates task={task} cbOnUpdateTask={cbOnUpdateTask} cbOpenTaskModal={cbOpenTaskModal} />
         }
     </div>
 }
