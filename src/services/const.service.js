@@ -8,16 +8,16 @@ const colors = [
   { color: "#838C91", id: 7 },
 ];
 
-const gradImageBg = [
-  { color: "linear-gradient(45deg, #ff8e36, #ff5f6d)", id: 8 },
-  { color: "linear-gradient(45deg, #001f3f, #003366)", id: 9 },
-  { color: "linear-gradient(45deg, #9900cc, #4d0099)", id: 10 },
-  { color: "linear-gradient(45deg, #00cc99, #009966)", id: 11 },
-  { color: "linear-gradient(45deg, #ffcc00, #ff9900)", id: 12 },
-  { color: "linear-gradient(45deg, #e6e600, #cc9900)", id: 13 },
-  { color: "linear-gradient(45deg, #ff3399, #cc0066)", id: 14 },
-  { color: "linear-gradient(45deg, #3366ff, #003366)", id: 15 },
-  { color: "linear-gradient(45deg, #ff6633, #cc3300)", id: 16 },
+const gradColorPics = [
+  { color: "public/grad-bg-images/light-blue.svg", id: 8 },
+  { color: "public/grad-bg-images/turquoise.svg", id: 9 },
+  { color: "public/grad-bg-images/brown.svg", id: 10 },
+  { color: "public/grad-bg-images/dark-blue.svg", id: 11 },
+  { color: "public/grad-bg-images/orange.svg", id: 13 },
+  { color: "public/grad-bg-images/pink.svg", id: 12 },
+  { color: "public/grad-bg-images/dark-purple.svg", id: 14 },
+  { color: "public/grad-bg-images/light-purple.svg", id: 15 },
+  { color: "public/grad-bg-images/gray-blue.svg", id: 16 },
 ];
 
 const defaultAvatarColor = [
@@ -25,11 +25,11 @@ const defaultAvatarColor = [
   "#c9372c",
   "#1f845a",
   "#0c66e4",
-  "#6e5dc6"
-]
+  "#6e5dc6",
+];
 
 export const constService = {
   colors,
-  gradColors,
-  defaultAvatarColor
+  gradColorPics,
+  defaultAvatarColor,
 };

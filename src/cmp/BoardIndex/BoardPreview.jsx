@@ -18,10 +18,10 @@ export function BoardPreview({ board }) {
     try {
       ev.preventDefault();
       // when working locally
-      // const updatedBoard = { ...board, isStarred: !board.isStarred };
+      const updatedBoard = { ...board, isStarred: !board.isStarred };
 
       // when working with mongo
-      const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
+      // const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
 
       await boardActions.saveBoard(updatedBoard);
     } catch (err) {

@@ -81,7 +81,8 @@ function createBoards(overwrite) {
           imgUrl: "http://some-img",
         },
         style: {
-          backgroundImage: "",
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1629388684419-9001049809be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NDk4MDB8MHwxfGNvbGxlY3Rpb258NXwyNTk1NDgzfHx8fHwyfHwxNzA2MDE1NjI5fA&ixlib=rb-4.0.3&q=80&w=1080)",
         },
         labels: [
           {
@@ -99,7 +100,8 @@ function createBoards(overwrite) {
           {
             _id: "u101",
             fullname: "Tal Tarablus",
-            imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+            imgUrl:
+              "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
           },
           {
             _id: "uk5",
@@ -157,7 +159,8 @@ function createBoards(overwrite) {
                     byMember: {
                       _id: "u101",
                       fullname: "Tal Tarablus",
-                      imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                      imgUrl:
+                        "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
                     },
                   },
                 ],
@@ -182,7 +185,8 @@ function createBoards(overwrite) {
                   _id: "u101",
                   username: "Tal",
                   fullname: "Tal Tarablus",
-                  imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                  imgUrl:
+                    "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
                 },
                 style: {
                   backgroundColor: "#26de81",
@@ -225,7 +229,7 @@ function createBoards(overwrite) {
             "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         },
         style: {
-          backgroundColor: "#61bd4f",
+          backgroundImage: "url(public/grad-bg-images/brown.svg)",
         },
         labels: [
           {
@@ -243,7 +247,8 @@ function createBoards(overwrite) {
           {
             _id: "u101",
             fullname: "Tal Tarablus",
-            imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+            imgUrl:
+              "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
           },
         ],
         groups: [
@@ -277,13 +282,13 @@ function createBoards(overwrite) {
                 id: "c1015",
                 title: "Add Filter",
                 archivedAt: 1589983468418,
-                dueDate: 1705860793070
+                dueDate: 1705860793070,
               },
               {
                 id: "c1015",
                 title: "Add Filter",
                 archivedAt: 1589983468418,
-                dueDate: 1706033593070
+                dueDate: 1706033593070,
               },
               {
                 id: "c104",
@@ -376,7 +381,7 @@ function createBoards(overwrite) {
           imgUrl: "http://some-img",
         },
         style: {
-          background: "#61bd90",
+          backgroundImage: "url(public/grad-bg-images/turquoise.svg)",
         },
         labels: [
           {
@@ -394,7 +399,8 @@ function createBoards(overwrite) {
           {
             _id: "u101",
             fullname: "Tal Tarablus",
-            imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+            imgUrl:
+              "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
           },
         ],
         groups: [
@@ -460,7 +466,8 @@ function createBoards(overwrite) {
                     byMember: {
                       _id: "u101",
                       fullname: "Tal Tarablus",
-                      imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                      imgUrl:
+                        "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
                     },
                   },
                 ],
@@ -494,7 +501,8 @@ function createBoards(overwrite) {
                   _id: "u101",
                   username: "Tal",
                   fullname: "Tal Tarablus",
-                  imgUrl: "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
+                  imgUrl:
+                    "http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg",
                 },
                 style: {
                   backgroundColor: "#26de81",
