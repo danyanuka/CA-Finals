@@ -97,15 +97,15 @@ function getMembers(memberIds, board) {
 //not working yet
 function checkDueDate(dueDate) {
   var today = new Date()
-
   var yesterday = today.getTime() - (24 * 60 * 60 * 1000);
-
   var tomorrow = today.getTime() + (24 * 60 * 60 * 1000);
   console.log(today.getTime());
+
   let dateStatus = {
     isPass: null,
     isToday: null,
-    isTomorrow: null
+    isTomorrow: null,
+    isYesterday: null
   }
 
   if (dueDate < today) {
@@ -254,7 +254,7 @@ function hexToRgb(hex) {
   } : null;
 }
 
-function isDarkColor(hexColor) {
+function isDarkColor(hexColor, midVal=50) {
   const rgbColor = hexToRgb(hexColor);
 
   let vR = rgbColor.r / 255;
@@ -272,7 +272,7 @@ function isDarkColor(hexColor) {
   // Step 4
   const Lstar = _YtoLstar(Y);
 
-  if (Lstar < 50) {
+  if (Lstar < midVal) {
     return true
   };
   return false;

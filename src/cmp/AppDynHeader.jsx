@@ -63,6 +63,8 @@ export function AppDynHeader() {
         <Link className="app-header-logo-link transparent-btn-black" to="/">
           <div className={setLogoColor()}></div>
         </Link>
+
+
       </div>
     </div>
   );

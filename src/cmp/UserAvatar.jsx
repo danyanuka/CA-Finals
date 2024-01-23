@@ -11,21 +11,22 @@ export function UserAvatar({ userFullName, userImg }) {
   const [bgColor, setBgColor] = useState("#C0C0C0")
 
   useEffect(() => {
-    async function updateImage() {
-      if (userImg && isValidUrl(userImg)) {
-        const isDark = await utilService.isDarkImg(userImg)
-        setIsValidImg(true)
-        setIsDarkText(false)
-      } else {
-        const defaultColors = constService.defaultAvatarColor
-        const calcIndx = userFullName.length % defaultColors.length
-        const userColor = defaultColors[calcIndx]
-        const isDark = utilService.isDarkColor(userColor)
-        setBgColor(userColor)
-        setIsDarkText(!isDark)
-      }
+    async function calcImgProps() {
+      const isDark = await utilService.isDarkImg(userImg)
+      setIsValidImg(true)
+      setIsDarkText(false)
     }
-    updateImage()
+
+    if (userImg && isValidUrl(userImg)) {
+      calcImgProps()
+    } else {
+      const defaultColors = constService.defaultAvatarColor
+      const calcIndx = userFullName.length % defaultColors.length
+      const userColor = defaultColors[calcIndx]
+      const isDark = utilService.isDarkColor(userColor)
+      setBgColor(userColor)
+      setIsDarkText(!isDark)
+    }
   }, [])
 
   function isWebUrl(userImg) {
