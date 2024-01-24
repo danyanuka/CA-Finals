@@ -9,6 +9,7 @@ import { CreateBoardModal } from "./CreateBoard/CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 import { AccountMenu } from "./AccountMenu";
 import { MdlTaskMembers } from "./TaskDetails/MdlTaskMembers";
+import { MdlTaskMemberInfo } from "./TaskDetails/MdlTaskMemberInfo";
 import { MdlTaskLabels } from "./TaskDetails/MdlTaskLabels";
 import { MdlTaskChecklist } from "./TaskDetails/MdlTaskChecklist";
 import { MdlTaskDates } from "./TaskDetails/MdlTaskDates";
@@ -72,12 +73,14 @@ function DynModalType({ modalType, modalProps }) {
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     case "taskMembers":
       return <MdlTaskMembers />;
+    case "taskMemberInfo":
+      return <MdlTaskMemberInfo />;
     case "taskLabels":
       return <MdlTaskLabels />;
     case "taskChecklist":
       return <MdlTaskChecklist />;
     case "taskDates":
-      return <MdlTaskDates />;
+      return <MdlTaskDates board={modalProps.board}/>;
     case "taskAttach":
       return <MdlTaskAttach />;
     case "taskCover":

@@ -31,7 +31,7 @@
     }
 
     .scrollbar {
-        max-height: 75vh;
+        max-height: 70vh;
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
@@ -68,8 +68,9 @@
     }
 
     .group-footer {
-        position: sticky;
-        padding: 3px 5px 0;
+        position: relative;
+        padding: 8px;
+        // padding: 3px 5px 0;
         color: $clr-text-black;
         display: flex;
         justify-content: space-between;
@@ -77,6 +78,7 @@
         margin-right: 8px;
 
         .add-task-button {
+            position: absolute;
             // padding: 6px 12px 6px 8px;
             padding: 5px 5px 5px;
             display: flex;
@@ -93,7 +95,9 @@
             }
 
             .icon-template {
-                margin: 0 5px;
+                position: absolute;
+                left: 15px;
+                // margin: 0 5px;
                 flex-grow: 0;
                 flex-shrink: 0;
                 border-radius: 8px;
@@ -113,6 +117,7 @@
 }
 
 .add-task-buttons {
+
     display: flex;
     align-items: center;
     justify-content: flex-start;

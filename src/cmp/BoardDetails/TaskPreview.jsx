@@ -3,15 +3,15 @@ import { utilService } from "../../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
 import { UserAvatar } from "../UserAvatar.jsx"
+import { useState } from "react";
 
-export function TaskPreview({ task, index }) {
+export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+  const [isComplete, setIsComplete] = useState(task.isComplete ? true : false);
 
   const labels = utilService.getLabels(task.labelIds, board);
-
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
-  const timeStatus = utilService.getTimeStatus(task.dueDate);
-
+  const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
   const isTaskActions =
     task.checklists ||
@@ -27,6 +27,8 @@ export function TaskPreview({ task, index }) {
 
   const { boardId } = useParams();
   const navigate = useNavigate();
+
+
 
   function handleGoToTask(taskId) {
     navigate(`/board/${boardId}/${taskId}`);
@@ -45,6 +47,18 @@ export function TaskPreview({ task, index }) {
   }
 
 
+  function handleIsComplete(ev) {
+    setIsComplete(!isComplete);
+    if (ev.target.checked) {
+      const newTask = {
+        ...task,
+        isComplete: true
+      }
+
+      onUpdateTask(newTask, groupId, board);
+      setTimStatus('done')
+    }
+  }
 
   return (
     <Draggable draggableId={task.id} index={index}>
@@ -52,9 +66,6 @@ export function TaskPreview({ task, index }) {
         <div
           className={`task-preview is-dragging-${snapshot.isDragging}`}
           key={task.id}
-          onClick={() => {
-            handleGoToTask(task.id);
-          }}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
@@ -67,7 +78,7 @@ export function TaskPreview({ task, index }) {
             </div>
           )}
 
-          <div className="task-body">
+          <div className="task-body" onClick={() => handleGoToTask(task.id)}>
             {task.labelIds && (
               <div className="labels">
                 {labels.map((label) => {
@@ -115,6 +126,7 @@ export function TaskPreview({ task, index }) {
                   <span>{task.comments.length + 1}</span>
                 </div>
               )}
+
               {task.checklists && isDone === todos && (
                 <div className="icon-with-counts checklists-done">
                   <i className="icon-checklists-white" title="Checklists"></i>
@@ -123,6 +135,7 @@ export function TaskPreview({ task, index }) {
                   </span>
                 </div>
               )}
+
               {task.checklists && isDone != todos && (
                 <div className="icon-with-counts">
                   <i className="icon-checklists" title="Checklists"></i>
@@ -132,10 +145,20 @@ export function TaskPreview({ task, index }) {
                 </div>
               )}
 
-              {task.dueDate && (
+              {task.dueDate && !isComplete && (
                 <div className={`due-date ${timeStatus}`}>
-                  <i className={`icon-clock-alert-${timeStatus}`}></i>
-                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} />
+                  <i className={`icon-clock-alert-${timeStatus}`} ></i>
+                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={(ev) => handleIsComplete(ev)} />
+                  <span>
+                    {date[1]} {date[2]}{" "}
+                  </span>
+                </div>
+              )}
+
+              {isComplete && (
+                <div className="due-date done">
+                  <i className="icon-checklists-white"></i>
+                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={handleIsComplete} />
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
