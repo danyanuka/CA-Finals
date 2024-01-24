@@ -80,14 +80,13 @@
       }
     }
   }
-  .bg-photo-thumb,
-  .bg-color-thumb {
+
+  .bg-photo-thumb {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .bg-photo-thumb:focus::before,
-  .bg-color-thumb:focus::before {
+  .bg-photo-thumb:focus::before {
     content: url("public/icons/check-mark.svg");
     position: absolute;
     opacity: 1;

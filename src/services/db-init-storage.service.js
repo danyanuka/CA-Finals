@@ -88,12 +88,12 @@ function createBoards(overwrite) {
           {
             id: "l101",
             title: "Done",
-            color: "#61bd4f",
+            color: "green",
           },
           {
             id: "l102",
             title: "Progress",
-            color: "#61bd33",
+            color: "red",
           },
         ],
         members: [
@@ -235,12 +235,12 @@ function createBoards(overwrite) {
           {
             id: "l101",
             title: "Done",
-            color: "#61bd4f",
+            color: "black",
           },
           {
             id: "l102",
             title: "Progress",
-            color: "#61bd33",
+            color: "sky",
           },
         ],
         members: [
@@ -283,12 +283,6 @@ function createBoards(overwrite) {
                 title: "Add Filter",
                 archivedAt: 1589983468418,
                 dueDate: 1705860793070,
-              },
-              {
-                id: "c1015",
-                title: "Add Filter",
-                archivedAt: 1589983468418,
-                dueDate: 1706033593070,
               },
               {
                 id: "c104",
@@ -387,12 +381,12 @@ function createBoards(overwrite) {
           {
             id: "l101",
             title: "Done",
-            color: "#61bd4f",
+            color: "red-subtle",
           },
           {
             id: "l102",
             title: "Progress",
-            color: "#61bd33",
+            color: "yellow",
           },
         ],
         members: [

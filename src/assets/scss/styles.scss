@@ -13,6 +13,7 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 @import "basics/helpers";
 @import "basics/animations";
 @import "basics/typography";
+@import "basics/bg-color-labels";
 
 /* Pages */
 @import "./pages/home";
@@ -38,3 +39,5 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 @import "./modals/more-bg-options";
 @import "./cmp/app-dyn-header";
 @import "./modals/account-menu";
+@import "./modals/all-boards-dropdown";
+@import "./modals/starred-boards-dropdown";

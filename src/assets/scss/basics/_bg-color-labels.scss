@@ -1,0 +1,167 @@
+$colors: (
+  "lime-subtle": #d3f1a7,
+  "lime-subtle-hovered": #b3df72,
+  "lime": #94c748,
+  "lime-hovered": #b3df72,
+  "lime-bold": #5b7f24,
+  "lime-bold-hovered": #4c6b1f,
+  "red-subtle": #ffd5d2,
+  "red-subtle-hovered": #fd9891,
+  "red": #f87168,
+  "red-hovered": #fd9891,
+  "red-bold": #c9372c,
+  "red-bold-hovered": #ae2e24,
+  "orange-subtle": #fedec8,
+  "orange-subtle-hovered": #fec195,
+  "orange": #fea362,
+  "orange-hovered": #fec195,
+  "orange-bold": #c25100,
+  "orange-bold-hovered": #a54800,
+  "yellow-subtle": #f8e6a0,
+  "yellow-subtle-hovered": #f5cd47,
+  "yellow": #f5cd47,
+  "yellow-hovered": #e2b203,
+  "yellow-bold": #946f00,
+  "yellow-bold-hovered": #7f5f01,
+  "green-subtle": #baf3db,
+  "green-subtle-hovered": #7ee2b8,
+  "green": #4bce97,
+  "green-hovered": #7ee2b8,
+  "green-bold": #1f845a,
+  "green-bold-hovered": #216e4e,
+  "sky-subtle": #c6edfb,
+  "sky-subtle-hovered": #9dd9ee,
+  "sky": #6cc3e0,
+  "sky-hovered": #9dd9ee,
+  "sky-bold": #227d9b,
+  "sky-bold-hovered": #206a83,
+  "blue-subtle": #cce0ff,
+  "blue-subtle-hovered": #85b8ff,
+  "blue": #579dff,
+  "blue-hovered": #85b8ff,
+  "blue-bold": #0c66e4,
+  "blue-bold-hovered": #0055cc,
+  "purple-subtle": #dfd8fd,
+  "purple-subtle-hovered": #b8acf6,
+  "purple": #9f8fef,
+  "purple-hovered": #b8acf6,
+  "purple-bold": #6e5dc6,
+  "purple-bold-hovered": #5e4db2,
+  "pink-subtle": #fdd0ec,
+  "pink-subtle-hovered": #f797d2,
+  "pink": #e774bb,
+  "pink-hovered": #f797d2,
+  "pink-bold": #ae4787,
+  "pink-bold-hovered": #943d73,
+  "black-subtle": #dcdfe4,
+  "black-subtle-hovered": #b3b9c4,
+  "black": #8590a2,
+  "black-hovered": #b3b9c4,
+  "black-bold": #626f86,
+  "black-bold-hovered": #44546f
+);
+
+
+@mixin colorSet($colorName) {
+  background-color: map-get($colors, $colorName);
+
+  &:hover {
+    background-color: map-get($colors, #{$colorName}-hovered);
+  }
+}
+
+// normal
+.base-bg-color-lime {
+  @include colorSet("lime");
+}
+.base-bg-color-red {
+  @include colorSet("red");
+}
+.base-bg-color-orange {
+  @include colorSet("orange");
+}
+.base-bg-color-yellow {
+  @include colorSet("yellow");
+}
+.base-bg-color-green {
+  @include colorSet("green");
+}
+.base-bg-color-sky {
+  @include colorSet("sky");
+}
+.base-bg-color-blue {
+  @include colorSet("blue");
+}
+.base-bg-color-purple {
+  @include colorSet("purple");
+}
+.base-bg-color-pink {
+  @include colorSet("pink");
+}
+.base-bg-color-black {
+  @include colorSet("black");
+}
+
+// subtle
+.base-bg-color-lime-subtle {
+  @include colorSet("lime-subtle");
+}
+.base-bg-color-red-subtle {
+  @include colorSet("red-subtle");
+}
+.base-bg-color-orange-subtle {
+  @include colorSet("orange-subtle");
+}
+.base-bg-color-yellow-subtle {
+  @include colorSet("yellow-subtle");
+}
+.base-bg-color-green-subtle {
+  @include colorSet("green-subtle");
+}
+.base-bg-color-sky-subtle {
+  @include colorSet("sky-subtle");
+}
+.base-bg-color-blue-subtle {
+  @include colorSet("blue-subtle");
+}
+.base-bg-color-purple-subtle {
+  @include colorSet("purple-subtle");
+}
+.base-bg-color-pink-subtle {
+  @include colorSet("pink-subtle");
+}
+.base-bg-color-black-subtle {
+  @include colorSet("black-subtle");
+}
+
+// Bold
+.base-bg-color-lime-bold {
+  @include colorSet("lime-bold");
+}
+.base-bg-color-red-bold {
+  @include colorSet("red-bold");
+}
+.base-bg-color-orange-bold {
+  @include colorSet("orange-bold");
+}
+.base-bg-color-yellow-bold {
+  @include colorSet("yellow-bold");
+}
+.base-bg-color-green-bold {
+  @include colorSet("green-bold");
+}
+.base-bg-color-sky-bold {
+  @include colorSet("sky-bold");
+}
+.base-bg-color-blue-bold {
+  @include colorSet("blue-bold");
+}
+.base-bg-color-purple-bold {
+  @include colorSet("purple-bold");
+}
+.base-bg-color-pink-bold {
+  @include colorSet("pink-bold");
+}
+.base-bg-color-black-bold {
+  @include colorSet("black-bold");
+}
