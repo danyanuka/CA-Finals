@@ -30,7 +30,7 @@
     }
 
     h2 {
-        @include fontProps(16px, 600, 20px);
+        @include fontProps(16px, 600, 32px);
     }
 
     h3 {
@@ -92,6 +92,11 @@
         grid-area: a;
         padding: 0px 52px 8px 0px;
         position: relative;
+
+        & .icon-task-header {
+            margin-top: -2px;
+
+        }
 
         & textarea {
             @include fontProps(20px, 600, 24px);
@@ -179,6 +184,12 @@
 .td {
     &-section {
         margin-left: 40px;
+        position: relative;
+        h2 {
+
+            padding: 8px 0px 8px 0px;
+            margin: 0px 0px 4px 0px;
+        }
     }
 
     &-section-icon {
