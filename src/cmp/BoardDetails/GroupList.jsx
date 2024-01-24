@@ -11,7 +11,7 @@ import { groupService } from '../../services/group.service'
 import { boardActions } from "../../store/actions/board.actions";
 
 
-export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
+export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateTask }) {
     const groups = board?.groups
     const [isAdding, setIsAdding] = useState(false)
     const [groupTitle, setGroupTitle] = useState('')
@@ -116,7 +116,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup }) {
                             {
                                 groups?.map((group, index) =>
                                     <li className='group-item' key={group.id} >
-                                        <GroupPreview groups={groups} index={index} group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} />
+                                        <GroupPreview groups={groups} index={index} group={group} onAddTask={onAddTask} onEditGroup={onEditGroup} onUpdateTask={onUpdateTask} />
                                     </li>)
                             }
                             {provided.placeholder}

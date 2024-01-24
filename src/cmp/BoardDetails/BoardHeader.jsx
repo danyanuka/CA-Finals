@@ -4,12 +4,15 @@ import { UserAvatar } from "../UserAvatar";
 import { utilService } from "../../services/util.service";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { boardActions } from "../../store/actions/board.actions";
 
 
 export function BoardHeader() {
+    const board = useSelector(storeState => storeState.boardModule.curBoard)
     const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
     const [headerStyleProps, setHeaderStyleProps] = useState();
-    const board = useSelector(storeState => storeState.boardModule.curBoard)
+    const [isStarr, setIsStarr] = useState(board?.isStarred);
+
     const location = useLocation();
     const pathname = location.pathname;
 
@@ -51,6 +54,22 @@ export function BoardHeader() {
         setHeaderStyleProps(headerStyles);
     }
 
+    async function onStarBoard(ev) {
+        try {
+            ev.preventDefault();
+            setIsStarr(!isStarr)
+            // when working locally
+            const updatedBoard = { ...board, isStarred: !board.isStarred };
+
+            // when working with mongo
+            // const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
+
+            await boardActions.saveBoard(updatedBoard);
+        } catch (err) {
+            console.log("Issues removing board", err);
+        }
+    }
+
 
 
     return (
@@ -61,8 +80,13 @@ export function BoardHeader() {
                     {board?.title}
                 </div>
 
-                <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" >
-                    <i className="icon icon-star"></i>
+                <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
+                    {isStarr ? (
+                        <i className="icon icon-star-starred"></i>
+
+                    ) : (
+                        <i className="icon icon-star"></i>
+                    )}
                 </div>
 
                 <div className="board-header-btn board-btn" title="Board" >

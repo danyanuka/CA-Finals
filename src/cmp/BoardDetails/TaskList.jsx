@@ -12,7 +12,7 @@ import { TaskPreview } from "./TaskPreview"
 import { groupService } from "../../services/group.service"
 
 
-export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
+export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdateTask }) {
     const [isAdding, setIsAdding] = useState(false)
     const [isAddingFromModal, setIsAddingFromModal] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
@@ -114,47 +114,46 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup }) {
                     {(provided) => (
                         <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
                             {tasks?.map((task, index) => (
-                                <TaskPreview key={task.id} task={task} index={index} />
+                                <TaskPreview key={task.id} task={task} index={index} groupId={group.id} onUpdateTask={onUpdateTask} />
                             ))}
                             {provided.placeholder}
                         </li>
                     )}
                 </Droppable>
 
+                {!isAdding ? (
+                    <div className="group-footer">
 
-            </div>
+                        <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
+                            <li className='icon-add-task'></li>
+                            <div >Add a task</div>
+                        </button>
+                        <i className="transparent-btn-black icon-template" title="create from template"></i>
 
-            {!isAdding ? (
-                <div className="group-footer">
-                    <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
-                        <li className='icon-add-task'></li>
-                        <div >Add a task</div>
-                    </button>
-                    <i className="transparent-btn-black icon-template" title="create from template"></i>
-                </div>
-            ) : (
-
-                <form onSubmit={handleAddTask}>
-                    <li className="task-preview">
-                        <input className="task-title-input"
-                            type="text"
-                            name='taskTitle'
-                            value={taskTitle}
-                            onChange={handleChangeTaskTitle}
-                            placeholder='Enter a title for this task...'
-                            autoFocus
-                            onBlur={(ev) => handleOnBlur(ev)}
-                        />
-
-                    </li>
-                    <div className="add-task-buttons">
-                        <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
-                        <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
                     </div>
-                </form>
+                ) : (
 
-            )}
+                    <form className="add-task-form" onSubmit={handleAddTask}>
+                        <li className="task-preview input-add-task">
+                            <input className="task-title-input"
+                                type="text"
+                                name='taskTitle'
+                                value={taskTitle}
+                                onChange={handleChangeTaskTitle}
+                                placeholder='Enter a title for this task...'
+                                autoFocus
+                                onBlur={(ev) => handleOnBlur(ev)}
+                            />
 
+                        </li>
+                        <div className="add-task-buttons">
+                            <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
+                            <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
+                        </div>
+                    </form>
+
+                )}
+            </div>
         </ul>
     )
 }

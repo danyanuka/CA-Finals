@@ -2,7 +2,7 @@ import { TaskList } from "./TaskList"
 import { Draggable } from 'react-beautiful-dnd';
 
 
-export function GroupPreview({ index, group, onAddTask, onEditGroup }) {
+export function GroupPreview({ index, group, onAddTask, onEditGroup, onUpdateTask }) {
 
     return (
         <Draggable draggableId={group.id} index={index}>
@@ -13,7 +13,7 @@ export function GroupPreview({ index, group, onAddTask, onEditGroup }) {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}>
 
-                    <TaskList index={index} key={group.id} group={group} tasks={group.tasks} onAddTask={onAddTask} onEditGroup={onEditGroup} />
+                    <TaskList index={index} key={group.id} group={group} tasks={group.tasks} onAddTask={onAddTask} onEditGroup={onEditGroup} onUpdateTask={onUpdateTask} />
 
                     {provided.placeholder}
                 </div>

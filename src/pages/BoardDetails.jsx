@@ -41,6 +41,11 @@ export function BoardDetails() {
     return groupService.updateGroup(newGroup, board);
   }
 
+  async function onUpdateTask(newTask, boardId) {
+    console.log(newTask);
+    return groupService.updateTask(newTask, boardId, board);
+  }
+
   return (
     <div className="home" style={board?.style}>
       <AppDynHeader />
@@ -52,6 +57,7 @@ export function BoardDetails() {
             onAddGroup={onAddGroup}
             onAddTask={onAddTask}
             onEditGroup={onEditGroup}
+            onUpdateTask={onUpdateTask}
           />
         )}
         <Outlet />

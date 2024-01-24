@@ -33,6 +33,7 @@ async function updateTask(taskToSave, groupId, board) {
     const groupInx = board.groups.findIndex(group => group.id === groupId)
     const taskInx = board.groups[groupInx].tasks.findIndex(task => task.id === taskToSave.id)
     board.groups[groupInx].tasks.splice(taskInx, 1, taskToSave)
+    console.log(board.groups);
     return boardActions.saveBoard(board)
 }
 
