@@ -74,9 +74,8 @@ export function TaskPreview({ task, index }) {
                   return (
                     <div
                       key={label.id}
-                      className="label"
+                      className={`label base-bg-color-${label.color}`}
                       title={`title: ${label.title}`}
-                      style={{ backgroundColor: label.color }}
                     ></div>
                   );
                 })}
