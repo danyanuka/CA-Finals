@@ -18,6 +18,12 @@ export function CreateBoardModal() {
   }
 
   async function onCreateBoard() {
+    // if (!newBoard.style) {
+    //   setNewBoard((prev) => ({
+    //     ...prev,
+    //     style: { backgroundImage: "url(public/grad-bg-images/light-blue.svg)" },
+    //   }));
+    // }
     const board = await boardActions.saveBoard(newBoard);
     console.log(board);
     dispatch(closeModal());
@@ -31,7 +37,11 @@ export function CreateBoardModal() {
       <div className="create-board-modal">
         <div className="board-demo-container">
           <div
-            style={newBoard.style || { backgroundColor: "rgb(0, 121, 191)" }}
+            style={
+              newBoard.style || {
+                backgroundImage: "url(public/grad-bg-images/light-blue.svg)",
+              }
+            }
             className="bg-board-demo"
           >
             <img

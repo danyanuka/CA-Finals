@@ -57,6 +57,10 @@ async function save(board) {
   const dynMethod = board._id ? "put" : "post";
   const dynPath = board._id ? BASE_URL + board._id : BASE_URL;
   try {
+    if (!board.style)
+      board.style = {
+        backgroundImage: "url(public/grad-bg-images/light-blue.svg)",
+      };
     const { data: savedBoard } = await axios[dynMethod](dynPath, board);
     return savedBoard;
   } catch (err) {

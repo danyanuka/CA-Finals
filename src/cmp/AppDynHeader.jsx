@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 
 export function AppDynHeader() {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
-  const boards = useSelector((storeState) => storeState.boardModule.boards);
   const user = useSelector((storeState) => storeState.userModule.user);
   const [headerStyleProps, setHeaderStyleProps] = useState();
   const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
@@ -65,10 +64,10 @@ export function AppDynHeader() {
     dispatch(openModal("accountMenu", ev.target));
   }
 
-  function onCreateBoard(ev) {
-    dispatch(openModal("createBoard", ev.target));
+  function openModalDropdown(ev, isStarred) {
+    dispatch(openModal("BoardsDropdown", ev.target, isStarred));
   }
-  console.log(headerStyleProps);
+
   return (
     <div style={headerStyleProps} className="app-header-container">
       <div className="app-header-content ">
@@ -76,12 +75,20 @@ export function AppDynHeader() {
           <div className={setLogoColor()}></div>
         </Link>
         {/* All Boards */}
-        <div className="header-dropdown transparent-btn-black" title="Starred">
+        <div
+          onClick={openModalDropdown}
+          className="header-dropdown transparent-btn-black"
+          title="Starred"
+        >
           All Boards
           <i className="icon-show-more-dark"></i>
         </div>
         {/* Starred */}
-        <div className="header-dropdown transparent-btn-black" title="Starred">
+        <div
+          onClick={(ev) => openModalDropdown(ev, "starred")}
+          className="header-dropdown transparent-btn-black"
+          title="Starred"
+        >
           Starred
           <i className="icon-show-more-dark"></i>
         </div>
@@ -89,7 +96,7 @@ export function AppDynHeader() {
         {/* Create */}
         <div className="create-button-container">
           <div
-            onClick={onCreateBoard}
+            onClick={(ev) => openModalDropdown("createBoard", ev)}
             className="header-create-button transparent-btn-black "
             to=""
             title="Create"

@@ -50,7 +50,7 @@ export function BackgroundPicker({ setNewBoard }) {
           {constService.gradColorPics.slice(0, 5).map((color) => (
             <li key={color.id}>
               <button
-                className="bg-color-thumb"
+                className="bg-photo-thumb"
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
