@@ -18,17 +18,16 @@ export function BoardPreview({ board }) {
     try {
       ev.preventDefault();
       // when working locally
-      const updatedBoard = { ...board, isStarred: !board.isStarred };
+      // const updatedBoard = { ...board, isStarred: !board.isStarred };
 
       // when working with mongo
-      // const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
+      const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
 
       await boardActions.saveBoard(updatedBoard);
     } catch (err) {
-      console.log("Issues removing board", err);
+      console.log("Issues updating board", err);
     }
   }
-
   return (
     <Link className="link-to-board" to={`/board/${board._id}`}>
       <div className="board-preview-content">
@@ -37,14 +36,6 @@ export function BoardPreview({ board }) {
           style={board.isStarred ? { right: "1%", opacity: "100%" } : {}}
           className="board-tile-options"
         >
-          {/* Temporary btn */}
-          <button
-            style={{ border: "none", marginRight: "5px" }}
-            onClick={(ev) => onRemoveBoard(ev)}
-          >
-            x
-          </button>
-
           {board.isStarred === false ? (
             <i onClick={(ev) => onStarBoard(ev)} className="icon-star" />
           ) : (
@@ -64,3 +55,10 @@ export function BoardPreview({ board }) {
     </Link>
   );
 }
+//  {/* Temporary btn */}
+//  <button
+//  style={{ border: "none", marginRight: "5px" }}
+//  onClick={(ev) => onRemoveBoard(ev)}
+// >
+//  x
+// </button>

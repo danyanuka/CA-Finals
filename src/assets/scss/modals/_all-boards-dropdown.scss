@@ -17,8 +17,9 @@
         background-color: $clr-bg-neutral;
       }
       .dropdown-li {
+        position: relative;
+        width: 100%;
         display: flex;
-        justify-content: center;
         gap: 8px;
         flex-direction: row;
         height: 32px;
@@ -42,6 +43,25 @@
           background-size: cover;
           background-position: center;
           display: flex;
+        }
+        .board-tile-options {
+          display: flex;
+          position: absolute;
+          top: 26%;
+          left: 90%;
+          opacity: 0%;
+          transition: opacity 0.15s;
+        }
+        &:hover {
+          .board-tile-options {
+            opacity: 100%;
+            i {
+              &:hover {
+                height: 18px;
+                width: 18px;
+              }
+            }
+          }
         }
       }
     }

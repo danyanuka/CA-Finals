@@ -134,7 +134,6 @@
 
 //BoardHeader icons
 .icon-star {
-  z-index: 999;
   content: url("/public/icons/star.svg");
 }
 
@@ -148,6 +147,10 @@
   @include iconCustomColor(rgb(226, 178, 3), "/public/icons/star.svg");
   width: 15px;
   height: 15px;
+}
+
+.icon-star-dark {
+  content: url("/public/icons/star-dark.svg");
 }
 
 .icon-members {

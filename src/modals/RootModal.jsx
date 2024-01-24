@@ -18,8 +18,7 @@ import { MdlTaskMove } from "./TaskDetails/MdlTaskMove";
 import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
 import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
 import { useOnClickOutside } from "../Hooks/useOnClickOutisde";
-import { AllBoardsDropdown } from "./HeaderDropdowns/AllBoardsDropdown";
-import { StarredBoardsDropdown } from "./HeaderDropdowns/StarredBoardsDropdown";
+import { BoardsDropdown } from "./HeaderDropdowns/BoardsDropdown";
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
@@ -90,7 +89,7 @@ function DynModalType({ modalType, modalProps }) {
     case "taskShare":
       return <MdlTaskShare />;
     case "BoardsDropdown":
-      return <AllBoardsDropdown starred={modalProps} />;
+      return <BoardsDropdown isStarred={modalProps} />;
 
     // More type cases below
 

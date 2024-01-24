@@ -59,6 +59,14 @@ export function AppDynHeader() {
         : "app-header-logo-container";
     }
   }
+  function dynIconClass() {
+    if (pathname === "/board") return "icon-show-more-dark";
+    else {
+      return utilService.isDarkColor(avgColorBg, 80)
+        ? "icon-show-more"
+        : "icon-show-more-dark";
+    }
+  }
 
   function handleAccountClick(ev) {
     dispatch(openModal("accountMenu", ev.target));
@@ -81,7 +89,7 @@ export function AppDynHeader() {
           title="Starred"
         >
           All Boards
-          <i className="icon-show-more-dark"></i>
+          <i className={dynIconClass()}></i>
         </div>
         {/* Starred */}
         <div
@@ -90,7 +98,7 @@ export function AppDynHeader() {
           title="Starred"
         >
           Starred
-          <i className="icon-show-more-dark"></i>
+          <i className={dynIconClass()}></i>
         </div>
 
         {/* Create */}
