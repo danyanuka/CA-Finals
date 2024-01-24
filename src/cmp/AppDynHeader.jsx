@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 
 export function AppDynHeader() {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
+  const boards = useSelector((storeState) => storeState.boardModule.boards);
   const user = useSelector((storeState) => storeState.userModule.user);
   const [headerStyleProps, setHeaderStyleProps] = useState();
   const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
@@ -71,10 +72,32 @@ export function AppDynHeader() {
   return (
     <div style={headerStyleProps} className="app-header-container">
       <div className="app-header-content ">
-        {/* <p>Hey</p> */}
         <Link className="app-header-logo-link transparent-btn-black" to="/">
           <div className={setLogoColor()}></div>
         </Link>
+        {/* All Boards */}
+        <div className="header-dropdown transparent-btn-black" title="Starred">
+          All Boards
+          <i className="icon-show-more-dark"></i>
+        </div>
+        {/* Starred */}
+        <div className="header-dropdown transparent-btn-black" title="Starred">
+          Starred
+          <i className="icon-show-more-dark"></i>
+        </div>
+
+        {/* Create */}
+        <div className="create-button-container">
+          <div
+            onClick={onCreateBoard}
+            className="header-create-button transparent-btn-black "
+            to=""
+            title="Create"
+          >
+            Create
+          </div>
+        </div>
+        {/* User Avatar */}
         {user ? (
           <div className="app-header-avatar" onClick={handleAccountClick}>
             <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
@@ -82,14 +105,6 @@ export function AppDynHeader() {
         ) : (
           <i className="icon-account account-btn" title="Account"></i>
         )}
-        <div
-          onClick={onCreateBoard}
-          className="header-create-button"
-          to=""
-          title="Create"
-        >
-          Create
-        </div>
       </div>
     </div>
   );

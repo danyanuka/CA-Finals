@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { closeModal } from "/src/store/actions/app.actions";
 
 import { utilService } from "/src/services/util.service.js";
 
@@ -15,10 +17,11 @@ import { MdlTaskCover } from "./TaskDetails/MdlTaskCover";
 import { MdlTaskMove } from "./TaskDetails/MdlTaskMove";
 import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
 import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
+import { useOnClickOutside } from "../Hooks/useOnClickOutisde";
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
-
+  const dispatch = useDispatch();
   const modalRef = useRef();
 
   const {
@@ -30,6 +33,10 @@ export function RootModal() {
       setModalPos();
     }
   }, [target]);
+
+  useOnClickOutside(modalRef, () => {
+    dispatch(closeModal());
+  });
 
   function getModalSize() {
     const elementRect = modalRef.current.getBoundingClientRect();

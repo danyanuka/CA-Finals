@@ -3,7 +3,7 @@
 }
 
 .icon-logo {
-  content: url('/public/icons/trello-blue.svg');
+  content: url("/public/icons/trello-blue.svg");
   width: 40px;
   height: 40px;
 }
@@ -101,6 +101,10 @@
 //AppHeder Icons
 .icon-show-more {
   content: url("/public/icons/show-more.svg");
+}
+
+.icon-show-more-dark {
+  content: url("/public/icons/show-more-dark.svg");
 }
 
 .icon-add {

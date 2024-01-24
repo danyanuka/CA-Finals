@@ -9,6 +9,7 @@
     display: flex;
     padding: 8px;
     border-bottom: 0.8px solid rgba(23, 43, 77, 0.16);
+    @include fontProps(14px, 500, 32px);
 
     .app-header-logo-link {
       display: flex;
@@ -16,6 +17,7 @@
       position: relative;
       padding: 0 8px;
       height: 32px;
+      margin-right: 5px;
 
       .app-header-logo-container,
       .app-header-logo-container-white {
@@ -59,6 +61,7 @@
       }
     }
     .app-header-avatar {
+      padding: 0 6px;
       margin-left: auto;
       .user-avatar {
         height: 30px;
@@ -67,24 +70,24 @@
         border: none;
       }
     }
-
-    .link-to-boards {
-      height: 60px;
-      grid-area: 1 / 2;
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      background-color: rgb(23, 43, 77);
-      color: white;
-      @include transitionAction(background-color, rgb(80, 95, 121), 50ms);
-
-      .nav-link {
-        text-decoration: none;
-        padding: 8px;
-        padding-left: 24px;
-        padding-right: 24px;
-        @include fontProps(19.2px, 400, 28.8px);
+    .create-button-container {
+      background-color: hsla(0, 0%, 0%, 0.16);
+      border-radius: 3px;
+      margin-left: 10px;
+      .header-create-button {
+        cursor: pointer;
+        width: 100%;
+        padding: 0 12px;
       }
+    }
+
+    .header-dropdown {
+      cursor: pointer;
+      display: flex;
+      gap: 5px;
+      padding-right: 12px;
+      padding-left: 10px;
+      margin-right: 4px;
     }
   }
 }
