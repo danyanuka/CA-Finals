@@ -23,13 +23,52 @@ const gradColorPics = [
 const defaultAvatarColor = [
   "#5b7f24",
   "#c9372c",
+  "#c25100",
+  "#946f00",
   "#1f845a",
+  "#227d9b",
   "#0c66e4",
   "#6e5dc6",
+  "#ae4787",
+  "#626f86"
+];
+
+const labelColors = [
+  "lime-subtle",
+  "lime",
+  "lime-bold",
+  "red-subtle",
+  "red",
+  "red-bold",
+  "orange-subtle",
+  "orange",
+  "orange-bold",
+  "yellow-subtle",
+  "yellow",
+  "yellow-bold",
+  "green-subtle",
+  "green",
+  "green-bold",
+  "sky-subtle",
+  "sky",
+  "sky-bold",
+  "blue-subtle",
+  "blue",
+  "blue-bold",
+  "purple-subtle",
+  "purple",
+  "purple-bold",
+  "pink-subtle",
+  "pink",
+  "pink-bold",
+  "black-subtle",
+  "black",
+  "black-bold",
 ];
 
 export const constService = {
   colors,
   gradColorPics,
   defaultAvatarColor,
+  labelColors
 };

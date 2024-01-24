@@ -28,7 +28,6 @@ export function TaskDetailsBriefDates({ task, cbOnUpdateTask, cbOpenTaskModal })
     }
 
     function getStatusClassName(status) {
-        // TODO - meitar ////////////////////////////////////////////////
         switch (status) {
             case "Complete":
                 return "status-complete"
@@ -48,9 +47,8 @@ export function TaskDetailsBriefDates({ task, cbOnUpdateTask, cbOpenTaskModal })
         } else {
             newIsDone = true
         }
-        const newTask = structuredClone(task)
-        newTask.isDone = newIsDone
-        cbOnUpdateTask(newTask)
+        task.isDone = newIsDone
+        cbOnUpdateTask(task)
     }
 
     const statusString = getStatusString(task)
