@@ -7,12 +7,11 @@ import { boardActions } from "../../store/actions/board.actions";
 export function BoardsDropdown({ isStarred }) {
   const dispatch = useDispatch();
   const boards = useSelector((storeState) => storeState.boardModule.boards);
-
+  const [hoveredStar, setHoveredStar] = useState(null);
   const dynBoardsList =
     isStarred === "starred"
       ? boards.filter((board) => board.isStarred)
       : boards;
-  const [starIsHovered, setStarIsHovered] = useState(false);
 
   async function onStarBoard(ev, board) {
     try {
@@ -28,7 +27,7 @@ export function BoardsDropdown({ isStarred }) {
   return (
     <div className="header-dropdown-container">
       <ul className="dropdown-board-list">
-        {dynBoardsList.map((board) => (
+        {dynBoardsList.map((board, index) => (
           <Link
             key={board._id}
             className="dropdown-li-link"
@@ -42,6 +41,7 @@ export function BoardsDropdown({ isStarred }) {
                 <p>{`${board?.createdBy?.fullname}'s Board`}</p>
               </div>
               {/* Stars */}
+
               <div
                 style={board.isStarred ? { opacity: "100%" } : {}}
                 className="board-tile-options"
@@ -53,11 +53,11 @@ export function BoardsDropdown({ isStarred }) {
                   />
                 ) : (
                   <i
-                    onMouseEnter={() => setStarIsHovered(true)}
-                    onMouseLeave={() => setStarIsHovered(false)}
+                    onMouseEnter={() => setHoveredStar(index)}
+                    onMouseLeave={() => setHoveredStar(null)}
                     onClick={(ev) => onStarBoard(ev, board)}
                     className={
-                      starIsHovered
+                      hoveredStar === index
                         ? "icon-star-starred-hovered"
                         : "icon-star-starred"
                     }
