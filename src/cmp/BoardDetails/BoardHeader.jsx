@@ -75,6 +75,7 @@ export function BoardHeader() {
     return (
         <div className="board-header" style={headerStyleProps}>
 
+            <div className="darken"> </div>
             <div className="board-header-section">
                 <div className="board-name" >
                     {board?.title}
@@ -118,6 +119,7 @@ export function BoardHeader() {
                     <span>Share</span>
                 </div>
             </div>
+
         </div>
     )
 }

@@ -10,6 +10,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const [isComplete, setIsComplete] = useState(task.isComplete ? true : false);
 
   const labels = utilService.getLabels(task.labelIds, board);
+  console.log(labels);
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
   const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
@@ -148,7 +149,11 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
               {task.dueDate && !isComplete && (
                 <div className={`due-date ${timeStatus}`}>
                   <i className={`icon-clock-alert-${timeStatus}`} ></i>
-                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={(ev) => handleIsComplete(ev)} />
+                  <label className="checkbox-due-date control control-checkbox" onChange={(ev) => handleIsComplete(ev)}>
+                    <input type="checkbox" />
+                    <div className="control_indicator"></div>
+                  </label>
+                  {/* <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={(ev) => handleIsComplete(ev)} /> */}
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
