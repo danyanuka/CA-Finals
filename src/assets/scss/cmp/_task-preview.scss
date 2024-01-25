@@ -78,6 +78,26 @@
                 display: none;
             }
 
+            p {
+                width: 11px;
+                height: 11px;
+                border: 1.5px solid $clr-text-black;
+                margin: 2px;
+            }
+
+            .past {
+                border: 1.5px solid $clr-text-accent-red;
+            }
+
+            .today,
+            .yesterday {
+                border: 1.5px solid white;
+            }
+
+            .tomorrow {
+                border: 1.5px solid $clr-text-black;
+            }
+
             &:hover {
                 .checkbox-due-date {
                     display: block;

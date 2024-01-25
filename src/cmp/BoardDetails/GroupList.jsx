@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 //cmps
@@ -9,12 +9,56 @@ import { groupService } from '../../services/group.service'
 
 //store
 import { boardActions } from "../../store/actions/board.actions";
+import { utilService } from '../../services/util.service';
 
 
 export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateTask }) {
     const groups = board?.groups
     const [isAdding, setIsAdding] = useState(false)
     const [groupTitle, setGroupTitle] = useState('')
+    const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
+    const [isDarkColor, setIsDarkColor] = useState(utilService.isDarkColor(avgColorBg, 80))
+    const [styleDiv, setStyleDiv] = useState();
+    const [styleButton, setStyleButton] = useState();
+
+
+    useEffect(() => {
+        async function setColorAsync() {
+            const avgColor = await getBoardAvgColor(board);
+            setAvgColorBg(avgColor);
+        }
+        setColorAsync();
+    }, [board]);
+
+    useEffect(() => {
+        setStyles();
+    }, [avgColorBg]);
+
+    async function getBoardAvgColor(board) {
+        if (board?.style?.backgroundImage) {
+            const imgPath = board.style.backgroundImage;
+            const cleanImgUrl = utilService.getCleanURL(imgPath);
+            return utilService.getImgAvgColor(cleanImgUrl);
+        } else if (board?.style?.backgroundColor) {
+            const bgColor = board.style.backgroundColor;
+            return new Promise((resolve, reject) => resolve(bgColor));
+        } else {
+            return new Promise((resolve, reject) => resolve("#FFFFFF"));
+        }
+    }
+
+    function setStyles() {
+        let buttonStyle = {};
+        let divStyle = {};
+        buttonStyle.backgroundColor = avgColorBg + "c1";
+        divStyle.color = utilService.isDarkColor(avgColorBg, 80)
+            ? "#FFFFFF"
+            : "#172b4d";
+
+        setStyleDiv(divStyle);
+        setStyleButton(buttonStyle);
+        setIsDarkColor(utilService.isDarkColor(avgColorBg, 80))
+    }
 
     function handleIsAdding() {
         setIsAdding(!isAdding)
@@ -104,7 +148,6 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
         onEditGroup(newFinish)
     }
 
-
     return (
 
         <ul className="group-list-ul">
@@ -129,17 +172,15 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
             <li className="group-item">
                 {!isAdding ? (
                     <>
-                        {board?.style.backgroundImage === "" ? (
-                            <button onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
-                                <li className='icon-add-non-style'></li>
-                                <div>Add another group</div>
-                            </button>) : (
-                            <button onClick={handleIsAdding} className='action add-group-button-styled transparent-btn-black'>
-
+                        <button style={styleButton} onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
+                            {!isDarkColor ? (
+                                <li className='icon-add-task'></li>
+                            ) : (
                                 <li className='icon-add-group'></li>
-                                <div>Add another group</div>
-                            </button>
-                        )}
+                            )}
+                            <div style={styleDiv}>Add another group</div>
+                        </button>
+
                     </>
 
                 ) : (

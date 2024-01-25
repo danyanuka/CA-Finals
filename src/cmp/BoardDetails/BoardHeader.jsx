@@ -10,6 +10,7 @@ import { boardActions } from "../../store/actions/board.actions";
 export function BoardHeader() {
     const board = useSelector(storeState => storeState.boardModule.curBoard)
     const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
+    const [isDarkColor, setIsDarkColor] = useState(utilService.isDarkColor(avgColorBg, 80))
     const [headerStyleProps, setHeaderStyleProps] = useState();
     const [isStarr, setIsStarr] = useState(board?.isStarred);
 
@@ -45,13 +46,13 @@ export function BoardHeader() {
     function setHeaderStyles() {
         if (pathname === "/board") return;
         let headerStyles = {};
-        console.log("meitar:", avgColorBg)
-        headerStyles.backgroundColor = avgColorBg + "c0";  // edit to watever value you want
+        headerStyles.backgroundColor = avgColorBg + "c1";
         headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
             ? "#FFFFFF"
-            : "#000000";
+            : "#172b4d";
 
         setHeaderStyleProps(headerStyles);
+        setIsDarkColor(utilService.isDarkColor(avgColorBg, 80))
     }
 
     async function onStarBoard(ev) {
@@ -82,17 +83,17 @@ export function BoardHeader() {
                     </div>
 
                     <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
-                        {isStarr ? (
+                        {isStarr &&
                             <i className="icon icon-star-starred"></i>
+                        }
+                        {!isStarr && isDarkColor &&
+                            <i className="icon icon-star"></i>}
 
-                        ) : (
-                            <i className="icon icon-star"></i>
-                        )}
-                    </div>
+                        {!isStarr && !isDarkColor &&
+                            <i className="icon icon-star-black"></i>}
 
-                    <div className="board-header-btn board-btn" title="Board" >
-                        <i className="icon-board"></i>
-                        Board
+
+
                     </div>
 
                 </div>
@@ -100,7 +101,11 @@ export function BoardHeader() {
                 <div className="board-header-section">
 
                     <div className="board-header-btn" title="Filter cards" >
-                        <i className="icon icon-filter"></i>
+                        {isDarkColor ? (
+                            <i className="icon icon-filter"></i>
+                        ) : (
+                            <i className="icon icon-filter-black"></i>
+                        )}
                         Filters
                     </div>
 
