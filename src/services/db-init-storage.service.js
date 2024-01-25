@@ -150,7 +150,7 @@ function createBoards(overwrite) {
                 id: "c104",
                 title: "Help me",
                 isDone: true,
-                description: "description",
+                description: null,
                 comments: [
                   {
                     id: "ZdPnm",
@@ -289,7 +289,7 @@ function createBoards(overwrite) {
                 title: "Help me",
                 status: "in-progress",
                 priority: "high",
-                description: "description",
+                description: null,
                 comments: [
                   {
                     id: "ZdPnm",
@@ -450,7 +450,7 @@ function createBoards(overwrite) {
                 id: "c104",
                 title: "Help me",
                 isDone: true,
-                description: "description",
+                description: null,
                 comments: [
                   {
                     id: "ZdPnm",

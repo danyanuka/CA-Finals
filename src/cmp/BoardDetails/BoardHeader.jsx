@@ -45,7 +45,6 @@ export function BoardHeader() {
     function setHeaderStyles() {
         if (pathname === "/board") return;
         let headerStyles = {};
-        console.log("meitar:", avgColorBg)
         headerStyles.backgroundColor = avgColorBg + "c0";  // edit to watever value you want
         headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
             ? "#FFFFFF"
