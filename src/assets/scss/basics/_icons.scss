@@ -8,6 +8,15 @@
   height: 40px;
 }
 
+// Text
+.icon-text-bold {
+  content: url("/public/icons/text-bold.svg");
+}
+
+.icon-text-italic {
+  content: url("/public/icons/text-italic.svg");
+}
+
 // TaskDetails
 .icon-close-grayblue {
   @include iconCustomColor(#42526e, "/public/icons/close.svg");

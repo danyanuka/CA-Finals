@@ -170,3 +170,12 @@ scrollable-square-white
     );
   }
 }
+
+.basic-btn-blue {
+  @include btnColors(
+    $clr-bg-blue-bold-hovered,
+    #09326c,
+    $clr-bg-blue-bold
+  );
+}
+

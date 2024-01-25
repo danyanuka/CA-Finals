@@ -10,7 +10,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const [isComplete, setIsComplete] = useState(task.isComplete ? true : false);
 
   const labels = utilService.getLabels(task.labelIds, board);
-  console.log(labels);
+  // console.log(labels);
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
   const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
