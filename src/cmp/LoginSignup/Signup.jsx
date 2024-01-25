@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 //Services
-import { userService } from '../../services/user.service.js'
+// import { userService } from '../../services/user.service.js'
 import { Header } from "./Header";
 import { ImgUploader } from './ImgUploader.jsx'
 
 export function Signup({ onSignup, email }) {
-    const [credentials, setCredentials] = useState({ ...userService.getEmptyUser(), email })
+    const [credentials, setCredentials] = useState("")
 
     function handleChange(ev) {
         const field = ev.target.name
@@ -20,7 +20,7 @@ export function Signup({ onSignup, email }) {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname | !credentials.email) return
         onSignup(credentials)
-        setCredentials(userService.getEmptyUser())
+        setCredentials("")
     }
 
     function onUploaded(imgUrl) {

@@ -1,5 +1,5 @@
-import { storageService } from './async-storage.service'
-import { utilService } from './util.service'
+import { storageService } from '../async-storage.service'
+import { utilService } from '../util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const STORAGE_KEY_USER_DB = 'users'
@@ -54,7 +54,6 @@ async function login(userCred) {
 async function signup(userCred) {
     const fullnameTitled = utilService.toTitleCase(userCred.fullname)
     userCred.fullname = fullnameTitled
-    // if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('users', userCred)
     return saveLocalUser(user)
 }
