@@ -1,11 +1,33 @@
 import { useEffect, useState } from "react";
-import { Editor, EditorState } from 'draft-js';
+
+import { RichTextBox } from "/src/cmp/RichTextBox"
 
 
-export function TaskDetailsDescription({ }) {
+export function TaskDetailsDescription({ task, cbOnUpdateTask }) {
 
-    const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-    console.log(editorState)
+    const [isTextboxOpen, setIsTextboxOpen] = useState(false)
+
+    function saveRawDataInTask(task, rawData) {
+        task.description = rawData
+        cbOnUpdateTask(task)
+    }
+
+    function onToggleOpen() {
+        setIsTextboxOpen((prevIsOpen) => !prevIsOpen)
+    }
+
+
+    let textBox
+    if (task.description || isTextboxOpen) {
+        textBox = <RichTextBox
+            rawData={task.description}
+            isOpen={isTextboxOpen}
+            onSaveData={(rawData) => saveRawDataInTask(task, rawData)} />
+    } else {
+        textBox = <div className="text-box-placeholder transparent-btn-neutral">
+            Add a more detailed description...
+        </div>
+    }
 
     return <div className="td-section td-description">
         <div className="td-section-icon">
@@ -13,7 +35,9 @@ export function TaskDetailsDescription({ }) {
         </div>
         <div>
             <h2>Description</h2>
-            <Editor editorState={editorState} onChange={setEditorState} />
+            <div onClick={onToggleOpen}>
+                {textBox}
+            </div>
         </div>
     </div>
 }

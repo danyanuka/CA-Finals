@@ -14,7 +14,7 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }
 
     return <div className="task-details-main">
         <TaskDetailsBriefItems board={board} task={task} cbOnUpdateTask={cbOnUpdateTask} cbOpenTaskModal={cbOpenTaskModal} />
-        <TaskDetailsDescription />
+        <TaskDetailsDescription task={task} cbOnUpdateTask={cbOnUpdateTask} />
         <TaskDetailsAttachments />
         <TaskDetailsChecklists />
         <TaskDetailsActivity />
