@@ -18,13 +18,13 @@ export function TaskDetailsDescription({ task, cbOnUpdateTask }) {
 
 
     let textBox
-    if (task.description) {
+    if (task.description || isTextboxOpen) {
         textBox = <RichTextBox
             rawData={task.description}
             isOpen={isTextboxOpen}
             onSaveData={(rawData) => saveRawDataInTask(task, rawData)} />
     } else {
-        textBox = <div className="text-box-placeholder">
+        textBox = <div className="text-box-placeholder transparent-btn-neutral">
             Add a more detailed description...
         </div>
     }
@@ -35,7 +35,9 @@ export function TaskDetailsDescription({ task, cbOnUpdateTask }) {
         </div>
         <div>
             <h2>Description</h2>
-            <div onClick={onToggleOpen}>{textBox}</div>
+            <div onClick={onToggleOpen}>
+                {textBox}
+            </div>
         </div>
     </div>
 }
