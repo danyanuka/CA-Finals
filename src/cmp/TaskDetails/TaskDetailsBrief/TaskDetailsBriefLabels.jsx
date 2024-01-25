@@ -12,7 +12,6 @@ export function TaskDetailsBriefLabels({ boardLabels, taskLabels, cbOpenTaskModa
     function getLabelColor(labelId) {
         const labelIndx = boardLabels.findIndex((label) => label.id === labelId)
         const labelColor = boardLabels[labelIndx]?.color
-        console.log(labelColor)
         if (!labelColor || !constService.labelColors.includes(labelColor)) {
             return "black-subtle"
         }
@@ -23,7 +22,7 @@ export function TaskDetailsBriefLabels({ boardLabels, taskLabels, cbOpenTaskModa
         <h3>Labels</h3>
         <div className="brief-data">
             {taskLabels.map((labelId, i) => {
-                return <button key={i} className={`base-bg-color-${getLabelColor(labelId)}`}>
+                return <button key={i} className={`base-bg-color-${getLabelColor(labelId)}`} onClick={(ev) => cbOpenTaskModal(ev, "taskLabels")}>
                     {getLabelTitle(labelId)}
                 </button>
             })}

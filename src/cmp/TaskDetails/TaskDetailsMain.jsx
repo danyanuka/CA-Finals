@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { TaskDetailsBriefItems} from "./TaskDetailsBrief/TaskDetailsBriefItems";
+import { TaskDetailsBriefItems } from "./TaskDetailsBrief/TaskDetailsBriefItems";
+import { TaskDetailsDescription } from "./TaskDetailsDescription";
+import { TaskDetailsAttachments } from "./TaskDetailsAttachments";
+import { TaskDetailsChecklists } from "./TaskDetailsChecklists";
+import { TaskDetailsActivity } from "./TaskDetailsActivity";
+import { TaskDetailsComments } from "./TaskDetailsComments";
 
 
 export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }) {
@@ -9,46 +14,10 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }
 
     return <div className="task-details-main">
         <TaskDetailsBriefItems board={board} task={task} cbOnUpdateTask={cbOnUpdateTask} cbOpenTaskModal={cbOpenTaskModal} />
-        <div className="td-section td-description">
-            <div className="td-section-icon">
-                <i className=""></i>
-            </div>
-            <div>
-                <h2>Description</h2>
-                { }
-            </div>
-        </div>
-        <div className="td-section td-attachments">
-            <div className="td-section-icon">
-                <i className=""></i>
-            </div>
-            <div>
-                <h2>Trello attachments</h2>
-            </div>
-        </div>
-        <div className="td-section td-checklist">
-            <div className="td-section-icon">
-                <i className=""></i>
-            </div>
-            <div>
-                <h2>Checklists</h2>
-            </div>
-        </div>
-        <div className="td-section td-activity">
-            <div className="td-section-icon">
-                <i className=""></i>
-            </div>
-            <div>
-                <h2>Activity</h2>
-            </div>
-        </div>
-        <div className="td-section td-comments">
-            <div className="td-section-icon">
-                <i className=""></i>
-            </div>
-            <div>
-                <h2>Comments</h2>
-            </div>
-        </div>
+        <TaskDetailsDescription />
+        <TaskDetailsAttachments />
+        <TaskDetailsChecklists />
+        <TaskDetailsActivity />
+        <TaskDetailsComments />
     </div>
 }

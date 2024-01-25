@@ -23,7 +23,17 @@
 
 .icon-task-header {
   content: url("/public/icons/task-header.png");
-  height: 18px;
+  height: 17px;
+}
+
+.icon-task-trello-attach {
+  content: url("/public/icons/trello.svg");
+  width: 24px;
+}
+
+.icon-task-activity {
+  content: url("/public/icons/activity.png");
+  width: 24px;
 }
 
 .icon-task-header-cover {
@@ -38,6 +48,10 @@
 .icon-task-down {
   content: url("/public/icons/down.svg");
   width: 16px;
+}
+
+.icon-task-description {
+  content: url("/public/icons/description.svg");
 }
 
 .icon-task-check-mark {
@@ -134,7 +148,6 @@
 
 //BoardHeader icons
 .icon-star {
-  z-index: 999;
   content: url("/public/icons/star.svg");
 }
 
@@ -148,6 +161,10 @@
   @include iconCustomColor(rgb(226, 178, 3), "/public/icons/star.svg");
   width: 15px;
   height: 15px;
+}
+
+.icon-star-dark {
+  content: url("/public/icons/star-dark.svg");
 }
 
 .icon-members {

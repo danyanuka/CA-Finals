@@ -20,7 +20,7 @@ export function TaskDetailsBriefMembers({ boardMembers, taskMembers, cbOpenTaskM
         <h3>Members</h3>
         <div className="brief-data">
             {taskMembers.map((memberId, i) => {
-                return <div key={i}>
+                return <div key={i} onClick={(ev) => cbOpenTaskModal(ev, "taskMemberInfo")} >
                     <UserAvatar userFullName={getMemberFullName(memberId)} userImg={getMemberImg(memberId)} />
                 </div>
             })}

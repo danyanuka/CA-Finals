@@ -45,8 +45,8 @@ export function BoardHeader() {
     function setHeaderStyles() {
         if (pathname === "/board") return;
         let headerStyles = {};
-        headerStyles.backgroundColor = avgColorBg;
-        headerStyles.opacity = 1.5
+        console.log("meitar:", avgColorBg)
+        headerStyles.backgroundColor = avgColorBg + "c0";  // edit to watever value you want
         headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
             ? "#FFFFFF"
             : "#000000";
@@ -73,50 +73,51 @@ export function BoardHeader() {
 
 
     return (
-        <div className="board-header" style={headerStyleProps}>
+        <div className="black-wrapper" style={{ backgroundColor: "black" }}>
+            <div className="board-header" style={headerStyleProps}>
 
-            <div className="darken"> </div>
-            <div className="board-header-section">
-                <div className="board-name" >
-                    {board?.title}
+                <div className="board-header-section">
+                    <div className="board-name" >
+                        {board?.title}
+                    </div>
+
+                    <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
+                        {isStarr ? (
+                            <i className="icon icon-star-starred"></i>
+
+                        ) : (
+                            <i className="icon icon-star"></i>
+                        )}
+                    </div>
+
+                    <div className="board-header-btn board-btn" title="Board" >
+                        <i className="icon-board"></i>
+                        Board
+                    </div>
+
                 </div>
 
-                <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
-                    {isStarr ? (
-                        <i className="icon icon-star-starred"></i>
+                <div className="board-header-section">
 
-                    ) : (
-                        <i className="icon icon-star"></i>
-                    )}
-                </div>
+                    <div className="board-header-btn" title="Filter cards" >
+                        <i className="icon icon-filter"></i>
+                        Filters
+                    </div>
 
-                <div className="board-header-btn board-btn" title="Board" >
-                    <i className="icon-board"></i>
-                    Board
-                </div>
+                    {board?.members &&
+                        <div className="board-members" title="User-Name" >
+                            {board.members?.map((member, i) => {
+                                return <div key={i} title={member?.fullname}>
+                                    <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
+                                </div>
+                            })}
 
-            </div>
+                        </div>}
 
-            <div className="board-header-section">
-
-                <div className="board-header-btn" title="Filter cards" >
-                    <i className="icon icon-filter"></i>
-                    Filters
-                </div>
-
-                {board?.members &&
-                    <div className="board-members" title="User-Name" >
-                        {board.members?.map((member, i) => {
-                            return <div key={i} title={member?.fullname}>
-                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
-                            </div>
-                        })}
-
-                    </div>}
-
-                <div className="board-header-btn share-btn" title="Share board" >
-                    <i className="icon-account"></i>
-                    <span>Share</span>
+                    <div className="board-header-btn share-btn" title="Share board" >
+                        <i className="icon-account"></i>
+                        <span>Share</span>
+                    </div>
                 </div>
             </div>
 

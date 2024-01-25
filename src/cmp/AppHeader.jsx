@@ -8,19 +8,16 @@ import { useLocation } from "react-router-dom";
 import { utilService } from "../services/util.service";
 import { UserAvatar } from "./UserAvatar";
 
-
-
+// COMPONENT NOT IN USE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 export function AppHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownName, setDropdownName] = useState("");
 
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
-  const user = useSelector(storeState => storeState.userModule.user)
-
+  const user = useSelector((storeState) => storeState.userModule.user);
 
   const dispatch = useDispatch();
   const location = useLocation();
-
 
   function onToggle(dropdownName) {
     setIsOpen(!isOpen);
@@ -104,11 +101,7 @@ export function AppHeader() {
         <div className="nav-buttons">
           <div className="search-section">
             <i className="icon-search"></i>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search"
-            />
+            <input type="text" className="search-input" placeholder="Search" />
           </div>
           <i
             className="icon-notifications notifications-btn"
@@ -119,15 +112,14 @@ export function AppHeader() {
 
           {user ? (
             <div className="user-avatar" onClick={handleAccountClick}>
-              <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
+              <UserAvatar
+                userFullName={user?.fullname}
+                userImg={user?.imgUrl}
+              />
             </div>
           ) : (
             <i className="icon-account account-btn" title="Account"></i>
-
-          )
-          }
-
-
+          )}
         </div>
       </section>
     </>

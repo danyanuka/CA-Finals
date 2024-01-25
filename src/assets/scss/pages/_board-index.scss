@@ -13,19 +13,19 @@
       margin-left: 8px;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 4rem;
       margin-top: 40px;
       max-width: 850px;
 
       .boards-title-container {
-        margin-left: 8px;
         display: flex;
         align-items: center;
+        padding-bottom: 2px;
         .board-list-title {
           padding-bottom: 12px;
           @include fontProps(16px, 700, 24px);
           &.starred {
-            margin-left: 35px;
+            margin-left: 42px;
             position: relative;
             &::before {
               content: url("public/icons/star-lg.svg");
@@ -35,16 +35,16 @@
               transform: translateY(-50%);
             }
           }
-          &.user-icon {
-            margin-left: 35px;
-            position: relative;
-            &::before {
-              content: url("public/icons/member-gray.svg");
-              position: absolute;
-              top: 40%;
-              right: 115%;
-              transform: translateY(-50%);
-            }
+        }
+        .index-title-avatar {
+          margin-right: 10px;
+          margin-bottom: 16px;
+          .user-avatar {
+            cursor: default;
+            height: 32px;
+            width: 32px;
+            border-radius: 3px;
+            border: none;
           }
         }
       }

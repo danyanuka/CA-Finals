@@ -9,6 +9,7 @@ import { CreateBoardModal } from "./CreateBoard/CreateBoardModal";
 import { ShowOptionsModal } from "./ShowOptionsModal";
 import { AccountMenu } from "./AccountMenu";
 import { MdlTaskMembers } from "./TaskDetails/MdlTaskMembers";
+import { MdlTaskMemberInfo } from "./TaskDetails/MdlTaskMemberInfo";
 import { MdlTaskLabels } from "./TaskDetails/MdlTaskLabels";
 import { MdlTaskChecklist } from "./TaskDetails/MdlTaskChecklist";
 import { MdlTaskDates } from "./TaskDetails/MdlTaskDates";
@@ -18,8 +19,7 @@ import { MdlTaskMove } from "./TaskDetails/MdlTaskMove";
 import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
 import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
 import { useOnClickOutside } from "../Hooks/useOnClickOutisde";
-import { AllBoardsDropdown } from "./HeaderDropdowns/AllBoardsDropdown";
-import { StarredBoardsDropdown } from "./HeaderDropdowns/StarredBoardsDropdown";
+import { BoardsDropdown } from "./HeaderDropdowns/BoardsDropdown";
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
@@ -73,12 +73,14 @@ function DynModalType({ modalType, modalProps }) {
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     case "taskMembers":
       return <MdlTaskMembers />;
+    case "taskMemberInfo":
+      return <MdlTaskMemberInfo />;
     case "taskLabels":
       return <MdlTaskLabels />;
     case "taskChecklist":
       return <MdlTaskChecklist />;
     case "taskDates":
-      return <MdlTaskDates />;
+      return <MdlTaskDates board={modalProps.board}/>;
     case "taskAttach":
       return <MdlTaskAttach />;
     case "taskCover":
@@ -90,7 +92,7 @@ function DynModalType({ modalType, modalProps }) {
     case "taskShare":
       return <MdlTaskShare />;
     case "BoardsDropdown":
-      return <AllBoardsDropdown starred={modalProps} />;
+      return <BoardsDropdown isStarred={modalProps} />;
 
     // More type cases below
 

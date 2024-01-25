@@ -46,7 +46,7 @@ export function AppDynHeader() {
     headerStyles.backgroundColor = avgColorBg;
     headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
       ? "#FFFFFF"
-      : "#000000";
+      : "#172b4d";
 
     setHeaderStyleProps(headerStyles);
   }
@@ -57,6 +57,14 @@ export function AppDynHeader() {
       return utilService.isDarkColor(avgColorBg, 80)
         ? "app-header-logo-container-white"
         : "app-header-logo-container";
+    }
+  }
+  function dynIconClass() {
+    if (pathname === "/board") return "icon-show-more-dark";
+    else {
+      return utilService.isDarkColor(avgColorBg, 80)
+        ? "icon-show-more"
+        : "icon-show-more-dark";
     }
   }
 
@@ -78,25 +86,25 @@ export function AppDynHeader() {
         <div
           onClick={openModalDropdown}
           className="header-dropdown transparent-btn-black"
-          title="Starred"
+          title="All Boards"
         >
-          All Boards
-          <i className="icon-show-more-dark"></i>
+          All boards
+          <i className={dynIconClass()}></i>
         </div>
-        {/* Starred */}
+        {/* Starred Boards */}
         <div
           onClick={(ev) => openModalDropdown(ev, "starred")}
           className="header-dropdown transparent-btn-black"
-          title="Starred"
+          title="Starred Boards"
         >
-          Starred
-          <i className="icon-show-more-dark"></i>
+          Starred boards
+          <i className={dynIconClass()}></i>
         </div>
 
         {/* Create */}
         <div className="create-button-container">
           <div
-            onClick={(ev) => openModalDropdown("createBoard", ev)}
+            onClick={(ev) => dispatch(openModal("createBoard", ev.target))}
             className="header-create-button transparent-btn-black "
             to=""
             title="Create"
