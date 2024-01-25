@@ -21,7 +21,8 @@ export function UserAvatar({ userFullName, userImg }) {
       calcImgProps()
     } else {
       const defaultColors = constService.defaultAvatarColor
-      const calcIndx = userFullName.length % defaultColors.length
+      const calcLength = userFullName?.length ? userFullName.length : 0
+      const calcIndx = calcLength % defaultColors.length
       const userColor = defaultColors[calcIndx]
       const isDark = utilService.isDarkColor(userColor)
       setBgColor(userColor)
@@ -29,18 +30,11 @@ export function UserAvatar({ userFullName, userImg }) {
     }
   }, [])
 
-  function isWebUrl(userImg) {
-    const path = userImg.toLowerCase()
-    const strToCheck = ["http", "//", "www"]
-    return 0 < strToCheck.filter((st) => path.includes(st)).length
-  }
-
   function isValidUrl(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
   }
 
   function buildStyles() {
-    // { backgroundImage: `url(${userImg})`, backgroundColor: "#C0C0C0", color: (isDarkImg ? "white" : "black") }
     const styleProps = {}
     styleProps.backgroundImage = `url(${userImg})`
     styleProps.backgroundColor = bgColor
