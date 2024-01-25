@@ -33,6 +33,7 @@ export function BackgroundPicker({ setNewBoard }) {
         <ul className="bg-list-photos">
           {photos.slice(0, 4).map((photo) => (
             <li key={photo.id}>
+              <div className="darken-hover"></div>
               <button
                 className="bg-photo-thumb"
                 onClick={() =>
