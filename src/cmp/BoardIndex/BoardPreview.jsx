@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { boardActions } from "../../store/actions/board.actions";
 import { useState } from "react";
+import { utilService } from "../../services/util.service";
 
 export function BoardPreview({ board }) {
   const [starIsHovered, setStarIsHovered] = useState(false);
-  //
+
   async function onRemoveBoard(ev) {
     ev.preventDefault();
     try {
@@ -22,14 +23,18 @@ export function BoardPreview({ board }) {
 
       // when working with mongo
       const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
-
       await boardActions.saveBoard(updatedBoard);
     } catch (err) {
       console.log("Issues updating board", err);
     }
   }
+
   return (
-    <Link className="link-to-board" to={`/board/${board._id}`}>
+    <Link className="link-to-board " to={`/board/${board._id}`}>
+      {utilService.isUnsplash(board.style.backgroundImage) && (
+        <div className="darken-always"></div>
+      )}
+      <div className="darken-hover"></div>
       <div className="board-preview-content">
         <h3 className="board-name">{board.title}</h3>
         <div

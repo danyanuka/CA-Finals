@@ -1,4 +1,3 @@
-
 import { FastAverageColor } from "fast-average-color";
 
 export const utilService = {
@@ -17,7 +16,16 @@ export const utilService = {
   getCleanURL,
   isDarkColor,
   getTimeStatus,
+  isUnsplash,
 };
+
+function isUnsplash(bgUrl) {
+  const cleanUrl = getCleanURL(bgUrl);
+  if (cleanUrl.includes("unsplash")) {
+    return true;
+  }
+  return false;
+}
 
 function getCleanURL(url) {
   const regex = /url\((.*?)\)/;
@@ -99,15 +107,15 @@ function getTimeStatus(timestamp) {
   const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60);
 
   if (timeDifferenceHours < 0 && timeDifferenceHours > -24) {
-    return 'yesterday'
+    return "yesterday";
   } else if (timeDifferenceHours < 0) {
-    return 'past';
+    return "past";
   } else if (timeDifferenceHours < 24) {
-    return 'today';
+    return "today";
   } else if (timeDifferenceHours < 48) {
-    return 'tomorrow';
+    return "tomorrow";
   } else {
-    return 'future';
+    return "future";
   }
 }
 
@@ -194,13 +202,11 @@ async function isDarkImg2(imgPath) {
   // Step 3
   const Y = 0.2126 * vR + 0.7152 * vG + 0.0722 * vB;
 
-  // Step 4 
-  const Lstar = YtoLstar(Y)
+  // Step 4
+  const Lstar = YtoLstar(Y);
 
-  if (Lstar < 50)
-    return true
-  return false
-
+  if (Lstar < 50) return true;
+  return false;
 }
 
 async function _loadImage(src) {
@@ -235,16 +241,18 @@ function _YtoLstar(Y) {
 }
 
 function hexToRgb(hex) {
-  hex = hex.toLowerCase()
+  hex = hex.toLowerCase();
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
 }
 
-function isDarkColor(hexColor, midVal=50) {
+function isDarkColor(hexColor, midVal = 50) {
   const rgbColor = hexToRgb(hexColor);
 
   let vR = rgbColor.r / 255;
@@ -263,8 +271,8 @@ function isDarkColor(hexColor, midVal=50) {
   const Lstar = _YtoLstar(Y);
 
   if (Lstar < midVal) {
-    return true
-  };
+    return true;
+  }
   return false;
 }
 
@@ -279,4 +287,3 @@ function toTitleCase(str) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 }
-
