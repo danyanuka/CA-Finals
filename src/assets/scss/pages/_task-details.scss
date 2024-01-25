@@ -123,6 +123,7 @@
     &-main {
         grid-area: b;
         max-width: 568px;
+        margin-right: 16px;
     }
 
     &-sidebar {
@@ -182,6 +183,7 @@
 
 /* Detailed layout & props */
 .td {
+    // td-section
     &-section {
         margin-left: 40px;
         position: relative;
@@ -203,6 +205,7 @@
         width: 32px;
     }
 
+    // td-btn
     &-btn {
         @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed, $clr-bg-neutral);
         @include fontProps(14px, 500, 20px);
@@ -218,6 +221,7 @@
         }
     }
 
+    // td-members
     &-members {
         button {
             width: 32px;
@@ -231,6 +235,7 @@
         }
     }
 
+    // td-labels
     &-labels {
         button {
             border-radius: 3px;
@@ -245,6 +250,7 @@
         }
     }
 
+    // td-notifications
     &-notifications {
         button {
             padding: 0px 4px 0px 8px;
@@ -272,6 +278,7 @@
         }
     }
 
+    // td-date
     &-date {
         .btn-done-wrapper {
             display: grid;
@@ -350,6 +357,14 @@
             .status-overdue {
                 background-color: #ca3521;
             }
+        }
+    }
+
+    // td-desription
+    &-description {
+        .text-box-placeholder {
+            height: 56px;
+            padding: 8px 12px 8px 12px;
         }
     }
 

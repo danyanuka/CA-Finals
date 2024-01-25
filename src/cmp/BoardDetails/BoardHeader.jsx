@@ -10,6 +10,7 @@ import { boardActions } from "../../store/actions/board.actions";
 export function BoardHeader() {
     const board = useSelector(storeState => storeState.boardModule.curBoard)
     const [avgColorBg, setAvgColorBg] = useState("#FFFFFF");
+    const [isDarkColor, setIsDarkColor] = useState(utilService.isDarkColor(avgColorBg, 80))
     const [headerStyleProps, setHeaderStyleProps] = useState();
     const [isStarr, setIsStarr] = useState(board?.isStarred);
 
@@ -45,13 +46,13 @@ export function BoardHeader() {
     function setHeaderStyles() {
         if (pathname === "/board") return;
         let headerStyles = {};
-        headerStyles.backgroundColor = avgColorBg;
-        headerStyles.opacity = 1.5
+        headerStyles.backgroundColor = avgColorBg + "c1";
         headerStyles.color = utilService.isDarkColor(avgColorBg, 80)
             ? "#FFFFFF"
-            : "#000000";
+            : "#172b4d";
 
         setHeaderStyleProps(headerStyles);
+        setIsDarkColor(utilService.isDarkColor(avgColorBg, 80))
     }
 
     async function onStarBoard(ev) {
@@ -73,51 +74,58 @@ export function BoardHeader() {
 
 
     return (
-        <div className="board-header" style={headerStyleProps}>
+        <div className="black-wrapper" style={{ backgroundColor: "black" }}>
+            <div className="board-header" style={headerStyleProps}>
 
-            <div className="board-header-section">
-                <div className="board-name" >
-                    {board?.title}
+                <div className="board-header-section">
+                    <div className="board-name" >
+                        {board?.title}
+                    </div>
+
+                    <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
+                        {isStarr &&
+                            <i className="icon icon-star-starred"></i>
+                        }
+                        {!isStarr && isDarkColor &&
+                            <i className="icon icon-star"></i>}
+
+                        {!isStarr && !isDarkColor &&
+                            <i className="icon icon-star-black"></i>}
+
+
+
+                    </div>
+
                 </div>
 
-                <div className="board-header-btn" title="Click to star or unstar this board. Starred boards show up at the top of your boards list" onClick={(ev) => onStarBoard(ev)}>
-                    {isStarr ? (
-                        <i className="icon icon-star-starred"></i>
+                <div className="board-header-section">
 
-                    ) : (
-                        <i className="icon icon-star"></i>
-                    )}
+                    <div className="board-header-btn" title="Filter cards" >
+                        {isDarkColor ? (
+                            <i className="icon icon-filter"></i>
+                        ) : (
+                            <i className="icon icon-filter-black"></i>
+                        )}
+                        Filters
+                    </div>
+
+                    {board?.members &&
+                        <div className="board-members" title="User-Name" >
+                            {board.members?.map((member, i) => {
+                                return <div key={i} title={member?.fullname}>
+                                    <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
+                                </div>
+                            })}
+
+                        </div>}
+
+                    <div className="board-header-btn share-btn" title="Share board" >
+                        <i className="icon-account"></i>
+                        <span>Share</span>
+                    </div>
                 </div>
-
-                <div className="board-header-btn board-btn" title="Board" >
-                    <i className="icon-board"></i>
-                    Board
-                </div>
-
             </div>
 
-            <div className="board-header-section">
-
-                <div className="board-header-btn" title="Filter cards" >
-                    <i className="icon icon-filter"></i>
-                    Filters
-                </div>
-
-                {board?.members &&
-                    <div className="board-members" title="User-Name" >
-                        {board.members?.map((member, i) => {
-                            return <div key={i} title={member?.fullname}>
-                                <UserAvatar userFullName={member?.fullname} userImg={member?.imgUrl} />
-                            </div>
-                        })}
-
-                    </div>}
-
-                <div className="board-header-btn share-btn" title="Share board" >
-                    <i className="icon-account"></i>
-                    <span>Share</span>
-                </div>
-            </div>
         </div>
     )
 }

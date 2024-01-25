@@ -10,6 +10,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const [isComplete, setIsComplete] = useState(task.isComplete ? true : false);
 
   const labels = utilService.getLabels(task.labelIds, board);
+  console.log(labels);
   const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
   const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
@@ -47,9 +48,9 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   }
 
 
-  function handleIsComplete(ev) {
-    setIsComplete(!isComplete);
-    if (ev.target.checked) {
+  function handleIsComplete(isComplete) {
+    setIsComplete(isComplete);
+    if (isComplete) {
       const newTask = {
         ...task,
         isComplete: true
@@ -57,6 +58,14 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
       onUpdateTask(newTask, groupId, board);
       setTimStatus('done')
+    } else {
+      const newTask = {
+        ...task,
+        isComplete: false
+      }
+
+      onUpdateTask(newTask, groupId, board);
+      setTimStatus('')
     }
   }
 
@@ -148,7 +157,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
               {task.dueDate && !isComplete && (
                 <div className={`due-date ${timeStatus}`}>
                   <i className={`icon-clock-alert-${timeStatus}`} ></i>
-                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={(ev) => handleIsComplete(ev)} />
+                  <p className={`checkbox-due-date ${timeStatus}`} onClick={() => handleIsComplete(true)}></p>
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
@@ -157,8 +166,9 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
               {isComplete && (
                 <div className="due-date done">
-                  <i className="icon-checklists-white"></i>
-                  <input type="checkbox" className={`checkbox-due-date ${timeStatus}`} onChange={handleIsComplete} />
+                  <i className="icon-clock-alert-today" ></i>
+                  <i className="icon-checklists-white checkbox-due-date" onClick={() => handleIsComplete(false)}></i>
+
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>

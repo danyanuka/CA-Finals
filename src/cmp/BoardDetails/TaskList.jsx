@@ -121,18 +121,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                     )}
                 </Droppable>
 
-                {!isAdding ? (
-                    <div className="group-footer">
-
-                        <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
-                            <li className='icon-add-task'></li>
-                            <div >Add a task</div>
-                        </button>
-                        <i className="transparent-btn-black icon-template" title="create from template"></i>
-
-                    </div>
-                ) : (
-
+                {isAdding &&
                     <form className="add-task-form" onSubmit={handleAddTask}>
                         <li className="task-preview input-add-task">
                             <input className="task-title-input"
@@ -150,10 +139,20 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                             <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
                             <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
                         </div>
-                    </form>
-
-                )}
+                    </form>}
             </div>
+
+            {!isAdding &&
+                <div className="group-footer">
+                    <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
+                        <li className='icon-add-task'></li>
+                        <div >Add a task</div>
+                    </button>
+                    <i className="transparent-btn-black icon-template" title="create from template"></i>
+
+                </div>
+            }
+
         </ul>
     )
 }

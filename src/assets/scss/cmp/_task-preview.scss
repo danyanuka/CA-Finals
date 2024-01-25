@@ -75,39 +75,38 @@
             }
 
             .checkbox-due-date {
-                // display: none;
+                display: none;
             }
 
-            i:hover {
-                display: none
+            p {
+                width: 11px;
+                height: 11px;
+                border: 1.5px solid $clr-text-black;
+                margin: 2px;
             }
 
-            i:hover .checkbox-due-date {
-                display: block
+            .past {
+                border: 1.5px solid $clr-text-accent-red;
             }
 
-            // .past {
-            //     color: $clr-background-accent-red-subtle;
-            // }
+            .today,
+            .yesterday {
+                border: 1.5px solid white;
+            }
 
-            // .today,
-            // .yesterday {
-            //     color: $clr-bg-red-bold;
-            // }
+            .tomorrow {
+                border: 1.5px solid $clr-text-black;
+            }
 
-            // .tomorrow {
-            //     color: $clr-bg-yellow;
-            // }
+            &:hover {
+                .checkbox-due-date {
+                    display: block;
+                }
 
-            // .done {
-            //     color: $clr-bg-green-bold;
-
-            // }
-
-            // .i:hover .checkbox-due-date {
-            //     display: inline;
-            // }
-
+                i {
+                    display: none;
+                }
+            }
         }
 
         .past {

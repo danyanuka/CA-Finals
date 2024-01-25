@@ -7,6 +7,7 @@
     padding-bottom: 8px;
     box-sizing: border-box;
     vertical-align: top;
+    position: relative;
 
     .group-header {
         color: $clr-text-black;
@@ -31,7 +32,7 @@
     }
 
     .scrollbar {
-        max-height: 70vh;
+        max-height: 65vh;
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
@@ -69,8 +70,13 @@
 
     .group-footer {
         position: relative;
-        padding: 8px;
-        // padding: 3px 5px 0;
+        bottom: 2px;
+        background-color: $clr-background-list;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        width: 280px;
+        padding: 6px;
+        z-index: 1;
         color: $clr-text-black;
         display: flex;
         justify-content: space-between;
@@ -78,7 +84,6 @@
         margin-right: 8px;
 
         .add-task-button {
-            position: absolute;
             // padding: 6px 12px 6px 8px;
             padding: 5px 5px 5px;
             display: flex;
@@ -95,9 +100,6 @@
             }
 
             .icon-template {
-                position: absolute;
-                left: 15px;
-                // margin: 0 5px;
                 flex-grow: 0;
                 flex-shrink: 0;
                 border-radius: 8px;
@@ -117,11 +119,9 @@
 }
 
 .add-task-buttons {
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    // gap: 4px;
     margin: 8px;
 
     .add-task-button {
