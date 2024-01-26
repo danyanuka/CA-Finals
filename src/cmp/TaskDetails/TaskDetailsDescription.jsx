@@ -1,49 +1,32 @@
 import { useEffect, useState, useRef } from "react";
 
 import { RichTextBox } from "/src/cmp/RichTextBox"
+import { RichTextBoxViewer } from "/src/cmp/RichTextBoxViewer"
 
 
 export function TaskDetailsDescription({ task, cbOnUpdateTask }) {
 
-    const [isTextboxOpen, setIsTextboxOpen] = useState(false)
-    
-    // const textboxRef = useRef()
-
-    // useEffect(() => {
-    //     if (textboxRef.current) {
-    //         console.log("mmm")
-    //         console.log(textboxRef.current.focus)
-    //         textboxRef.current.focus()
-    //       }
-    // }, [textboxRef.current])
+    const [isEdit, setIsEdit] = useState(false)
 
     function saveRawDataInTask(task, rawData) {
         task.description = rawData
         cbOnUpdateTask(task)
+        setIsEdit(false)
     }
-
-    function onToggleOpen() {
-        setIsTextboxOpen((prevIsOpen) => !prevIsOpen)
-    }
-
-    // function onLoadRichTextBox(ev) {
-    //     console.log("mmm")
-    //     console.log(ev.focus())
-    //     console.log(ev.target)
-    //     onLoadedData={onLoadRichTextBox} 
-    // }
 
 
     let textBox
-    if (task.description || isTextboxOpen) {
-        textBox = <div onBlur={onToggleOpen} >
-            <RichTextBox
-                rawData={task.description}
-                isOpen={isTextboxOpen}
-                onSaveData={(rawData) => saveRawDataInTask(task, rawData)} />
+    if (isEdit) {
+        textBox = <RichTextBox
+            rawData={task?.description}
+            onSaveData={(rawData) => saveRawDataInTask(task, rawData)}
+            isEdit={isEdit} />
+    } else if (task?.description) {
+        textBox = <div onClick={() => setIsEdit(true)}>
+            <RichTextBoxViewer rawData={task.description} />
         </div>
     } else {
-        textBox = <div className="text-box-placeholder transparent-btn-neutral" onClick={onToggleOpen}>
+        textBox = <div className="text-box-placeholder transparent-btn-neutral" onClick={() => setIsEdit(true)}>
             Add a more detailed description...
         </div>
     }
