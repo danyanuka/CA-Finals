@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+// import { Editor } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 
 import { useOnClickOutside } from "/src/Hooks/useOnClickOutisde";
@@ -27,12 +28,12 @@ export function RichTextBox({ rawData, onSaveData }) {
             if (RichTextBoxRef.current && !RichTextBoxRef.current.contains(ev.target)) {
                 onSaveData(getRawData(editorState))
             }
-          }
-          document.addEventListener("mousedown", handleClickOutside);
-      
-          return () => {
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
             document.removeEventListener("mousedown", handleClickOutside);
-          };
+        };
     }, [editorState])
 
 
@@ -46,16 +47,22 @@ export function RichTextBox({ rawData, onSaveData }) {
 
     return <div ref={RichTextBoxRef} className="rich-text-box" onClick={() => setIsFocus(false)}>
         <div className={"editor-wrapper" + (isFocus ? " blue-wrapper" : "")} onClick={(ev) => ev.stopPropagation()}>
-            <div className="editor-header">
+            {/* <div className="editor-header">
                 <button className="transparent-btn-black" onClick={dummy}>
                     <i className="icon-text-bold"></i>
                 </button>
                 <button className="transparent-btn-black" onClick={dummy}>
                     <i className="icon-text-italic"></i>
                 </button>
-            </div>
+            </div> */}
             <div className="editor-main" onClick={() => setIsFocus(true)}>
-                <Editor editorState={editorState} onEditorStateChange={setEditorState} />
+                <Editor
+                    editorState={editorState}
+                    onEditorStateChange={setEditorState}
+                    wrapperClassName="rtb-class-wrapper"
+                    toolbarClassName="rtb-class-toolbar"
+                    editorClassName="rtb-class-editor"
+                />
             </div>
         </div>
         <button className="basic-btn-blue save-btn" onClick={() => onSaveData(getRawData(editorState))} >Save</button>

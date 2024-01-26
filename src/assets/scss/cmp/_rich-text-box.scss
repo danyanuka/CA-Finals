@@ -1,6 +1,7 @@
 .rich-text-box {
     .editor-wrapper {
         margin: 4px 0px 8px 0px;
+        padding: 2px;
         border-radius: 3px;
         background-color: white;
         box-shadow: 0 0 0 1px inset #091e4224;
@@ -10,24 +11,41 @@
         box-shadow: 0 0 0 2px inset #0c66e4;
     }
 
-    .editor-header {
-        margin: 0px 2px 0px 2px;
-        height: 50px;
-        padding: 8px;
-        border-bottom: solid #091e4224 2px;
-        display: flex;
-        align-items: center;
+    // .editor-header {
+    //     height: 50px;
+    //     padding: 8px;
+    //     border-bottom: solid #091e4224 2px;
+    //     display: flex;
+    //     align-items: center;
 
-        button {
-            height: 24px;
-            width: 24px;
-            padding: 0px;
-            border-radius: 3px;
-        }
-    }
+    //     button {
+    //         height: 24px;
+    //         width: 24px;
+    //         padding: 0px;
+    //         border-radius: 3px;
+    //     }
+    // }
 
     .editor-main {
-        padding: 20px;
         min-height: 221px;
+        // display: grid;
     }
 }
+
+.rtb-class {
+    &-wrapper {
+        
+    }
+    &-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 8px;
+        border-bottom: solid #091e4224 2px;
+    }
+    &-editor {
+        padding: 20px;
+    }
+}
+
+

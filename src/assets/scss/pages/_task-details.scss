@@ -364,11 +364,12 @@
 
     // td-desription
     &-description {
+        margin-bottom: 24px;
+
         .text-box-placeholder {
             @include fontProps(14px, 500, 20px);
             height: 56px;
             padding: 8px 12px 8px 12px;
-            margin-bottom: 24px;
         }
 
         .save-btn, .cancel-btn {
