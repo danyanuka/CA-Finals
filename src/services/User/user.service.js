@@ -1,79 +1,68 @@
-import { storageService } from '../async-storage.service'
-import { utilService } from '../util.service'
+import Axios from 'axios'
+
+var axios = Axios.create({
+    withCredentials: true,
+})
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-const STORAGE_KEY_USER_DB = 'users'
+
+// const BASE_URL = (window.process.env.NODE_ENV !== 'development') ?
+//     '/api/' :
+//     '//localhost:3030/api/'
+
+const BASE_URL = '//localhost:3030/api/'
+
+const BASE_USER_URL = BASE_URL + 'user/'
+const BASE_AUTH_URL = BASE_URL + 'auth/'
 
 export const userService = {
-    login,
-    logout,
-    signup,
-    getLoggedinUser,
-    saveLocalUser,
     getUsers,
-    getById,
+    login,
+    signup,
+    logout,
     remove,
     update,
-    getEmptyUser
+    getLoggedinUser,
 }
 
-window.userService = userService
 
-function getUsers() {
-    return storageService.query(STORAGE_KEY_USER_DB)
-}
-
-async function getById(userId) {
-    const user = await storageService.get(STORAGE_KEY_USER_DB, userId)
-    return user
-}
-
-function remove(userId) {
-    return storageService.remove(STORAGE_KEY_USER_DB, userId)
+async function getUsers() {
+    var { data: users } = await axios.get(BASE_USER_URL)
+    return users
 }
 
 async function update(userToUpdate) {
-    const user = await getById(userToUpdate.id)
-    console.log('user', user)
 
-    const updatedUser = await storageService.put(STORAGE_KEY_USER_DB, { ...user, ...userToUpdate })
-    if (getLoggedinUser().id === updatedUser.id) saveLocalUser(updatedUser)
+    const updatedUser = await axios.put(BASE_USER_URL, userToUpdate)
+    if (getLoggedinUser()._id === updatedUser._id) saveLocalUser(updatedUser)
     return updatedUser
 }
 
-async function login(userCred) {
-    const users = await storageService.query(STORAGE_KEY_USER_DB)
-    const user = users.find(user => user.username === userCred.username)
-    if (user) {
-        return saveLocalUser(user)
-    } else {
-        throw 'Invalid user name'
-    }
+async function remove(userId) {
+    const url = BASE_USER_URL + userId
+    var { data: res } = await axios.delete(url)
+    return res
 }
 
-async function signup(userCred) {
-    const fullnameTitled = utilService.toTitleCase(userCred.fullname)
-    userCred.fullname = fullnameTitled
-    const user = await storageService.post('users', userCred)
+async function login(credentials) {
+    const { data: user } = await axios.post(BASE_AUTH_URL + 'login', credentials)
+    if (user) {
+        return saveLocalUser(user)
+    }
+    return null
+}
+
+async function signup(credentials) {
+    const { data: user } = await axios.post(BASE_AUTH_URL + 'signup', credentials)
     return saveLocalUser(user)
 }
 
 async function logout() {
+    await axios.post(BASE_AUTH_URL + 'logout')
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
-function getEmptyUser() {
-    return {
-        username: '',
-        fullname: '',
-        email: '',
-        password: '',
-        // imgUrl: '',
-    }
-}
-
 function saveLocalUser(user) {
-    user = { id: user._id, fullname: user.fullname, username: user.username, imgUrl: user.imgUrl, email: user.email }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -82,9 +71,3 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123', isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123',  isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123'})
-// })()

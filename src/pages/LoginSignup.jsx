@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
+//Cmp
+// import { UserMsg } from "../cmp/UserMsg.jsx"
+
 //Services
 import { Login } from '../cmp/LoginSignup/Login.jsx'
 import { Signup } from '../cmp/LoginSignup/Signup.jsx'
 import { Logout } from '../cmp/LoginSignup/Logout.jsx'
+import { showErrorMsg } from '../services/event-bus.service.js'
 
 //Redux
 import { loadUsers, login, signup, logout } from '../store/actions/user.actions.js'
 
 
 export function LoginSignup() {
-    const [path, setPath] = useState('')
 
     const [searchParams] = useSearchParams()
     const email = searchParams.get('email') || ''
@@ -22,36 +25,25 @@ export function LoginSignup() {
 
     useEffect(() => {
         loadUsers()
-        // if (pathname === "/signup") {
-        //     setPath('signup')
-        // }
-        // if (pathname === "/login") {
-        //     setPath('login')
-        // }
-        // if (pathname === "/logout") {
-        //     setPath('logout')
-        // }
     }, [])
-
 
     async function onLogin(credentials) {
         try {
             await login(credentials)
             navigate('/board')
         } catch (err) {
+            showErrorMsg(err.response?.data?.err)
             console.log(err);
-            alert(err)
         }
     }
 
     async function onSignup(credentials) {
-        console.log('hey');
         try {
             await signup(credentials)
             navigate('/board')
         } catch (err) {
+            showErrorMsg(err.response?.data?.err)
             console.log(err);
-            alert(err)
         }
     }
 
@@ -60,6 +52,7 @@ export function LoginSignup() {
             await logout()
             navigate('/')
         } catch (err) {
+            showErrorMsg(err.response?.data?.err)
             console.log(err);
         }
     }

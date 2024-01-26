@@ -1,0 +1,28 @@
+.user-msg {
+    background-color: black;
+    position: fixed;
+    padding: 10px;
+    bottom: 60px;
+    left: 10px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.user-msg.error {
+    color: red;
+}
+
+.user-msg button {
+    float: right;
+    width: fit-content;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button.error {
+    color: red;
+}

@@ -15,6 +15,7 @@ import { BoardIndex } from "./pages/BoardIndex";
 import { BoardDetails } from "./pages/BoardDetails";
 import { TaskDetails } from "./pages/TaskDetails";
 import { RootModal } from "./modals/RootModal";
+import { UserMsg } from "./cmp/UserMsg";
 import { useSelector } from "react-redux";
 import { AppHeader } from "./cmp/AppHeader";
 
@@ -35,6 +36,7 @@ export function App() {
         </Routes>
       </main>
       <RootModal />
+      <UserMsg />
     </Router>
   );
 }

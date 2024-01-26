@@ -1,10 +1,15 @@
-
-import { useSelector } from "react-redux";
-import { UserAvatar } from "../UserAvatar";
-import { utilService } from "../../services/util.service";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+//Redux
+import { useSelector } from "react-redux";
 import { boardActions } from "../../store/actions/board.actions";
+
+//Cmp
+import { UserAvatar } from "../UserAvatar";
+
+//Services
+import { utilService } from "../../services/util.service";
 
 
 export function BoardHeader() {
@@ -28,7 +33,6 @@ export function BoardHeader() {
     useEffect(() => {
         setHeaderStyles();
     }, [avgColorBg]);
-
 
     async function getBoardAvgColor(board) {
         if (board?.style?.backgroundImage) {
@@ -70,8 +74,6 @@ export function BoardHeader() {
             console.log("Issues removing board", err);
         }
     }
-
-
 
     return (
         <div className="black-wrapper" style={{ backgroundColor: "black" }}>

@@ -2,12 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 //Services
-// import { userService } from '../../services/user.service.js'
 import { Header } from "./Header";
 import { ImgUploader } from './ImgUploader.jsx'
 
 export function Signup({ onSignup, email }) {
-    const [credentials, setCredentials] = useState("")
+    const [credentials, setCredentials] = useState({ email })
 
     function handleChange(ev) {
         const field = ev.target.name
@@ -18,7 +17,7 @@ export function Signup({ onSignup, email }) {
 
     function handleSignup(ev = null) {
         if (ev) ev.preventDefault()
-        if (!credentials.username || !credentials.password || !credentials.fullname | !credentials.email) return
+        // if (!credentials.fullname || !credentials.username || !credentials.email || !credentials.password) return
         onSignup(credentials)
         setCredentials("")
     }
@@ -32,6 +31,7 @@ export function Signup({ onSignup, email }) {
 
             <form className="signup-form" onSubmit={handleSignup} >
                 <Header title={'Sign in to continue'} />
+
                 <input
                     className='form-item'
                     type="text"
@@ -41,6 +41,7 @@ export function Signup({ onSignup, email }) {
                     onChange={handleChange}
                     required
                 />
+
                 <input
                     className='form-item'
                     type="text"
@@ -50,6 +51,7 @@ export function Signup({ onSignup, email }) {
                     onChange={handleChange}
                     required
                 />
+
                 <input
                     className='form-item'
                     type="email"
@@ -59,6 +61,7 @@ export function Signup({ onSignup, email }) {
                     onChange={handleChange}
                     required
                 />
+
                 <input className='form-item'
                     type="password"
                     name="password"
@@ -67,6 +70,7 @@ export function Signup({ onSignup, email }) {
                     onChange={handleChange}
                     required
                 />
+
                 <ImgUploader onUploaded={onUploaded} />
                 <button onClick={handleSignup} className='form-item btn'>Sign up</button>
             </form>
