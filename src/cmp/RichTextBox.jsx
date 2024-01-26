@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import { Editor as draftJsEditor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 
 
-export function RichTextBox({ rawData, isOpen, onSaveData }) {
+export function RichTextBox({ rawData, onSaveData, isOpen, cbToggleIsOpen }) {
 
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [isFocus, setIsFocus] = useState(true);
@@ -17,22 +18,30 @@ export function RichTextBox({ rawData, isOpen, onSaveData }) {
         console.log("dummy")
     }
 
-    return <div className="rich-text-box" onClick={() => setIsFocus(false)}>
-
-        <div className={"editor-wrapper" + (isFocus ? " blue-wrapper" : "")} onClick={(ev) => ev.stopPropagation()}>
-            <div className="editor-header">
-                <button className="transparent-btn-black" onClick={dummy}>
-                    <i className="icon-text-bold"></i>
-                </button>
-                <button className="transparent-btn-black" onClick={dummy}>
-                    <i className="icon-text-italic"></i>
-                </button>
+    let templateContent
+    if (isOpen) {
+        templateContent = <div className="rich-text-box" onClick={() => setIsFocus(false)}>
+            <div className={"editor-wrapper" + (isFocus ? " blue-wrapper" : "")} onClick={(ev) => ev.stopPropagation()}>
+                <div className="editor-header">
+                    <button className="transparent-btn-black" onClick={dummy}>
+                        <i className="icon-text-bold"></i>
+                    </button>
+                    <button className="transparent-btn-black" onClick={dummy}>
+                        <i className="icon-text-italic"></i>
+                    </button>
+                </div>
+                <div className="editor-main" onClick={() => setIsFocus(true)}>
+                    <Editor editorState={editorState} onChange={setEditorState} />
+                </div>
             </div>
-            <div className="editor-main" onClick={() => setIsFocus(true)}>
-                <Editor editorState={editorState} onChange={setEditorState} />
-            </div>
+            <button className="basic-btn-blue save-btn">Save</button>
+            <button className="transparent-btn-black cancel-btn">Cancel</button>
         </div>
-        <button className="basic-btn-blue save-btn">Save</button>
-        <button className="transparent-btn-black cancel-btn">Cancel</button>
-    </div>
+    } else {
+        templateContent = <div className="rich-text-box" onClick={cbToggleIsOpen} >
+            <draftJsEditor editorState={editorState} onChange={setEditorState} />
+        </div>
+    }
+
+    return templateContent
 }
