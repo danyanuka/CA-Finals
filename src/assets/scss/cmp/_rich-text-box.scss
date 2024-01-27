@@ -11,41 +11,144 @@
         box-shadow: 0 0 0 2px inset #0c66e4;
     }
 
-    // .editor-header {
-    //     height: 50px;
-    //     padding: 8px;
-    //     border-bottom: solid #091e4224 2px;
-    //     display: flex;
-    //     align-items: center;
-
-    //     button {
-    //         height: 24px;
-    //         width: 24px;
-    //         padding: 0px;
-    //         border-radius: 3px;
-    //     }
-    // }
-
     .editor-main {
-        min-height: 221px;
-        // display: grid;
+        min-height: 275px;
+    }
+
+    .save-btn, .cancel-btn {
+        @include fontProps(14px, 500, 20px);
+        padding: 6px 12px 6px 12px;
+        margin-right: 6px;
+    }
+
+    .save-btn {
+        color: white;
     }
 }
 
-.rtb-class {
-    &-wrapper {
-        
-    }
-    &-toolbar {
-        display: flex;
-        flex-wrap: wrap;
+
+
+/* The wrapper is for it to surpase the classes from the default style */
+.rtb-class-wrapper {
+    .rtb-class-toolbar {
+        display: grid;
+        grid-auto-flow: column;
         align-items: center;
+        align-content: center;
+        height: 50px;
         padding: 8px;
-        border-bottom: solid #091e4224 2px;
+        margin: 0px;
+        border: none;
+        border-bottom: 2px solid #091e4224;
+
     }
-    &-editor {
-        padding: 20px;
+    .rtb-class-editor {
+        padding: 4px 20px 4px 20px;
     }
+
+    // Add basic btn style
+    .rtb-tools-inline .i-bold,
+    .rtb-tools-inline .i-italic,
+    .rtb-tools-link .i-link,
+    .rtb-tools-image {
+        @include rtbToolsBtn();
+        margin: 0px;
+        width: 24px;
+        padding: 0px;
+    }
+
+    .rtb-tools-inline .i-bold.rdw-option-active {
+        box-shadow: none;
+        background-color: $clr-dynamic-button-black-hovered;
+        img {
+            content: url("/public/icons/text-bold-blue.svg");
+        }
+    }
+
+    .rtb-tools-inline .i-italic.rdw-option-active {
+        box-shadow: none;
+        background-color: $clr-dynamic-button-black-hovered;
+        img {
+            content: url("/public/icons/text-italic-blue.svg");
+        }
+    }
+
+    // Change the arrow-icon for dropdowns
+    .rdw-dropdown-carettoclose,
+    .rdw-dropdown-carettoopen {
+        border: none;
+        content: url("/public/icons/down3.svg");
+        height: 24px;
+        width: 24px;
+        top: 0px;
+        right: 0px;
+    }
+
+    // Basic blocks
+    .rdw-block-wrapper {
+        margin: 0px 8px 0px 0px;
+        padding: 0px;
+        .rtb-tools-blocktypes {
+            @include rtbToolsBtn();
+            margin: 0px;
+            height: 24px;
+            width: 44px;
+            .rdw-dropdown-selectedtext {
+                height: inherit;
+                padding: 0px;
+                span {
+                    margin-left: 4px;
+                    content: url("/public/icons/textbox-Aa.svg");
+                }
+            }
+        }
+    }
+    .rtb-tools-inline {
+        margin: 0px;
+        padding: 0px 8px 0px 8px;
+        border-left: 1px solid #EBECF0;
+        border-right: 1px solid #EBECF0;
+    }
+    .rtb-tools-list {
+        margin: 0px 8px 0px 8px;
+        @include rtbToolsBtn();
+        height: 24px;
+        width: 40px;
+        .rdw-dropdown-selectedtext {
+            height: inherit;
+            padding: 0px;
+        }
+    }
+    .rtb-tools-link {
+        margin: 0px;
+        padding: 0px 0px 0px 8px;
+        border-left: 1px solid #EBECF0;
+    }
+    .rdw-image-wrapper {
+        margin: 0px;
+    }
+
+    .rdw-dropdown-wrapper {
+        position: relative;
+        .rdw-dropdown-optionwrapper {
+            position: absolute;
+            left: 1px;
+            top: 30px;
+            overflow: auto;
+            padding: 4px 0px 4px 0px;
+            border-radius: 3px;
+            width: auto;
+            height: auto;
+            max-height: none;
+            &:hover {
+              box-shadow: none;
+            }
+        }
+        .blocktypes-dropdown .rdw-dropdownoption-default {
+            padding: 8px 16px 8px 16px;
+        }
+    }
+
 }
 
 
