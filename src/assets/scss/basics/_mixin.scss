@@ -33,3 +33,16 @@
 }
 
 
+@mixin rtbToolsBtn() {
+  height: 24px;
+  border: none;
+  &:hover, 
+  &:active {
+    box-shadow: none;
+  }
+  @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed);
+}
+
+
+
+

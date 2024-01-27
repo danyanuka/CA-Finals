@@ -4,8 +4,8 @@ import { App } from "./App.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 
-import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'draft-js/dist/Draft.css';
+import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 // import "./assets/css/styles.css";
 import "./assets/scss/styles.scss";
 

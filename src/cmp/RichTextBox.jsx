@@ -38,23 +38,54 @@ export function RichTextBox({ rawData, onSaveData }) {
 
 
     function getRawData(edState) {
+        const currentContent = edState.getCurrentContent()
+        if (!currentContent.getPlainText()) return null
         return JSON.stringify(convertToRaw(edState.getCurrentContent()))
     }
 
-    function dummy() {
-        console.log("dummy")
+    const toolbarProps = {
+        options: ['blockType', 'inline', 'list', 'link', 'image'],
+        blockType: {
+            options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
+            inDropdown: true,
+            className: "rtb-tools-blocktypes",
+            dropdownClassName: "blocktypes-dropdown",
+        },
+        inline: {
+            options: ['bold', 'italic'],
+            className: "rtb-tools-inline",
+            bold: { icon: "/public/icons/text-bold.svg", className: "i-bold" },
+            italic: { icon: "/public/icons/text-italic.svg", className: "i-italic" },
+        },
+        list: {
+            options: ['unordered', 'ordered'],
+            inDropdown: true,
+            className: "rtb-tools-list",
+            dropdownClassName: "list-dropdown",
+            unordered: { icon: "/public/icons/textbox-uolist.svg", className: "i-uolist" },
+            ordered: { className: "i-olist" },
+        },
+        link: {
+            options: ['link'],
+            className: "rtb-tools-link",
+            showOpenOptionOnHover: false,
+            link: { icon: "/public/icons/textbox-link.svg", className: "i-link" },
+        },
+        image: {
+            icon: "/public/icons/textbox-image.svg",
+            className: "rtb-tools-image",
+            uploadEnabled: false,
+            inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
+            alt: { present: false, mandatory: false },
+            defaultSize: {
+                height: 'auto',
+                width: 'auto',
+            },
+        },
     }
 
     return <div ref={RichTextBoxRef} className="rich-text-box" onClick={() => setIsFocus(false)}>
         <div className={"editor-wrapper" + (isFocus ? " blue-wrapper" : "")} onClick={(ev) => ev.stopPropagation()}>
-            {/* <div className="editor-header">
-                <button className="transparent-btn-black" onClick={dummy}>
-                    <i className="icon-text-bold"></i>
-                </button>
-                <button className="transparent-btn-black" onClick={dummy}>
-                    <i className="icon-text-italic"></i>
-                </button>
-            </div> */}
             <div className="editor-main" onClick={() => setIsFocus(true)}>
                 <Editor
                     editorState={editorState}
@@ -62,6 +93,7 @@ export function RichTextBox({ rawData, onSaveData }) {
                     wrapperClassName="rtb-class-wrapper"
                     toolbarClassName="rtb-class-toolbar"
                     editorClassName="rtb-class-editor"
+                    toolbar={toolbarProps}
                 />
             </div>
         </div>

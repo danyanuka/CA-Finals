@@ -371,16 +371,6 @@
             height: 56px;
             padding: 8px 12px 8px 12px;
         }
-
-        .save-btn, .cancel-btn {
-            @include fontProps(14px, 500, 20px);
-            padding: 6px 12px 6px 12px;
-            margin-right: 6px;
-        }
-
-        .save-btn {
-            color: white;
-        }
     }
 
 }
