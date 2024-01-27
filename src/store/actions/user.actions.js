@@ -1,6 +1,6 @@
 import { userService } from "../../services/User/user.service.local"
 
-import { REMOVE_USER, SET_USER, SET_USERS } from "../reducers/user.reducer.js"
+import { REMOVE_USER, SET_USER, SET_USERS, UPDATE_USER, ADD_USER } from "../reducers/user.reducer.js"
 
 import { store } from "../store.js"
 
@@ -20,6 +20,18 @@ export async function removeUser(userId) {
         store.dispatch({ type: REMOVE_USER, userId })
     } catch (err) {
         console.log('UserActions: err in removeUser', err)
+    }
+}
+
+export async function saveUser(user) {
+    try {
+        const type = user._id ? UPDATE_USER : ADD_USER;
+        const savedUser = await userService.save(user);
+        store.dispatch({ type, user: savedUser });
+        return savedUser;
+    } catch (err) {
+        console.log("Had issues loading users", err);
+        throw err;
     }
 }
 
