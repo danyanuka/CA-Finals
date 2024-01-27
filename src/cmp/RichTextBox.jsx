@@ -38,11 +38,9 @@ export function RichTextBox({ rawData, onSaveData }) {
 
 
     function getRawData(edState) {
+        const currentContent = edState.getCurrentContent()
+        if (!currentContent.getPlainText()) return null
         return JSON.stringify(convertToRaw(edState.getCurrentContent()))
-    }
-
-    function dummy() {
-        console.log("dummy")
     }
 
     const toolbarProps = {
