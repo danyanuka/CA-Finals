@@ -32,7 +32,6 @@ async function getUsers() {
 }
 
 async function update(userToUpdate) {
-
     const updatedUser = await axios.put(BASE_USER_URL, userToUpdate)
     if (getLoggedinUser()._id === updatedUser._id) saveLocalUser(updatedUser)
     return updatedUser
