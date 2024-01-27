@@ -12,6 +12,7 @@ import { store } from "../store";
 
 export const boardActions = {
   loadBoards,
+  // loadUserBoards,
   loadBoard,
   removeBoard,
   saveBoard,
@@ -28,6 +29,15 @@ async function loadBoards() {
     throw err;
   }
 }
+
+// async function loadUserBoards(userId) {
+//   try {
+//     return boardService.getUserBoards(userId);
+//   } catch (err) {
+//     console.log("Had issues loading user boards", err);
+//     throw err;
+//   }
+// }
 
 async function loadBoard(boardId) {
   try {

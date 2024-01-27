@@ -13,8 +13,10 @@ const BASE_URL =
 export const boardService = {
   query,
   getById,
+  getUserBoards,
   save,
   remove,
+
   // getDefaultFilter,
   // getFilterFromParams,
 };
@@ -35,6 +37,18 @@ async function getById(boardId) {
   try {
     const { data: board } = await axios.get(url);
     return board;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
+
+// GetUserBoards
+async function getUserBoards(userId) {
+  const url = BASE_URL + "home/" + userId;
+  try {
+    const { data: boards } = await axios.get(url);
+    return boards;
   } catch (err) {
     console.log(err);
     throw err;

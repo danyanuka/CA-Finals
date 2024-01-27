@@ -9,7 +9,7 @@ export const boardService = {
   save,
   remove,
   getById,
-
+  // getUserBoards,
   getDefaultFilter,
   getFilterFromParams,
 };
@@ -31,6 +31,17 @@ async function query(filterBy) {
 function getById(boardId) {
   return storageService.get(STORAGE_KEY_BOARDS, boardId);
 }
+
+// function getUserBoards(userId) {
+//   const boards = storageService.query(STORAGE_KEY_BOARDS);
+//   let userBoards = []
+//   boards?.map((board) => {
+//     if (board.createdBy === userId) {
+//       userBoards.push(board)
+//     }
+//   })
+//   return userBoards
+// }
 
 function remove(boardId) {
   return storageService.remove(STORAGE_KEY_BOARDS, boardId);

@@ -6,9 +6,11 @@ import { boardActions } from "/src/store/actions/board.actions";
 import { RootModalHeader } from "../RootModalHeader";
 import { BackgroundPicker } from "/src/cmp/BackgroundPicker";
 import { closeModal } from "../../store/actions/app.actions";
+import { useSelector } from "react-redux";
 
 export function CreateBoardModal() {
   const [newBoard, setNewBoard] = useState({});
+  const user = useSelector((storeState) => storeState.userModule.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,6 +26,7 @@ export function CreateBoardModal() {
     //     style: { backgroundImage: "url(public/grad-bg-images/light-blue.svg)" },
     //   }));
     // }
+    setNewBoard({ ...newBoard, createdBy: user._id })
     const board = await boardActions.saveBoard(newBoard);
     console.log(board);
     dispatch(closeModal());
