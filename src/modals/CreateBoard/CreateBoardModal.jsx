@@ -20,20 +20,12 @@ export function CreateBoardModal() {
   }
 
   async function onCreateBoard() {
-    // if (!newBoard.style) {
-    //   setNewBoard((prev) => ({
-    //     ...prev,
-    //     style: { backgroundImage: "url(public/grad-bg-images/light-blue.svg)" },
-    //   }));
-    // }
-    setNewBoard({ ...newBoard, createdBy: user._id })
+    setNewBoard((prev) => ({ ...prev, createdBy: user._id }));
     const board = await boardActions.saveBoard(newBoard);
-    console.log(board);
     dispatch(closeModal());
     navigate(`/board/${board._id}`);
   }
 
-  console.log("New Board", newBoard);
   return (
     <>
       <RootModalHeader title="Create Board" />
