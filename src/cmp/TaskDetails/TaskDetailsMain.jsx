@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { TaskDetailsBriefItems } from "./TaskDetailsBrief/TaskDetailsBriefItems";
 import { TaskDetailsDescription } from "./TaskDetailsDescription";
 import { TaskDetailsAttachments } from "./TaskDetailsAttachments";
-import { TaskDetailsChecklists } from "./TaskDetailsChecklists";
+import { TaskDetailsChecklist } from "./TaskDetailsChecklist";
 import { TaskDetailsActivity } from "./TaskDetailsActivity";
-import { TaskDetailsComments } from "./TaskDetailsComments";
 
 
 export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }) {
@@ -16,8 +15,10 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }
         <TaskDetailsBriefItems board={board} task={task} cbOnUpdateTask={cbOnUpdateTask} cbOpenTaskModal={cbOpenTaskModal} />
         <TaskDetailsDescription task={task} cbOnUpdateTask={cbOnUpdateTask} />
         <TaskDetailsAttachments />
-        <TaskDetailsChecklists />
+        {
+            task?.checklists && 
+            task.checklists.map((cl) => <TaskDetailsChecklist checklist={cl} task={task} cbOnUpdateTask={cbOnUpdateTask} />)
+        }
         <TaskDetailsActivity />
-        <TaskDetailsComments />
     </div>
 }

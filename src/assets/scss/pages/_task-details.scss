@@ -190,7 +190,6 @@
         margin-left: 40px;
         position: relative;
         h2 {
-
             padding: 8px 0px 8px 0px;
             margin: 0px 0px 4px 0px;
         }
@@ -370,6 +369,34 @@
             @include fontProps(14px, 500, 20px);
             height: 56px;
             padding: 8px 12px 8px 12px;
+        }
+    }
+
+    &-attachments {
+        margin-bottom: 24px;
+
+        .attachments-data {
+            
+        }
+        
+    }
+
+    &-checklist {
+
+        margin-bottom: 24px;
+
+    }
+
+    &-activity {
+        margin-bottom: 24px;
+
+        .show-details {
+            @include fontProps(14px, 500, 20px);
+            position: absolute;
+            top: 8px;
+            right: 0px;
+            height: 32px;
+            padding: 6px 12px 6px 12px;
         }
     }
 

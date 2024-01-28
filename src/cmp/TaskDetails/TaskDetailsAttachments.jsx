@@ -8,7 +8,10 @@ export function TaskDetailsAttachments({ }) {
             <i className="icon-task-trello-attach"></i>
         </div>
         <div>
-            <h2>Trello attachments</h2>
+            <h2>Attachments</h2>
+            <div className="attachments-data">
+                DATAAAA
+            </div>
         </div>
     </div>
 }
