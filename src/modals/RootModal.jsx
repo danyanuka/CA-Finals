@@ -72,11 +72,11 @@ function DynModalType({ modalType, modalProps }) {
     case "moreOptions":
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     case "taskMembers":
-      return <MdlTaskMembers board={modalProps.board} task={modalProps.task} group={modalProps.group} />;
+      return <MdlTaskMembers board={modalProps.board} group={modalProps.group} task={modalProps.task} />;
     case "taskMemberInfo":
       return <MdlTaskMemberInfo />;
     case "taskLabels":
-      return <MdlTaskLabels />;
+      return <MdlTaskLabels board={modalProps.board} group={modalProps.group} task={modalProps.task}  />;
     case "taskChecklist":
       return <MdlTaskChecklist />;
     case "taskDates":
