@@ -1,4 +1,4 @@
-// import { userService } from "../../services/user.service.js"
+import { userService } from "../../services/User/user.service"
 
 export const SET_USER = 'SET_USER'
 export const REMOVE_USER = 'REMOVE_USER'
@@ -7,7 +7,7 @@ export const UPDATE_USER = 'UPDATE_USER'
 export const ADD_USER = 'ADD_USER'
 
 const initialState = {
-  user: null,
+  user: userService.getLoggedinUser() || null,
   users: []
 }
 
