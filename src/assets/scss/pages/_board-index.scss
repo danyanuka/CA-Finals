@@ -22,10 +22,10 @@
         align-items: center;
         padding-bottom: 2px;
         .board-list-title {
-          padding-bottom: 12px;
           @include fontProps(16px, 700, 24px);
           &.starred {
-            margin-left: 42px;
+            margin-left: 44px;
+            padding-bottom: 10px;
             position: relative;
             &::before {
               content: url("public/icons/star-lg.svg");
@@ -37,6 +37,9 @@
           }
         }
         .index-title-avatar {
+          display: flex;
+          align-items: center;
+          gap: 12px;
           margin-right: 10px;
           margin-bottom: 16px;
           .user-avatar {

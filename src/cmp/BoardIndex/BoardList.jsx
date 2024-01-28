@@ -18,7 +18,7 @@ export function BoardList({ boards, userBoards }) {
   return (
     <div>
       <div className="boards-title-container">
-        {user &&
+        {user && (
           <div className="index-title-avatar">
             <UserAvatar userFullName={user?.fullname} userImg={user?.imgUrl} />
             <h3 className="board-list-title">{`${user.fullname}'s Boards`}</h3>
@@ -30,8 +30,7 @@ export function BoardList({ boards, userBoards }) {
               ))}
             </ul> */}
           </div>
-        }
-
+        )}
       </div>
       <ul className="board-list">
         {boards.map((board) => (

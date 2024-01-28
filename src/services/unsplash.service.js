@@ -2,10 +2,8 @@ import axios from "axios";
 
 export const unsplashService = { getUnsplashList30 };
 
-const BASE_URL_RANDOM =
-  "https://api.unsplash.com/photos/random?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&count=30";
-
-const COLLECTION_URL = `https://api.unsplash.com/collections/2595483/photos?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&page=1`;
+const COLLECTION_URL = `https://api.unsplash.com/collections/2091539/photos?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&orientation=landscape&w=1920&page=2`;
+const COLLECTION_URL2 = `https://api.unsplash.com/collections/l6GSRgLvoZc/photos?client_id=y4HxnqCIkXZlpPc_e5YJfDCwXDLndEpoO4UjdORHtaU&page=4&orientation=landscape`;
 
 async function getUnsplashList30() {
   try {

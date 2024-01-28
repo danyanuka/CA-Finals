@@ -31,7 +31,7 @@ export function MoreBgOptions({ handleCloseModal, photos, setNewBoard }) {
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
-                    style: { backgroundImage: `url(${photo.urls.regular})` },
+                    style: { backgroundImage: `url(${photo.urls.full})` },
                   }))
                 }
               ></button>
