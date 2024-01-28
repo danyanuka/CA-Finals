@@ -1,55 +1,59 @@
-.search {
-    margin: 4px 0 12px;
-    width: 100%;
-    background-color: #fff;
-    border: none;
-    border-radius: 3px;
-    box-shadow: inset 0 0 0 2px #091e4224;
-    box-sizing: border-box;
-    display: block;
-    line-height: 20px;
-    margin-bottom: 12px;
-    outline: none;
-    padding: 8px 12px;
-    transition-duration: 85ms;
-    transition-property: background-color, border-color, box-shadow;
-    transition-timing-function: ease;
-    color: $clr-text-black;
-    font-display: swap;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.members-title {
-    margin: 0 0 8px;
-    font-size: 13px;
-    font-weight: 500;
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-.members {
-    list-style-type: none;
-
-    .member-preview {
+.mdl-task-members {
+    .search {
+        margin: 4px 0 12px;
         width: 100%;
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        // gap: 4px;
-        margin-right: 160px;
-        margin-bottom: 2px;
+        background-color: #fff;
+        border: none;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 2px #091e4224;
+        box-sizing: border-box;
+        display: block;
+        line-height: 20px;
+        margin-bottom: 12px;
+        outline: none;
+        padding: 8px 12px;
+        transition-duration: 85ms;
+        transition-property: background-color, border-color, box-shadow;
+        transition-timing-function: ease;
+        color: $clr-text-black;
+        font-display: swap;
+        font-size: 14px;
+        font-weight: 400;
+    }
 
+    .members-title {
+        margin: 0 0 8px;
+        font-size: 13px;
+        font-weight: 500;
+        display: block;
+        margin-block-start: 1.33em;
+        margin-block-end: 1.33em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
 
-        .member-info {
+    .members {
+        list-style-type: none;
+        display: grid;
+
+        .member-preview {
+            width: 100%;
+            padding: 5px;
+            cursor: pointer;
+            text-decoration: none;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 4px;
+            // gap: 4px;
+            margin-right: 160px;
+            margin-bottom: 2px;
+
+
+            .member-info {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
         }
     }
 }
