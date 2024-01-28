@@ -34,13 +34,22 @@
 .members {
     list-style-type: none;
 
-    li {
+    .member-preview {
+        width: 100%;
         cursor: pointer;
         text-decoration: none;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 4px;
+        // gap: 4px;
         margin-right: 160px;
         margin-bottom: 2px;
+
+
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
     }
 }

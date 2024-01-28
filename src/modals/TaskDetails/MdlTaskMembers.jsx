@@ -4,8 +4,10 @@ import { RootModalHeader } from "../RootModalHeader";
 import { useSelector } from "react-redux";
 import { UserAvatar } from "../../cmp/UserAvatar";
 import { groupService } from "../../services/group.service";
+import { useState } from "react";
 
-export function MdlTaskMembers({ board, task }) {
+export function MdlTaskMembers({ board, group, task }) {
+    const [search, setSearch] = useState('')
 
     function getMemberFullName(memberId) {
         const memberIndex = board.members.findIndex((mem) => mem._id === memberId)
@@ -19,10 +21,29 @@ export function MdlTaskMembers({ board, task }) {
         return null
     }
 
+    function handleChange(ev) {
+        setSearch(ev.target.value)
+    }
+
+    function handleSearchMember(fullname) {
+        const lowerCaseStr = fullname.toLowerCase()
+
+        const member = board.members.filter(member =>
+            (member.fullname.toLowerCase().includes(lowerCaseStr)))
+        return member
+    }
+
     async function handleAddMember(memberId) {
-        task.memberIds.push(memberId)
+        const memberInx = task.memberIds.findIndex(member => member === memberId)
+
+        if (memberInx >= 0) {
+            task.memberIds.splice(memberInx, 1)
+        } else {
+            task.memberIds.push(memberId)
+        }
+
         console.log(task);
-        // groupService.updateTask(newTask, groupId, board);
+        groupService.updateTask(task, group.id, board);
 
     }
 
@@ -30,14 +51,19 @@ export function MdlTaskMembers({ board, task }) {
         <div className="mdl-task-members">
             <RootModalHeader title="Members" />
             <div style={{ padding: "12px" }}>
-                <input type="text" name="search" className="search" placeholder="Search members" />
+                <input type="text" name="search" className="search" placeholder="Search members" onChange={handleChange} />
 
                 <p className="members-title">Board members</p>
                 <ul className="members">
                     {board?.members.map((member, i) => {
-                        return <li key={i} onClick={() => handleAddMember(member._id)}>
-                            <UserAvatar userFullName={getMemberFullName(member._id)} userImg={getMemberImg(member._id)} />
-                            <p> {member.fullname} </p>
+                        return <li key={i} onClick={() => handleAddMember(member._id, i)} className="member-preview transparent-btn-black" >
+                            <div className="member-info">
+                                <UserAvatar userFullName={getMemberFullName(member._id)} userImg={getMemberImg(member._id)} />
+                                <p> {member.fullname} </p>
+                            </div>
+                            {task.memberIds.findIndex(id => id === member._id) >= 0 &&
+                                <i className="icon-task-check-mark-black"></i>
+                            }
                         </li>
                     })}
 
