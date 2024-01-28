@@ -41,9 +41,9 @@ export function BoardDetails() {
     return groupService.updateGroup(newGroup, board);
   }
 
-  async function onUpdateTask(newTask, boardId) {
+  async function onUpdateTask(newTask, groupId) {
     console.log(newTask);
-    return groupService.updateTask(newTask, boardId, board);
+    return groupService.updateTask(newTask, groupId, board);
   }
 
   return (

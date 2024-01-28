@@ -10,7 +10,7 @@ export function TaskDetailsSideBar({ task, cbSaveBoard, cbOpenTaskModal }) {
             <h3 className="sidebar-header">Add to card</h3>
             <button onClick={(ev) => cbOpenTaskModal(ev, "taskMembers")} className="td-btn task-details-sidebar-members">
                 <i className="icon-task-members"></i>
-                Member
+                Members
             </button>
             <button onClick={(ev) => cbOpenTaskModal(ev, "taskLabels")} className="td-btn task-details-sidebar-labels">
                 <i className="icon-task-labels"></i>

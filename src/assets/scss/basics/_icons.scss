@@ -68,6 +68,11 @@
   width: 16px;
 }
 
+.icon-task-check-mark-black {
+  content: url("/public/icons/check-mark-black.svg");
+  width: 16px;
+}
+
 .icon-task-check-mark-dyn {
   @include iconCustomColor(#ffffff, "/public/icons/check-mark.svg");
 }
