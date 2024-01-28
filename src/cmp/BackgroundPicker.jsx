@@ -39,7 +39,7 @@ export function BackgroundPicker({ setNewBoard }) {
                 onClick={() =>
                   setNewBoard((prev) => ({
                     ...prev,
-                    style: { backgroundImage: `url(${photo.urls.regular})` },
+                    style: { backgroundImage: `url(${photo.urls.raw})` },
                   }))
                 }
                 style={{ backgroundImage: `url(${photo.urls.thumb})` }}
