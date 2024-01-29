@@ -37,18 +37,14 @@ export function TaskDetailsAttachments({ task, group }) {
     }
 
     return <div className="td-section td-attachments">
-        {isImg && <ShowImage src={isImg} />
-        }
+        {isImg && <ShowImage src={isImg} />}
+        <div className="td-section-icon">
+            <i className="icon-task-trello-attach"></i>
+        </div>
         <div className="header">
-
-            <div className="td-section-icon">
-                <i className="icon-task-trello-attach"></i>
-            </div>
-
             <h2>Attachments</h2>
-
             <div>
-                <button className="add-attach" onClick={(ev) => handleAddTaskModal(ev)}>Add</button>
+                <button className="add-attach transparent-btn-neutral" onClick={(ev) => handleAddTaskModal(ev)}>Add</button>
             </div>
         </div>
         <div className="attachments-data">
@@ -56,30 +52,29 @@ export function TaskDetailsAttachments({ task, group }) {
             {task.attachments.map((attach, i) => {
                 return (
                     <div className="attach" key={i}>
-                        {attach !== null && attach.imgUrl &&
+                        {
+                            attach?.imgUrl &&
                             <div onClick={() => handleClickImg(attach.imgUrl)} className="attach-img" >
                                 <img width='112px' height="80px" src={attach.imgUrl} />
                             </div>
                         }
-                        {attach !== null && attach.linkUrl &&
-
-                            < Link to={attach.linkUrl} target="_blank">
+                        {
+                            attach?.linkUrl &&
+                            <Link to={attach.linkUrl} target="_blank">
                                 <div className="attach-link" >
                                     <i className="icon-task-attachments-big"></i>
                                 </div>
                             </Link>
                         }
                         <div className="attach-info">
-                            {attach !== null && attach.title ?
-                                (
-                                    <h5 className="img-title">{attach.title}</h5>
-                                ) : (
-                                    <h5 className="img-title">{attach.linkUrl}</h5>
-                                )}
-                            <p>
-                                Added a few {utilService.checkTime(attach.addedAt)} ago • <Link
-                                    className="btn-delete" onClick={(ev) => handleDelete(ev, i)}>Delete</Link> • <Link
-                                        className="btn-edit" onClick={(ev) => handleEdit(ev, i)}>Edit</Link>
+                            <h5 className="img-title">
+                                {(attach !== null && attach.title) ? attach.title : attach.linkUrl}
+                                <i className="icon-task-diagonal-arrow"></i>
+                            </h5>
+                            <p className="attach-details">
+                                Added a few {utilService.checkTime(attach.addedAt)} ago •&nbsp;
+                                <Link className="btn-delete" onClick={(ev) => handleDelete(ev, i)}>Delete</Link> •&nbsp;
+                                <Link className="btn-edit" onClick={(ev) => handleEdit(ev, i)}>Edit</Link>
                             </p>
                         </div>
                     </div>

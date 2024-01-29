@@ -375,8 +375,53 @@
     &-attachments {
         margin-bottom: 24px;
 
-        .attachments-data {
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
+        .add-attach {
+            @include fontProps(14px, 500, 20px);
+            padding: 6px 12px 6px 12px;
+        }
+        
+        .attachments-data {
+    
+            .attach {
+                display: flex;
+                margin-bottom: 8px;
+
+                &:hover {
+                    background-color: $clr-bg-neutral;
+                }
+
+                .attach-info {
+                    padding: 8px 8px 8px 16px;
+                }
+    
+                .img-title {
+                    @include fontProps(14px, 700, 20px);
+                }
+
+                .icon-task-diagonal-arrow {
+                    padding-left: 8px;
+                }
+
+                .attach-details {
+                    @include fontProps(14px, 400, 20px);
+                }
+    
+                .attach-link {
+                    background-color: $clr-bg-neutral;
+                    border-radius: 3px;
+                    height: 80px;
+                    width: 112px;
+                    display: grid;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
         }
         
     }
