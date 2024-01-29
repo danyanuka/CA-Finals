@@ -41,7 +41,7 @@ export function CreateBoardModal() {
           >
             <img
               className="board-demo-img"
-              src="imgs/board-demo-img.svg"
+              src="/imgs/board-demo-img.svg"
               alt=""
             />
           </div>
