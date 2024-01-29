@@ -15,6 +15,12 @@ import { TaskDetailsSideBar } from "../cmp/TaskDetails/TaskDetailsSideBar";
 
 // services
 import { groupService } from "../services/group.service";
+import {
+    socketService,
+    SOCKET_EVENT_BOARD_UPDATE,
+    SOCKET_EMIT_WATCH_BOARD,
+    SOCKET_EMIT_UNWATCH_BOARD
+} from "/src/services/socket.service";
 
 
 export function TaskDetails() {
@@ -27,8 +33,19 @@ export function TaskDetails() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        loadBoard()
-    }, [params.boardId])
+        socketService.on(SOCKET_EVENT_BOARD_UPDATE, () => {console.log("wwww"); loadBoard()})
+        return () => {
+            socketService.off(SOCKET_EVENT_BOARD_UPDATE)
+        }
+    }, [])
+
+    useEffect(() => {
+        loadBoard();
+        socketService.emit(SOCKET_EMIT_WATCH_BOARD, params.boardId)
+        return () => {
+            socketService.emit(SOCKET_EMIT_UNWATCH_BOARD, "")
+        }
+    }, [params.boardId]);
 
     useEffect(() => {
         parseBoard()
@@ -111,7 +128,7 @@ export function TaskDetails() {
                 }
                 <div className="task-details-data">
                     <TaskDetailsHeader task={task} groupName={group.title} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
-                    <TaskDetailsMain board={board} task={task} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
+                    <TaskDetailsMain board={board} task={task} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} group={group} />
                     <TaskDetailsSideBar task={task} cbSaveBoard={saveBoard} cbOpenTaskModal={openTaskModal} />
                 </div>
             </div>

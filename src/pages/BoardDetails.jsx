@@ -12,13 +12,31 @@ import { GroupList } from "../cmp/BoardDetails/GroupList";
 
 //services
 import { groupService } from "../services/group.service";
+import {
+  socketService,
+  SOCKET_EVENT_BOARD_UPDATE,
+  SOCKET_EMIT_WATCH_BOARD,
+  SOCKET_EMIT_UNWATCH_BOARD
+} from "/src/services/socket.service";
+
 
 export function BoardDetails() {
   const params = useParams();
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
 
   useEffect(() => {
+    socketService.on(SOCKET_EVENT_BOARD_UPDATE, loadBoard)
+    return () => {
+      socketService.off(SOCKET_EVENT_BOARD_UPDATE, loadBoard)
+    }
+  }, [])
+
+  useEffect(() => {
     loadBoard();
+    socketService.emit(SOCKET_EMIT_WATCH_BOARD, params.boardId)
+    return () => {
+      socketService.emit(SOCKET_EMIT_UNWATCH_BOARD, "")
+    }
   }, [params.boardId]);
 
   async function loadBoard() {

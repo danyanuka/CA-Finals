@@ -1,11 +1,25 @@
 import { closeModal } from "../../store/actions/app.actions.js";
 import { RootModalHeader } from "../RootModalHeader";
 import { uploadService } from "../../services/upload.service.js"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { groupService } from "../../services/group.service.js";
+import { useDispatch } from "react-redux";
 
 export function MdlTaskAttach({ board, task, group }) {
     const [data, setData] = useState()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (!data) return
+        if (task.attachment) {
+            task.attachment.push(data)
+        } else {
+            const attachment = [data]
+            task.attachment = attachment
+        }
+        dispatch(closeModal());
+        groupService.updateTask(task, group.id, board);
+    }, [data])
 
     async function uploadImg(ev) {
         const { secure_url } = await uploadService.uploadImg(ev)
@@ -20,7 +34,9 @@ export function MdlTaskAttach({ board, task, group }) {
         setData({ text: ev.target.value, addedAt: Date.now() })
     }
 
-    async function handleInset() {
+    async function handleInset(ev = null) {
+        if (ev) ev.preventDefault()
+        if (!data) return
         try {
             if (task.attachment) {
                 task.attachment.push(data)
@@ -28,7 +44,7 @@ export function MdlTaskAttach({ board, task, group }) {
                 const attachment = [data]
                 task.attachment = attachment
             }
-            closeModal()
+            dispatch(closeModal());
             groupService.updateTask(task, group.id, board);
 
         } catch (err) {
@@ -38,7 +54,7 @@ export function MdlTaskAttach({ board, task, group }) {
     }
 
     function handleCancel() {
-        closeModal()
+        dispatch(closeModal());
         setData()
     }
 
@@ -51,7 +67,10 @@ export function MdlTaskAttach({ board, task, group }) {
                 </h4>
 
 
-                <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" className='attach-input' />
+                <label className='add-file transparent-btn-black'>
+                    Choose a file
+                    <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" />
+                </label>
 
                 <div className="attach-mdl-link">
                     <span className="attach-mdl-title">Search or paste a link</span>
