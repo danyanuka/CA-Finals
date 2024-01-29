@@ -132,7 +132,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
               {task.attachment && (
                 <div className="icon-with-counts">
                   <i className="icon-task-attachments" title="Attachments"></i>
-                  <span>{task.comments.length + 1}</span>
+                  <span>{task.attachment?.length + 1}</span>
                 </div>
               )}
 

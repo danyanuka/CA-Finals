@@ -29,11 +29,13 @@ export function MdlTaskMembers({ board, group, task }) {
     }
 
     function handleAddMember(memberId) {
-        const memberInx = task.memberIds.findIndex(member => member === memberId)
+        const memberInx = task.memberIds?.findIndex(member => member === memberId)
         if (memberInx >= 0) {
             task.memberIds.splice(memberInx, 1)
-        } else {
+        } else if (task.memberIds) {
             task.memberIds.push(memberId)
+        } else {
+            task.memberIds = [memberId]
         }
         groupService.updateTask(task, group.id, board);
     }
