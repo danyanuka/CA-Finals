@@ -11,38 +11,40 @@ export function MdlTaskAttach({ board, task, group }) {
 
     useEffect(() => {
         if (!data) return
-        if (task.attachment) {
-            task.attachment.push(data)
+        if (task.attachments) {
+            task.attachments.push(data)
         } else {
-            const attachment = [data]
-            task.attachment = attachment
+            const attachments = [data]
+            task.attachments = attachments
         }
         dispatch(closeModal());
         groupService.updateTask(task, group.id, board);
-    }, [data])
+    }, [data?.imgUrl])
 
     async function uploadImg(ev) {
+        const { name } = ev.target.files[0];
         const { secure_url } = await uploadService.uploadImg(ev)
-        setData({ imgUrl: secure_url, addedAt: Date.now() })
+        setData({ imgUrl: secure_url, addedAt: Date.now(), title: name })
     }
 
     function uploadLink(ev) {
-        setData({ linkUrl: ev.target.value, addedAt: Date.now() })
+        setData(prevData => ({ ...prevData, linkUrl: ev.target.value, addedAt: Date.now() }))
     }
 
     function uploadText(ev) {
-        setData({ text: ev.target.value, addedAt: Date.now() })
+        setData(prevData => ({ ...prevData, title: ev.target.value }))
+
     }
 
     async function handleInset(ev = null) {
         if (ev) ev.preventDefault()
         if (!data) return
         try {
-            if (task.attachment) {
-                task.attachment.push(data)
+            if (task.attachments) {
+                task.attachments.push(data)
             } else {
-                const attachment = [data]
-                task.attachment = attachment
+                const attachments = [data]
+                task.attachments = attachments
             }
             dispatch(closeModal());
             groupService.updateTask(task, group.id, board);

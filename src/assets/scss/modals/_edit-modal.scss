@@ -1,0 +1,46 @@
+.edit-attach-input {
+    display: block;
+    line-height: 16px;
+    margin-bottom: 4px;
+
+    p {
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #44546f;
+        padding: 2px;
+    }
+
+    input {
+        width: 100%;
+        background-color: #fff;
+        border: none;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 2px #091e4224;
+        box-sizing: border-box;
+        display: block;
+        line-height: 20px;
+        margin-bottom: 12px;
+        outline: none;
+        padding: 8px 12px;
+        font-size: 14px;
+
+
+        &:focus {
+            box-shadow: inset 0 0 0 2px #388bff;
+        }
+
+    }
+
+}
+
+.btn-update-attach {
+    padding: 6px 12px;
+    background-color: $clr-bg-blue-bold;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+}

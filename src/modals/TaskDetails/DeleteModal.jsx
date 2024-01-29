@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { RootModalHeader } from "./RootModalHeader"
-import { groupService } from "../services/group.service";
-import { closeModal } from "../store/actions/app.actions";
+import { RootModalHeader } from "../RootModalHeader"
+import { groupService } from "../../services/group.service";
+import { closeModal } from "../../store/actions/app.actions";
 import { useDispatch } from "react-redux";
 
 export function DeleteModal({ index, task, groupId }) {
@@ -9,7 +9,7 @@ export function DeleteModal({ index, task, groupId }) {
     const dispatch = useDispatch()
 
     function onDelete() {
-        task.attachment.splice(index, 1)
+        task.attachments.splice(index, 1)
         groupService.updateTask(task, groupId, board);
         dispatch(closeModal());
     }
