@@ -17,6 +17,7 @@ export const utilService = {
   isDarkColor,
   getTimeStatus,
   isUnsplash,
+  checkTime,
 };
 
 function isUnsplash(bgUrl) {
@@ -104,7 +105,7 @@ function getMembers(memberIds, board) {
 
 function getTimeStatus(timestamp) {
   const currentTimestamp = new Date().getTime();
-  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60);
+  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60)
 
   if (timeDifferenceHours < 0 && timeDifferenceHours > -24) {
     return "yesterday";
@@ -117,6 +118,37 @@ function getTimeStatus(timestamp) {
   } else {
     return "future";
   }
+}
+
+function checkTime(timestamp) {
+  // Assuming you have two timestamps in milliseconds
+  const currentTimestamp = new Date().getTime();
+  const createdTimestamp = timestamp
+
+  // Calculate the difference in milliseconds
+  const timeDifference = currentTimestamp - createdTimestamp;
+
+  // Convert milliseconds to seconds, minutes, hours, or days
+  const seconds = Math.floor(timeDifference / 1000);
+  const minutes = Math.floor(timeDifference / (1000 * 60));
+  const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+  if (seconds < 60) {
+    return 'seconds'
+  } else if (minutes < 60) {
+    return 'minutes'
+  } else if (hours < 60) {
+    return 'hours'
+  } else {
+    return 'days'
+  }
+
+  // console.log(`Difference in seconds: ${seconds}`);
+  // console.log(`Difference in minutes: ${minutes}`);
+  // console.log(`Difference in hours: ${hours}`);
+  // console.log(`Difference in days: ${days}`);
+
 }
 
 function getStatusChecklist(checklist) {

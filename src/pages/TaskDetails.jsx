@@ -128,7 +128,7 @@ export function TaskDetails() {
                 }
                 <div className="task-details-data">
                     <TaskDetailsHeader task={task} groupName={group.title} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
-                    <TaskDetailsMain board={board} task={task} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
+                    <TaskDetailsMain board={board} task={task} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} group={group} />
                     <TaskDetailsSideBar task={task} cbSaveBoard={saveBoard} cbOpenTaskModal={openTaskModal} />
                 </div>
             </div>

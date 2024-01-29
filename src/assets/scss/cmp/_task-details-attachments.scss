@@ -1,0 +1,43 @@
+.td-attachments {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .attachments-data {
+        box-sizing: border-box;
+        cursor: pointer;
+        margin: 0;
+        min-height: 80px;
+
+        .attach {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-delete {
+            border: none;
+        }
+    }
+
+    .add-attach {
+        font-size: 14px;
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 6px 12px;
+        background-color: $clr-bg-neutral;
+        box-shadow: none;
+        border: none;
+        color: $clr-text-black;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $clr-bg-neutral-hovered;
+
+        }
+    }
+}
