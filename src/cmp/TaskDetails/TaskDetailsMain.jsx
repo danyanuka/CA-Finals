@@ -14,9 +14,13 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }
     return <div className="task-details-main">
         <TaskDetailsBriefItems board={board} task={task} cbOnUpdateTask={cbOnUpdateTask} cbOpenTaskModal={cbOpenTaskModal} />
         <TaskDetailsDescription task={task} cbOnUpdateTask={cbOnUpdateTask} />
-        <TaskDetailsAttachments />
+        {/* <TaskDetailsAttachments /> */}
         {
-            task?.checklists && 
+            task?.attachment &&
+            <TaskDetailsAttachments task={task} cbOnUpdateTask={cbOnUpdateTask} />
+        }
+        {
+            task?.checklists &&
             task.checklists.map((cl) => <TaskDetailsChecklist checklist={cl} task={task} cbOnUpdateTask={cbOnUpdateTask} />)
         }
         <TaskDetailsActivity />
