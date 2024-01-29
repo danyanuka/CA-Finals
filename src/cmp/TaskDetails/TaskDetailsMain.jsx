@@ -21,7 +21,7 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal }
         }
         {
             task?.checklists &&
-            task.checklists.map((cl) => <TaskDetailsChecklist checklist={cl} task={task} cbOnUpdateTask={cbOnUpdateTask} />)
+            task.checklists.map((cl, i) => <TaskDetailsChecklist key={i} checklist={cl} task={task} cbOnUpdateTask={cbOnUpdateTask} />)
         }
         <TaskDetailsActivity />
     </div>

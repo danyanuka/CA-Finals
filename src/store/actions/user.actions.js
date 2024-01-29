@@ -3,6 +3,7 @@ import { userService } from "../../services/User/user.service.js"
 import { REMOVE_USER, SET_USER, SET_USERS, UPDATE_USER, ADD_USER } from "../reducers/user.reducer.js"
 
 import { store } from "../store.js"
+import { socketService } from "/src/services/socket.service"
 
 
 export async function loadUsers() {
@@ -42,6 +43,7 @@ export async function login(credentials) {
             type: SET_USER,
             user
         })
+        socketService.login(user._id)
         return user
     } catch (err) {
         console.log('Cannot login', err)
@@ -56,6 +58,7 @@ export async function signup(credentials) {
             type: SET_USER,
             user
         })
+        socketService.login(user._id)
         return user
     } catch (err) {
         console.log('Cannot signup', err)
@@ -70,6 +73,7 @@ export async function logout() {
             type: SET_USER,
             user: null
         })
+        socketService.logout()
     } catch (err) {
         console.log('Cannot logout', err)
         throw err
