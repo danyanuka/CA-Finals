@@ -22,7 +22,7 @@ export function ImgUploader({ onUploaded = null }) {
         <>
             {!imgData.imgUrl &&
                 <div className="form-item">
-                    <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" />
+                    <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" className='attach-input' />
                 </div>
             }
             {imgData.imgUrl &&

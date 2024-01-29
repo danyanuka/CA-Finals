@@ -193,7 +193,9 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
                             onBlur={(ev) => handleOnBlur(ev)}
                             onChange={handleChange}
                             placeholder='Enter group title...'
-                            autoFocus />
+                            autoFocus
+                            autoComplete='off'
+                        />
 
                         <div className="add-group-buttons">
                             <button className='add-group-button'>Add group</button>

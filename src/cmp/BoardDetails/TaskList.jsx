@@ -98,7 +98,8 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                                 onBlur={() => setIsAddingFromModal(false)}
                                 onChange={handleChangeTaskTitle}
                                 placeholder='Enter a title for this task...'
-                                autoFocus />
+                                autoFocus
+                                autoComplete='off' />
                         </li>
 
                         <div className="add-task-buttons">
@@ -132,6 +133,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                                 placeholder='Enter a title for this task...'
                                 autoFocus
                                 onBlur={(ev) => handleOnBlur(ev)}
+                                autoComplete='off'
                             />
 
                         </li>
