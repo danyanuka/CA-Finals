@@ -89,7 +89,7 @@
     align-items: center;
   }
   .bg-photo-thumb:focus::before {
-    content: url("public/icons/check-mark.svg");
+    content: url("/icons/check-mark.svg");
     position: absolute;
     opacity: 1;
   }
