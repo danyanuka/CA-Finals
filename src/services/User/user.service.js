@@ -6,11 +6,10 @@ var axios = Axios.create({
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
-// const BASE_URL = (window.process.env.NODE_ENV !== 'development') ?
-//     '/api/' :
-//     '//localhost:3030/api/'
-
-const BASE_URL = '//localhost:3030/api/'
+const BASE_URL =
+    process.env.NODE_ENV === 'production'
+        ? '/api/'
+        : '//localhost:3030/api/'
 
 const BASE_USER_URL = BASE_URL + 'user/'
 const BASE_AUTH_URL = BASE_URL + 'auth/'

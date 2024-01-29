@@ -17,13 +17,13 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-logo {
-  content: url("/public/icons/trello-blue.svg");
+  content: url("/icons/trello-blue.svg");
   width: 40px;
   height: 40px;
 }
 
 .icon-close-grayblue {
-  -webkit-mask: url("/public/icons/close.svg");
+  -webkit-mask: url("/icons/close.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: #42526e;
@@ -32,7 +32,7 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-close-white {
-  -webkit-mask: url("/public/icons/close.svg");
+  -webkit-mask: url("/icons/close.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: #ffffff;
@@ -41,35 +41,35 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-task-details-cover {
-  content: url("/public/icons/task-cover.png");
+  content: url("/icons/task-cover.png");
 }
 
 .icon-task-header {
-  content: url("/public/icons/task-header.png");
+  content: url("/icons/task-header.png");
   height: 18px;
 }
 
 .icon-task-header-cover {
-  content: url("/public/icons/task-cover.png");
+  content: url("/icons/task-cover.png");
 }
 
 .icon-watch-task {
-  content: url("/public/icons/watch-task.svg");
+  content: url("/icons/watch-task.svg");
   width: 16px;
 }
 
 .icon-task-down {
-  content: url("/public/icons/down.svg");
+  content: url("/icons/down.svg");
   width: 16px;
 }
 
 .icon-task-check-mark {
-  content: url("/public/icons/check-mark.svg");
+  content: url("/icons/check-mark.svg");
   width: 16px;
 }
 
 .icon-task-check-mark-dyn {
-  -webkit-mask: url("/public/icons/check-mark.svg");
+  -webkit-mask: url("/icons/check-mark.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: #ffffff;
@@ -78,90 +78,90 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-task-members {
-  content: url("/public/icons/member-gray.svg");
+  content: url("/icons/member-gray.svg");
 }
 
 .icon-task-labels {
-  content: url("/public/icons/labels.png");
+  content: url("/icons/labels.png");
 }
 
 .icon-task-checklist {
-  content: url("/public/icons/checklists.svg");
+  content: url("/icons/checklists.svg");
 }
 
 .icon-task-dates {
-  content: url("/public/icons/clock.png");
+  content: url("/icons/clock.png");
 }
 
 .icon-task-attachments {
-  content: url("/public/icons/attachment2.svg");
+  content: url("/icons/attachment2.svg");
 }
 
 .icon-task-cover {
-  content: url("/public/icons/cover.png");
+  content: url("/icons/cover.png");
 }
 
 .icon-task-move {
-  content: url("/public/icons/arrow-right.png");
+  content: url("/icons/arrow-right.png");
 }
 
 .icon-task-copy {
-  content: url("/public/icons/copy.svg");
+  content: url("/icons/copy.svg");
 }
 
 .icon-task-make-template {
-  content: url("/public/icons/template.svg");
+  content: url("/icons/template.svg");
 }
 
 .icon-task-archive {
-  content: url("/public/icons/archive.png");
+  content: url("/icons/archive.png");
 }
 
 .icon-task-share {
-  content: url("/public/icons/share.svg");
+  content: url("/icons/share.svg");
 }
 
 .icon-task-plus {
-  content: url("/public/icons/plus.svg");
+  content: url("/icons/plus.svg");
   width: 16px;
 }
 
 .icon-task-plus2 {
-  content: url("/public/icons/plus2.svg");
+  content: url("/icons/plus2.svg");
   width: 16px;
 }
 
 .icon-show-more {
-  content: url("/public/icons/show-more.svg");
+  content: url("/icons/show-more.svg");
 }
 
 .icon-add {
-  content: url("/public/icons/add.svg");
+  content: url("/icons/add.svg");
 }
 
 .icon-search {
-  content: url("/public/icons/search.svg");
+  content: url("/icons/search.svg");
 }
 
 .icon-notifications {
-  content: url("/public/icons/notifications.svg");
+  content: url("/icons/notifications.svg");
 }
 
 .icon-info {
-  content: url("/public/icons/information.svg");
+  content: url("/icons/information.svg");
 }
 
 .icon-account {
-  content: url("/public/icons/member-add.svg");
+  content: url("/icons/member-add.svg");
 }
 
 .icon-star {
   z-index: 999;
-  content: url("/public/icons/star.svg");
+  content: url("/icons/star.svg");
 }
 
 .icon-star-starred {
-  -webkit-mask: url("/public/icons/star-filled.svg");
+  -webkit-mask: url("/icons/star-filled.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: rgb(226, 178, 3);
@@ -172,7 +172,7 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-star-starred-hovered {
-  -webkit-mask: url("/public/icons/star.svg");
+  -webkit-mask: url("/icons/star.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: rgb(226, 178, 3);
@@ -183,39 +183,39 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-members {
-  content: url("/public/icons/members.svg");
+  content: url("/icons/members.svg");
 }
 
 .icon-board {
-  content: url("/public/icons/board.svg");
+  content: url("/icons/board.svg");
 }
 
 .icon-power {
-  content: url("/public/icons/power.svg");
+  content: url("/icons/power.svg");
 }
 
 .icon-automation {
-  content: url("/public/icons/automation.svg");
+  content: url("/icons/automation.svg");
 }
 
 .icon-filter {
-  content: url("/public/icons/filter.svg");
+  content: url("/icons/filter.svg");
 }
 
 .icon-member {
-  content: url("/public/icons/member.svg");
+  content: url("/icons/member.svg");
 }
 
 .icon-side-bar {
-  content: url("/public/icons/more-options.svg");
+  content: url("/icons/more-options.svg");
 }
 
 .icon-show-options {
-  content: url("/public/icons/svgexport-36.svg");
+  content: url("/icons/svgexport-36.svg");
 }
 
 .icon-play {
-  -webkit-mask: url("/public/icons/play-icon.svg");
+  -webkit-mask: url("/icons/play-icon.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   background-color: #ffffff;
@@ -226,109 +226,109 @@ https://sass-lang.com/documentation/at-rules/import/#plain-css-imports
 }
 
 .icon-carousel-right {
-  content: url("/public/icons/carousel-arrow-right.svg");
+  content: url("/icons/carousel-arrow-right.svg");
 }
 
 .icon-carousel-left {
-  content: url("/public/icons/carousel-arrow-left.svg");
+  content: url("/icons/carousel-arrow-left.svg");
 }
 
 .icon-template {
-  content: url("/public/icons/template.svg");
+  content: url("/icons/template.svg");
   width: 19px;
   height: 19px;
 }
 
 .icon-edit {
-  content: url("/public/icons/edit.svg");
+  content: url("/icons/edit.svg");
   width: 18px;
   height: 18px;
 }
 
 .icon-description {
-  content: url("/public/icons/description.svg");
+  content: url("/icons/description.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-comments {
-  content: url("/public/icons/comments.svg");
+  content: url("/icons/comments.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-checklists {
-  content: url("/public/icons/checklists.svg");
+  content: url("/icons/checklists.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-checklists-white {
-  content: url("/public/icons/checklists-white.svg");
+  content: url("/icons/checklists-white.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-clock-alert- {
-  content: url("/public/icons/clock-alert.svg");
+  content: url("/icons/clock-alert.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-clock-alert-past {
-  content: url("/public/icons/clock-red.svg");
+  content: url("/icons/clock-red.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-clock-alert-today {
-  content: url("/public/icons/clock-white.svg");
+  content: url("/icons/clock-white.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-clock-alert-yesterday {
-  content: url("/public/icons/clock-white.svg");
+  content: url("/icons/clock-white.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-member-gray {
-  content: url("/public/icons/member-gray.svg");
+  content: url("/icons/member-gray.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-close-regular {
-  content: url("/public/icons/close.svg");
+  content: url("/icons/close.svg");
 }
 
 .icon-close-add-task {
-  content: url("/public/icons/close.svg");
+  content: url("/icons/close.svg");
   width: 18px;
   height: 18px;
 }
 
 .icon-more-options {
-  content: url("/public/icons/more-options.svg");
+  content: url("/icons/more-options.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-add-group {
-  content: url("/public/icons/add-group.svg");
+  content: url("/icons/add-group.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-add-task {
-  content: url("/public/icons/add-task.svg");
+  content: url("/icons/add-task.svg");
   width: 17px;
   height: 17px;
 }
 
 .icon-add-non-style {
-  content: url("/public/icons/add.svg");
+  content: url("/icons/add.svg");
   width: 17px;
   height: 17px;
 }
@@ -1233,7 +1233,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-folder.png");
+  background-image: url("/home-page/icon-folder.png");
 }
 .home-page-container .section3-container .third-section .carousel-card.carousel-card-2 {
   position: relative;
@@ -1255,7 +1255,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-megaphone.png");
+  background-image: url("/home-page/icon-megaphone.png");
 }
 .home-page-container .section3-container .third-section .carousel-card.carousel-card-3 {
   position: relative;
@@ -1277,7 +1277,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-leaf.png");
+  background-image: url("/home-page/icon-leaf.png");
 }
 .home-page-container .section3-container .third-section .carousel-card.carousel-card-4 {
   position: relative;
@@ -1299,7 +1299,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-checklist.png");
+  background-image: url("/home-page/icon-checklist.png");
 }
 .home-page-container .section3-container .third-section .carousel-card.carousel-card-5 {
   position: relative;
@@ -1321,7 +1321,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-clouds.svg");
+  background-image: url("/home-page/icon-clouds.svg");
 }
 .home-page-container .section3-container .third-section .carousel-card.carousel-card-6 {
   position: relative;
@@ -1343,7 +1343,7 @@ scrollable-square-white
   width: 3rem;
   left: 1rem;
   top: 20px;
-  background-image: url("/public/home-page/icon-book.png");
+  background-image: url("/home-page/icon-book.png");
 }
 
 .login-signup-page {
@@ -2801,7 +2801,7 @@ button.user-avatar data {
 .app-header-container .app-header-content .app-header-logo-link .app-header-logo-container::before,
 .app-header-container .app-header-content .app-header-logo-link .app-header-logo-container-white::before {
   content: "";
-  background-image: url("/public/logo.gif");
+  background-image: url("/logo.gif");
   position: absolute;
   background-size: contain;
   background-position: center;
@@ -2813,7 +2813,7 @@ button.user-avatar data {
 .app-header-container .app-header-content .app-header-logo-link .app-header-logo-container:hover::before,
 .app-header-container .app-header-content .app-header-logo-link .app-header-logo-container-white:hover::before {
   content: "";
-  background-image: url("/public/logo.moving.gif");
+  background-image: url("/logo.moving.gif");
   position: absolute;
   background-size: contain;
   background-position: center;

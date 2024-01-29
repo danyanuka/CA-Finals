@@ -61,7 +61,7 @@
         box-shadow: none;
         background-color: $clr-dynamic-button-black-hovered;
         img {
-            content: url("/public/icons/text-bold-blue.svg");
+            content: url("/icons/text-bold-blue.svg");
         }
     }
 
@@ -69,7 +69,7 @@
         box-shadow: none;
         background-color: $clr-dynamic-button-black-hovered;
         img {
-            content: url("/public/icons/text-italic-blue.svg");
+            content: url("/icons/text-italic-blue.svg");
         }
     }
 
@@ -77,7 +77,7 @@
     .rdw-dropdown-carettoclose,
     .rdw-dropdown-carettoopen {
         border: none;
-        content: url("/public/icons/down3.svg");
+        content: url("/icons/down3.svg");
         height: 24px;
         width: 24px;
         top: 0px;
@@ -98,7 +98,7 @@
                 padding: 0px;
                 span {
                     margin-left: 4px;
-                    content: url("/public/icons/textbox-Aa.svg");
+                    content: url("/icons/textbox-Aa.svg");
                 }
             }
         }

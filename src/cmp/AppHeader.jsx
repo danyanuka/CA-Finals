@@ -51,7 +51,7 @@ export function AppHeader() {
               height="20px"
               width="91px"
               className="icon-logo"
-              src="../../public/logo.gif"
+              src="/logo.gif"
               alt="logo"
             />
           </NavLink>

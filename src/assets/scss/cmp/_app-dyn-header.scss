@@ -32,7 +32,7 @@
 
         &::before {
           content: "";
-          background-image: url("/public/logo.gif");
+          background-image: url("/logo.gif");
           position: absolute;
           background-size: contain;
           background-position: center;
@@ -45,7 +45,7 @@
         &:hover {
           &::before {
             content: "";
-            background-image: url("/public/logo.moving.gif");
+            background-image: url("/logo.moving.gif");
             position: absolute;
             background-size: contain;
             background-position: center;
