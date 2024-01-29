@@ -34,7 +34,7 @@ export function CreateBoardModal() {
           <div
             style={
               newBoard.style || {
-                backgroundImage: "url(public/grad-bg-images/light-blue.svg)",
+                backgroundImage: "url(/grad-bg-images/light-blue.svg)",
               }
             }
             className="bg-board-demo"

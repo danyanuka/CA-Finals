@@ -229,7 +229,7 @@ function createBoards(overwrite) {
             "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
         },
         style: {
-          backgroundImage: "url(public/grad-bg-images/brown.svg)",
+          backgroundImage: "url(/grad-bg-images/brown.svg)",
         },
         labels: [
           {
@@ -375,7 +375,7 @@ function createBoards(overwrite) {
           imgUrl: "http://some-img",
         },
         style: {
-          backgroundImage: "url(public/grad-bg-images/turquoise.svg)",
+          backgroundImage: "url(/grad-bg-images/turquoise.svg)",
         },
         labels: [
           {

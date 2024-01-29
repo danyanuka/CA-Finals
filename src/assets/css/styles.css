@@ -1509,7 +1509,7 @@ scrollable-square-white
   position: relative;
 }
 .board-index-container .all-boards-container .all-boards .boards-title-container .board-list-title.starred::before {
-  content: url("public/icons/star-lg.svg");
+  content: url("/icons/star-lg.svg");
   position: absolute;
   top: 55%;
   right: 105%;
@@ -1520,7 +1520,7 @@ scrollable-square-white
   position: relative;
 }
 .board-index-container .all-boards-container .all-boards .boards-title-container .board-list-title.user-icon::before {
-  content: url("public/icons/member-gray.svg");
+  content: url("/icons/member-gray.svg");
   position: absolute;
   top: 40%;
   right: 115%;
@@ -2628,7 +2628,7 @@ button.user-avatar data {
 }
 .create-board-modal .bg-photo-thumb:focus::before,
 .create-board-modal .bg-color-thumb:focus::before {
-  content: url("public/icons/check-mark.svg");
+  content: url("/icons/check-mark.svg");
   position: absolute;
   opacity: 1;
 }

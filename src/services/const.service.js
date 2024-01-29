@@ -9,15 +9,15 @@ const colors = [
 ];
 
 const gradColorPics = [
-  { color: "public/grad-bg-images/light-blue.svg", id: 8 },
-  { color: "public/grad-bg-images/turquoise.svg", id: 9 },
-  { color: "public/grad-bg-images/brown.svg", id: 10 },
-  { color: "public/grad-bg-images/dark-blue.svg", id: 11 },
-  { color: "public/grad-bg-images/orange.svg", id: 13 },
-  { color: "public/grad-bg-images/pink.svg", id: 12 },
-  { color: "public/grad-bg-images/dark-purple.svg", id: 14 },
-  { color: "public/grad-bg-images/light-purple.svg", id: 15 },
-  { color: "public/grad-bg-images/gray-blue.svg", id: 16 },
+  { color: "/grad-bg-images/light-blue.svg", id: 8 },
+  { color: "/grad-bg-images/turquoise.svg", id: 9 },
+  { color: "/grad-bg-images/brown.svg", id: 10 },
+  { color: "/grad-bg-images/dark-blue.svg", id: 11 },
+  { color: "/grad-bg-images/orange.svg", id: 13 },
+  { color: "/grad-bg-images/pink.svg", id: 12 },
+  { color: "/grad-bg-images/dark-purple.svg", id: 14 },
+  { color: "/grad-bg-images/light-purple.svg", id: 15 },
+  { color: "/grad-bg-images/gray-blue.svg", id: 16 },
 ];
 
 const defaultAvatarColor = [
