@@ -1,0 +1,22 @@
+.mdl-task-labels-container {
+  .mdl-task-labels-content {
+    padding: 12px;
+    .search-labels-input {
+      @include fontProps(14px, 400, 20px);
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      // line-height: 20px;
+      box-shadow: inset 0 0 0 2px #091e4224;
+      &:focus {
+        box-shadow: inset 0 0 0 2px #0078bf;
+      }
+    }
+    .create-label-btn {
+      @include fontProps(14px, 500, 20px);
+      margin: 4px 0;
+      padding: 6px 12px 6px 12px;
+      width: 100%;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { unsplashService } from "../services/unsplash.service";
-import { constService } from "../services/const.service";
-import { MoreBgOptions } from "../modals/CreateBoard/MoreBgOptions";
+import { unsplashService } from "../../services/unsplash.service";
+import { constService } from "../../services/const.service";
+import { MoreBgOptions } from "../CreateBoard/MoreBgOptions";
 
 export function BackgroundPicker({ setNewBoard }) {
   const [photos, setPhotos] = useState([]);

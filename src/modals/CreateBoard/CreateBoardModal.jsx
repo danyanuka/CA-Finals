@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { boardActions } from "/src/store/actions/board.actions";
 import { RootModalHeader } from "../RootModalHeader";
-import { BackgroundPicker } from "/src/cmp/BackgroundPicker";
+import { BackgroundPicker } from "../ModalNestedComps/BackgroundPicker";
 import { closeModal } from "../../store/actions/app.actions";
 import { useSelector } from "react-redux";
 
