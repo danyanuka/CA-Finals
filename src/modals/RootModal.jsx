@@ -73,17 +73,35 @@ function DynModalType({ modalType, modalProps }) {
     case "moreOptions":
       return <ShowOptionsModal handleIsAddingFromModal={modalProps} />;
     case "taskMembers":
-      return <MdlTaskMembers board={modalProps.board} group={modalProps.group} task={modalProps.task} />;
+      return (
+        <MdlTaskMembers
+          board={modalProps.board}
+          group={modalProps.group}
+          task={modalProps.task}
+        />
+      );
     case "taskMemberInfo":
       return <MdlTaskMemberInfo />;
     case "taskLabels":
-      return <MdlTaskLabels board={modalProps.board} group={modalProps.group} task={modalProps.task} />;
+      return (
+        <MdlTaskLabels
+          board={modalProps.board}
+          group={modalProps.group}
+          task={modalProps.task}
+        />
+      );
     case "taskChecklist":
       return <MdlTaskChecklist />;
     case "taskDates":
       return <MdlTaskDates board={modalProps.board} />;
     case "taskAttach":
-      return <MdlTaskAttach board={modalProps.board} group={modalProps.group} task={modalProps.task} />;
+      return (
+        <MdlTaskAttach
+          board={modalProps.board}
+          group={modalProps.group}
+          task={modalProps.task}
+        />
+      );
     case "taskCover":
       return <MdlTaskCover />;
     case "taskMove":
@@ -95,8 +113,13 @@ function DynModalType({ modalType, modalProps }) {
     case "BoardsDropdown":
       return <BoardsDropdown isStarred={modalProps} />;
     case "DeleteModal":
-      return <DeleteModal index={modalProps.index} task={modalProps.task}
-        groupId={modalProps.groupId} />;
+      return (
+        <DeleteModal
+          index={modalProps.index}
+          task={modalProps.task}
+          groupId={modalProps.groupId}
+        />
+      );
 
     // More type cases below
 

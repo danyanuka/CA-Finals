@@ -1,31 +1,34 @@
-import { useDispatch } from "react-redux";
-import { closeModal } from "/src/store/actions/app.actions";
-import { RootModalHeader } from "../RootModalHeader";
+import { LabelsModal } from "../ModalNestedComps/Labels/LabelsModal";
+import { CreateLabelModal } from "../ModalNestedComps/Labels/CreateLabelModal";
 import { useState } from "react";
-import { LabelsList } from "../ModalNestedComps/LabelsList";
 
 export function MdlTaskLabels({ board, group, task }) {
   const [labels, setLabels] = useState(board.labels);
-
-  function createLabel() {}
+  const [isCreateLabelOpen, setIsCreateLabelOpen] = useState(false);
 
   return (
-    <div className="mdl-task-labels-container">
-      <RootModalHeader title="Labels" />
-      <div className="mdl-task-labels-content">
-        <input
-          placeholder="Search labels..."
-          className="search-labels-input"
-          type="text"
-        ></input>
-        <LabelsList labels={labels} />
-        <button
-          onClick={createLabel}
-          className="create-label-btn transparent-btn-neutral"
-        >
-          Create a new label
-        </button>
-      </div>
-    </div>
+    <DynLabelsComp
+      labels={labels}
+      isCreateLabelOpen={isCreateLabelOpen}
+      setIsCreateLabelOpen={setIsCreateLabelOpen}
+    />
   );
+}
+
+function DynLabelsComp({ isCreateLabelOpen, setIsCreateLabelOpen, labels }) {
+  switch (isCreateLabelOpen) {
+    case false:
+      return (
+        <LabelsModal
+          setIsCreateLabelOpen={setIsCreateLabelOpen}
+          labels={labels}
+        />
+      );
+
+    case true:
+      return <CreateLabelModal setIsCreateLabelOpen={setIsCreateLabelOpen} />;
+
+    default:
+      return <div>Sorry, something unexpected happened</div>;
+  }
 }

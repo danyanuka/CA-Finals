@@ -4,10 +4,12 @@
   line-height: $lineHeight;
 }
 
-@mixin transitionAction($property,
+@mixin transitionAction(
+  $property,
   $hoverValue,
   $transitionTime,
-  $action: hover) {
+  $action: hover
+) {
   transition: $property $transitionTime ease-out 0s;
 
   &:#{$action} {
@@ -32,17 +34,15 @@
   @include transitionAction(background-color, $colorActive, 10ms, active);
 }
 
-
 @mixin rtbToolsBtn() {
   height: 24px;
   border: none;
-  &:hover, 
+  &:hover,
   &:active {
     box-shadow: none;
   }
-  @include btnColors($clr-dynamic-button-black-hovered, $clr-dynamic-button-black-pressed);
+  @include btnColors(
+    $clr-dynamic-button-black-hovered,
+    $clr-dynamic-button-black-pressed
+  );
 }
-
-
-
-
