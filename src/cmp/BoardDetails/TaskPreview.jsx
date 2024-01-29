@@ -16,7 +16,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
   const isTaskActions =
     task.checklists ||
-      task.attachment ||
+      task.attachments ||
       task.dueDate ||
       task.memberIds ||
       task.description
@@ -28,8 +28,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
   const { boardId } = useParams();
   const navigate = useNavigate();
-
-
 
   function handleGoToTask(taskId) {
     navigate(`/board/${boardId}/${taskId}`);
@@ -46,7 +44,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       return board.members[userIndx]?.imgUrl
     return null
   }
-
 
   function handleIsComplete(isComplete) {
     setIsComplete(isComplete);
@@ -78,6 +75,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
+          onClick={() => handleGoToTask(task.id)}
         >
           {task.style && (
             <div className="task-header" style={task.style}>
@@ -87,7 +85,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
             </div>
           )}
 
-          <div className="task-body" onClick={() => handleGoToTask(task.id)}>
+          <div className="task-body" >
             {task.labelIds && (
               <div className="labels">
                 {labels.map((label) => {
@@ -114,7 +112,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
           </div>
 
           <div className={isTaskActions ? "task-actions" : null}>
-            <div className="task-icons ">
+            <div className="task-icons">
               {task.description && (
                 <i
                   className="icon-description"
@@ -129,10 +127,10 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                 </div>
               )}
 
-              {task.attachment && (
+              {task.attachments?.length > 0 && (
                 <div className="icon-with-counts">
                   <i className="icon-task-attachments" title="Attachments"></i>
-                  <span>{task.attachment.length + 1}</span>
+                  <span>{task.attachments.length}</span>
                 </div>
               )}
 
@@ -174,7 +172,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                   </span>
                 </div>
               )}
-
             </div>
             <div>
               {task.memberIds && (
@@ -189,6 +186,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
               )}
             </div>
           </div>
+
         </div>
       )}
     </Draggable>

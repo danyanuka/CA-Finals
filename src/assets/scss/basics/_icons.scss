@@ -94,9 +94,15 @@
 }
 
 .icon-task-attachments {
-  content: url("/icons/attachment2.svg");
+  content: url("/icons/attachment.svg");
   width: 16px;
   height: 16px;
+}
+
+.icon-task-attachments-big {
+  content: url("/icons/attachment.svg");
+  width: 20px;
+  height: 20px;
 }
 
 .icon-task-cover {

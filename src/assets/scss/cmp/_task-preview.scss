@@ -28,7 +28,6 @@
                 height: 8px;
                 border-radius: 4px;
 
-
             }
         }
     }
@@ -38,6 +37,10 @@
     padding-left: 12px;
     padding-right: 8px;
     padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     .task-icons {
         display: flex;
@@ -130,21 +133,25 @@
             color: white;
         }
     }
-}
 
-.members {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 5px;
+    .members {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 5px;
+        margin-left: auto;
 
-    button {
-        height: 32px;
-        width: 32px;
-        border-radius: 50%;
-        border-width: 0px;
+        button {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            border-width: 0px;
+        }
     }
+
 }
+
+
 
 .is-dragging-true {
     background-color: white;

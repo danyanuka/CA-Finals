@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { TaskDetailsBriefItems } from "./TaskDetailsBrief/TaskDetailsBriefItems";
 import { TaskDetailsDescription } from "./TaskDetailsDescription";
@@ -8,7 +8,6 @@ import { TaskDetailsActivity } from "./TaskDetailsActivity";
 
 
 export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal, group }) {
-
     const [currDescription, setCurrDescription] = useState()
 
     return <div className="task-details-main">
@@ -16,7 +15,7 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal, 
         <TaskDetailsDescription task={task} cbOnUpdateTask={cbOnUpdateTask} />
 
         {
-            task?.attachment &&
+            task?.attachments?.length > 0 &&
             <TaskDetailsAttachments task={task} group={group} />
         }
         {

@@ -20,7 +20,8 @@ import { MdlTaskCopy } from "./TaskDetails/MdlTaskCopy";
 import { MdlTaskShare } from "./TaskDetails/MdlTaskShare";
 import { useOnClickOutside } from "../Hooks/useOnClickOutisde";
 import { BoardsDropdown } from "./HeaderDropdowns/BoardsDropdown";
-import { DeleteModal } from "./DeleteModal";
+import { DeleteModal } from "./TaskDetails/DeleteModal";
+import { EditModal } from "./TaskDetails/EditModal";
 
 export function RootModal() {
   const [styleProp, setStyleProp] = useState();
@@ -96,6 +97,9 @@ function DynModalType({ modalType, modalProps }) {
       return <BoardsDropdown isStarred={modalProps} />;
     case "DeleteModal":
       return <DeleteModal index={modalProps.index} task={modalProps.task}
+        groupId={modalProps.groupId} />;
+    case "EditModal":
+      return <EditModal index={modalProps.index} task={modalProps.task}
         groupId={modalProps.groupId} />;
 
     // More type cases below
