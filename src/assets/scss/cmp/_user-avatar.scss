@@ -4,6 +4,10 @@ button.user-avatar {
     align-content: center;
     justify-content: center;
     background-size: 100% 100%;
+    border-radius: 50%;
+    border: none;
+    width: 32px;
+    height: 32px;
     
     &:hover {
         opacity: 0.8;
