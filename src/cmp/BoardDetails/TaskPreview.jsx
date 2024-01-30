@@ -7,11 +7,11 @@ import { useState } from "react";
 
 export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
-  const [isComplete, setIsComplete] = useState(task.isComplete ? true : false);
+  const [isDone, setIsDone] = useState(task.isDone ? true : false);
 
   const labels = utilService.getLabels(task.labelIds, board);
   // console.log(labels);
-  const { todos, isDone } = utilService.getStatusChecklist(task.checklists);
+  const { todos, isDoneAll } = utilService.getStatusChecklist(task.checklists);
   const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
   const isTaskActions =
@@ -45,12 +45,12 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
     return null
   }
 
-  function handleIsComplete(isComplete) {
-    setIsComplete(isComplete);
-    if (isComplete) {
+  function handleIsDone(isTaskDone) {
+    setIsDone(isTaskDone);
+    if (isTaskDone) {
       const newTask = {
         ...task,
-        isComplete: true
+        isTaskDone: true
       }
 
       onUpdateTask(newTask, groupId, board);
@@ -58,7 +58,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
     } else {
       const newTask = {
         ...task,
-        isComplete: false
+        isDone: false
       }
 
       onUpdateTask(newTask, groupId, board);
@@ -134,38 +134,38 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                 </div>
               )}
 
-              {task.checklists && isDone === todos && (
+              {task.checklists && isDoneAll === todos && (
                 <div className="icon-with-counts checklists-done">
                   <i className="icon-checklists-white" title="Checklists"></i>
                   <span>
-                    {isDone}/{todos}
+                    {isDoneAll}/{todos}
                   </span>
                 </div>
               )}
 
-              {task.checklists && isDone != todos && (
+              {task.checklists && isDoneAll != todos && (
                 <div className="icon-with-counts">
                   <i className="icon-checklists" title="Checklists"></i>
                   <span>
-                    {isDone}/{todos}
+                    {isDoneAll}/{todos}
                   </span>
                 </div>
               )}
 
-              {task.dueDate && !isComplete && (
+              {task.dueDate && !isDone && (
                 <div className={`due-date ${timeStatus}`}>
                   <i className={`icon-clock-alert-${timeStatus}`} ></i>
-                  <p className={`checkbox-due-date ${timeStatus}`} onClick={() => handleIsComplete(true)}></p>
+                  <p className={`checkbox-due-date ${timeStatus}`} onClick={() => handleIsDone(true)}></p>
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
                 </div>
               )}
 
-              {isComplete && (
+              {isDone && (
                 <div className="due-date done">
                   <i className="icon-clock-alert-today" ></i>
-                  <i className="icon-checklists-white checkbox-due-date" onClick={() => handleIsComplete(false)}></i>
+                  <i className="icon-checklists-white checkbox-due-date" onClick={() => handleIsDone(false)}></i>
 
                   <span>
                     {date[1]} {date[2]}{" "}

@@ -54,11 +54,18 @@
             align-items: center;
             margin-bottom: 2px;
 
-
             .member-info {
                 display: flex;
                 align-items: center;
                 gap: 7px;
+
+                .user-avatar {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    border: none;
+                }
+
             }
 
             i {

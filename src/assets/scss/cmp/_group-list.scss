@@ -3,8 +3,11 @@
     display: flex;
     list-style-type: none;
     margin: 5px;
-    padding-bottom: 8px;
-
+    // padding-bottom: 55px;
+    height: 83vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: auto;
 
     .group-list {
         display: flex;
@@ -113,11 +116,13 @@
 
 .group-list-ul::-webkit-scrollbar {
     height: 15px;
+    width: 98vw;
 }
 
 .group-list-ul::-webkit-scrollbar-track {
     background-color: #00000026;
     border-radius: 50px;
+
 }
 
 .group-list-ul::-webkit-scrollbar-thumb {
