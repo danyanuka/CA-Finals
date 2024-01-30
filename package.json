@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "@check-light-or-dark/image": "^1.0.5",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.6",
     "@rarebearsoft/marvinj": "^1.0.0",
     "axios": "^1.6.5",
     "dominant-color": "^0.0.1",

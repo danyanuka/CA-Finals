@@ -171,17 +171,12 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
 
             <li className="group-item">
                 {!isAdding ? (
-                    <>
-                        <button style={styleButton} onClick={handleIsAdding} className='action add-group-button transparent-btn-black'>
-                            {!isDarkColor ? (
-                                <li className='icon-add-task'></li>
-                            ) : (
-                                <li className='icon-add-group'></li>
-                            )}
-                            <div style={styleDiv}>Add another group</div>
+                    <div style={styleButton} className="add-another-group-wrapper">
+                        <button onClick={handleIsAdding} className={'add-another-group transparent-btn-' + (isDarkColor ? "white" : "black")}>
+                            <div className={!isDarkColor ? "icon-add-task" : "icon-add-group"}></div>
+                            <div style={styleDiv}>Add another list</div>
                         </button>
-
-                    </>
+                    </div>
 
                 ) : (
                     <form className="add-group-form" onSubmit={handleAddGroup}>
@@ -192,13 +187,13 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
                             value={groupTitle}
                             onBlur={(ev) => handleOnBlur(ev)}
                             onChange={handleChange}
-                            placeholder='Enter group title...'
+                            placeholder='Enter list title...'
                             autoFocus
                             autoComplete='off'
                         />
 
                         <div className="add-group-buttons">
-                            <button className='add-group-button'>Add group</button>
+                            <button className='add-group-button'>Add list</button>
                             <button className='close-button transparent-btn-black' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 

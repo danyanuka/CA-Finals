@@ -11,9 +11,8 @@
 
     .group-header {
         color: $clr-text-black;
-        padding: 8px 8px 6px 20px;
-        box-sizing: content-box;
-        height: 32px;
+        padding: 8px 13px;
+        // padding: 6px 12px 6px 8px;
 
         display: flex;
         justify-content: space-between;
@@ -21,7 +20,7 @@
         cursor: pointer;
 
         .group-title {
-            @include fontProps(14px, 600, 20px);
+            font-weight: 500;
         }
 
         .edit-group-title {
@@ -29,13 +28,6 @@
             border: 1.5px solid blue;
             padding: 7px;
             border-radius: 10px;
-        }
-
-        .icon-wrapper {
-            padding: 4px;
-            height: 32px;
-            width: 32px;
-            border-radius: 8px;
         }
     }
 
@@ -78,15 +70,18 @@
 
     .group-footer {
         position: relative;
+        bottom: 2px;
         background-color: $clr-background-list;
-        width: 272px;
-        height: 40px;
-        padding: 8px 8px 0px 8px;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        width: 280px;
+        padding: 6px;
         z-index: 1;
         color: $clr-text-black;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-right: 8px;
 
         .add-task-button {
             // padding: 6px 12px 6px 8px;
