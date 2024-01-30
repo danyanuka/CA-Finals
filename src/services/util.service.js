@@ -153,19 +153,19 @@ function checkTime(timestamp) {
 
 function getStatusChecklist(checklist) {
   let todos;
-  let isDone = [];
+  let isDoneAll = [];
 
   checklist?.map((list) => (todos = list.todos));
 
   todos?.map((todo) => {
     if (todo.isDone) {
-      isDone.push(todo);
+      isDoneAll.push(todo);
     }
   });
 
   const counts = {
     todos: todos?.length,
-    isDone: isDone.length,
+    isDoneAll: isDoneAll.length,
   };
 
   return counts;

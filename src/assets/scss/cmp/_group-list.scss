@@ -4,7 +4,6 @@
     margin: 6px;
     padding-bottom: 8px;
 
-
     .group-list {
         display: flex;
         justify-content: flex-start;
@@ -108,11 +107,13 @@
 
 .group-list-ul::-webkit-scrollbar {
     height: 15px;
+    width: 98vw;
 }
 
 .group-list-ul::-webkit-scrollbar-track {
     background-color: #00000026;
     border-radius: 50px;
+
 }
 
 .group-list-ul::-webkit-scrollbar-thumb {

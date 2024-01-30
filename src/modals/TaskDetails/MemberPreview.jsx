@@ -18,7 +18,9 @@ export function MemberPreview({ task, member }) {
     return (
         <>
             <div className="member-info">
-                <UserAvatar userFullName={getMemberFullName(member._id)} userImg={getMemberImg(member._id)} />
+                <div className="user-avatar">
+                    <UserAvatar userFullName={getMemberFullName(member._id)} userImg={getMemberImg(member._id)} />
+                </div>
                 <p> {member.fullname} </p>
             </div>
             {task.memberIds?.findIndex(id => id === member._id) >= 0 &&
