@@ -10,7 +10,7 @@
     position: relative;
 
     .group-header {
-        color: $clr-text-black;
+        color: rgb(68, 84, 111);
         padding: 8px 8px 6px 20px;
         box-sizing: content-box;
         height: 32px;
@@ -40,10 +40,12 @@
     }
 
     .scrollbar {
-        max-height: 65vh;
+        max-height: calc(100vh - 225px);
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
+        padding: 2px 4px 2px 4px;
+        margin: 0px 4px 0px 4px;
 
         .task-item {
             min-height: 30px;
@@ -67,13 +69,16 @@
     .task-preview {
         text-decoration: none;
         box-shadow: $ds-shadow-raised;
-        margin: 6px;
+        margin-bottom: 8px;
         background-color: $clr-background-item-list;
         border-radius: 8px;
         min-height: 24px;
         z-index: 10;
         border: 1px solid transparent;
         font-size: 14px;
+        &:last-child {
+            margin: 0px;
+        }
     }
 
     .group-footer {
@@ -89,27 +94,30 @@
         align-items: center;
 
         .add-task-button {
-            // padding: 6px 12px 6px 8px;
-            padding: 5px 5px 5px;
+            padding: 6px 12px 6px 8px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             flex-grow: 1;
-            margin: 0;
+            margin: 0px 4px 0px 0px;
 
+            li {
+                height: 16px;
+                width: 16px;
+                margin-right: 8px;
+            }
             div {
                 border: none;
-                font-size: 16px;
-                font-weight: 500;
-                margin: 0 5px;
+                @include fontProps(14px, 500, 20px);
+                color: rgb(68, 84, 111);
             }
-
-            .icon-template {
-                flex-grow: 0;
-                flex-shrink: 0;
-                border-radius: 8px;
-                padding: 8px;
-            }
+        }
+        .icon-template {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            padding: 8px;
         }
 
     }
