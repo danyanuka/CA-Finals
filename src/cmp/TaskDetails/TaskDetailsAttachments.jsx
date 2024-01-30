@@ -7,7 +7,7 @@ import { useState } from "react";
 import { ShowImage } from "../../modals/TaskDetails/ShowImage.jsx";
 
 export function TaskDetailsAttachments({ task, group }) {
-    const [isImg, setIsImg] = useState(null)
+    const [isShowImg, setIsShowImage] = useState(null)
     const board = useSelector((storeState) => storeState.boardModule.curBoard);
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export function TaskDetailsAttachments({ task, group }) {
     }
 
     function handleClickImg(url) {
-        setIsImg(url)
+        setIsShowImage(url)
     }
 
     function handleAddTaskModal(ev) {
@@ -37,7 +37,7 @@ export function TaskDetailsAttachments({ task, group }) {
     }
 
     return <div className="td-section td-attachments">
-        {isImg && <ShowImage src={isImg} />}
+        {isShowImg && <ShowImage src={isShowImg} setIsShowImage={setIsShowImage} />}
         <div className="td-section-icon">
             <i className="icon-task-trello-attach"></i>
         </div>

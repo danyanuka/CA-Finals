@@ -1,24 +1,37 @@
 .img-modal {
-    // bottom: 0;
-    // left: 0;
-    // margin: 0 auto;
-    // position: absolute;
-    // right: 0;
-    // top: 0;
-    // transition: transform .15s;
-    // bottom: 0;
-    color: #fff;
-    left: 0;
-    position: fixed;
-    right: 0;
-    text-align: center;
-    top: 40px;
-    z-index: 200;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    &-wrapper {
+        z-index: 20;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.64);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+    }
+
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    color: $clr-text-black;
+    min-height: 50%;
+    padding: 40px;
 
     button {
-        z-index: 400;
+        border: none;
+        position: absolute;
+        right: 40px;
+        top: 13px;
+        background-color: transparent;
+    }
+
+    img {
+        width: 700px;
     }
 }
