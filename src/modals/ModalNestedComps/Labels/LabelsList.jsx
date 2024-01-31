@@ -1,22 +1,16 @@
 import { groupService } from "../../../services/group.service";
 
-export function LabelsList({
-  labels,
-  setCheckedLabels,
-  checkedLabels,
-  groupId,
-  task,
-  board,
-}) {
+export function LabelsList({ labels, setCheckedLabels, checkedLabels }) {
   function handleChange(ev, labelId) {
-    // if (!ev.target.checked) console.log("task", task);
+    // remove from array
     if (checkedLabels.includes(labelId)) {
       setCheckedLabels((prev) => prev.filter((id) => id !== labelId));
     } else {
-      // If it's not, add it to the array
+      // Add to array
       setCheckedLabels((prev) => [...prev, labelId]);
     }
   }
+
   return (
     <div>
       <ul className="labels-list">
@@ -28,7 +22,7 @@ export function LabelsList({
                 className="check-labels"
                 aria-checked="false"
                 type="checkbox"
-                // checked = {task.labelIds}
+                checked={checkedLabels.includes(label.id)}
               />
               <div className={`label-color base-bg-color-${label.color}`}>
                 <span className="label-title">{label.title}</span>

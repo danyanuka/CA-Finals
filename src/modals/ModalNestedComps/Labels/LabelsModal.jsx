@@ -5,15 +5,40 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { groupService } from "../../../services/group.service";
 
-export function LabelsModal({ labels, setIsCreateLabelOpen, groupId, task }) {
-  const [checkedLabels, setCheckedLabels] = useState([]);
-  const board = useSelector((storeState) => storeState.boardModule.curBoard);
+export function LabelsModal({
+  labels,
+  setLabels,
+  setIsCreateLabelOpen,
+  groupId,
+  task,
+  board,
+}) {
+  const [checkedLabels, setCheckedLabels] = useState(task?.labelIds || []);
+  const [filterLabelsTxt, setfilterLabelsTxt] = useState("");
 
   useEffect(() => {
-    const taskToSave = { ...task, labelIds: checkedLabels };
-    groupService.updateTask(taskToSave, groupId, board);
+    async function updateTask() {
+      const taskToSave = { ...task, labelIds: checkedLabels };
+      await groupService.updateTask(taskToSave, groupId, board);
+    }
+    updateTask();
   }, [checkedLabels]);
 
+  // useEffect(() => {
+  //   searchLabel();
+  // }, [filterLabelsTxt]);
+
+  // function handleChange(ev) {
+  //   setfilterLabelsTxt(ev.target.value);
+  // }
+
+  // function searchLabel() {
+  //   const filteredLabels = labels.filter((label) =>
+  //     label.title.toLowerCase().includes(filterLabelsTxt.toLowerCase())
+  //   );
+  //   setLabels(filteredLabels);
+  // }
+  console.log("this ", checkedLabels);
   return (
     <div className="labels-modal-container ">
       <RootModalHeader title="Labels" />
@@ -22,15 +47,14 @@ export function LabelsModal({ labels, setIsCreateLabelOpen, groupId, task }) {
           placeholder="Search labels..."
           className="search-labels-input"
           type="text"
+          // value={filterLabelsTxt}
+          // onChange={handleChange}
         ></input>
         <p>Labels</p>
         <LabelsList
           setCheckedLabels={setCheckedLabels}
           checkedLabels={checkedLabels}
           labels={labels}
-          groupId={groupId}
-          task={task}
-          board={board}
         />
         <button
           onClick={() => setIsCreateLabelOpen(true)}

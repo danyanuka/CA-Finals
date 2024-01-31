@@ -1,10 +1,16 @@
 import { LabelsModal } from "../ModalNestedComps/Labels/LabelsModal";
 import { CreateLabelModal } from "../ModalNestedComps/Labels/CreateLabelModal";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export function MdlTaskLabels({ board, group, task }) {
+export function MdlTaskLabels({ group, task }) {
+  const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const [labels, setLabels] = useState(board.labels);
   const [isCreateLabelOpen, setIsCreateLabelOpen] = useState(false);
+
+  useEffect(() => {
+    setLabels(board.labels);
+  }, [board]);
 
   return (
     <div className="mdl-task-labels-container scrollbar">
@@ -36,6 +42,7 @@ function DynLabelsComp({
         <LabelsModal
           setIsCreateLabelOpen={setIsCreateLabelOpen}
           labels={labels}
+          setLabels={setLabels}
           groupId={groupId}
           task={task}
           board={board}

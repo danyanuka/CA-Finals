@@ -18,7 +18,7 @@ export function CreateLabelModal({ setIsCreateLabelOpen, board, setLabels }) {
         _id: board._id,
         labels: [...board.labels, labelToSave],
       };
-      console.log(updatedBoard);
+
       await boardActions.saveBoard(updatedBoard);
       setLabels((prev) => [...prev, labelToSave]);
       setIsCreateLabelOpen(false);
