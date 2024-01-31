@@ -1,12 +1,12 @@
 import { groupService } from "../../../services/group.service";
 
-export function LabelsList({ groupId, task, board}) {
+export function LabelsList({ groupId, task, board }) {
   function handleChange(ev, labelId) {
-    let taskUpdatedLabels
+    let taskUpdatedLabels;
     if (task.labelIds.includes(labelId)) {
-      taskUpdatedLabels = task.labelIds.filter((id) => id !== labelId)
+      taskUpdatedLabels = task.labelIds.filter((id) => id !== labelId);
     } else {
-      taskUpdatedLabels = [...task.labelIds, labelId]
+      taskUpdatedLabels = [...task.labelIds, labelId];
     }
     const taskToSave = { ...task, labelIds: taskUpdatedLabels };
     groupService.updateTask(taskToSave, groupId, board);
