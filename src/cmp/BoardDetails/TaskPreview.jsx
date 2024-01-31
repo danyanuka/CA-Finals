@@ -9,6 +9,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
   const [isDone, setIsDone] = useState();
 
+  const dClass = task?.style?.backgroundImage ? 'img' : 'color'
   const labels = utilService.getLabels(task.labelIds, board);
   const { todos, isDoneAll } = utilService.getStatusChecklist(task.checklists);
   const [timeStatus, setTimStatus] = useState(
@@ -84,7 +85,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
           onClick={() => handleGoToTask(task.id)}
         >
           {task.style && (
-            <div className="task-header" style={task.style}>
+            <div className={`task-header ${dClass}`} style={task.style}>
               <button className="edit-task-header-styled">
                 <i className="icon-edit"></i>
               </button>
