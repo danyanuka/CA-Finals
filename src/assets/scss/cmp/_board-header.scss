@@ -25,10 +25,6 @@
             align-items: center;
             margin: auto 6px;
             padding: 7px;
-
-            .icon {
-                margin: auto 7px;
-            }
         }
 
         .board-name {
@@ -80,6 +76,7 @@
                 width: 32px;
                 border-radius: 50%;
                 border-width: 0px;
+                margin-left: -6px;
             }
         }
 

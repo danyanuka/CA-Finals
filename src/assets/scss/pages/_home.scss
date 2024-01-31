@@ -4,8 +4,6 @@
 
   // -------------------------------------HEADER--------------HEADER-----------------------HEADER
   .home-header {
-    position: fixed;
-    z-index: 1000;
     width: 100%;
     background-color: white;
     font-family: "Charlie-Text", sans-serif;
@@ -27,34 +25,35 @@
 
       .blue-link-wrapper {
         height: 60px;
+        padding: 8px 24px 8px 24px;
         grid-area: 1 / 2;
         justify-self: end;
         display: flex;
         align-items: center;
-        background-color: rgb(23, 43, 77);
+        background-color: rgb(0, 101, 255);
         color: white;
-        @include transitionAction(background-color, rgb(80, 95, 121), 50ms);
+        @include transitionAction(background-color, rgb(7, 71, 166), 50ms);
       }
       .nav-link {
         text-decoration: none;
-        padding: 8px;
-        padding-left: 24px;
-        padding-right: 24px;
-        @include fontProps(19.2px, 400, 28.8px);
+        @include fontProps(19.2px, 400, 19.2px);
       }
 
       .login-signup-links {
         grid-area: 1 / 2;
         justify-self: end;
-        display: flex;
+        display: grid;
         align-items: center;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
         color: white;
       }
 
       .login-link {
-        color: rgb(14, 28, 73);
+        color: rgb(23, 43, 77);
+        padding: 20px 24px 0px 24px;
         height: 100%;
-        padding-top: 15px;
         @include transitionAction(background-color, rgb(179, 184, 209), 50ms);
       }
     }

@@ -1,14 +1,13 @@
 .app-header-container {
   z-index: 1000;
-  width: 100%;
+  width: 100vw;
   background-color: white;
-  min-height: 48px;
-  max-height: 48px;
+  height: 49px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 
   .app-header-content {
     display: flex;
     padding: 8px;
-    border-bottom: 0.8px solid rgba(23, 43, 77, 0.16);
     @include fontProps(14px, 500, 32px);
 
     .app-header-logo-link {
@@ -27,8 +26,7 @@
         grid-area: 1 / 2;
         padding: 8px 0;
         opacity: 1;
-        filter: brightness(0) saturate(100%) invert(30%) sepia(53%)
-          saturate(323%) hue-rotate(179deg) brightness(91%) contrast(88%);
+        filter: brightness(0) saturate(100%) invert(30%) sepia(53%) saturate(323%) hue-rotate(179deg) brightness(91%) contrast(88%);
 
         &::before {
           content: "";
@@ -56,13 +54,16 @@
           }
         }
       }
+
       .app-header-logo-container-white {
         filter: none;
       }
     }
+
     .app-header-avatar {
       padding: 0 6px;
       margin-left: auto;
+
       .user-avatar {
         height: 30px;
         width: 30px;
@@ -70,10 +71,12 @@
         border: none;
       }
     }
+
     .create-button-container {
       background-color: hsla(0, 0%, 0%, 0.16);
       border-radius: 3px;
       margin-left: 10px;
+
       .header-create-button {
         cursor: pointer;
         width: 100%;

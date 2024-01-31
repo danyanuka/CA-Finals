@@ -20,7 +20,7 @@ export function CreateBoardModal() {
   }
 
   async function onCreateBoard() {
-    setNewBoard((prev) => ({ ...prev, createdBy: user._id }));
+    // setNewBoard((prev) => ({ ...prev, createdBy: user._id }));
     const board = await boardActions.saveBoard(newBoard);
     dispatch(closeModal());
     navigate(`/board/${board._id}`);

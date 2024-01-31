@@ -103,11 +103,7 @@ export function BoardHeader() {
                 <div className="board-header-section">
 
                     <div className="board-header-btn" title="Filter cards" >
-                        {isDarkColor ? (
-                            <i className="icon icon-filter"></i>
-                        ) : (
-                            <i className="icon icon-filter-black"></i>
-                        )}
+                        <i className={"icon icon-filter" + (isDarkColor ? "" : "-black")}></i>
                         Filters
                     </div>
 

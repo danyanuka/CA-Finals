@@ -84,7 +84,9 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                 ) : (
                     <h4 className="group-title" onClick={handleIsEditing}>{group.title}</h4>
                 )}
-                <i onClick={onMoreOptions} className="transparent-btn-black icon-show-options"></i>
+                <div className="icon-wrapper transparent-btn-black">
+                    <i onClick={onMoreOptions} className="icon-show-options"></i>
+                </div>
 
             </div>
             <div className="scrollbar">
