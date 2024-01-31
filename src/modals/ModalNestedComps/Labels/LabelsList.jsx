@@ -4,11 +4,11 @@ export function LabelsList({ groupId, task, board }) {
   function handleChange(ev, labelId) {
     let taskUpdatedLabels
     if (!task?.labelIds) {
-      taskUpdatedLabels = [ labelId ]
+      taskUpdatedLabels = [labelId]
     } else if (task.labelIds.includes(labelId)) {
       taskUpdatedLabels = task.labelIds.filter((id) => id !== labelId)
     } else {
-      taskUpdatedLabels = [...task.labelIds, labelId]
+      taskUpdatedLabels = [...task.labelIds, labelId];
     }
     const taskToSave = { ...task, labelIds: taskUpdatedLabels };
     groupService.updateTask(taskToSave, groupId, board);
