@@ -11,8 +11,9 @@ export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, isDarkCover, cbSe
             if (taskStyle?.backgroundColor) {
                 isDark = await utilService.isDarkColor(taskStyle.backgroundColor)
             } else {
-                isDark = await utilService.isDarkImg(taskStyle.backgroundImage)
+                isDark = await utilService.isDarkImg(utilService.getCleanURL(taskStyle.backgroundImage))
             }
+            console.log("drk:", isDark)
             cbSetIsDarkCover(isDark)
         }
         checkIsDark()
@@ -25,8 +26,8 @@ export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, isDarkCover, cbSe
         styleProp.backgroundImage = taskStyle.backgroundImage
     }
 
-    return <div className={"task-details-cover" + (isDarkCover ? " dark-theme" : "")} style={styleProp}>
-        <button className="transparent-btn-black task-details-cover-btn" onClick={(ev) => cbOpenTaskModal(ev, "taskCover")}>
+    return <div className="task-details-cover" style={styleProp}>
+        <button className={"transparent-btn-black task-details-cover-btn" + (isDarkCover ? " dark-theme" : "")} onClick={(ev) => cbOpenTaskModal(ev, "taskCover")}>
             <i className="icon-task-header-cover"></i>
             &nbsp;Cover
         </button>

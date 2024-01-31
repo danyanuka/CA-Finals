@@ -55,6 +55,14 @@
             box-sizing: content-box;
             display: block;
         }
+
+        &.dark-theme {
+            @include btnColors(
+                #D0D4DC,
+                #A9B0BD,
+                #E3E6EA
+              );
+        }
     }
 
     &-cover {
@@ -75,6 +83,14 @@
                 height: 20px;
                 padding: 5px 4px 4.7px 4px;
             }
+        }
+
+        button.dark-theme {
+            @include btnColors(
+                #D0D4DC,
+                #A9B0BD,
+                #E3E6EA
+              );
         }
     }
 
