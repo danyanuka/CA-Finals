@@ -17,10 +17,10 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
   const isTaskActions =
     task.checklists ||
-    task.attachments ||
-    task.dueDate ||
-    task.memberIds ||
-    task.description
+      task.attachments ||
+      task.dueDate ||
+      task.memberIds ||
+      task.description
       ? true
       : false;
 
@@ -71,6 +71,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       setTimStatus("");
     }
   }
+
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
