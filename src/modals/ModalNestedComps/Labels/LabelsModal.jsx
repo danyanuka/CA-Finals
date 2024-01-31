@@ -5,14 +5,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { groupService } from "../../../services/group.service";
 
-export function LabelsModal({
-  setIsCreateLabelOpen,
-  groupId,
-  task,
-  board,
-}) {
-  const [filterLabelsTxt, setfilterLabelsTxt] = useState("");
-
+export function LabelsModal({ setIsCreateLabelOpen, groupId, task, board }) {
+  // const [filterLabelsTxt, setfilterLabelsTxt] = useState("");
 
   // useEffect(() => {
   //   searchLabel();
@@ -41,11 +35,7 @@ export function LabelsModal({
           // onChange={handleChange}
         ></input>
         <p>Labels</p>
-        <LabelsList
-          task={task}
-          groupId={groupId}
-          board={board}
-        />
+        <LabelsList task={task} groupId={groupId} board={board} />
         <button
           onClick={() => setIsCreateLabelOpen(true)}
           className="create-label-btn transparent-btn-neutral"
