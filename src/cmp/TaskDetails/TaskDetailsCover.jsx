@@ -1,6 +1,23 @@
+import { useEffect } from "react"
 
-export function TaskDetailsCover({ taskStyle, cbOpenTaskModal }) {
-    
+import { utilService } from "/src/services/util.service";
+
+export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, cbSetIsDarkCover }) {
+
+
+    useEffect(() => {
+        async function isDark() {
+            let isDarkCover
+            if (taskStyle?.backgroundColor) {
+                // utilService.isDarkImg
+            } else {
+                // await utilService.isDarkImg
+            }
+            if (isDarkCover) cbSetIsDarkCover(true)
+        }
+        isDark()
+    }, [taskStyle])
+
     const styleProp = {}
     if (taskStyle?.backgroundColor) {
         styleProp.backgroundColor = taskStyle.backgroundColor
