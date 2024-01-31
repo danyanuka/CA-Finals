@@ -10,14 +10,14 @@ export function BoardsDropdown({ isStarred }) {
   const [hoveredStar, setHoveredStar] = useState(null);
   const dynBoardsList =
     isStarred === "starred"
-      ? boards.filter((board) => board.isStarred)
+      ? boards?.filter((board) => board.isStarred)
       : boards;
 
   async function onStarBoard(ev, board) {
     try {
       ev.stopPropagation();
       ev.preventDefault();
-      const updatedBoard = { _id: board._id, isStarred: !board.isStarred };
+      const updatedBoard = { _id: board?._id, isStarred: !board?.isStarred };
       await boardActions.saveBoard(updatedBoard);
     } catch (err) {
       console.log("Issues Updating board", err);
@@ -27,7 +27,7 @@ export function BoardsDropdown({ isStarred }) {
   return (
     <div className="header-dropdown-container scrollbar">
       <ul className="dropdown-board-list">
-        {dynBoardsList.map((board, index) => (
+        {dynBoardsList?.map((board, index) => (
           <Link
             key={board._id}
             className="dropdown-li-link"

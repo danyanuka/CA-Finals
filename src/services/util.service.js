@@ -191,7 +191,7 @@ async function getImgAvgColor(imgPath) {
 async function isDarkImg(imgPath) {
   const fac = new FastAverageColor();
   const color = await fac.getColorAsync(imgPath);
-  return color.isDark;
+  return color?.isDark;
 }
 
 async function isDarkImg2(imgPath) {
