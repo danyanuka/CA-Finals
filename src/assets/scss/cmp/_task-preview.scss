@@ -3,10 +3,20 @@
     border: 1px solid transparent;
 
     .task-header {
-        height: 36px;
         width: 100%;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
+    }
+
+    .color {
+        height: 36px;
+    }
+
+    .img {
+        height: 260px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 
     .task-body {
