@@ -1625,6 +1625,7 @@ scrollable-square-white
 .board-index-container {
   display: grid;
   grid-template-columns: 1fr minmax(228px, 850px) 1fr;
+  box-shadow: inset 1px 0 0 hsla(0, 0%, 0%, 0.16);
 }
 
 .board-index-container .all-boards-container {

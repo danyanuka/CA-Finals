@@ -3,7 +3,7 @@ import { groupService } from "../../../services/group.service";
 export function LabelsList({ groupId, task, board }) {
   function handleChange(ev, labelId) {
     let taskUpdatedLabels;
-    if (task.labelIds.includes(labelId)) {
+    if (task?.labelIds && task.labelIds.includes(labelId)) {
       taskUpdatedLabels = task.labelIds.filter((id) => id !== labelId);
     } else {
       taskUpdatedLabels = [...task.labelIds, labelId];
@@ -15,15 +15,15 @@ export function LabelsList({ groupId, task, board }) {
   return (
     <div>
       <ul className="labels-list">
-        {board.labels.map((label) => (
-          <li key={label.id}>
+        {board.labels.map((label, i) => (
+          <li key={i}>
             <label className="label-li">
               <input
                 onChange={(ev) => handleChange(ev, label.id)}
                 className="check-labels"
                 aria-checked="false"
                 type="checkbox"
-                checked={task.labelIds.includes(label.id)}
+                checked={task?.labelIds && task.labelIds.includes(label.id)}
               />
               <div className={`label-color base-bg-color-${label.color}`}>
                 <span className="label-title">{label.title}</span>
