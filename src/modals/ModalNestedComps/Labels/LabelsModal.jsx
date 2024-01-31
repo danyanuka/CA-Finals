@@ -6,23 +6,13 @@ import { useEffect, useState } from "react";
 import { groupService } from "../../../services/group.service";
 
 export function LabelsModal({
-  labels,
-  setLabels,
   setIsCreateLabelOpen,
   groupId,
   task,
   board,
 }) {
-  const [checkedLabels, setCheckedLabels] = useState(task?.labelIds || []);
   const [filterLabelsTxt, setfilterLabelsTxt] = useState("");
 
-  useEffect(() => {
-    async function updateTask() {
-      const taskToSave = { ...task, labelIds: checkedLabels };
-      await groupService.updateTask(taskToSave, groupId, board);
-    }
-    updateTask();
-  }, [checkedLabels]);
 
   // useEffect(() => {
   //   searchLabel();
@@ -38,7 +28,7 @@ export function LabelsModal({
   //   );
   //   setLabels(filteredLabels);
   // }
-  console.log("this ", checkedLabels);
+
   return (
     <div className="labels-modal-container ">
       <RootModalHeader title="Labels" />
@@ -52,9 +42,9 @@ export function LabelsModal({
         ></input>
         <p>Labels</p>
         <LabelsList
-          setCheckedLabels={setCheckedLabels}
-          checkedLabels={checkedLabels}
-          labels={labels}
+          task={task}
+          groupId={groupId}
+          board={board}
         />
         <button
           onClick={() => setIsCreateLabelOpen(true)}

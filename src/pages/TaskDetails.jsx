@@ -93,7 +93,15 @@ export function TaskDetails() {
     }
 
     function openTaskModal(ev, modalName, modalProps = {}) {
-        dispatch(openModal(modalName, ev.target, { board: board, group: group, task: task, ...modalProps }));
+        let currProps = {}
+        switch (modalName) {
+            case "taskLabels":
+                currProps = { taskId: task.id }
+                break
+            default:
+                currProps = { board: board, group: group, task: task, ...modalProps }
+        }
+        dispatch(openModal(modalName, ev.target, currProps));
     }
 
 
