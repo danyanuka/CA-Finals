@@ -131,8 +131,8 @@ export function TaskDetails() {
                 </button>
                 {
                     task.style &&
-                    task.style.backgroundColor &&
-                    <TaskDetailsCover bkgColor={task.style.backgroundColor} cbOpenTaskModal={openTaskModal} />
+                    (task?.style?.backgroundColor || task?.style?.backgroundImage) &&
+                    <TaskDetailsCover taskStyle={task.style} cbOpenTaskModal={openTaskModal} />
                 }
                 <div className="task-details-data">
                     <TaskDetailsHeader task={task} groupName={group.title} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
