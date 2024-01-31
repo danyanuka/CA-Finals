@@ -20,7 +20,7 @@ export function CreateLabelModal({ setIsCreateLabelOpen, board, setLabels }) {
       };
 
       await boardActions.saveBoard(updatedBoard);
-      setLabels((prev) => [...prev, labelToSave]);
+      // setLabels((prev) => [...prev, labelToSave]);
       setIsCreateLabelOpen(false);
     } catch (err) {
       console.log("Issues updating board", err);

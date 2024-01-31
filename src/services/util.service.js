@@ -94,6 +94,7 @@ function getLabels(labelIds, board) {
   let labels = [];
   labelIds?.map((labelId) => {
     let label = board.labels?.find((label) => labelId === label.id);
+    if (!label) label = { id: makeId(), title: "default", color: "red" };
     labels.push(label);
   });
   return labels;
