@@ -1,134 +1,138 @@
-.group-list-ul {
+.group-list-container {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: calc(100vh - 105px);
+
+  .group-list-ul {
     display: flex;
     list-style-type: none;
     margin: 6px;
     padding-bottom: 5px;
-    width: 100vw;
-    overflow-y: hidden;
-    overflow-x: auto;
+    width: 100%;
+
+    //   overflow-y: hidden;
+    //   overflow-x: auto;
 
     .group-list {
-        display: flex;
-        justify-content: flex-start;
+      display: flex;
+      justify-content: flex-start;
     }
 
     .group-item {
-        margin: 6px;
-        width: 272px;
-        text-decoration: none;
+      margin: 6px;
+      width: 272px;
+      text-decoration: none;
     }
 
     .add-another-group {
-        &-wrapper {
-            width: 272px;
-            height: 44px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-        }
+      &-wrapper {
+        width: 272px;
+        height: 44px;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+      }
 
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        gap: 8px;
-        align-items: center;
-        padding: 12px;
-        border: none;
-        @include fontProps(14px, 500, 20px);
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border: none;
+      @include fontProps(14px, 500, 20px);
     }
 
     .add-group-button {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 280px;
-        padding: 12px;
-        cursor: pointer;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 280px;
+      padding: 12px;
+      cursor: pointer;
 
-        div {
-            border: none;
-            font-size: 16px;
-            color: $clr-text-black;
-        }
+      div {
+        border: none;
+        font-size: 16px;
+        color: $clr-text-black;
+      }
     }
 
     .add-group-form {
-        width: 280px;
-        height: auto;
-        background-color: $clr-background-item-list;
-        border-radius: 10px;
-        box-shadow: $ds-shadow-raised;
-        padding: 8px;
+      width: 280px;
+      height: auto;
+      background-color: $clr-background-item-list;
+      border-radius: 10px;
+      box-shadow: $ds-shadow-raised;
+      padding: 8px;
 
-        .group-title-input {
-            height: 32px;
-            border-radius: 4px;
-            color: $clr-text-black;
-            border: 2.5px solid $ds-border-focused;
-            display: block;
-            width: 95%;
-            margin: 5px;
-            padding: 5px;
+      .group-title-input {
+        height: 32px;
+        border-radius: 4px;
+        color: $clr-text-black;
+        border: 2.5px solid $ds-border-focused;
+        display: block;
+        width: 95%;
+        margin: 5px;
+        padding: 5px;
+      }
+
+      ::placeholder {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .add-group-buttons {
+        padding: 5px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+        border-radius: 4px;
+
+        .add-group-button {
+          background-color: $clr-background-brand-bold;
+          box-shadow: none;
+          border: none;
+          color: white;
+          border-radius: 3px;
+          padding: 6px 12px;
+          font-weight: 600;
+          font-size: 16px;
+          width: auto;
         }
 
-        ::placeholder {
-            font-weight: 600;
-            font-size: 16px;
+        .close-button {
+          border: none;
+          color: black;
+          padding: 6px;
+          font-weight: 500;
         }
-
-        .add-group-buttons {
-            padding: 5px;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 4px;
-            border-radius: 4px;
-
-            .add-group-button {
-                background-color: $clr-background-brand-bold;
-                box-shadow: none;
-                border: none;
-                color: white;
-                border-radius: 3px;
-                padding: 6px 12px;
-                font-weight: 600;
-                font-size: 16px;
-                width: auto;
-            }
-
-            .close-button {
-                border: none;
-                color: black;
-                padding: 6px;
-                font-weight: 500;
-            }
-
-        }
+      }
     }
+  }
+}
+.group-list-container::-webkit-scrollbar {
+  height: 15px;
+  width: 98vw;
 }
 
-.group-list-ul::-webkit-scrollbar {
-    height: 15px;
-    width: 98vw;
+.group-list-container::-webkit-scrollbar-track {
+  background-color: #00000026;
+  border-radius: 50px;
 }
 
-.group-list-ul::-webkit-scrollbar-track {
-    background-color: #00000026;
-    border-radius: 50px;
-
-}
-
-.group-list-ul::-webkit-scrollbar-thumb {
-    background-color: #fff6;
-    border-radius: 50px;
+.group-list-container::-webkit-scrollbar-thumb {
+  background-color: #fff6;
+  border-radius: 50px;
 }
 
 .group-preview {
-    background-color: $clr-background-list;
-    border-radius: 12px;
-    overflow: hidden;
-    padding: 0px;
-    width: 272px;
-    height: auto;
+  background-color: $clr-background-list;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0px;
+  width: 272px;
+  height: auto;
 }

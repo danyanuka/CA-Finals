@@ -66,8 +66,8 @@ export function BoardDetails() {
   return (
     <div className="home" style={board?.style}>
       <AppDynHeader />
-      <div>
-        <BoardHeader />
+      <BoardHeader />
+      <div className="group-list-container ">
         {board && (
           <GroupList
             board={board}

@@ -11,14 +11,14 @@ export const utilService = {
   getUserShortName,
   getImgAvgColor,
   isDarkImg,
-  getUserAvatar,
-  toTitleCase,
   getCleanURL,
   isDarkColor,
   getTimeStatus,
   isUnsplash,
   checkTime,
 };
+
+
 
 function isUnsplash(bgUrl) {
   const cleanUrl = getCleanURL(bgUrl);
@@ -94,6 +94,7 @@ function getLabels(labelIds, board) {
   let labels = [];
   labelIds?.map((labelId) => {
     let label = board.labels?.find((label) => labelId === label.id);
+    if (!label) label = { id: makeId(), title: "default", color: "red" };
     labels.push(label);
   });
   return labels;
@@ -121,7 +122,7 @@ function getTimeStatus(timestamp) {
   } else if (timeDifferenceHours < 48) {
     return "tomorrow";
   } else {
-    return "future";
+    return "";
   }
 }
 
@@ -149,10 +150,6 @@ function checkTime(timestamp) {
     return "days";
   }
 
-  // console.log(`Difference in seconds: ${seconds}`);
-  // console.log(`Difference in minutes: ${minutes}`);
-  // console.log(`Difference in hours: ${hours}`);
-  // console.log(`Difference in days: ${days}`);
 }
 
 function getStatusChecklist(checklist) {
@@ -281,10 +278,10 @@ function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16),
+    }
     : null;
 }
 
@@ -310,16 +307,4 @@ function isDarkColor(hexColor, midVal = 50) {
     return true;
   }
   return false;
-}
-
-function getUserAvatar(user) {
-  const username = user.fullname.split(" ");
-  const firstName = username[0];
-  const lastName = username[1];
-}
-
-function toTitleCase(str) {
-  return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
 }
