@@ -2,20 +2,20 @@ import { useEffect } from "react"
 
 import { utilService } from "/src/services/util.service";
 
-export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, cbSetIsDarkCover }) {
+export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, isDarkCover, cbSetIsDarkCover }) {
 
 
     useEffect(() => {
-        async function isDark() {
-            let isDarkCover
+        async function checkIsDark() {
+            let isDark
             if (taskStyle?.backgroundColor) {
-                // utilService.isDarkImg
+                isDark = await utilService.isDarkColor(taskStyle.backgroundColor)
             } else {
-                // await utilService.isDarkImg
+                isDark = await utilService.isDarkImg(taskStyle.backgroundImage)
             }
-            if (isDarkCover) cbSetIsDarkCover(true)
+            cbSetIsDarkCover(isDark)
         }
-        isDark()
+        checkIsDark()
     }, [taskStyle])
 
     const styleProp = {}
@@ -25,7 +25,7 @@ export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, cbSetIsDarkCover 
         styleProp.backgroundImage = taskStyle.backgroundImage
     }
 
-    return <div className="task-details-cover" style={styleProp}>
+    return <div className={"task-details-cover" + (isDarkCover ? " dark-theme" : "")} style={styleProp}>
         <button className="transparent-btn-black task-details-cover-btn" onClick={(ev) => cbOpenTaskModal(ev, "taskCover")}>
             <i className="icon-task-header-cover"></i>
             &nbsp;Cover
