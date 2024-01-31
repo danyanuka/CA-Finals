@@ -88,13 +88,7 @@ function DynModalType({ modalType, modalProps }) {
     case "taskMemberInfo":
       return <MdlTaskMemberInfo />;
     case "taskLabels":
-      return (
-        <MdlTaskLabels
-          board={modalProps.board}
-          group={modalProps.group}
-          task={modalProps.task}
-        />
-      );
+      return <MdlTaskLabels taskId={modalProps.taskId} />;
     case "taskChecklist":
       return <MdlTaskChecklist />;
     case "taskDates":

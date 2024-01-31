@@ -3,7 +3,7 @@ import { LabelColorPicker } from "./LabelColorPicker";
 import { utilService } from "../../../services/util.service";
 import { boardActions } from "../../../store/actions/board.actions";
 
-export function CreateLabelModal({ setIsCreateLabelOpen, board, setLabels }) {
+export function CreateLabelModal({ setIsCreateLabelOpen, board }) {
   const [newLabel, setNewLabel] = useState({});
 
   function handleChange({ target }) {
@@ -20,7 +20,6 @@ export function CreateLabelModal({ setIsCreateLabelOpen, board, setLabels }) {
       };
 
       await boardActions.saveBoard(updatedBoard);
-      // setLabels((prev) => [...prev, labelToSave]);
       setIsCreateLabelOpen(false);
     } catch (err) {
       console.log("Issues updating board", err);
