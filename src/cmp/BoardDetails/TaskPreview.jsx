@@ -3,25 +3,22 @@ import { utilService } from "../../services/util.service.js";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
 import { UserAvatar } from "../UserAvatar.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
-  const [isDone, setIsDone] = useState(task.isDone ? true : false);
+  const [isDone, setIsDone] = useState();
 
   const labels = utilService.getLabels(task.labelIds, board);
-  // console.log(labels);
   const { todos, isDoneAll } = utilService.getStatusChecklist(task.checklists);
-  const [timeStatus, setTimStatus] = useState(
-    utilService.getTimeStatus(task.dueDate)
-  );
+  const [timeStatus, setTimStatus] = useState(utilService.getTimeStatus(task.dueDate));
 
   const isTaskActions =
     task.checklists ||
-    task.attachments ||
-    task.dueDate ||
-    task.memberIds ||
-    task.description
+      task.attachments ||
+      task.dueDate ||
+      task.memberIds ||
+      task.description
       ? true
       : false;
 
@@ -30,6 +27,10 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
 
   const { boardId } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsDone(task.isDone ? true : false)
+  }, [task])
 
   function handleGoToTask(taskId) {
     navigate(`/board/${boardId}/${taskId}`);
@@ -47,12 +48,13 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
     return null;
   }
 
-  function handleIsDone(isTaskDone) {
+  function handleIsDone(ev, isTaskDone) {
+    ev.stopPropagation()
     setIsDone(isTaskDone);
     if (isTaskDone) {
       const newTask = {
         ...task,
-        isTaskDone: true,
+        isDone: true,
       };
 
       onUpdateTask(newTask, groupId, board);
@@ -67,7 +69,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       setTimStatus("");
     }
   }
-
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -159,7 +160,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                   <i className={`icon-clock-alert-${timeStatus}`}></i>
                   <p
                     className={`checkbox-due-date ${timeStatus}`}
-                    onClick={() => handleIsDone(true)}
+                    onClick={(ev) => handleIsDone(ev, true)}
                   ></p>
                   <span>
                     {date[1]} {date[2]}{" "}
@@ -172,15 +173,15 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                   <i className="icon-clock-alert-today"></i>
                   <i
                     className="icon-checklists-white checkbox-due-date"
-                    onClick={() => handleIsDone(false)}
+                    onClick={(ev) => handleIsDone(ev, false)}
                   ></i>
-
                   <span>
                     {date[1]} {date[2]}{" "}
                   </span>
                 </div>
               )}
             </div>
+
             <div>
               {task.memberIds && (
                 <div className="members">
