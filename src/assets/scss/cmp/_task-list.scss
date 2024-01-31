@@ -40,7 +40,7 @@
     }
 
     .scrollbar {
-        max-height: calc(100vh - 225px);
+        max-height: calc(100vh - 250px);
         overflow-y: auto;
         overflow-x: hidden;
         z-index: 1;
@@ -76,6 +76,7 @@
         z-index: 10;
         border: 1px solid transparent;
         font-size: 14px;
+
         &:last-child {
             margin: 0px;
         }
@@ -107,12 +108,14 @@
                 width: 16px;
                 margin-right: 8px;
             }
+
             div {
                 border: none;
                 @include fontProps(14px, 500, 20px);
                 color: rgb(68, 84, 111);
             }
         }
+
         .icon-template {
             width: 32px;
             height: 32px;

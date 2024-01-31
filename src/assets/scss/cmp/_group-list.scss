@@ -2,7 +2,10 @@
     display: flex;
     list-style-type: none;
     margin: 6px;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: auto;
 
     .group-list {
         display: flex;
@@ -23,6 +26,7 @@
             overflow: hidden;
             cursor: pointer;
         }
+
         width: 100%;
         display: flex;
         justify-content: flex-start;
