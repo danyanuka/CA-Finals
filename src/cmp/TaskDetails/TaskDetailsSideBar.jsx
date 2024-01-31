@@ -4,6 +4,7 @@ export function TaskDetailsSideBar({ task, cbSaveBoard, cbOpenTaskModal }) {
     function dummy(ev) {
         console.log("dummy: ", ev)
     }
+    console.log(task?.style)
 
     return <aside className="task-details-sidebar">
         <div className="task-details-sidebar-prop">
@@ -28,11 +29,14 @@ export function TaskDetailsSideBar({ task, cbSaveBoard, cbOpenTaskModal }) {
                 <i className="icon-task-attachments"></i>
                 Attachments
             </button>
-            {(!task.style || !task.style.backgroundColor) &&
+            {
+                !task?.style?.backgroundColor && 
+                !task?.style?.backgroundImage &&
                 <button onClick={(ev) => cbOpenTaskModal(ev, "taskCover")} className="td-btn task-details-sidebar-cover">
                     <i className="icon-task-cover"></i>
                     Cover
-                </button>}
+                </button>
+            }
         </div>
         <div className="task-details-sidebar-actions">
             <h3 className="sidebar-header">Actions</h3>
