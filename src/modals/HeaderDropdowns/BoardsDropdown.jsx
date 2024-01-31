@@ -25,7 +25,7 @@ export function BoardsDropdown({ isStarred }) {
   }
 
   return (
-    <div className="header-dropdown-container">
+    <div className="header-dropdown-container scrollbar">
       <ul className="dropdown-board-list">
         {dynBoardsList.map((board, index) => (
           <Link

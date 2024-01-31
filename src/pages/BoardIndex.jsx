@@ -7,7 +7,11 @@ import { BoardList } from "../cmp/BoardIndex/BoardList";
 import { StarredBoardList } from "../cmp/BoardIndex/StarredBoardList";
 import { AppDynHeader } from "../cmp/AppDynHeader";
 
-import { socketService, SOCKET_EVENT_BOARD_ADD, SOCKET_EVENT_BOARD_REMOVE } from "/src/services/socket.service";
+import {
+  socketService,
+  SOCKET_EVENT_BOARD_ADD,
+  SOCKET_EVENT_BOARD_REMOVE,
+} from "/src/services/socket.service";
 
 export function BoardIndex() {
   const boards = useSelector((storeState) => storeState.boardModule.boards);
@@ -16,13 +20,13 @@ export function BoardIndex() {
   // const [userBoards, setUserBoards] = useState()
 
   useEffect(() => {
-    socketService.on(SOCKET_EVENT_BOARD_ADD, loadBoards)
-    socketService.on(SOCKET_EVENT_BOARD_REMOVE, loadBoards)
+    socketService.on(SOCKET_EVENT_BOARD_ADD, loadBoards);
+    socketService.on(SOCKET_EVENT_BOARD_REMOVE, loadBoards);
     return () => {
-      socketService.off(SOCKET_EVENT_BOARD_ADD, loadBoards)
-      socketService.off(SOCKET_EVENT_BOARD_REMOVE, loadBoards)
-    }
-  }, [])
+      socketService.off(SOCKET_EVENT_BOARD_ADD, loadBoards);
+      socketService.off(SOCKET_EVENT_BOARD_REMOVE, loadBoards);
+    };
+  }, []);
 
   useEffect(() => {
     loadBoards();

@@ -58,7 +58,8 @@ function getTargetPosition(targetElement) {
   };
 }
 
-function calcModalPosition(buttonPos, modalSize) {
+function calcModalPosition(buttonPos, modalSize, modalType) {
+  console.log(modalType);
   const windowSize = {
     height: window.innerHeight,
     width: window.innerWidth,
@@ -74,12 +75,16 @@ function calcModalPosition(buttonPos, modalSize) {
   }
 
   // Vertical
-  if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
-    modalPos.top = buttonPos.bottom + 8;
-  } else if (buttonPos.top - 8 - modalSize.height > 0) {
-    modalPos.bottom = windowSize.height - (buttonPos.top - 8);
+  if (modalType === "taskLabels") {
+    modalPos.bottom = 45;
   } else {
-    modalPos.bottom = 4.4;
+    if (buttonPos.bottom + 8 + modalSize.height < windowSize.height) {
+      modalPos.top = buttonPos.bottom + 8;
+    } else if (buttonPos.top - 8 - modalSize.height > 0) {
+      modalPos.bottom = windowSize.height - (buttonPos.top - 8);
+    } else {
+      modalPos.bottom = 4.4;
+    }
   }
 
   return modalPos;
@@ -105,7 +110,7 @@ function getMembers(memberIds, board) {
 
 function getTimeStatus(timestamp) {
   const currentTimestamp = new Date().getTime();
-  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60)
+  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60);
 
   if (timeDifferenceHours < 0 && timeDifferenceHours > -24) {
     return "yesterday";
@@ -123,7 +128,7 @@ function getTimeStatus(timestamp) {
 function checkTime(timestamp) {
   // Assuming you have two timestamps in milliseconds
   const currentTimestamp = new Date().getTime();
-  const createdTimestamp = timestamp
+  const createdTimestamp = timestamp;
 
   // Calculate the difference in milliseconds
   const timeDifference = currentTimestamp - createdTimestamp;
@@ -135,20 +140,19 @@ function checkTime(timestamp) {
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
   if (seconds < 60) {
-    return 'seconds'
+    return "seconds";
   } else if (minutes < 60) {
-    return 'minutes'
+    return "minutes";
   } else if (hours < 60) {
-    return 'hours'
+    return "hours";
   } else {
-    return 'days'
+    return "days";
   }
 
   // console.log(`Difference in seconds: ${seconds}`);
   // console.log(`Difference in minutes: ${minutes}`);
   // console.log(`Difference in hours: ${hours}`);
   // console.log(`Difference in days: ${days}`);
-
 }
 
 function getStatusChecklist(checklist) {
@@ -277,10 +281,10 @@ function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16),
-    }
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
     : null;
 }
 

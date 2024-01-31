@@ -53,7 +53,11 @@ export function RootModal() {
   function setModalPos() {
     const buttonPos = utilService.getTargetPosition(target);
     const modalSize = getModalSize();
-    const modalPos = utilService.calcModalPosition(buttonPos, modalSize);
+    const modalPos = utilService.calcModalPosition(
+      buttonPos,
+      modalSize,
+      modalType
+    );
     setStyleProp({ ...modalPos });
   }
 
