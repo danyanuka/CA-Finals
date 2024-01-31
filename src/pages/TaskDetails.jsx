@@ -30,6 +30,8 @@ export function TaskDetails() {
     const [group, setGroup] = useState()
     const [task, setTask] = useState()
 
+    const [isDarkCover, setIsDarkCover] = useState(false)
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -126,13 +128,13 @@ export function TaskDetails() {
     return (
         <div onClick={closeTaskDetails} className="task-details-wrapper">
             <div onClick={(ev) => ev.stopPropagation()} className="task-details">
-                <button onClick={closeTaskDetails} className="transparent-btn-black task-details-icon-close">
+                <button onClick={closeTaskDetails} className={"transparent-btn-black task-details-icon-close" + (isDarkCover ? " dark-theme" : "")}>
                     <i className="icon-close-grayblue"></i>
                 </button>
                 {
                     task.style &&
                     (task?.style?.backgroundColor || task?.style?.backgroundImage) &&
-                    <TaskDetailsCover taskStyle={task.style} cbOpenTaskModal={openTaskModal} />
+                    <TaskDetailsCover taskStyle={task.style} cbOpenTaskModal={openTaskModal} isDarkCover={isDarkCover} cbSetIsDarkCover={setIsDarkCover} />
                 }
                 <div className="task-details-data">
                     <TaskDetailsHeader task={task} groupName={group.title} cbOnUpdateTask={onUpdateTask} cbOpenTaskModal={openTaskModal} />
