@@ -110,20 +110,16 @@ function getMembers(memberIds, board) {
 }
 
 function getTimeStatus(timestamp) {
-  const currentTimestamp = new Date().getTime();
-  const timeDifferenceHours = (timestamp - currentTimestamp) / (1000 * 60 * 60);
+  const timeDiff = (Date.now() - timestamp) / 1000
 
-  if (timeDifferenceHours < 0 && timeDifferenceHours > -24) {
-    return "yesterday";
-  } else if (timeDifferenceHours < 0) {
-    return "past";
-  } else if (timeDifferenceHours < 24) {
-    return "today";
-  } else if (timeDifferenceHours < 48) {
-    return "tomorrow";
+  if (timeDiff < 0) {
+    return "past"
+  } else if (timeDiff < 24 * 60 * 60) {
+    return "tomorrow"
   } else {
-    return "";
+    return ""
   }
+
 }
 
 function checkTime(timestamp) {
