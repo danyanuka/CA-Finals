@@ -1,21 +1,21 @@
 .task-preview {
 
-    .task-header {
-        width: 100%;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-    }
+  .task-header {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 
-    .color {
-        height: 36px;
-    }
+  .color {
+    height: 36px;
+  }
 
-    .img {
-        height: 260px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+  .img {
+    height: 260px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
     .task-body {
         padding: 8px 12px 4px 12px;
@@ -51,24 +51,24 @@
         align-items: center;
         gap: 8px;
 
-        .icon-with-counts {
-            display: flex;
-            align-items: center;
+    .icon-with-counts {
+      display: flex;
+      align-items: center;
 
-            span {
-                padding-right: 2px;
-                padding-left: 2px;
-                font-size: 12px;
-            }
-        }
+      span {
+        padding-right: 2px;
+        padding-left: 2px;
+        font-size: 12px;
+      }
+    }
 
-        .checklists-done {
-            background-color: $clr-bg-green-bold;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 12px
-        }
+    .checklists-done {
+      background-color: $clr-bg-green-bold;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
 
         .due-date {
             display: flex;
@@ -77,92 +77,91 @@
             border-radius: 3px;
             font-size: 12px;
 
-            span {
-                margin-left: 3px;
-            }
+      span {
+        margin-left: 3px;
+      }
 
-            .checkbox-due-date {
-                display: none;
-            }
+      .checkbox-due-date {
+        display: none;
+      }
 
-            p {
-                width: 11px;
-                height: 11px;
-                border: 1.5px solid $clr-text-black;
-                margin: 2px;
-            }
+      p {
+        width: 11px;
+        height: 11px;
+        border: 1.5px solid $clr-text-black;
+        margin: 2px;
+      }
 
-            .past {
-                border: 1.5px solid $clr-text-accent-red;
-            }
+      .past {
+        border: 1.5px solid $clr-text-accent-red;
+      }
 
-            .today,
-            .yesterday {
-                border: 1.5px solid white;
-            }
+      .today,
+      .yesterday {
+        border: 1.5px solid white;
+      }
 
-            .tomorrow {
-                border: 1.5px solid $clr-text-black;
-            }
+      .tomorrow {
+        border: 1.5px solid $clr-text-black;
+      }
 
-            &:hover {
-                .checkbox-due-date {
-                    display: block;
-                }
-
-                i {
-                    display: none;
-                }
-            }
+      &:hover {
+        .checkbox-due-date {
+          display: block;
         }
 
-        .past {
-            background-color: $clr-background-accent-red-subtle;
-            color: $clr-text-accent-red;
+        i {
+          display: none;
         }
-
-        .today,
-        .yesterday {
-            background-color: $clr-bg-red-bold;
-            color: white;
-        }
-
-        .tomorrow {
-            background-color: $clr-bg-yellow;
-            color: $clr-text-black;
-        }
-
-        .done {
-            background-color: $clr-bg-green-bold;
-            color: white;
-        }
+      }
     }
 
-    .members {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 5px;
-        margin-left: auto;
-
-        button {
-            height: 32px;
-            width: 32px;
-            border-radius: 50%;
-            border-width: 0px;
-        }
+    .past {
+      background-color: $clr-background-accent-red-subtle;
+      color: $clr-text-accent-red;
     }
 
+    .today,
+    .yesterday {
+      background-color: $clr-bg-red-bold;
+      color: white;
+    }
+
+    .tomorrow {
+      background-color: $clr-bg-yellow;
+      color: $clr-text-black;
+    }
+
+    .done {
+      background-color: $clr-bg-green-bold;
+      color: white;
+    }
+  }
+
+  .members {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 5px;
+    margin-left: auto;
+
+    button {
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      border-width: 0px;
+      //   margin-right: 3px;
+    }
+  }
 }
 
-
-
 .is-dragging-true {
-    background-color: white;
-    opacity: .5;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .is-dragging {
-    background-color: white;
-    opacity: .5;
+  background-color: white;
+  opacity: 0.5;
 }

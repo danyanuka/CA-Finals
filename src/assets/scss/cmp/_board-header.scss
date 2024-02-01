@@ -1,106 +1,99 @@
 .board-header {
-    color: white;
-    width: 100%;
-    height: auto;
-    position: relative;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    gap: 4px;
-    justify-content: space-between;
+  color: white;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px;
+
+  .board-header-section {
+    display: flex;
     align-items: center;
-    padding: 3px;
+    text-decoration: none;
+    padding: 8px;
+    cursor: pointer;
 
-
-    .board-header-section {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        padding: 8px;
-        cursor: pointer;
-
-        .board-header-btn {
-            display: flex;
-            align-items: center;
-            margin: auto 6px;
-            padding: 7px;
-        }
-
-        .board-name {
-            margin: auto 10px;
-            font-weight: 650;
-            font-size: 18px;
-        }
-
-        .board-btn {
-            color: black;
-            font-weight: 500;
-            background-color: #DFE1E6;
-            padding: 6px 10px;
-            border-radius: 5px;
-            text-align: center;
-
-            .icon-board {
-                margin: auto 5px;
-            }
-        }
-
-        .share-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 4px;
-            color: $clr-text-black;
-            background-color: #DFE1E6;
-            border-radius: 5px;
-            text-align: center;
-            max-width: 400px;
-            overflow: hidden;
-            padding-left: 8px;
-            margin-right: 4px;
-            text-decoration: none;
-            text-overflow: ellipsis;
-            height: 32px;
-            margin-bottom: 0px;
-            white-space: nowrap;
-            font-weight: 500;
-        }
-
-        .board-members {
-            display: inline-flex;
-            gap: 4px;
-
-            button {
-                height: 32px;
-                width: 32px;
-                border-radius: 50%;
-                border-width: 0px;
-                margin-left: -6px;
-            }
-        }
-
-        .board-header-btn:hover {
-            background-color: $clr-dynamic-button-white-hovered;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        // .board-members:hover {
-        //     background-color: $clr-bg-pink-bold-hovered;
-        // }
-
-        // .icon-member:hover {
-        //     background-color: $clr-dynamic-button-white-hovered;
-        //     border-radius: 50%;
-        // }
-
-        .board-btn:hover,
-        .share-btn:hover {
-            background-color: white
-        }
+    .board-header-btn {
+      display: flex;
+      align-items: center;
+      margin: auto 6px;
+      padding: 7px;
     }
 
+    .board-name {
+      margin: auto 23px;
+      font-weight: 650;
+      font-size: 18px;
+    }
 
+    .board-btn {
+      color: black;
+      font-weight: 500;
+      background-color: #dfe1e6;
+      padding: 6px 10px;
+      border-radius: 5px;
+      text-align: center;
+
+      .icon-board {
+        margin: auto 5px;
+      }
+    }
+
+    .share-btn {
+      color: $clr-text-black;
+      background-color: #dfe1e6;
+      border-radius: 3px;
+      padding-left: 8px;
+      margin-right: 4px;
+      height: 32px;
+      margin-bottom: 0px;
+      @include fontProps(14px, 500, 20px);
+      i {
+        margin-right: 5px;
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    .board-members {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      button {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border-width: 0px;
+        margin-left: -6px;
+      }
+    }
+    .filter-btn {
+      @include fontProps(14px, 500, 20px);
+      margin-right: 20px;
+      font-stretch: 100%;
+      .icon-filter {
+        margin-right: 8px;
+      }
+    }
+
+    .board-header-btn:hover {
+      background-color: $clr-dynamic-button-white-hovered;
+      border-radius: 3px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .board-btn:hover,
+    .share-btn:hover {
+      background-color: white;
+    }
+  }
 }
