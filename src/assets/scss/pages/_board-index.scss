@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 1fr minmax(228px, 850px) 1fr;
   // minmax(auto, 256px) this comes after the 1st fr if the sidebar will be added
-
+  border-top: 1px solid rgb(220, 217, 217);
+  
   .all-boards-container {
     grid-area: 1/2 / 2/4;
     overflow: auto;

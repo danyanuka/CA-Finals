@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { closeModal } from "../../store/actions/app.actions";
 import { boardActions } from "../../store/actions/board.actions";
@@ -8,10 +8,25 @@ export function BoardsDropdown({ isStarred }) {
   const dispatch = useDispatch();
   const boards = useSelector((storeState) => storeState.boardModule.boards);
   const [hoveredStar, setHoveredStar] = useState(null);
-  const dynBoardsList =
-    isStarred === "starred"
-      ? boards?.filter((board) => board.isStarred)
-      : boards;
+
+  useEffect(() => {
+    loadBoards();
+  }, []);
+
+  async function loadBoards() {
+    try {
+      await boardActions.loadBoards();
+    } catch (err) {
+      console.log("Issues loading boards ,", err);
+    }
+  }
+
+  let dynBoardsList
+  if (isStarred === "starred") {
+    dynBoardsList = boards?.filter((board) => board.isStarred)
+  } else {
+    dynBoardsList = boards
+  } 
 
   async function onStarBoard(ev, board) {
     try {

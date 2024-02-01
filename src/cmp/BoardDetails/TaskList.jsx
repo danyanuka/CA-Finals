@@ -105,7 +105,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                         </li>
 
                         <div className="add-task-buttons">
-                            <button className="btn add-task-button">Add task</button>
+                            <button className="btn add-task-button">Add card</button>
                             <button className="btn transparent-btn-black close-button" onClick={() => setIsAddingFromModal(false)}>
                                 <i className="icon-close-add-task"></i>
                             </button>
@@ -115,7 +115,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
 
                 <Droppable droppableId={group.id} index={index} type="task">
                     {(provided) => (
-                        <li className="task-item" ref={provided.innerRef} {...provided.droppableProps}>
+                        <li className="task-item" ref={provided.innerRef} {...provided.droppableProps} {...provided.dragHandleProps}>
                             {tasks?.map((task, index) => (
                                 <TaskPreview key={task.id} task={task} index={index} groupId={group.id} onUpdateTask={onUpdateTask} />
                             ))}
@@ -134,13 +134,13 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                                 onChange={handleChangeTaskTitle}
                                 placeholder='Enter a title for this task...'
                                 autoFocus
-                                onBlur={(ev) => handleOnBlur(ev)}
+                                // onBlur={(ev) => handleOnBlur(ev)}
                                 autoComplete='off'
                             />
 
                         </li>
                         <div className="add-task-buttons">
-                            <button className="btn add-task-button" onClick={handleAddTask}>Add task</button>
+                            <button className="btn add-task-button" onClick={handleAddTask}>Add card</button>
                             <button className="btn close-button transparent-btn-black" onClick={handleIsAdding}><i className="icon-close-add-task"></i></button>
                         </div>
                     </form>}
@@ -150,7 +150,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                 <div className="group-footer">
                     <button className="add-task-button transparent-btn-black" onClick={handleIsAdding}>
                         <li className='icon-add-task'></li>
-                        <div >Add a task</div>
+                        <div >Add a card</div>
                     </button>
                     <i className="transparent-btn-black icon-template" title="create from template"></i>
 

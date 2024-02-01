@@ -16,7 +16,7 @@ export function ShowOptionsModal({ handleIsAddingFromModal }) {
             <div className="show-options-modal">
                 <div className="modal-actions">
                     <div className="action">
-                        <button onClick={onAddTask}>Add task</button>
+                        <button onClick={onAddTask}>Add card</button>
                     </div>
                     <div className="action">
                         <button>Copy group</button>

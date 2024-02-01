@@ -1,17 +1,17 @@
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskModal }) {
 
-    const headerRef = useRef(task.title);
+    const textAreaRef = useRef()
+
+    useEffect(() => {
+        textAreaRef.current.value = task.title
+    }, [task])
 
     function headerOnBlur(ev) {
         task.title = ev.target.value
-        cbOnUpdateTask(task)
-    }
-
-    function headerOnChange(ev) {
-        headerRef.current = ev.target.value
+        cbOnUpdateTask(task.title)
     }
 
     function handleKeyDown(ev) {
@@ -24,9 +24,9 @@ export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskM
         <div className="td-section-icon">
             <i className="icon-task-header"></i>
         </div>
-        <textarea defaultValue={headerRef.current}
+        <textarea ref={textAreaRef}
+            defaultValue={task.title}
             onBlur={headerOnBlur}
-            onChange={headerOnChange}
             onKeyDown={handleKeyDown}
             autoCapitalize="off"
             autoCorrect="off"

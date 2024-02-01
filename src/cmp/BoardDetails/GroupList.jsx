@@ -155,7 +155,7 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
             <DragDropContext onDragEnd={onDragEnd}>
                 <Droppable droppableId='all-groups' direction='horizontal' type='group'>
                     {(provided) => (
-                        <div className="group-list" {...provided.droppableProps} ref={provided.innerRef}>
+                        <div className="group-list" {...provided.droppableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                             {
                                 groups?.map((group, index) =>
                                     <li className='group-item' key={group.id} >
@@ -179,13 +179,12 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
                     </div>
 
                 ) : (
-                    <form className="add-group-form" onSubmit={handleAddGroup}>
-
+                    // <div className="add-group-form">
+                    <div className="add-group-form" onBlur={(ev) => handleOnBlur(ev)}>
                         <input className='group-title-input'
                             type="text"
                             name='groupTitle'
                             value={groupTitle}
-                            onBlur={(ev) => handleOnBlur(ev)}
                             onChange={handleChange}
                             placeholder='Enter list title...'
                             autoFocus
@@ -193,11 +192,11 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
                         />
 
                         <div className="add-group-buttons">
-                            <button className='add-group-button'>Add list</button>
+                            <button className='add-group-button basic-btn-blue' onClick={handleAddGroup}>Add list</button>
                             <button className='close-button transparent-btn-black' onClick={handleIsAdding}><li className="icon-close-regular"></li></button>
                         </div>
 
-                    </form>
+                    </div>
                 )}
             </li>
             {/* <AddGroupOrTask onAddGroup={onAddGroup} type={'Group'}/> */}

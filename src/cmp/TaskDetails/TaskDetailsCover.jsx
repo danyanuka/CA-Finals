@@ -13,7 +13,6 @@ export function TaskDetailsCover({ taskStyle, cbOpenTaskModal, isDarkCover, cbSe
             } else {
                 isDark = await utilService.isDarkImg(utilService.getCleanURL(taskStyle.backgroundImage))
             }
-            console.log("drk:", isDark)
             cbSetIsDarkCover(isDark)
         }
         checkIsDark()

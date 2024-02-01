@@ -11,7 +11,7 @@
 
     .group-header {
         color: rgb(68, 84, 111);
-        padding: 8px 8px 6px 20px;
+        padding: 8px 8px 6px 8px;
         box-sizing: content-box;
         height: 32px;
 
@@ -22,13 +22,16 @@
 
         .group-title {
             @include fontProps(14px, 600, 20px);
+            padding-left: 12px;
         }
 
         .edit-group-title {
             width: 86%;
-            border: 1.5px solid blue;
-            padding: 7px;
-            border-radius: 10px;
+            border: none;
+            padding: 6px 8px 6px 12px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 2px #388bff;
+            @include fontProps(14px, 600, 20px);
         }
 
         .icon-wrapper {
@@ -48,7 +51,7 @@
         margin: 0px 4px 0px 4px;
 
         .task-item {
-            min-height: 30px;
+            min-height: 1px;
         }
     }
 
@@ -67,18 +70,18 @@
     }
 
     .task-preview {
+        position: relative;
         text-decoration: none;
-        box-shadow: $ds-shadow-raised;
+        box-shadow: 0px 1px 1px #091e4240, 0px 0px 1px #091e424f;
         margin-bottom: 8px;
         background-color: $clr-background-item-list;
         border-radius: 8px;
         min-height: 24px;
         z-index: 10;
-        border: 1px solid transparent;
         font-size: 14px;
 
         &:last-child {
-            margin: 0px;
+            margin-bottom: 0px;
         }
     }
 
@@ -138,7 +141,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 8px;
 
     .add-task-button {
         background-color: $clr-background-brand-bold;
@@ -146,40 +148,70 @@
         border: none;
         color: white;
         border-radius: 3px;
-        padding: 6px 12px;
+        padding: 6px 12px 6px 12px;
         font-weight: 500;
-        font-size: 14px;
+        @include fontProps(14px, 500, 20px);
+        margin-right: 4px;
     }
 
     .close-button {
         color: black;
+        width: 32px;
+        height: 32px;
         padding: 6px;
         font-weight: 500;
+        i {
+            width: 20px;
+            height: 20px;
+        }
     }
 }
 
-.edit-task-header,
-.edit-task-header-styled {
+.edit-task-header {
     display: none;
+    border: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    float: right;
+    border-radius: 50%;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-items: center;
+    i {
+        width: 16px;
+        height: 16px;
+    }
+    &:hover {
+        background-color: $clr-bg-neutral-hovered;
+    }
+    &:active {
+        background-color: $clr-bg-neutral-pressed;
+    }
 }
 
 .task-preview:hover {
-    border: 1px solid $clr-bg-blue-bold;
-    box-shadow: $ds-shadow-raised;
+    outline: 2px solid #388bff;
     cursor: pointer;
     text-decoration: none;
 }
 
 .task-preview:hover .edit-task-header {
-    display: block;
-    border: none;
+    display: grid;
 }
 
-.task-preview:hover .edit-task-header-styled {
-    padding: 8px;
-    display: block;
-    border: none;
-    float: right;
-    background-color: white;
-    border-radius: 50%;
+.input-add-task {
+    margin: 8px 0px 8px 0px;
+    .task-title-input {
+        padding: 8px 12px 8px 12px;
+        height: 56px;
+        margin: 0px;
+        color: rgb(23, 43, 77);
+        @include fontProps(14px, 400, 20px);
+        &::placeholder {
+            color: rgb(23, 43, 77);
+        }
+    }
 }

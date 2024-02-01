@@ -84,13 +84,14 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
           ref={provided.innerRef}
           onClick={() => handleGoToTask(task.id)}
         >
-          {task.style && (
-            <div className={`task-header ${dClass}`} style={task.style}>
-              <button className="edit-task-header-styled">
-                <i className="icon-edit"></i>
-              </button>
-            </div>
-          )}
+          <button className="edit-task-header">
+            <i className="icon-edit"></i>
+          </button>
+          {
+            task.style &&
+            <div className={`task-header ${dClass}`} style={task.style}></div>
+          }
+
 
           <div className="task-body">
             {task.labelIds && (
@@ -109,9 +110,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
             {!task.style ? (
               <div className="edit-task">
                 <p className="task-title">{task.title}</p>
-                <button className="edit-task-header">
-                  <li className="icon-edit"></li>
-                </button>
               </div>
             ) : (
               <p className="task-title">{task.title}</p>

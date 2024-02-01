@@ -18,10 +18,10 @@ export function TaskDetailsMain({ board, task, cbOnUpdateTask, cbOpenTaskModal, 
             task?.attachments?.length > 0 &&
             <TaskDetailsAttachments task={task} group={group} />
         }
-        {
+        {/* {
             task?.checklists &&
             task.checklists.map((cl, i) => <TaskDetailsChecklist key={i} checklist={cl} task={task} cbOnUpdateTask={cbOnUpdateTask} />)
-        }
-        <TaskDetailsActivity />
+        } */}
+        {/* <TaskDetailsActivity /> */}
     </div>
 }
