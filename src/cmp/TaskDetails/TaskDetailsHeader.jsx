@@ -11,7 +11,7 @@ export function TaskDetailsHeader({ task, groupName, cbOnUpdateTask, cbOpenTaskM
 
     function headerOnBlur(ev) {
         task.title = ev.target.value
-        cbOnUpdateTask(task.title)
+        cbOnUpdateTask(task)
     }
 
     function handleKeyDown(ev) {
