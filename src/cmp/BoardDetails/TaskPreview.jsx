@@ -1,9 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { utilService } from "../../services/util.service.js";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Draggable } from "react-beautiful-dnd";
+
+import { utilService } from "../../services/util.service.js";
+import { timeService } from "../../services/time.service.js"
 import { UserAvatar } from "../UserAvatar.jsx";
-import { useEffect, useState } from "react";
+
 
 export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const board = useSelector((storeState) => storeState.boardModule.curBoard);
@@ -12,9 +15,8 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const dClass = task?.style?.backgroundImage ? 'img' : 'color'
   const labels = utilService.getLabels(task.labelIds, board);
   const { todos, isDoneAll } = utilService.getStatusChecklist(task.checklists);
-  const [timeStatus, setTimStatus] = useState(
-    utilService.getTimeStatus(task.dueDate)
-  );
+  const timeStatus = utilService.getTimeStatus(task.dueDate)
+
 
   const isTaskActions =
     task.checklists ||
@@ -24,9 +26,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       task.description
       ? true
       : false;
-
-  let date = new Date(task.dueDate).toString();
-  date = date.split(" ");
 
   const { boardId } = useParams();
   const navigate = useNavigate();
@@ -61,7 +60,6 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       };
 
       onUpdateTask(newTask, groupId, board);
-      setTimStatus("done");
     } else {
       const newTask = {
         ...task,
@@ -69,8 +67,18 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
       };
 
       onUpdateTask(newTask, groupId, board);
-      setTimStatus("");
+
     }
+  }
+
+  function getDateString(task) {
+    let dateString = ""
+    if (task.startDate) {
+      dateString += timeService.getDate(task.startDate)
+      dateString += " - "
+    }
+    dateString += timeService.getDate(task.dueDate)
+    return dateString
   }
 
   return (
@@ -157,6 +165,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                 </div>
               )}
 
+
               {task.dueDate && !isDone && (
                 <div className={`due-date ${timeStatus}`}>
                   <i className={`icon-clock-alert-${timeStatus}`}></i>
@@ -165,7 +174,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                     onClick={(ev) => handleIsDone(ev, true)}
                   ></p>
                   <span>
-                    {date[1]} {date[2]}{" "}
+                    {getDateString(task)}
                   </span>
                 </div>
               )}
@@ -178,7 +187,7 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
                     onClick={(ev) => handleIsDone(ev, false)}
                   ></i>
                   <span>
-                    {date[1]} {date[2]}{" "}
+                    {getDateString(task)}
                   </span>
                 </div>
               )}
