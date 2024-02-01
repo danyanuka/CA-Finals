@@ -134,7 +134,7 @@ export function TaskList({ index, group, tasks, onAddTask, onEditGroup, onUpdate
                                 onChange={handleChangeTaskTitle}
                                 placeholder='Enter a title for this task...'
                                 autoFocus
-                                // onBlur={(ev) => handleOnBlur(ev)}
+                                onBlur={(ev) => handleOnBlur(ev)}
                                 autoComplete='off'
                             />
 

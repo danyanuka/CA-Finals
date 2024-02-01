@@ -96,7 +96,6 @@ export function GroupList({ board, onAddGroup, onAddTask, onEditGroup, onUpdateT
             return;
         }
 
-
         if (type === 'group') {
             const [removed] = groups.splice(source.index, 1);
             groups.splice(destination.index, 0, removed);

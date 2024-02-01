@@ -15,7 +15,8 @@ export function TaskPreview({ task, index, groupId, onUpdateTask }) {
   const dClass = task?.style?.backgroundImage ? 'img' : 'color'
   const labels = utilService.getLabels(task.labelIds, board);
   const { todos, isDoneAll } = utilService.getStatusChecklist(task.checklists);
-  const timeStatus = utilService.getTimeStatus(task.dueDate)
+  const timeStatus =
+    utilService.getTimeStatus(task.dueDate)
 
 
   const isTaskActions =
