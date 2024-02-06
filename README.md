@@ -1,23 +1,26 @@
-# base react app with scss (or css)
+# Trillo (Front-end)
 
-npm create vite@latest      - Create a new pacakge. <br />
-npm i                       - Install all needed node_modules. <br />
-npm i sass                  - Install SASS / SCSS. <br />
-npm audit fix               - Upgrade packages to resolve vulnerabilities. <br />
-npm run deploy              - Build files for ghPages locally - Can go 'live' to see the result (Change vite_base_url to "/dist").
-npm run dev                 - Run in dev environment (to open with a browser). <br />
-<br />
-npm start                   - Running the script to compile the SCSS to CSS. <br />
-npm run watch               - Running the script to compile the SCSS to CSS & Watch changes <br />
-<br />
-<br />
-<br />
-git branch                  - Shows current branch.<br />
-git status                  - Show branch, status, commited changes, files to be commited etc.<br />
-git log                     - Show last commits for all branches (main & origin/main).<br />
-<br />
-git add .                   - Add changed files for the next commit (or stashed).<br />
-git commit -m "msg"         - Commit changes to local branch.<br />
-git push                    - Push local commits to remote branch.<br />
-<br />
-git pull                    - Pull updated remote branch to local.<br />
+## description-
+
+This project is our finals in Coding-Academy Bootcamp, we developed the app in a team of three students for about a month and a half.
+its a full stack (MERN) project made from scratch, our task was to mimick an existing, working well known application. we chose Trello.
+
+## Local Setup-
+
+To run this project locally, follow these steps:
+
+1. Clone the repository to your local machine using Git:
+   git clone https://github.com/danyanuka/CA-Finals
+2. install dependencies : npm i
+3. run with: npm run dev
+
+### Credits-
+
+Meitar Giladi: https://github.com/meitargila ,
+Hodaya Abu: https://github.com/hodayaabu
+
+### Link to Render.com-
+
+https://trillo.onrender.com
+
+### Link to the Back-end
