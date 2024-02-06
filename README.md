@@ -13,6 +13,7 @@ To run this project locally, follow these steps:
    git clone https://github.com/danyanuka/CA-Finals
 2. install dependencies : npm i
 3. run with: npm run dev
+4. Same steps in the Server files : https://github.com/danyanuka/CA-Finals-Server
 
 ### Credits-
 
@@ -24,3 +25,5 @@ Hodaya Abu: https://github.com/hodayaabu
 https://trillo.onrender.com
 
 ### Link to the Back-end
+
+https://github.com/danyanuka/CA-Finals-Server
