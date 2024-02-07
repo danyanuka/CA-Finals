@@ -4,6 +4,7 @@
 
 This project is our finals in Coding-Academy Bootcamp, we developed the app in a team of three students for about a month and a half.
 its a full stack (MERN) project made from scratch, our task was to mimick an existing, working well known application. we chose Trello.
+
 ![](imgs/screenshot.png)
 
 ## Local Setup-
@@ -24,5 +25,5 @@ Back-end Repo : https://github.com/danyanuka/CA-Finals-Server
 
 ### Credits-
 
-Meitar Giladi: https://github.com/meitargila ,
+Meitar Giladi: https://github.com/meitargila
 Hodaya Abu: https://github.com/hodayaabu
