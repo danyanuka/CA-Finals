@@ -2,9 +2,7 @@
 
 ## description-
 
-This project is our finals in Coding-Academy Bootcamp, we developed the app in a team of three students for about a month and a half.
-its a full stack (MERN) project made from scratch, our task was to mimick an existing, working well known application. we chose Trello.
-
+This project served as the culmination of our efforts during the finals of the Coding-Academy Bootcamp. Developed over approximately a month and a half by me and two teamates, it is a full-stack (MERN) application created from scratch. Our objective was to replicate the functionality of a well-established application, and we chose to replicate Trello.
 ![](/public/imgs/screenshot.png)
 
 ## Local Setup-
@@ -17,10 +15,9 @@ To run this project locally, follow these steps:
 3. run with: npm run dev
 4. Same steps in the Server files : https://github.com/danyanuka/CA-Finals-Server
 
-### Links
+## Links
 
-Render : https://trillo.onrender.com
-
+Render : https://trillo.onrender.com<br>
 Back-end Repo : https://github.com/danyanuka/CA-Finals-Server
 
 ### Credits-
